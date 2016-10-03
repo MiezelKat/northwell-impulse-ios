@@ -1,0 +1,6 @@
+[submodule "BridgeAppSDK"]
+	path = BridgeAppSDK
+	url = https://github.com/Sage-Bionetworks/BridgeAppSDK.git
+[submodule "northwell-impulse-common"]
+	path = northwell-impulse-common
+	url = https://github.com/smalldatalab/northwell-impulse-common.git
