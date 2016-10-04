@@ -4,3 +4,6 @@
 [submodule "northwell-impulse-common"]
 	path = northwell-impulse-common
 	url = https://github.com/smalldatalab/northwell-impulse-common.git
+[submodule "sdl-rkx"]
+	path = sdl-rkx
+	url = https://github.com/cornelltech/sdl-rkx.git
