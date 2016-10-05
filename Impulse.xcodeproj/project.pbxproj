@@ -7,8 +7,62 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E21F237C1DA44F2700760EA7 /* CTFGoNoGoStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21F23781DA44F2700760EA7 /* CTFGoNoGoStepViewController.swift */; };
+		E21F237D1DA44F2700760EA7 /* CTFGoNoGoStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E21F23791DA44F2700760EA7 /* CTFGoNoGoStepViewController.xib */; };
+		E21F237E1DA44F2700760EA7 /* CTFGoNoGoActiveStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21F237A1DA44F2700760EA7 /* CTFGoNoGoActiveStepViewController.swift */; };
+		E21F237F1DA44F2700760EA7 /* CTFGoNoGoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21F237B1DA44F2700760EA7 /* CTFGoNoGoView.swift */; };
+		E21F23821DA44F2F00760EA7 /* ORKOrderedTask+GoNoGo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21F23801DA44F2F00760EA7 /* ORKOrderedTask+GoNoGo.swift */; };
+		E21F23831DA44F2F00760EA7 /* CTFGoNoGoTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21F23811DA44F2F00760EA7 /* CTFGoNoGoTask.swift */; };
+		E21F23851DA4522600760EA7 /* CTFGoNoGoStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21F23841DA4522600760EA7 /* CTFGoNoGoStep.swift */; };
+		E21F238F1DA5684500760EA7 /* CTFGoNoGoBridgeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21F238E1DA5684500760EA7 /* CTFGoNoGoBridgeTask.swift */; };
+		E21F23921DA58D9500760EA7 /* go_no_go_stable_stimulus.json in Resources */ = {isa = PBXBuildFile; fileRef = E21F23901DA58D9500760EA7 /* go_no_go_stable_stimulus.json */; };
+		E21F23931DA58D9500760EA7 /* go_no_go_variable_stimulus.json in Resources */ = {isa = PBXBuildFile; fileRef = E21F23911DA58D9500760EA7 /* go_no_go_variable_stimulus.json */; };
+		E27E28F81DA59A7C0050788A /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E27E28F71DA59A7C0050788A /* ResearchKit.framework */; };
+		E27E28F91DA59A7C0050788A /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E27E28F71DA59A7C0050788A /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E27E29051DA5A2560050788A /* BridgeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E27E29041DA5A2560050788A /* BridgeSDK.framework */; };
+		E27E29071DA5A25D0050788A /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E27E29061DA5A25D0050788A /* openssl.framework */; };
+		E27E29081DA5A2A70050788A /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E27E29061DA5A25D0050788A /* openssl.framework */; };
+		E27E29091DA5A2A70050788A /* openssl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E27E29061DA5A25D0050788A /* openssl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E27E290A1DA5A2AB0050788A /* BridgeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E27E29041DA5A2560050788A /* BridgeSDK.framework */; };
+		E27E290B1DA5A2AB0050788A /* BridgeSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E27E29041DA5A2560050788A /* BridgeSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E27E290C1DA5A2AE0050788A /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2AA6CFF1DA42593005D5137 /* HealthKit.framework */; };
+		E27E290F1DA5A2F30050788A /* ZipZap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E27E290E1DA5A2F30050788A /* ZipZap.framework */; };
+		E27E29101DA5A2F30050788A /* ZipZap.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E27E290E1DA5A2F30050788A /* ZipZap.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E27E29131DA5AB5F0050788A /* CTFTaskFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27E29121DA5AB5F0050788A /* CTFTaskFactory.swift */; };
+		E2AA6CDE1DA41A60005D5137 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6CDD1DA41A60005D5137 /* Onboarding.storyboard */; };
+		E2AA6CF91DA41E19005D5137 /* BridgeInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6CF71DA41E19005D5137 /* BridgeInfo.plist */; };
+		E2AA6CFA1DA41E19005D5137 /* BridgeInfo-private.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6CF81DA41E19005D5137 /* BridgeInfo-private.plist */; };
+		E2AA6CFC1DA41F3D005D5137 /* CTFLogInViaExternalIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6CFB1DA41F3D005D5137 /* CTFLogInViaExternalIdViewController.swift */; };
+		E2AA6D031DA43C54005D5137 /* CTFActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D021DA43C54005D5137 /* CTFActivityTableViewController.swift */; };
+		E2AA6D051DA43C5C005D5137 /* CTFScheduledActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D041DA43C5C005D5137 /* CTFScheduledActivityManager.swift */; };
+		E2AA6D0B1DA43C6B005D5137 /* CTFScheduledActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D061DA43C6B005D5137 /* CTFScheduledActivity.swift */; };
+		E2AA6D0C1DA43C6B005D5137 /* CTFActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D071DA43C6B005D5137 /* CTFActivity.swift */; };
+		E2AA6D0D1DA43C6B005D5137 /* CTFActivityArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D081DA43C6B005D5137 /* CTFActivityArchive.swift */; };
+		E2AA6D0E1DA43C6B005D5137 /* CTFActivityResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D091DA43C6B005D5137 /* CTFActivityResult.swift */; };
+		E2AA6D0F1DA43C6B005D5137 /* CTFActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D0A1DA43C6B005D5137 /* CTFActivityTableViewCell.swift */; };
+		E2AA6D181DA43C83005D5137 /* CTFBorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D111DA43C83005D5137 /* CTFBorderedButton.swift */; };
+		E2AA6D191DA43C83005D5137 /* CTFFormItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D121DA43C83005D5137 /* CTFFormItemCell.swift */; };
+		E2AA6D1A1DA43C83005D5137 /* CTFFormItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6D131DA43C83005D5137 /* CTFFormItemCell.xib */; };
+		E2AA6D1B1DA43C83005D5137 /* CTFPulsusFormStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D141DA43C83005D5137 /* CTFPulsusFormStep.swift */; };
+		E2AA6D1C1DA43C83005D5137 /* CTFPulsusFormBridgeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D151DA43C83005D5137 /* CTFPulsusFormBridgeTask.swift */; };
+		E2AA6D1D1DA43C83005D5137 /* CTFPulsusFormStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D161DA43C83005D5137 /* CTFPulsusFormStepViewController.swift */; };
+		E2AA6D1E1DA43C83005D5137 /* CTFPulsusFormStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6D171DA43C83005D5137 /* CTFPulsusFormStepViewController.xib */; };
+		E2AA6D221DA43CC1005D5137 /* cornell-mhealth-eval.pem in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6D211DA43CC1005D5137 /* cornell-mhealth-eval.pem */; };
+		E2AA6D251DA43CD6005D5137 /* tasks_and_schedules.json in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6D241DA43CD6005D5137 /* tasks_and_schedules.json */; };
+		E2AA6D271DA43CDD005D5137 /* PAM.json in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6D261DA43CDD005D5137 /* PAM.json */; };
+		E2AA6D2E1DA43CEE005D5137 /* Baseline.json in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6D281DA43CEE005D5137 /* Baseline.json */; };
+		E2AA6D2F1DA43CEE005D5137 /* self_assessment_5.json in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6D291DA43CEE005D5137 /* self_assessment_5.json */; };
+		E2AA6D301DA43CEE005D5137 /* self_assessment_11.json in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6D2A1DA43CEE005D5137 /* self_assessment_11.json */; };
+		E2AA6D311DA43CEE005D5137 /* self_assessment_6.json in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6D2B1DA43CEE005D5137 /* self_assessment_6.json */; };
+		E2AA6D321DA43CEE005D5137 /* self_assessment_9.json in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6D2C1DA43CEE005D5137 /* self_assessment_9.json */; };
+		E2AA6D331DA43CEE005D5137 /* self_assessment_10.json in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6D2D1DA43CEE005D5137 /* self_assessment_10.json */; };
+		E2AA6D351DA43D07005D5137 /* CTFMainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D341DA43D07005D5137 /* CTFMainTabViewController.swift */; };
+		E2AA6D381DA43F57005D5137 /* CTFPAMTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D371DA43F57005D5137 /* CTFPAMTask.swift */; };
+		E2E759341DA2F7FB00D00C55 /* BridgeAppSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E759311DA2F7D200D00C55 /* BridgeAppSDK.framework */; };
+		E2E759351DA2F7FB00D00C55 /* BridgeAppSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E2E759311DA2F7D200D00C55 /* BridgeAppSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E2E759391DA2F80200D00C55 /* SDLRKX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E759221DA2F7AC00D00C55 /* SDLRKX.framework */; };
+		E2E7593A1DA2F80200D00C55 /* SDLRKX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E2E759221DA2F7AC00D00C55 /* SDLRKX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E2EF6B1F1DA2E2970034456A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF6B1E1DA2E2970034456A /* AppDelegate.swift */; };
-		E2EF6B211DA2E2970034456A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF6B201DA2E2970034456A /* ViewController.swift */; };
 		E2EF6B241DA2E2970034456A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EF6B221DA2E2970034456A /* Main.storyboard */; };
 		E2EF6B261DA2E2970034456A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2EF6B251DA2E2970034456A /* Assets.xcassets */; };
 		E2EF6B291DA2E2970034456A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EF6B271DA2E2970034456A /* LaunchScreen.storyboard */; };
@@ -17,6 +71,48 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		E2E759211DA2F7AC00D00C55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2E7591D1DA2F7AC00D00C55 /* SDLRKX.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 486AACCA1D07414D00EE4C7C;
+			remoteInfo = SDLRKX;
+		};
+		E2E7592E1DA2F7D200D00C55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2E759231DA2F7D200D00C55 /* BridgeAppSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 161479C01BD6CE8F0099A068;
+			remoteInfo = BridgeAppSDKSample;
+		};
+		E2E759301DA2F7D200D00C55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2E759231DA2F7D200D00C55 /* BridgeAppSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 801040B21C5A843D00D26E19;
+			remoteInfo = BridgeAppSDK;
+		};
+		E2E759321DA2F7D200D00C55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2E759231DA2F7D200D00C55 /* BridgeAppSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 801040BB1C5A843D00D26E19;
+			remoteInfo = BridgeAppSDKTests;
+		};
+		E2E759361DA2F7FB00D00C55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2E759231DA2F7D200D00C55 /* BridgeAppSDK.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 801040B11C5A843D00D26E19;
+			remoteInfo = BridgeAppSDK;
+		};
+		E2E7593B1DA2F80200D00C55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2E7591D1DA2F7AC00D00C55 /* SDLRKX.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 486AACC91D07414D00EE4C7C;
+			remoteInfo = SDLRKX;
+		};
 		E2EF6B301DA2E2980034456A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E2EF6B131DA2E2970034456A /* Project object */;
@@ -33,10 +129,76 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E2E759381DA2F7FC00D00C55 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E27E29101DA5A2F30050788A /* ZipZap.framework in Embed Frameworks */,
+				E2E7593A1DA2F80200D00C55 /* SDLRKX.framework in Embed Frameworks */,
+				E27E290B1DA5A2AB0050788A /* BridgeSDK.framework in Embed Frameworks */,
+				E27E29091DA5A2A70050788A /* openssl.framework in Embed Frameworks */,
+				E2E759351DA2F7FB00D00C55 /* BridgeAppSDK.framework in Embed Frameworks */,
+				E27E28F91DA59A7C0050788A /* ResearchKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		E21F23781DA44F2700760EA7 /* CTFGoNoGoStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFGoNoGoStepViewController.swift; sourceTree = "<group>"; };
+		E21F23791DA44F2700760EA7 /* CTFGoNoGoStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CTFGoNoGoStepViewController.xib; sourceTree = "<group>"; };
+		E21F237A1DA44F2700760EA7 /* CTFGoNoGoActiveStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFGoNoGoActiveStepViewController.swift; sourceTree = "<group>"; };
+		E21F237B1DA44F2700760EA7 /* CTFGoNoGoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFGoNoGoView.swift; sourceTree = "<group>"; };
+		E21F23801DA44F2F00760EA7 /* ORKOrderedTask+GoNoGo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ORKOrderedTask+GoNoGo.swift"; sourceTree = "<group>"; };
+		E21F23811DA44F2F00760EA7 /* CTFGoNoGoTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFGoNoGoTask.swift; sourceTree = "<group>"; };
+		E21F23841DA4522600760EA7 /* CTFGoNoGoStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFGoNoGoStep.swift; sourceTree = "<group>"; };
+		E21F238E1DA5684500760EA7 /* CTFGoNoGoBridgeTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFGoNoGoBridgeTask.swift; sourceTree = "<group>"; };
+		E21F23901DA58D9500760EA7 /* go_no_go_stable_stimulus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = go_no_go_stable_stimulus.json; sourceTree = "<group>"; };
+		E21F23911DA58D9500760EA7 /* go_no_go_variable_stimulus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = go_no_go_variable_stimulus.json; sourceTree = "<group>"; };
+		E27E28F71DA59A7C0050788A /* ResearchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E27E29041DA5A2560050788A /* BridgeSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BridgeSDK.framework; path = "../../../Library/Developer/Xcode/DerivedData/Impulse-eckwbznculhlghcfmyitenwazrjo/Build/Products/Debug-iphoneos/BridgeSDK.framework"; sourceTree = "<group>"; };
+		E27E29061DA5A25D0050788A /* openssl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = openssl.framework; path = "../../../Library/Developer/Xcode/DerivedData/Impulse-eckwbznculhlghcfmyitenwazrjo/Build/Products/Debug-iphoneos/openssl.framework"; sourceTree = "<group>"; };
+		E27E290E1DA5A2F30050788A /* ZipZap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZipZap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E27E29121DA5AB5F0050788A /* CTFTaskFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFTaskFactory.swift; sourceTree = "<group>"; };
+		E2AA6CDD1DA41A60005D5137 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		E2AA6CF71DA41E19005D5137 /* BridgeInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BridgeInfo.plist; sourceTree = "<group>"; };
+		E2AA6CF81DA41E19005D5137 /* BridgeInfo-private.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BridgeInfo-private.plist"; sourceTree = "<group>"; };
+		E2AA6CFB1DA41F3D005D5137 /* CTFLogInViaExternalIdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFLogInViaExternalIdViewController.swift; sourceTree = "<group>"; };
+		E2AA6CFE1DA42593005D5137 /* Impulse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Impulse.entitlements; sourceTree = "<group>"; };
+		E2AA6CFF1DA42593005D5137 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		E2AA6D021DA43C54005D5137 /* CTFActivityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFActivityTableViewController.swift; sourceTree = "<group>"; };
+		E2AA6D041DA43C5C005D5137 /* CTFScheduledActivityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFScheduledActivityManager.swift; sourceTree = "<group>"; };
+		E2AA6D061DA43C6B005D5137 /* CTFScheduledActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFScheduledActivity.swift; sourceTree = "<group>"; };
+		E2AA6D071DA43C6B005D5137 /* CTFActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFActivity.swift; sourceTree = "<group>"; };
+		E2AA6D081DA43C6B005D5137 /* CTFActivityArchive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFActivityArchive.swift; sourceTree = "<group>"; };
+		E2AA6D091DA43C6B005D5137 /* CTFActivityResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFActivityResult.swift; sourceTree = "<group>"; };
+		E2AA6D0A1DA43C6B005D5137 /* CTFActivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFActivityTableViewCell.swift; sourceTree = "<group>"; };
+		E2AA6D111DA43C83005D5137 /* CTFBorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFBorderedButton.swift; sourceTree = "<group>"; };
+		E2AA6D121DA43C83005D5137 /* CTFFormItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFFormItemCell.swift; sourceTree = "<group>"; };
+		E2AA6D131DA43C83005D5137 /* CTFFormItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CTFFormItemCell.xib; sourceTree = "<group>"; };
+		E2AA6D141DA43C83005D5137 /* CTFPulsusFormStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFPulsusFormStep.swift; sourceTree = "<group>"; };
+		E2AA6D151DA43C83005D5137 /* CTFPulsusFormBridgeTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFPulsusFormBridgeTask.swift; sourceTree = "<group>"; };
+		E2AA6D161DA43C83005D5137 /* CTFPulsusFormStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFPulsusFormStepViewController.swift; sourceTree = "<group>"; };
+		E2AA6D171DA43C83005D5137 /* CTFPulsusFormStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CTFPulsusFormStepViewController.xib; sourceTree = "<group>"; };
+		E2AA6D211DA43CC1005D5137 /* cornell-mhealth-eval.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "cornell-mhealth-eval.pem"; sourceTree = "<group>"; };
+		E2AA6D241DA43CD6005D5137 /* tasks_and_schedules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tasks_and_schedules.json; sourceTree = "<group>"; };
+		E2AA6D261DA43CDD005D5137 /* PAM.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM.json; sourceTree = "<group>"; };
+		E2AA6D281DA43CEE005D5137 /* Baseline.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Baseline.json; sourceTree = "<group>"; };
+		E2AA6D291DA43CEE005D5137 /* self_assessment_5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = self_assessment_5.json; sourceTree = "<group>"; };
+		E2AA6D2A1DA43CEE005D5137 /* self_assessment_11.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = self_assessment_11.json; sourceTree = "<group>"; };
+		E2AA6D2B1DA43CEE005D5137 /* self_assessment_6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = self_assessment_6.json; sourceTree = "<group>"; };
+		E2AA6D2C1DA43CEE005D5137 /* self_assessment_9.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = self_assessment_9.json; sourceTree = "<group>"; };
+		E2AA6D2D1DA43CEE005D5137 /* self_assessment_10.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = self_assessment_10.json; sourceTree = "<group>"; };
+		E2AA6D341DA43D07005D5137 /* CTFMainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFMainTabViewController.swift; sourceTree = "<group>"; };
+		E2AA6D371DA43F57005D5137 /* CTFPAMTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFPAMTask.swift; sourceTree = "<group>"; };
+		E2E7591D1DA2F7AC00D00C55 /* SDLRKX.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDLRKX.xcodeproj; path = "sdl-rkx/SDLRKX/SDLRKX.xcodeproj"; sourceTree = "<group>"; };
+		E2E759231DA2F7D200D00C55 /* BridgeAppSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BridgeAppSDK.xcodeproj; path = BridgeAppSDK/BridgeAppSDK.xcodeproj; sourceTree = "<group>"; };
 		E2EF6B1B1DA2E2970034456A /* Impulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Impulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2EF6B1E1DA2E2970034456A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E2EF6B201DA2E2970034456A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E2EF6B231DA2E2970034456A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E2EF6B251DA2E2970034456A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2EF6B281DA2E2970034456A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +216,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E27E290C1DA5A2AE0050788A /* HealthKit.framework in Frameworks */,
+				E27E29071DA5A25D0050788A /* openssl.framework in Frameworks */,
+				E27E29051DA5A2560050788A /* BridgeSDK.framework in Frameworks */,
+				E2E759391DA2F80200D00C55 /* SDLRKX.framework in Frameworks */,
+				E27E28F81DA59A7C0050788A /* ResearchKit.framework in Frameworks */,
+				E27E29081DA5A2A70050788A /* openssl.framework in Frameworks */,
+				E27E290F1DA5A2F30050788A /* ZipZap.framework in Frameworks */,
+				E27E290A1DA5A2AB0050788A /* BridgeSDK.framework in Frameworks */,
+				E2E759341DA2F7FB00D00C55 /* BridgeAppSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,13 +245,153 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E21F23741DA44EE300760EA7 /* Likert */ = {
+			isa = PBXGroup;
+			children = (
+				E2AA6D111DA43C83005D5137 /* CTFBorderedButton.swift */,
+				E2AA6D121DA43C83005D5137 /* CTFFormItemCell.swift */,
+				E2AA6D131DA43C83005D5137 /* CTFFormItemCell.xib */,
+				E2AA6D141DA43C83005D5137 /* CTFPulsusFormStep.swift */,
+				E2AA6D161DA43C83005D5137 /* CTFPulsusFormStepViewController.swift */,
+				E2AA6D171DA43C83005D5137 /* CTFPulsusFormStepViewController.xib */,
+			);
+			name = Likert;
+			sourceTree = "<group>";
+		};
+		E21F23771DA44EFA00760EA7 /* Go No Go */ = {
+			isa = PBXGroup;
+			children = (
+				E21F23841DA4522600760EA7 /* CTFGoNoGoStep.swift */,
+				E21F23801DA44F2F00760EA7 /* ORKOrderedTask+GoNoGo.swift */,
+				E21F23811DA44F2F00760EA7 /* CTFGoNoGoTask.swift */,
+				E21F23781DA44F2700760EA7 /* CTFGoNoGoStepViewController.swift */,
+				E21F23791DA44F2700760EA7 /* CTFGoNoGoStepViewController.xib */,
+				E21F237A1DA44F2700760EA7 /* CTFGoNoGoActiveStepViewController.swift */,
+				E21F237B1DA44F2700760EA7 /* CTFGoNoGoView.swift */,
+			);
+			name = "Go No Go";
+			sourceTree = "<group>";
+		};
+		E27E29111DA5A47E0050788A /* Sage SDK Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E2AA6D371DA43F57005D5137 /* CTFPAMTask.swift */,
+				E21F238E1DA5684500760EA7 /* CTFGoNoGoBridgeTask.swift */,
+				E2AA6D151DA43C83005D5137 /* CTFPulsusFormBridgeTask.swift */,
+			);
+			name = "Sage SDK Helpers";
+			sourceTree = "<group>";
+		};
+		E2AA6CDC1DA419DB005D5137 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E2EF6B271DA2E2970034456A /* LaunchScreen.storyboard */,
+				E2EF6B221DA2E2970034456A /* Main.storyboard */,
+				E2AA6CDD1DA41A60005D5137 /* Onboarding.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		E2AA6CDF1DA41DDA005D5137 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E2AA6CFE1DA42593005D5137 /* Impulse.entitlements */,
+				E2AA6CF71DA41E19005D5137 /* BridgeInfo.plist */,
+				E2AA6CF81DA41E19005D5137 /* BridgeInfo-private.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E2AA6D011DA43BC7005D5137 /* Study Management */ = {
+			isa = PBXGroup;
+			children = (
+				E2AA6D061DA43C6B005D5137 /* CTFScheduledActivity.swift */,
+				E2AA6D071DA43C6B005D5137 /* CTFActivity.swift */,
+				E2AA6D081DA43C6B005D5137 /* CTFActivityArchive.swift */,
+				E2AA6D091DA43C6B005D5137 /* CTFActivityResult.swift */,
+				E2AA6D0A1DA43C6B005D5137 /* CTFActivityTableViewCell.swift */,
+				E2AA6D021DA43C54005D5137 /* CTFActivityTableViewController.swift */,
+				E2AA6D041DA43C5C005D5137 /* CTFScheduledActivityManager.swift */,
+				E27E29121DA5AB5F0050788A /* CTFTaskFactory.swift */,
+			);
+			name = "Study Management";
+			sourceTree = "<group>";
+		};
+		E2AA6D101DA43C6F005D5137 /* RK Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E21F23771DA44EFA00760EA7 /* Go No Go */,
+				E21F23741DA44EE300760EA7 /* Likert */,
+			);
+			name = "RK Extensions";
+			sourceTree = "<group>";
+		};
+		E2AA6D1F1DA43CA9005D5137 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E2AA6D231DA43CCC005D5137 /* JSON */,
+				E2AA6D201DA43CB4005D5137 /* Certificates */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		E2AA6D201DA43CB4005D5137 /* Certificates */ = {
+			isa = PBXGroup;
+			children = (
+				E2AA6D211DA43CC1005D5137 /* cornell-mhealth-eval.pem */,
+			);
+			name = Certificates;
+			sourceTree = "<group>";
+		};
+		E2AA6D231DA43CCC005D5137 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				E2AA6D241DA43CD6005D5137 /* tasks_and_schedules.json */,
+				E2AA6D261DA43CDD005D5137 /* PAM.json */,
+				E2AA6D281DA43CEE005D5137 /* Baseline.json */,
+				E2AA6D291DA43CEE005D5137 /* self_assessment_5.json */,
+				E2AA6D2A1DA43CEE005D5137 /* self_assessment_11.json */,
+				E2AA6D2B1DA43CEE005D5137 /* self_assessment_6.json */,
+				E2AA6D2C1DA43CEE005D5137 /* self_assessment_9.json */,
+				E2AA6D2D1DA43CEE005D5137 /* self_assessment_10.json */,
+				E21F23901DA58D9500760EA7 /* go_no_go_stable_stimulus.json */,
+				E21F23911DA58D9500760EA7 /* go_no_go_variable_stimulus.json */,
+			);
+			name = JSON;
+			sourceTree = "<group>";
+		};
+		E2AA6D361DA43F45005D5137 /* SDLRKX Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "SDLRKX Helpers";
+			sourceTree = "<group>";
+		};
+		E2E7591E1DA2F7AC00D00C55 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E2E759221DA2F7AC00D00C55 /* SDLRKX.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E2E759241DA2F7D200D00C55 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E2E7592F1DA2F7D200D00C55 /* BridgeAppSDKSample.app */,
+				E2E759311DA2F7D200D00C55 /* BridgeAppSDK.framework */,
+				E2E759331DA2F7D200D00C55 /* BridgeAppSDKTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		E2EF6B121DA2E2970034456A = {
 			isa = PBXGroup;
 			children = (
-				E2EF6B4C1DA2F4120034456A /* Frameworks */,
 				E2EF6B1D1DA2E2970034456A /* Impulse */,
 				E2EF6B321DA2E2980034456A /* ImpulseTests */,
 				E2EF6B3D1DA2E2980034456A /* ImpulseUITests */,
+				E2EF6B4C1DA2F4120034456A /* Frameworks */,
 				E2EF6B1C1DA2E2970034456A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,11 +409,17 @@
 		E2EF6B1D1DA2E2970034456A /* Impulse */ = {
 			isa = PBXGroup;
 			children = (
+				E27E29111DA5A47E0050788A /* Sage SDK Helpers */,
+				E2AA6D361DA43F45005D5137 /* SDLRKX Helpers */,
 				E2EF6B1E1DA2E2970034456A /* AppDelegate.swift */,
-				E2EF6B201DA2E2970034456A /* ViewController.swift */,
-				E2EF6B221DA2E2970034456A /* Main.storyboard */,
+				E2AA6D341DA43D07005D5137 /* CTFMainTabViewController.swift */,
+				E2AA6CFB1DA41F3D005D5137 /* CTFLogInViaExternalIdViewController.swift */,
+				E2AA6D1F1DA43CA9005D5137 /* Resources */,
+				E2AA6D101DA43C6F005D5137 /* RK Extensions */,
+				E2AA6D011DA43BC7005D5137 /* Study Management */,
+				E2AA6CDF1DA41DDA005D5137 /* Supporting Files */,
+				E2AA6CDC1DA419DB005D5137 /* Storyboards */,
 				E2EF6B251DA2E2970034456A /* Assets.xcassets */,
-				E2EF6B271DA2E2970034456A /* LaunchScreen.storyboard */,
 				E2EF6B2A1DA2E2970034456A /* Info.plist */,
 			);
 			path = Impulse;
@@ -129,6 +446,13 @@
 		E2EF6B4C1DA2F4120034456A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E27E290E1DA5A2F30050788A /* ZipZap.framework */,
+				E27E29061DA5A25D0050788A /* openssl.framework */,
+				E27E29041DA5A2560050788A /* BridgeSDK.framework */,
+				E27E28F71DA59A7C0050788A /* ResearchKit.framework */,
+				E2AA6CFF1DA42593005D5137 /* HealthKit.framework */,
+				E2E759231DA2F7D200D00C55 /* BridgeAppSDK.xcodeproj */,
+				E2E7591D1DA2F7AC00D00C55 /* SDLRKX.xcodeproj */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -143,10 +467,13 @@
 				E2EF6B171DA2E2970034456A /* Sources */,
 				E2EF6B181DA2E2970034456A /* Frameworks */,
 				E2EF6B191DA2E2970034456A /* Resources */,
+				E2E759381DA2F7FC00D00C55 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E2E759371DA2F7FB00D00C55 /* PBXTargetDependency */,
+				E2E7593C1DA2F80200D00C55 /* PBXTargetDependency */,
 			);
 			name = Impulse;
 			productName = Impulse;
@@ -196,18 +523,30 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "James Kizer";
 				TargetAttributes = {
 					E2EF6B1A1DA2E2970034456A = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = AA753846B2;
+						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+						};
 					};
 					E2EF6B2E1DA2E2980034456A = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = E2EF6B1A1DA2E2970034456A;
 					};
 					E2EF6B391DA2E2980034456A = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = E2EF6B1A1DA2E2970034456A;
 					};
 				};
@@ -223,6 +562,16 @@
 			mainGroup = E2EF6B121DA2E2970034456A;
 			productRefGroup = E2EF6B1C1DA2E2970034456A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E2E759241DA2F7D200D00C55 /* Products */;
+					ProjectRef = E2E759231DA2F7D200D00C55 /* BridgeAppSDK.xcodeproj */;
+				},
+				{
+					ProductGroup = E2E7591E1DA2F7AC00D00C55 /* Products */;
+					ProjectRef = E2E7591D1DA2F7AC00D00C55 /* SDLRKX.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				E2EF6B1A1DA2E2970034456A /* Impulse */,
@@ -232,14 +581,62 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		E2E759221DA2F7AC00D00C55 /* SDLRKX.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SDLRKX.framework;
+			remoteRef = E2E759211DA2F7AC00D00C55 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E2E7592F1DA2F7D200D00C55 /* BridgeAppSDKSample.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = BridgeAppSDKSample.app;
+			remoteRef = E2E7592E1DA2F7D200D00C55 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E2E759311DA2F7D200D00C55 /* BridgeAppSDK.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = BridgeAppSDK.framework;
+			remoteRef = E2E759301DA2F7D200D00C55 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E2E759331DA2F7D200D00C55 /* BridgeAppSDKTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = BridgeAppSDKTests.xctest;
+			remoteRef = E2E759321DA2F7D200D00C55 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		E2EF6B191DA2E2970034456A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2AA6D2E1DA43CEE005D5137 /* Baseline.json in Resources */,
+				E2AA6D311DA43CEE005D5137 /* self_assessment_6.json in Resources */,
 				E2EF6B291DA2E2970034456A /* LaunchScreen.storyboard in Resources */,
 				E2EF6B261DA2E2970034456A /* Assets.xcassets in Resources */,
+				E2AA6D301DA43CEE005D5137 /* self_assessment_11.json in Resources */,
+				E2AA6D321DA43CEE005D5137 /* self_assessment_9.json in Resources */,
+				E2AA6D271DA43CDD005D5137 /* PAM.json in Resources */,
+				E21F23921DA58D9500760EA7 /* go_no_go_stable_stimulus.json in Resources */,
+				E2AA6D331DA43CEE005D5137 /* self_assessment_10.json in Resources */,
 				E2EF6B241DA2E2970034456A /* Main.storyboard in Resources */,
+				E2AA6CDE1DA41A60005D5137 /* Onboarding.storyboard in Resources */,
+				E2AA6D2F1DA43CEE005D5137 /* self_assessment_5.json in Resources */,
+				E21F23931DA58D9500760EA7 /* go_no_go_variable_stimulus.json in Resources */,
+				E21F237D1DA44F2700760EA7 /* CTFGoNoGoStepViewController.xib in Resources */,
+				E2AA6D221DA43CC1005D5137 /* cornell-mhealth-eval.pem in Resources */,
+				E2AA6D1E1DA43C83005D5137 /* CTFPulsusFormStepViewController.xib in Resources */,
+				E2AA6CF91DA41E19005D5137 /* BridgeInfo.plist in Resources */,
+				E2AA6D1A1DA43C83005D5137 /* CTFFormItemCell.xib in Resources */,
+				E2AA6CFA1DA41E19005D5137 /* BridgeInfo-private.plist in Resources */,
+				E2AA6D251DA43CD6005D5137 /* tasks_and_schedules.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,8 +661,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2EF6B211DA2E2970034456A /* ViewController.swift in Sources */,
+				E2AA6D181DA43C83005D5137 /* CTFBorderedButton.swift in Sources */,
+				E21F237C1DA44F2700760EA7 /* CTFGoNoGoStepViewController.swift in Sources */,
+				E2AA6D351DA43D07005D5137 /* CTFMainTabViewController.swift in Sources */,
+				E2AA6D0F1DA43C6B005D5137 /* CTFActivityTableViewCell.swift in Sources */,
+				E2AA6D051DA43C5C005D5137 /* CTFScheduledActivityManager.swift in Sources */,
+				E2AA6D1B1DA43C83005D5137 /* CTFPulsusFormStep.swift in Sources */,
+				E21F23821DA44F2F00760EA7 /* ORKOrderedTask+GoNoGo.swift in Sources */,
+				E2AA6D0E1DA43C6B005D5137 /* CTFActivityResult.swift in Sources */,
+				E2AA6D191DA43C83005D5137 /* CTFFormItemCell.swift in Sources */,
+				E2AA6D031DA43C54005D5137 /* CTFActivityTableViewController.swift in Sources */,
+				E2AA6D1C1DA43C83005D5137 /* CTFPulsusFormBridgeTask.swift in Sources */,
+				E2AA6D381DA43F57005D5137 /* CTFPAMTask.swift in Sources */,
 				E2EF6B1F1DA2E2970034456A /* AppDelegate.swift in Sources */,
+				E2AA6D0C1DA43C6B005D5137 /* CTFActivity.swift in Sources */,
+				E2AA6D0B1DA43C6B005D5137 /* CTFScheduledActivity.swift in Sources */,
+				E2AA6CFC1DA41F3D005D5137 /* CTFLogInViaExternalIdViewController.swift in Sources */,
+				E21F23851DA4522600760EA7 /* CTFGoNoGoStep.swift in Sources */,
+				E21F237E1DA44F2700760EA7 /* CTFGoNoGoActiveStepViewController.swift in Sources */,
+				E2AA6D1D1DA43C83005D5137 /* CTFPulsusFormStepViewController.swift in Sources */,
+				E21F238F1DA5684500760EA7 /* CTFGoNoGoBridgeTask.swift in Sources */,
+				E21F23831DA44F2F00760EA7 /* CTFGoNoGoTask.swift in Sources */,
+				E21F237F1DA44F2700760EA7 /* CTFGoNoGoView.swift in Sources */,
+				E2AA6D0D1DA43C6B005D5137 /* CTFActivityArchive.swift in Sources */,
+				E27E29131DA5AB5F0050788A /* CTFTaskFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +707,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		E2E759371DA2F7FB00D00C55 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BridgeAppSDK;
+			targetProxy = E2E759361DA2F7FB00D00C55 /* PBXContainerItemProxy */;
+		};
+		E2E7593C1DA2F80200D00C55 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SDLRKX;
+			targetProxy = E2E7593B1DA2F80200D00C55 /* PBXContainerItemProxy */;
+		};
 		E2EF6B311DA2E2980034456A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E2EF6B1A1DA2E2970034456A /* Impulse */;
@@ -334,8 +763,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -379,8 +810,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -399,6 +832,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -406,24 +840,32 @@
 		E2EF6B441DA2E2980034456A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Impulse/Impulse.entitlements;
+				DEVELOPMENT_TEAM = AA753846B2;
 				INFOPLIST_FILE = Impulse/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.cornell.tech.foundry.Impulse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		E2EF6B451DA2E2980034456A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Impulse/Impulse.entitlements;
+				DEVELOPMENT_TEAM = AA753846B2;
 				INFOPLIST_FILE = Impulse/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.cornell.tech.foundry.Impulse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -435,6 +877,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.cornell.tech.foundry.ImpulseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Impulse.app/Impulse";
 			};
 			name = Debug;
@@ -447,6 +890,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.cornell.tech.foundry.ImpulseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Impulse.app/Impulse";
 			};
 			name = Release;
@@ -458,6 +902,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.cornell.tech.foundry.ImpulseUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Impulse;
 			};
 			name = Debug;
@@ -469,6 +914,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.cornell.tech.foundry.ImpulseUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Impulse;
 			};
 			name = Release;
@@ -492,6 +938,7 @@
 				E2EF6B451DA2E2980034456A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E2EF6B461DA2E2980034456A /* Build configuration list for PBXNativeTarget "ImpulseTests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +947,7 @@
 				E2EF6B481DA2E2980034456A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E2EF6B491DA2E2980034456A /* Build configuration list for PBXNativeTarget "ImpulseUITests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +956,7 @@
 				E2EF6B4B1DA2E2980034456A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>emailForLoginViaExternalId</key>
+	<string>bridge-testing@sagebase.org</string>
+	<key>studyIdentifier</key>
+	<string>sample-study</string>
+	<key>useCache</key>
+	<true/>
+	<key>certificateName</key>
+	<string>sample-study</string>
+	<key>newsfeedURL</key>
+	<string>https://notsupported.null</string>
+	<key>logoImageName</key>
+	<string>logo</string>
+	<key>appUpdateURL</key>
+	<string>https://notsupported.null</string>
+	<key>schemaMapping</key>
+	<array>
+		<dict>
+			<key>schemaIdentifier</key>
+			<string>Mood Survey</string>
+			<key>schemaRevision</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>schemaIdentifier</key>
+			<string>Tapping Activity</string>
+			<key>schemaRevision</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>schemaIdentifier</key>
+			<string>Voice Activity</string>
+			<key>schemaRevision</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>schemaIdentifier</key>
+			<string>Memory Activity</string>
+			<key>schemaRevision</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>schemaIdentifier</key>
+			<string>Walking Activity</string>
+			<key>schemaRevision</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>schemaIdentifier</key>
+			<string>Medical Survey</string>
+			<key>schemaRevision</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>taskMapping</key>
+	<array>
+		<dict>
+			<key>taskIdentifier</key>
+			<string>Medical Survey</string>
+			<key>resourceName</key>
+			<string>MedicalSurvey</string>
+			<key>classType</key>
+			<string>TrackedDataObjectCollection</string>
+		</dict>
+		<dict>
+			<key>taskIdentifier</key>
+			<string>Mood Survey</string>
+			<key>taskType</key>
+			<string>moodSurvey</string>
+		</dict>
+		<dict>
+			<key>taskIdentifier</key>
+			<string>Memory Activity</string>
+			<key>taskType</key>
+			<string>memory</string>
+		</dict>
+		<dict>
+			<key>taskIdentifier</key>
+			<string>Tapping Activity</string>
+			<key>taskType</key>
+			<string>tapping</string>
+		</dict>
+		<dict>
+			<key>taskIdentifier</key>
+			<string>Walking Activity</string>
+			<key>taskType</key>
+			<string>walking</string>
+		</dict>
+		<dict>
+			<key>taskIdentifier</key>
+			<string>Voice Activity</string>
+			<key>taskType</key>
+			<string>voice</string>
+		</dict>
+		<dict>
+			<key>taskIdentifier</key>
+			<string>1-StudyTracker</string>
+			<key>resourceName</key>
+			<string>StudyTracker</string>
+			<key>cancelDisabled</key>
+			<true/>
+			<key>allowMultipleRun</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>taskIdentifier</key>
+			<string>1-Training</string>
+			<key>resourceName</key>
+			<string>CombinedTask</string>
+		</dict>
+		<dict>
+			<key>taskIdentifier</key>
+			<string>1-Combo</string>
+			<key>resourceName</key>
+			<string>CombinedTask</string>
+			<key>cancelDisabled</key>
+			<true/>
+			<key>allowMultipleRun</key>
+			<false/>
+			<key>scheduleNotification</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>taskIdentifier</key>
+			<string>PAM</string>
+			<key>classType</key>
+			<string>Impulse.CTFPAMTask</string>
+			<key>resourceName</key>
+			<string>PAM</string>
+		</dict>
+		<dict>
+			<key>taskIdentifier</key>
+			<string>Baseline</string>
+			<key>resourceName</key>
+			<string>Baseline</string>
+		</dict>
+		<dict>
+			<key>taskIdentifier</key>
+			<string>Pulsus</string>
+			<key>classType</key>
+			<string>Impulse.CTFPulsusFormBridgeTask</string>
+			<key>resourceName</key>
+			<string>self_assessment_5</string>
+		</dict>
+		<dict>
+			<key>taskIdentifier</key>
+			<string>Go No Go Stable Stimulus</string>
+			<key>classType</key>
+			<string>Impulse.CTFGoNoGoBridgeTask</string>
+			<key>resourceName</key>
+			<string>go_no_go_stable_stimulus</string>
+		</dict>
+		<dict>
+			<key>taskIdentifier</key>
+			<string>Go No Go Variable Stimulus</string>
+			<key>classType</key>
+			<string>Impulse.CTFGoNoGoBridgeTask</string>
+			<key>resourceName</key>
+			<string>go_no_go_variable_stimulus</string>
+		</dict>
+	</array>
+</dict>
+</plist>

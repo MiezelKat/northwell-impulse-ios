@@ -1,0 +1,176 @@
+{
+    "taskIdentifier": "self_assessment_baseline_5",
+    "schemaIdentifier": "sdffsd",
+    "title": "For the following questions, please think about your experiences over the past year.",
+    "items" : [
+               {
+               "identifier"        : "QOL_bl",
+               "text"              : "I am satisfied with the quality of my life as it stands now.",
+               "type"              : "pulsusScale",
+               "range"             : {
+                   "min"     : 0,
+                   "max"      : 10,
+                   "default"   : 5,
+                   "step": 1,
+                   "minValueText": "not at all",
+                   "maxValueText": "extremely"
+                 }
+               },
+               {
+               "identifier"        : "Conf_bl",
+               "text"              : "I am confident I can meet the life goals I set for myself.",
+               "type"              : "pulsusScale",
+               "range"             : {
+                   "min"     : 0,
+                   "max"      : 10,
+                   "default"   : 5,
+                   "step": 1,
+                   "minValueText": "not at all",
+                   "maxValueText": "extremely"
+                 }
+               },
+               {
+               "identifier"        : "Sensation_bl",
+               "text"              : "I like to engage in experiences that give me an adrenalin rush (e.g. bungee jumping).",
+               "type"              : "pulsusScale",
+               "range"             : {
+                   "min"     : 0,
+                   "max"      : 10,
+                   "default"   : 5,
+                   "step": 1,
+                   "minValueText": "not at all",
+                   "maxValueText": "extremely"
+                 }
+               },
+               {
+               "identifier"        : "Urgexp_bl",
+               "text"              : "I do things without thinking about it too much before I do it.",
+               "type"              : "pulsusScale",
+               "range"             : {
+                   "min"     : 0,
+                   "max"      : 10,
+                   "default"   : 5,
+                   "step": 1,
+                   "minValueText": "not at all",
+                   "maxValueText": "extremely"
+                 }
+               },
+               {
+               "identifier"        : "Urgspeech_bl",
+               "text"              : "I say things without thinking and end up regretting saying it later.",
+               "type"              : "pulsusScale",
+               "range"             : {
+                   "min"     : 0,
+                   "max"      : 10,
+                   "default"   : 5,
+                   "step": 1,
+                   "minValueText": "not at all",
+                   "maxValueText": "extremely"
+                 }
+               },
+               {
+               "identifier"        : "Negurg_bl",
+               "text"              : "When I am feeling down or frustrated, I do things I end up regretting later.",
+               "type"              : "pulsusScale",
+               "range"             : {
+                   "min"     : 0,
+                   "max"      : 10,
+                   "default"   : 5,
+                   "step": 1,
+                   "minValueText": "not at all",
+                   "maxValueText": "extremely"
+                 }
+               },
+               {
+               "identifier"        : "Posurg_bl",
+               "text"              : "When I am feeling happy or excited, I do things I end up regretting later.",
+               "type"              : "pulsusScale",
+               "range"             : {
+                   "min"     : 0,
+                   "max"      : 10,
+                   "default"   : 5,
+                   "step": 1,
+                   "minValueText": "not at all",
+                   "maxValueText": "extremely"
+                 }
+               },
+               {
+               "identifier"        : "Taskpers_bl",
+               "text"              : "Even if I am tempted by short-term pleasure, I can resist it and stick to my goals.",
+               "type"              : "pulsusScale",
+               "range"             : {
+                   "min"     : 0,
+                   "max"      : 10,
+                   "default"   : 5,
+                   "step": 1,
+                   "minValueText": "not at all",
+                   "maxValueText": "extremely"
+                 }
+               },
+               {
+               "identifier"        : "Mobileurg_bl",
+               "text"              : "I have difficulty controlling how much I check my mobile phone.",
+               "type"              : "pulsusScale",
+               "range"             : {
+                   "min"     : 0,
+                   "max"      : 10,
+                   "default"   : 5,
+                   "step": 1,
+                   "minValueText": "not at all",
+                   "maxValueText": "extremely"
+                 }
+               },
+               {
+               "identifier"        : "Foodurg_bl",
+               "text"              : "I have difficulty controlling how much food I eat.",
+               "type"              : "pulsusScale",
+               "range"             : {
+                   "min"     : 0,
+                   "max"      : 10,
+                   "default"   : 5,
+                   "step": 1,
+                   "minValueText": "not at all",
+                   "maxValueText": "extremely"
+                 }
+               },
+               {
+               "identifier"        : "Foodtype_bl",
+               "text"              : "When junk food is offered to me or placed in front of me, it is hard for me to resist eating it, even if I don’t want to eat it.",
+               "type"              : "pulsusScale",
+               "range"             : {
+                   "min"     : 0,
+                   "max"      : 10,
+                   "default"   : 5,
+                   "step": 1,
+                   "minValueText": "not at all",
+                   "maxValueText": "extremely"
+                 }
+               },
+               {
+               "identifier"        : "Premed_bl",
+               "text"              : "I plan and think things over before I do them.",
+               "type"              : "pulsusScale",
+               "range"             : {
+                   "min"     : 0,
+                   "max"      : 10,
+                   "default"   : 5,
+                   "step": 1,
+                   "minValueText": "not at all",
+                   "maxValueText": "extremely"
+                 }
+               },
+               {
+               "identifier"        : "St_temp_bl",
+               "text"              : "I have difficulty controlling my impulses when I am tempted by something that will feel good in the short-term, even if I don’t want to do it.",
+               "type"              : "pulsusScale",
+               "range"             : {
+                   "min"     : 0,
+                   "max"      : 10,
+                   "default"   : 5,
+                   "step": 1,
+                   "minValueText": "not at all",
+                   "maxValueText": "extremely"
+                 }
+               }
+              ]
+}

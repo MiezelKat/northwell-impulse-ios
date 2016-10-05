@@ -1,0 +1,43 @@
+{
+    "taskIdentifier"    : "Baseline",
+    "identifier"        : "Baseline",
+    "steps"         :
+    [
+     {
+     "identifier"   : "introduction",
+     "type"         : "instruction",
+     "title"        : "Introduction",
+     "text"         : "In order to help us gain a better understanding of your thoughts, feelings and experiences, please complete the following questions. This will take approximately 10 minutes to complete today and about 4-6 minutes per day for the next 21 days.  ",
+     },
+     {
+     "identifier"       : "Pulsus",
+     "resourceName"            : "self_assessment_5",
+     "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+     },
+     {
+     "identifier"       : "Pulsus",
+     "resourceName"            : "self_assessment_6",
+     "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+     },
+     {
+     "identifier"       : "Pulsus",
+     "resourceName"            : "self_assessment_9",
+     "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+     },
+     {
+     "identifier"       : "Pulsus",
+     "resourceName"            : "self_assessment_10",
+     "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+     },
+     {
+     "identifier"       : "Pulsus",
+     "resourceName"            : "self_assessment_11",
+     "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+     },
+     {
+       "identifier"   :   "PAM",
+       "resourceName"            : "PAM",
+       "classType"               : "Impulse.CTFPAMTask",
+     },
+   ]
+}

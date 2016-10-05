@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UXG-xC-ZdZ">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="aUE-4C-9SM">
+            <objects>
+                <navigationController id="UXG-xC-ZdZ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Ua-f1-9Hh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="4Ns-Cm-U1C" kind="relationship" relationship="rootViewController" id="0GE-wh-Pe5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2O2-aK-52A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1841" y="91"/>
+        </scene>
+        <!--Log In-->
+        <scene sceneID="kdd-lf-uKJ">
+            <objects>
+                <viewController id="4Ns-Cm-U1C" customClass="CTFLogInViaExternalIdViewController" customModule="Impulse" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sup-ZI-57M"/>
+                        <viewControllerLayoutGuide type="bottom" id="qbp-Gp-FKc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vaR-9n-4GI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVK-GD-Q14">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="74" id="QNN-u3-bqL"/>
+                                    <constraint firstAttribute="height" constant="30" id="Xgp-TW-cJu"/>
+                                </constraints>
+                                <state key="normal" title="External ID"/>
+                                <connections>
+                                    <action selector="externalIDTapped:" destination="4Ns-Cm-U1C" eventType="touchUpInside" id="0FU-fc-GT9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cVK-GD-Q14" firstAttribute="top" secondItem="sup-ZI-57M" secondAttribute="bottom" constant="8" symbolic="YES" id="n65-rt-hUp"/>
+                            <constraint firstItem="cVK-GD-Q14" firstAttribute="centerX" secondItem="vaR-9n-4GI" secondAttribute="centerX" id="pXm-8R-Zev"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Log In" id="Hcm-SD-8Xx"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8ul-kA-UXF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-996" y="98"/>
+        </scene>
+    </scenes>
+</document>

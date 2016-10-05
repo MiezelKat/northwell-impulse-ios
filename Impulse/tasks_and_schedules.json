@@ -1,0 +1,15 @@
+{
+  "schedules": [
+    {
+      "scheduleType": "recurring",
+      "scheduleString": "* * * * *",
+      "scheduleID": "12345678",
+      "tasks": [
+        {
+          "taskTitle": "Baseline",
+          "taskID": "Baseline",
+        }
+      ]
+    }
+  ]
+}
