@@ -171,12 +171,12 @@ class CTFGoNoGoStepViewController: ORKStepViewController, CTFGoNoGoViewDelegate 
         if let trials = self.trials {
             self.performTrials(trials, results: [], completion: { (results) in
                 print(results)
-                // results is a list that contains all the trial results - Francesco
-                self.calculateAggregateResults(results)
                 
             
                 if !self.canceled {
                     //set results
+                    // results is a list that contains all the trial results - Francesco
+                    self.calculateAggregateResults(results)
                     self.trialResults = results
                     self.goForward()
                 }

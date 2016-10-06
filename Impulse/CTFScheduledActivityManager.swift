@@ -34,71 +34,7 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
     override init() {
         super.init()
     }
-    
-//    {
-//    "scheduleType": "once",
-//    "delay": "P3D",
-//    "tasks": [
-//    {
-//    "taskTitle": "About You",
-//    "taskID": "AboutYou-27829fa5-d731-4372-ba30-a5859f688297",
-//    "taskFileName": "about_you",
-//    "taskClassName": "APHDailyTaskViewController",
-//    "taskCompletionTimeString": "8 Questions"
-//    }
-    
-    
-    static func scheduledActivityFromJSON(json: AnyObject) -> CTFScheduledActivity? {
-        guard let task = (json["tasks"] as? [AnyObject])?[0],
-            let title = task["taskTitle"] as? String,
-            let taskIdentifier = task["taskID"] as? String,
-            let scheduleIdentifier = json["scheduleID"] as? String else {
-                return nil
-        }
-            
-        let activity = CTFActivity()
-        activity.label = title
-        
-        let scheduledActivity = CTFScheduledActivity()
-        scheduledActivity.activity = activity
-        scheduledActivity.taskIdentifier = taskIdentifier
-        scheduledActivity.guid = scheduleIdentifier
-        
-        return scheduledActivity
-    }
-    
-    static func scheduledActivitiesFromJSON(json: AnyObject) -> [CTFScheduledActivity]? {
-//        print(dictionary)
-//        guard let paramsDict = dictionary,
-//            let numTrials = paramsDict["numberOfTrials"] as? Int,
-//            let waitTime = paramsDict["waitTime"] as? TimeInterval,
-//            let crossTime = paramsDict["crossTime"] as? TimeInterval,
-//            let blankTime = paramsDict["blankTime"] as? TimeInterval,
-//            let cueTimes = paramsDict["cueTimes"] as? [TimeInterval],
-//            let fillTime = paramsDict["fillTime"] as? TimeInterval,
-//            let goCueProbability = paramsDict["goCueProbability"] as? Double,
-//            let goCueTargetProbability = paramsDict["goCueTargetProbability"] as? Double,
-//            let noGoCueTargetProbability = paramsDict["noGoCueTargetProbability"] as? Double else {
-//                return nil
-//        }
-//        
-//        return CTFGoNoGoStepParams(
-//            waitTime: waitTime,
-//            crossTime: crossTime,
-//            blankTime: blankTime,
-//            cueTimeOptions: cueTimes,
-//            fillTime: fillTime,
-//            goCueTargetProb: goCueTargetProbability,
-//            noGoCueTargetProb: noGoCueTargetProbability,
-//            goCueProb: goCueProbability,
-//            numTrials: numTrials)
-        
-        guard let scheduleArray = json["schedules"] as? [AnyObject] else {
-            return nil
-        }
-        
-        return scheduleArray.flatMap(CTFScheduledActivityManager.scheduledActivityFromJSON)
-    }
+
     
     init(delegate: SBAScheduledActivityManagerDelegate?, json: AnyObject) {
         super.init()
@@ -106,7 +42,11 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
         
         print(json)
         
-        self.activities = CTFScheduledActivityManager.scheduledActivitiesFromJSON(json: json)
+        guard let scheduleArray = json["schedules"] as? [AnyObject] else {
+            return
+        }
+        
+        self.activities = scheduleArray.flatMap( {CTFScheduledActivity(json: $0)})
         
 //        let activity1 = CTFActivity()
 //        activity1.label = "Memory"

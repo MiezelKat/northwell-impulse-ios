@@ -37,6 +37,27 @@ open class CTFScheduledActivity: NSObject {
     var activity: CTFActivity!
     var taskIdentifier: String!
     var guid: String!
+    
+    override init() {
+        super.init()
+    }
+    
+    init?(json: AnyObject) {
+        super.init()
+        
+        guard let task = (json["tasks"] as? [AnyObject])?[0],
+            let title = task["taskTitle"] as? String,
+            let taskIdentifier = task["taskIdentifier"] as? String,
+            let scheduleIdentifier = json["scheduleIdentifier"] as? String else {
+                return nil
+        }
+        
+        self.activity = CTFActivity()
+        self.activity.label = title
+        
+        self.taskIdentifier = taskIdentifier
+        self.guid = scheduleIdentifier
+    }
 }
 
 public extension CTFScheduledActivity {

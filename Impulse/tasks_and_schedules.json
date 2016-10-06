@@ -3,11 +3,33 @@
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
-      "scheduleID": "12345678",
+      "scheduleIdentifier": "baseline-1",
       "tasks": [
         {
           "taskTitle": "Baseline",
-          "taskID": "Baseline",
+          "taskIdentifier": "Baseline",
+        }
+      ]
+    },
+    {
+      "scheduleType": "recurring",
+      "scheduleString": "* * * * *",
+      "scheduleIdentifier": "go-no-go-stable-1",
+      "tasks": [
+        {
+          "taskTitle": "Go No Go Stable Stimulus",
+          "taskIdentifier": "Go No Go Stable Stimulus",
+        }
+      ]
+    },
+    {
+      "scheduleType": "recurring",
+      "scheduleString": "* * * * *",
+      "scheduleIdentifier": "go-no-go-variable-1",
+      "tasks": [
+        {
+          "taskTitle": "Go No Go Variable Stimulus",
+          "taskIdentifier": "Go No Go Variable Stimulus",
         }
       ]
     }
