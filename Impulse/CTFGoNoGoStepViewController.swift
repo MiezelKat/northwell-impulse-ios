@@ -439,12 +439,12 @@ class CTFGoNoGoStepViewController: ORKStepViewController, CTFGoNoGoViewDelegate 
     
     func checkResponse(_ trial:CTFGoNoGoTrial?,tapped:Bool?) -> CTFGoNoGoResponseCode{
         /**
-         * checkResponses uses the trial.target and compares to the bool tapped and returns an Int.
-         * response codes:
-            1 :Go target and user taps
-            2: Go target and user does not tap
-            3: No Go target and user taps
-            4: No Go target and user does not tap
+         checkResponses uses the trial.target and compares to the bool tapped and returns a response code.
+         response codes:
+            CorrectBlue :Go target and user taps
+            IncorrectBlue: Go target and user does not tap
+            CorrectGreen: No Go target and user taps
+            IncorrectGreen: No Go target and user does not tap
         */
         let targetType: CTFGoNoGoTargetType = (trial!.target)!
         let userResponse: Bool = tapped!
