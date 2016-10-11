@@ -1,7 +1,7 @@
 {
    "PAM":{
       "identifier":"PAMIdentifier",
-      "prompt":"Select the photo that best captures how you feel right now:",
+      "prompt":"When you think about yourself and how you generally feel, which do you think comes closest to how you feel most days? Please check all that apply.",
       "summary":{
          "identifier":"PAM Summary Identifier",
          "title":"Thanks",

@@ -14,9 +14,10 @@ import SDLRKX
     
     // MARK: SBABridgeTask
     
-    let task: PAMTask
+    let task: PAMMultipleSelectionTask
     init(dictionaryRepresentation: NSDictionary) {
-        self.task = PAMTask(identifier: "testIdentifier")
+        self.task = PAMMultipleSelectionTask(identifier: "testIdentifier", json: dictionaryRepresentation, bundle:  Bundle(for: PAMMultipleSelectionTask.self))
+//        self.task = PAMMultipleSelectionTask(identifier: "testIdentifier")
         super.init()
     }
     

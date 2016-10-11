@@ -32,6 +32,17 @@
           "taskIdentifier": "Go No Go Variable Stimulus",
         }
       ]
+    },
+    {
+      "scheduleType": "recurring",
+      "scheduleString": "* * * * *",
+      "scheduleIdentifier": "PAM",
+      "tasks": [
+        {
+          "taskIdentifier"   :   "PAM",
+          "taskTitle"         :"PAM",
+        }
+      ]
     }
   ]
 }
