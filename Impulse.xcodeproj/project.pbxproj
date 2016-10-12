@@ -21,10 +21,6 @@
 		E27E28F91DA59A7C0050788A /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E27E28F71DA59A7C0050788A /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E27E29051DA5A2560050788A /* BridgeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E27E29041DA5A2560050788A /* BridgeSDK.framework */; };
 		E27E29071DA5A25D0050788A /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E27E29061DA5A25D0050788A /* openssl.framework */; };
-		E27E29081DA5A2A70050788A /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E27E29061DA5A25D0050788A /* openssl.framework */; };
-		E27E29091DA5A2A70050788A /* openssl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E27E29061DA5A25D0050788A /* openssl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E27E290A1DA5A2AB0050788A /* BridgeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E27E29041DA5A2560050788A /* BridgeSDK.framework */; };
-		E27E290B1DA5A2AB0050788A /* BridgeSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E27E29041DA5A2560050788A /* BridgeSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E27E290C1DA5A2AE0050788A /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2AA6CFF1DA42593005D5137 /* HealthKit.framework */; };
 		E27E290F1DA5A2F30050788A /* ZipZap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E27E290E1DA5A2F30050788A /* ZipZap.framework */; };
 		E27E29101DA5A2F30050788A /* ZipZap.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E27E290E1DA5A2F30050788A /* ZipZap.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -138,8 +134,6 @@
 			files = (
 				E27E29101DA5A2F30050788A /* ZipZap.framework in Embed Frameworks */,
 				E2E7593A1DA2F80200D00C55 /* SDLRKX.framework in Embed Frameworks */,
-				E27E290B1DA5A2AB0050788A /* BridgeSDK.framework in Embed Frameworks */,
-				E27E29091DA5A2A70050788A /* openssl.framework in Embed Frameworks */,
 				E2E759351DA2F7FB00D00C55 /* BridgeAppSDK.framework in Embed Frameworks */,
 				E27E28F91DA59A7C0050788A /* ResearchKit.framework in Embed Frameworks */,
 			);
@@ -221,9 +215,7 @@
 				E27E29051DA5A2560050788A /* BridgeSDK.framework in Frameworks */,
 				E2E759391DA2F80200D00C55 /* SDLRKX.framework in Frameworks */,
 				E27E28F81DA59A7C0050788A /* ResearchKit.framework in Frameworks */,
-				E27E29081DA5A2A70050788A /* openssl.framework in Frameworks */,
 				E27E290F1DA5A2F30050788A /* ZipZap.framework in Frameworks */,
-				E27E290A1DA5A2AB0050788A /* BridgeSDK.framework in Frameworks */,
 				E2E759341DA2F7FB00D00C55 /* BridgeAppSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -528,7 +520,7 @@
 				TargetAttributes = {
 					E2EF6B1A1DA2E2970034456A = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = AA753846B2;
+						DevelopmentTeam = MK4L88S46Y;
 						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
@@ -843,7 +835,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Impulse/Impulse.entitlements;
-				DEVELOPMENT_TEAM = AA753846B2;
+				DEVELOPMENT_TEAM = MK4L88S46Y;
 				INFOPLIST_FILE = Impulse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -859,7 +851,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Impulse/Impulse.entitlements;
-				DEVELOPMENT_TEAM = AA753846B2;
+				DEVELOPMENT_TEAM = MK4L88S46Y;
 				INFOPLIST_FILE = Impulse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
