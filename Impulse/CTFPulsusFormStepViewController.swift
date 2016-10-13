@@ -14,6 +14,8 @@ struct CTFPulsusFormItemAnswerStruct {
     var value: Int
 }
 
+
+
 //class CTFPulsusFormStepViewController: ORKStepViewController, UITableViewDataSource, UITableViewDelegate, ORKFormItemCellDelegate, ORKTableContainerViewDelegate {
 class CTFPulsusFormStepViewController: ORKStepViewController, UITableViewDataSource, UITableViewDelegate, CTFFormItemCellDelegate {
 
@@ -37,7 +39,10 @@ class CTFPulsusFormStepViewController: ORKStepViewController, UITableViewDataSou
         self.step = step
         self.initializeResults(result)
         self.restorationIdentifier = step!.identifier
+        
 //        self.restorationClass = CTFPulsusFormStepViewController.self
+        
+        
         
         print(self.step)
         print(self.step?.title)
@@ -46,10 +51,16 @@ class CTFPulsusFormStepViewController: ORKStepViewController, UITableViewDataSou
                 print(formItem)
             }
         }
+        
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let stepIdentifier = self.step?.identifier {
+            print(self.previousStepResult(stepIdentifier: stepIdentifier))
+        }
         
         //register cell
         let nib = UINib(nibName: "CTFFormItemCell", bundle: nil)

@@ -12,7 +12,13 @@
      {
        "identifier":  "notification_time_picker",
        "type"     :   "timePicker",
-       "text"       : "Please choose a time to be reminded when to perform your morning survey",
+       "text"       : "Please choose a time to be reminded when to perform your morning survey.",
+     },
+     {
+       "identifier":  "notes",
+       "type"     :   "textfield",
+       "text"       : "Please choose a time to be reminded when to perform your morning survey.",
+       "optional" : true
      },
      {
        "identifier"       : "baseline_4",

@@ -340,6 +340,7 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
         let taskRef = bridgeInfo.taskReferenceWithIdentifier(schedule.taskIdentifier!)
         
         //note that at some point, we should probably 
+        print(taskRef)
         let task = taskRef?.transformToTask(with: CTFTaskFactory(), isLastStep: true)
         if let surveyTask = task as? SBASurveyTask {
             surveyTask.title = schedule.activity!.label
