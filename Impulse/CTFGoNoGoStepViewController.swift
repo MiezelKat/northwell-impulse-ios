@@ -58,71 +58,28 @@ struct CTFGoNoGoTrialResult {
     
 }
 
+enum CTFGoNoGoResult{
+    case full
+    case firstThird
+    case secondThird
+    case lastThird
+}
+
 struct CTFGoNoGoResults {
     // variable label?
-    
     var numTrials: Int!
-    
-    var numCorrectResponsesFull: Int!
-    var numCorrectResponsesFirstThird: Int!
-    var numCorrectResponsesSecondThird: Int!
-    var numCorrectResponsesLastThird: Int!
-    
-    var numIncorrectResponsesFull: Int!
-    var numIncorrectResponsesFirstThird: Int!
-    var numIncorrectResponsesSecondThird: Int!
-    var numIncorrectResponsesLastThird: Int!
-    
-    var numCorrectBlueResponsesFull: Int!
-    var numCorrectBlueResponsesFirstThird: Int!
-    var numCorrectBlueResponsesSecondThird: Int!
-    var numCorrectBlueResponsesLastThird: Int!
-    
-    var numCorrectGreenResponsesFull: Int!
-    var numCorrectGreenResponsesFirstThird: Int!
-    var numCorrectGreenResponsesSecondThird: Int!
-    var numCorrectGreenResponsesLastThird: Int!
-    
-    var numIncorrectBlueResponsesFull:Int!
-    var numIncorrectBlueResponsesFirstThird:Int!
-    var numIncorrectBlueResponsesSecondThird:Int!
-    var numIncorrectBlueResponsesLastThird:Int!
-    
-    var numIncorrectGreenResponsesFull:Int!
-    var numIncorrectGreenResponsesFirstThird:Int!
-    var numIncorrectGreenResponsesSecondThird:Int!
-    var numIncorrectGreenResponsesLastThird:Int!
-
-    var meanAccuracyFull:Double!
-    var meanAccuracyFirstThird:Double!
-    var meanAccuracySecondThird:Double!
-    var meanAccuracyLastThird:Double!
-    
-    var meanResponseTimeFull:Double!
-    var meanResponseTimeFirstThird:Double!
-    var meanResponseTimeSecondThird:Double!
-    var meanResponseTimeLastThird:Double!
-    
-    var rangeResponseTimeFull:(Double,Double)!
-    var rangeResponseTimeFirstThird:(Double,Double)!
-    var rangeResponseTimeSecondThird:(Double,Double)!
-    var rangeResponseTimeLastThird:(Double,Double)!
-    
-    var variabilityFull:Double!
-    var variabilityFirstThird:Double!
-    var variabilitySecondThird:Double!
-    var variabilityLastThird:Double!
-    
-    var avgCorrectResponseTimeFull:Double!
-    var avgCorrectResponseTimeFirstThird:Double!
-    var avgCorrectResponseTimeSecondThird:Double!
-    var avgCorrectResponseTimeLastThird:Double!
-    
-//    var avgCorrectResponseTimeFull:Double!
-//    var avgCorrectResponseTimeFirstThird:Double!
-//    var avgCorrectResponseTimeSecondThird:Double!
-//    var avgCorrectResponseTimeLastThird:Double!
-
+    var numCorrectResponses: Int!
+    var numIncorrectResponses: Int!
+    var numCorrectBlueResponses: Int!
+    var numCorrectGreenResponses: Int!
+    var numIncorrectBlueResponses:Int!
+    var numIncorrectGreenResponses:Int!
+    var meanAccuracy:Double!
+    var meanResponseTime:Double!
+    var rangeResponseTime:(Double,Double)!
+    var variability:Double!
+    var avgCorrectResponseTime:Double!
+    var avgIncorrectResponseTime:Double!
 }
 
 extension Array {
@@ -243,7 +200,9 @@ class CTFGoNoGoStepViewController: ORKStepViewController, CTFGoNoGoViewDelegate 
                 if !self.canceled {
                     //set results
                     // results is a list that contains all the trial results - Francesco
-                    self.calculateAllAggregateResults(results)
+                    //aggregateResults is a dictionary of 4 CTFGoNoGoResults structs - Francesco
+                    let aggregateResults = self.calculateAllAggregateResults(results)
+                    print(aggregateResults)
                     self.trialResults = results
                     self.goForward()
                 }
@@ -389,26 +348,24 @@ class CTFGoNoGoStepViewController: ORKStepViewController, CTFGoNoGoViewDelegate 
         }
     }
     
-    func calculateAllAggregateResults(_ results:[CTFGoNoGoTrialResult]){
+    func calculateAllAggregateResults(_ results:[CTFGoNoGoTrialResult])->Dictionary<CTFGoNoGoResult,CTFGoNoGoResults>{
         /**
-         * uses data in results to calculate the aggregate results.
+          uses data in results to calculate the aggregate results.
         */
-        
-        let firstThird = (results.count * 1/3) - 1
-        let secondThird = (results.count * 2/3) - 1
-        print(firstThird)
-        print(secondThird)
-        print(results.count - 1)
-        
+        var resultsDict = Dictionary<CTFGoNoGoResult,CTFGoNoGoResults>()
+        let firstThirdIdx = (results.count * 1/3) - 1
+        let secondThirdIdx = (results.count * 2/3) - 1
+      
         let trialResponseCodeAndTime = results.map{(checkResponse($0.trial, tapped: $0.tapped),$0.responseTime!)}
-        getResults(responseAndTime: trialResponseCodeAndTime)
+        let trialResponseCodeAndTimeFirstThird = results[0...firstThirdIdx].map{(checkResponse($0.trial, tapped: $0.tapped),$0.responseTime!)}
+        let trialResponseCodeAndTimeSecondThird = results[firstThirdIdx+1...secondThirdIdx].map{(checkResponse($0.trial, tapped: $0.tapped),$0.responseTime!)}
+        let trialResponseCodeAndTimeLastThird = results[secondThirdIdx+1...results.count-1].map{(checkResponse($0.trial, tapped: $0.tapped),$0.responseTime!)}
         
-
-        
-        
-        
-
-        
+        resultsDict[CTFGoNoGoResult.full] = self.getResults(responseList: trialResponseCodeAndTime)
+        resultsDict[CTFGoNoGoResult.firstThird] = self.getResults(responseList: trialResponseCodeAndTimeFirstThird)
+        resultsDict[CTFGoNoGoResult.secondThird] = self.getResults(responseList: trialResponseCodeAndTimeSecondThird)
+        resultsDict[CTFGoNoGoResult.lastThird] = self.getResults(responseList:trialResponseCodeAndTimeLastThird)
+        return resultsDict
     }
     
     func checkResponse(_ trial:CTFGoNoGoTrial?,tapped:Bool?) -> CTFGoNoGoResponseCode{
@@ -439,21 +396,22 @@ class CTFGoNoGoStepViewController: ORKStepViewController, CTFGoNoGoViewDelegate 
         
     }
     
-    func getResults(responseAndTime:[(CTFGoNoGoResponseCode,TimeInterval)]) ->  Dictionary<String,Any> {
-        var resultsDict = Dictionary<String,Any>()
-        resultsDict["numTrials"] = self.calculateNumTrials(responseAndTime: responseAndTime)
-        resultsDict["correctResponse"] = self.calculateCorrectResponse(responseAndTime: responseAndTime)
-        resultsDict["incorrectResponse"] = self.calculateIncorrectResponse(responseAndTime: responseAndTime)
-        resultsDict["correctBlueResponse"] = self.calculateCorrectBlueResponse(responseAndTime: responseAndTime)
-        resultsDict["correctGreenResponse"] = self.calculateCorrectGreenResponse(responseAndTime: responseAndTime)
-        resultsDict["incorrectBlueResponse"] = self.calculateIncorrectBlueResponse(responseAndTime: responseAndTime)
-        resultsDict["incorrectGreenResponse"] = self.calculateIncorrectGreenResponses(responseAndTime: responseAndTime)
-        resultsDict["meanAccuracy"] = self.calculateMeanAccuracy(responseAndTime: responseAndTime)
-        resultsDict["meanResponseTime"] = self.calculateMeanResponseTime(responseAndTime: responseAndTime)
-        resultsDict["rangeResponseTime"] = self.calculateRangeResponseTime(responseAndTime: responseAndTime)
-        resultsDict["variability"] = self.calculateVariability(responseAndTime: responseAndTime)
-        print(resultsDict)
-        return resultsDict
+    func getResults(responseList:[(CTFGoNoGoResponseCode,TimeInterval)]) -> CTFGoNoGoResults {
+        return CTFGoNoGoResults(
+            numTrials:self.calculateNumTrials(responseAndTime: responseList),
+            numCorrectResponses:self.calculateCorrectResponse(responseAndTime: responseList),
+            numIncorrectResponses: self.calculateIncorrectResponse(responseAndTime: responseList),
+            numCorrectBlueResponses: self.calculateCorrectBlueResponse(responseAndTime: responseList),
+            numCorrectGreenResponses: self.calculateCorrectGreenResponse(responseAndTime: responseList),
+            numIncorrectBlueResponses: self.calculateIncorrectBlueResponse(responseAndTime: responseList),
+            numIncorrectGreenResponses: self.calculateIncorrectGreenResponses(responseAndTime: responseList),
+            meanAccuracy: self.calculateMeanAccuracy(responseAndTime: responseList),
+            meanResponseTime: self.calculateMeanResponseTime(responseAndTime: responseList),
+            rangeResponseTime: self.calculateRangeResponseTime(responseAndTime: responseList),
+            variability: self.calculateVariability(responseAndTime: responseList),
+            avgCorrectResponseTime: self.calculateAverageResponseTimeCorrect(responseAndTime: responseList),
+            avgIncorrectResponseTime: self.calculateAverageResponseTimeIncorrect(responseAndTime: responseList)
+        )
     }
     
     func calculateNumTrials(responseAndTime:[(CTFGoNoGoResponseCode,TimeInterval)]) -> Int{
