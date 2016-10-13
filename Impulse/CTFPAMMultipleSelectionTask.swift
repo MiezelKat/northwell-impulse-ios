@@ -1,5 +1,5 @@
 //
-//  CTFPAMTask.swift
+//  CTFPAMMultipleSelectionTask.swift
 //
 //  Created by James Kizer on 9/15/16.
 //  Copyright © 2016 Sage Bionetworks. All rights reserved.
@@ -9,11 +9,11 @@ import UIKit
 import BridgeAppSDK
 import SDLRKX
 
-@objc class CTFPAMTask: NSObject, SBABridgeTask, SBAStepTransformer {
+@objc class CTFPAMMultipleSelectionTask: NSObject, SBABridgeTask, SBAStepTransformer {
 
-    let task: PAMTask
+    let task: PAMMultipleSelectionTask
     init(dictionaryRepresentation: NSDictionary) {
-        self.task = PAMTask(identifier: "testIdentifier")
+        self.task = PAMMultipleSelectionTask(identifier: "testIdentifier", json: dictionaryRepresentation, bundle:  Bundle(for: PAMMultipleSelectionTask.self))
         super.init()
     }
     

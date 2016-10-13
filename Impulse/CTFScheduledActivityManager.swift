@@ -46,50 +46,13 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
             return
         }
         
-        self.activities = scheduleArray.flatMap( {CTFScheduledActivity(json: $0)})
+        //note that random activities are only selected once per instantiated scheduled activity
+        //this means that we will need to reload scheduled activities from json 
         
-//        let activity1 = CTFActivity()
-//        activity1.label = "Memory"
-//        
-//        let scheduledActivity1 = CTFScheduledActivity()
-//        scheduledActivity1.activity = activity1
-//        scheduledActivity1.taskIdentifier = "Memory Activity"
-//        scheduledActivity1.guid = "12345678"
-//        
-//        let activity2 = CTFActivity()
-//        activity2.label = "PAM"
-//        
-//        let scheduledActivity2 = CTFScheduledActivity()
-//        scheduledActivity2.activity = activity2
-//        scheduledActivity2.taskIdentifier = "PAM"
-//        scheduledActivity2.guid = "12345678"
-//        
-//        let activity3 = CTFActivity()
-//        activity3.label = "Baseline"
-//        
-//        let scheduledActivity3 = CTFScheduledActivity()
-//        scheduledActivity3.activity = activity3
-//        scheduledActivity3.taskIdentifier = "Baseline"
-//        scheduledActivity3.guid = "12345678"
-//        
-//        let activity4 = CTFActivity()
-//        activity4.label = "Go No Go Stable Stimulus"
-//        
-//        let scheduledActivity4 = CTFScheduledActivity()
-//        scheduledActivity4.activity = activity4
-//        scheduledActivity4.taskIdentifier = "Go No Go Stable Stimulus"
-//        scheduledActivity4.guid = "12345678"
-//        
-//        let activity5 = CTFActivity()
-//        activity5.label = "Go No Go Variable Stimulus"
-//        
-//        let scheduledActivity5 = CTFScheduledActivity()
-//        scheduledActivity5.activity = activity5
-//        scheduledActivity5.taskIdentifier = "Go No Go Variable Stimulus"
-//        scheduledActivity5.guid = "12345678"
-//        
-//        
-//        self.activities = [scheduledActivity1, scheduledActivity2, scheduledActivity3, scheduledActivity4, scheduledActivity5]
+        // TODO: refact scheduleArray into schedule items (which map directly to the schedule json)
+        // and ScheduledActivities, which are the activities that should be shown on the screen
+        self.activities = scheduleArray.flatMap( {CTFScheduledActivity(json: $0)})
+
     }
     
     lazy var sharedAppDelegate: SBAAppInfoDelegate = {
@@ -161,7 +124,7 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
     }
     
     func scheduledActivityForTaskIdentifier(_ taskIdentifier: String) -> CTFScheduledActivity? {
-        return activities.first(where: { $0.taskIdentifier == taskIdentifier })
+        return activities.first(where: { $0.activity!.identifier == taskIdentifier })
     }
     
     
@@ -337,18 +300,20 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
     }
     
     func createTask(_ schedule: CTFScheduledActivity) -> (task: ORKTask?, taskRef: SBATaskReference?) {
-        let taskRef = bridgeInfo.taskReferenceWithIdentifier(schedule.taskIdentifier!)
+        
+        let taskRef = bridgeInfo.taskReferenceWithIdentifier(schedule.activity.identifier)
         
         //note that at some point, we should probably 
         print(taskRef)
         let task = taskRef?.transformToTask(with: CTFTaskFactory(), isLastStep: true)
         if let surveyTask = task as? SBASurveyTask {
-            surveyTask.title = schedule.activity!.label
+            surveyTask.title = schedule.activity.title
         }
         return (task, taskRef)
     }
     
     func createTaskViewControllerForSchedule(_ schedule: CTFScheduledActivity) -> SBATaskViewController? {
+
         let (inTask, inTaskRef) = self.createTask(schedule)
         guard let task = inTask, let taskRef = inTaskRef else { return nil }
         let taskViewController = self.instantiateTaskViewController(task)

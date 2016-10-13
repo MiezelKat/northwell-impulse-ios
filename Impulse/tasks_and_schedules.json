@@ -3,7 +3,9 @@
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
+      "scheduleTitle": "Baseline",
       "scheduleIdentifier": "baseline-1",
+      "activityType": "sequential",
       "tasks": [
         {
           "taskTitle": "Baseline",
@@ -14,7 +16,9 @@
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
+      "scheduleTitle": "Go No Go Stable Stimulus",
       "scheduleIdentifier": "go-no-go-stable-1",
+      "activityType": "sequential",
       "tasks": [
         {
           "taskTitle": "Go No Go Stable Stimulus",
@@ -25,7 +29,9 @@
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
+      "scheduleTitle": "Go No Go Variable Stimulus",
       "scheduleIdentifier": "go-no-go-variable-1",
+      "activityType": "sequential",
       "tasks": [
         {
           "taskTitle": "Go No Go Variable Stimulus",
@@ -36,13 +42,19 @@
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
-      "scheduleIdentifier": "PAM",
+      "scheduleIdentifier": "am_survey_go_no_go_stable-1",
+      "scheduleTitle": "Morning Survey",
+      "activityType": "random",
       "tasks": [
         {
-          "taskIdentifier"   :   "PAM",
-          "taskTitle"         :"PAM",
+          "taskTitle": "Morning Survey",
+          "taskIdentifier": "am_survey_go_no_go_stable",
+        },
+        {
+          "taskTitle": "Morning Survey",
+          "taskIdentifier": "am_survey_go_no_go_variable",
         }
       ]
-    }
+    },
   ]
 }

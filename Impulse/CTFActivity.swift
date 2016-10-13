@@ -9,5 +9,22 @@
 import UIKit
 
 class CTFActivity: NSObject {
-    var label: String?
+    var title: String!
+    var identifier: String!
+    
+    override init() {
+        super.init()
+    }
+     
+    init?(json: AnyObject) {
+        super.init()
+        guard let title = json["taskTitle"] as? String,
+            let taskIdentifier = json["taskIdentifier"] as? String
+            else {
+                return nil
+        }
+        
+        self.title = title
+        self.identifier = taskIdentifier
+    }
 }

@@ -33,10 +33,27 @@ import UIKit
 //
 //@property (nonatomic, strong, readwrite) SBBActivity *activity;
 
+public enum CTFScheduledActivityType {
+    
+    case sequential // only supports first task
+    case random //randomly selects a task to run
+    
+    init?(name: String?) {
+        guard let type = name else { self = .sequential; return }
+        switch(type) {
+        case "sequential"      : self = .sequential
+        case "random"       : self = .random
+        default             : self = .sequential
+        }
+    }
+}
+
 open class CTFScheduledActivity: NSObject {
-    var activity: CTFActivity!
-    var taskIdentifier: String!
+    private var activities: [CTFActivity]!
+    private var _activity: CTFActivity?
     var guid: String!
+    var title: String!
+    var type: CTFScheduledActivityType!
     
     override init() {
         super.init()
@@ -45,19 +62,45 @@ open class CTFScheduledActivity: NSObject {
     init?(json: AnyObject) {
         super.init()
         
-        guard let task = (json["tasks"] as? [AnyObject])?[0],
-            let title = task["taskTitle"] as? String,
-            let taskIdentifier = task["taskIdentifier"] as? String,
-            let scheduleIdentifier = json["scheduleIdentifier"] as? String else {
+        guard let tasks = json["tasks"] as? [AnyObject],
+            let title = json["scheduleTitle"] as? String,
+            let scheduleIdentifier = json["scheduleIdentifier"] as? String,
+            let type = CTFScheduledActivityType(name: json["activityType"] as? String) else {
                 return nil
         }
         
-        self.activity = CTFActivity()
-        self.activity.label = title
+        self.activities = tasks.flatMap { task in
+            return CTFActivity(json: task)
+        }
         
-        self.taskIdentifier = taskIdentifier
+        self.title = title
         self.guid = scheduleIdentifier
+        self.type = type
     }
+    
+    private func selectActivity() -> CTFActivity? {
+        switch(self.type) {
+        case .some(.sequential):
+            return self.activities.first
+            
+        case .some(.random):
+            return self.activities?.random()
+        default:
+            return nil
+        }
+    }
+    
+    var activity: CTFActivity! {
+        
+        if self._activity == nil {
+            self._activity = self.selectActivity()
+        }
+        
+        return self._activity
+        
+    }
+    
+    
 }
 
 public extension CTFScheduledActivity {

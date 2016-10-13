@@ -275,9 +275,9 @@
      "classType"               : "Impulse.CTFPulsusFormBridgeTask",
      },
      {
-       "identifier"   :   "PAM",
+       "identifier"   :   "PAMMultipleSelection",
        "resourceName"            : "PAM",
-       "classType"               : "Impulse.CTFPAMTask",
+       "classType"               : "Impulse.CTFPAMMultipleSelectionTask",
      },
    ]
 }

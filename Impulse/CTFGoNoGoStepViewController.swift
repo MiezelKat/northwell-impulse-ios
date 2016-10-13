@@ -58,18 +58,6 @@ struct CTFGoNoGoTrialResult {
     
 }
 
-extension Array {
-    func random() -> Element? {
-        if self.count == 0 {
-            return nil
-        }
-        else{
-            let index = Int(arc4random_uniform(UInt32(self.count)))
-            return self[index]
-        }
-    }
-}
-
 class CTFGoNoGoStepViewController: ORKStepViewController, CTFGoNoGoViewDelegate {
 
     
