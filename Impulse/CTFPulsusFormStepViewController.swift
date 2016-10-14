@@ -58,7 +58,8 @@ class CTFPulsusFormStepViewController: ORKStepViewController, UITableViewDataSou
         let nib = UINib(nibName: "CTFFormItemCell", bundle: nil)
         self.formItemTableView.register(nib, forCellReuseIdentifier: "ctf_form_item_cell")
         self.formItemTableView.rowHeight = UITableViewAutomaticDimension
-        self.formItemTableView.cellLayoutMarginsFollowReadableWidth = false
+        self.formItemTableView.estimatedRowHeight = 150
+//        self.formItemTableView.cellLayoutMarginsFollowReadableWidth = false
         self.formItemTableView.separatorInset = UIEdgeInsets.zero
         
         
@@ -182,9 +183,9 @@ class CTFPulsusFormStepViewController: ORKStepViewController, UITableViewDataSou
         return pulsusCell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 150
+//    }
     
     
     func formItemCellAnswerChanged(_ cell: CTFFormItemCell, answer: Int) {

@@ -4,16 +4,7 @@
     "steps"         :
     [
 
-      {
-      "identifier"       : "Pulsus",
-      "resourceName"            : "self_assessment_5",
-      "classType"               : "Impulse.CTFPulsusFormBridgeTask",
-      },
-      {
-      "identifier"       : "Pulsus",
-      "resourceName"            : "self_assessment_6",
-      "classType"               : "Impulse.CTFPulsusFormBridgeTask",
-      },
+     
 
 
 
@@ -186,7 +177,17 @@
        ],
      },
      
-
+     {
+     "identifier"       : "Pulsus",
+     "resourceName"            : "self_assessment_5",
+     "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+     },
+     {
+     "identifier"       : "Pulsus",
+     "resourceName"            : "self_assessment_6",
+     "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+     },
+     
      {
        "identifier":  "baseline_7",
        "type"       : "multipleChoiceText",

@@ -9,11 +9,6 @@
 import UIKit
 import ResearchKit
 
-//- (void)formItemCell:(ORKFormItemCell *)cell answerDidChangeTo:(nullable id)answer;
-//- (void)formItemCellDidBecomeFirstResponder:(ORKFormItemCell *)cell;
-//- (void)formItemCellDidResignFirstResponder:(ORKFormItemCell *)cell;
-//- (void)formItemCell:(ORKFormItemCell *)cell invalidInputAlertWithMessage:(NSString *)input;
-//- (void)formItemCell:(ORKFormItemCell *)cell invalidInputAlertWithTitle:(NSString *)title message:(NSString *)message;
 protocol CTFFormItemCellDelegate {
     func formItemCellAnswerChanged(_ cell: CTFFormItemCell, answer: Int)
 }
@@ -26,14 +21,11 @@ class CTFFormItemCell: UITableViewCell {
     let kValueLabelHeight: CGFloat = 24
     let kStackViewSpacing: CGFloat = 20
 
-//    @IBOutlet weak var titleTextView: UITextView!
-    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var valueSlider: UISlider!
     @IBOutlet weak var minTextLabel: UILabel!
     @IBOutlet weak var maxTextLabel: UILabel!
-    @IBOutlet weak var topStackViewHeight: NSLayoutConstraint!
     
     var delegate: CTFFormItemCellDelegate?
     var answer: AnyObject? {
@@ -52,19 +44,16 @@ class CTFFormItemCell: UITableViewCell {
         self.contentView.layoutMargins = UIEdgeInsetsMake(0, 0, 0, 8)
     }
     
-    
-    
     func configure(_ formItem: ORKFormItem, value: Int) {
         self.formItem = formItem
         self.titleLabel.text = formItem.text
-        
-//        let fixedWidth = (self.frame.size.width - (kStackViewWidthDifference + kValueLabelWidth + kStackViewSpacing))
-//        let newSize = self.titleTextView?.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
-//        self.topStackViewHeight.constant = max((newSize?.height)!, kValueLabelHeight)
-        
+
         self.setValue(value)
         
         if let scaleAnswerFormat = formItem.answerFormat as? ORKScaleAnswerFormat {
+            self.valueSlider.minimumValue = Float(scaleAnswerFormat.minimum)
+            self.valueSlider.maximumValue = Float(scaleAnswerFormat.maximum)
+            self.valueSlider.value = Float(scaleAnswerFormat.defaultValue)
             self.minTextLabel.text = scaleAnswerFormat.minimumValueDescription
             self.maxTextLabel.text = scaleAnswerFormat.maximumValueDescription
         }
@@ -90,24 +79,4 @@ class CTFFormItemCell: UITableViewCell {
     func updateValueLabel(_ value: Int) {
         self.valueLabel.text = "\(value)"
     }
-    
-//    override func layoutSubviews() {
-//        
-//        
-//        
-//        super.layoutSubviews()
-//    }
-//    
-//    override func sizeThatFits(_ size: CGSize) -> CGSize {
-//        return size
-//    }
-//    
-//    override func didMoveToSuperview() {
-//        super.didMoveToSuperview()
-//        
-//        print(self.titleTextView?.frame.size.width)
-//    }
-//    
-    
-
 }
