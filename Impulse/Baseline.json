@@ -23,7 +23,6 @@
      {
        "identifier"       : "baseline_4",
          "type"             : "compound",
-         "text"             : "We would like to understand how your performance on this activity could be affected by the timing of your medication.",
          "items"        : [
            {
              "identifier" : "gender",

@@ -33,71 +33,21 @@ import UIKit
 //
 //@property (nonatomic, strong, readwrite) SBBActivity *activity;
 
-public enum CTFScheduledActivityType {
-    
-    case sequential // only supports first task
-    case random //randomly selects a task to run
-    
-    init?(name: String?) {
-        guard let type = name else { self = .sequential; return }
-        switch(type) {
-        case "sequential"      : self = .sequential
-        case "random"       : self = .random
-        default             : self = .sequential
-        }
-    }
-}
-
 open class CTFScheduledActivity: NSObject {
-    private var activities: [CTFActivity]!
-    private var _activity: CTFActivity?
+    var activity: CTFActivity!
     var guid: String!
     var title: String!
-    var type: CTFScheduledActivityType!
     
     override init() {
         super.init()
     }
     
-    init?(json: AnyObject) {
-        super.init()
+    convenience init?(guid: String?, title: String?, activity: CTFActivity?) {
+        self.init()
         
-        guard let tasks = json["tasks"] as? [AnyObject],
-            let title = json["scheduleTitle"] as? String,
-            let scheduleIdentifier = json["scheduleIdentifier"] as? String,
-            let type = CTFScheduledActivityType(name: json["activityType"] as? String) else {
-                return nil
-        }
-        
-        self.activities = tasks.flatMap { task in
-            return CTFActivity(json: task)
-        }
-        
+        self.guid = guid
         self.title = title
-        self.guid = scheduleIdentifier
-        self.type = type
-    }
-    
-    private func selectActivity() -> CTFActivity? {
-        switch(self.type) {
-        case .some(.sequential):
-            return self.activities.first
-            
-        case .some(.random):
-            return self.activities?.random()
-        default:
-            return nil
-        }
-    }
-    
-    var activity: CTFActivity! {
-        
-        if self._activity == nil {
-            self._activity = self.selectActivity()
-        }
-        
-        return self._activity
-        
+        self.activity = activity
     }
     
     

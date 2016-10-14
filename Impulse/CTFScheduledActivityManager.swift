@@ -45,14 +45,9 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
         guard let scheduleArray = json["schedules"] as? [AnyObject] else {
             return
         }
-        
-        //note that random activities are only selected once per instantiated scheduled activity
-        //this means that we will need to reload scheduled activities from json 
-        
-        // TODO: refact scheduleArray into schedule items (which map directly to the schedule json)
-        // and ScheduledActivities, which are the activities that should be shown on the screen
-        self.activities = scheduleArray.flatMap( {CTFScheduledActivity(json: $0)})
-
+ 
+        self.scheduleItems = scheduleArray.flatMap( {CTFScheduleItem(json: $0)})
+        self.reloadData()
     }
     
     lazy var sharedAppDelegate: SBAAppInfoDelegate = {
@@ -63,10 +58,12 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
         return self.sharedBridgeInfo
     }
     
+    var scheduleItems: [CTFScheduleItem]! = []
     var activities: [CTFScheduledActivity]! = []
     
     func reloadData() {
-        
+        //note that we will add filters in the future to only show items that should be shown based on context
+        self.activities = self.scheduleItems.flatMap({$0.generateScheduledActivity()})
     }
     
     func numberOfSections() -> Int {
@@ -163,6 +160,7 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
             print(results)
         }
         
+        self.reloadData()
         taskViewController.dismiss(animated: true) {}
     }
     

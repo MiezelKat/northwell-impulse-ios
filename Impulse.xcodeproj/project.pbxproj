@@ -61,6 +61,7 @@
 		E2CCB6661DB151F700C801A4 /* pm_likert_1.json in Resources */ = {isa = PBXBuildFile; fileRef = E2CCB6631DB151F700C801A4 /* pm_likert_1.json */; };
 		E2CCB6671DB151F700C801A4 /* pm_survey_go_no_go_stable.json in Resources */ = {isa = PBXBuildFile; fileRef = E2CCB6641DB151F700C801A4 /* pm_survey_go_no_go_stable.json */; };
 		E2CCB6681DB151F700C801A4 /* pm_survey_go_no_go_variable.json in Resources */ = {isa = PBXBuildFile; fileRef = E2CCB6651DB151F700C801A4 /* pm_survey_go_no_go_variable.json */; };
+		E2CCB66A1DB158AF00C801A4 /* CTFScheduleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CCB6691DB158AF00C801A4 /* CTFScheduleItem.swift */; };
 		E2E759341DA2F7FB00D00C55 /* BridgeAppSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E759311DA2F7D200D00C55 /* BridgeAppSDK.framework */; };
 		E2E759351DA2F7FB00D00C55 /* BridgeAppSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E2E759311DA2F7D200D00C55 /* BridgeAppSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E2E759391DA2F80200D00C55 /* SDLRKX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E759221DA2F7AC00D00C55 /* SDLRKX.framework */; };
@@ -212,6 +213,7 @@
 		E2CCB6631DB151F700C801A4 /* pm_likert_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pm_likert_1.json; sourceTree = "<group>"; };
 		E2CCB6641DB151F700C801A4 /* pm_survey_go_no_go_stable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pm_survey_go_no_go_stable.json; sourceTree = "<group>"; };
 		E2CCB6651DB151F700C801A4 /* pm_survey_go_no_go_variable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pm_survey_go_no_go_variable.json; sourceTree = "<group>"; };
+		E2CCB6691DB158AF00C801A4 /* CTFScheduleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFScheduleItem.swift; sourceTree = "<group>"; };
 		E2E7591D1DA2F7AC00D00C55 /* SDLRKX.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDLRKX.xcodeproj; path = "sdl-rkx/SDLRKX/SDLRKX.xcodeproj"; sourceTree = "<group>"; };
 		E2E759231DA2F7D200D00C55 /* BridgeAppSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BridgeAppSDK.xcodeproj; path = BridgeAppSDK/BridgeAppSDK.xcodeproj; sourceTree = "<group>"; };
 		E2EF6B1B1DA2E2970034456A /* Impulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Impulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -335,6 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				E2AA6D041DA43C5C005D5137 /* CTFScheduledActivityManager.swift */,
+				E2CCB6691DB158AF00C801A4 /* CTFScheduleItem.swift */,
 				E2AA6D061DA43C6B005D5137 /* CTFScheduledActivity.swift */,
 				E2AA6D071DA43C6B005D5137 /* CTFActivity.swift */,
 				E2AA6D081DA43C6B005D5137 /* CTFActivityArchive.swift */,
@@ -735,6 +738,7 @@
 				E2AA6D1B1DA43C83005D5137 /* CTFPulsusFormStep.swift in Sources */,
 				E21F23821DA44F2F00760EA7 /* ORKOrderedTask+GoNoGo.swift in Sources */,
 				E2AA6D0E1DA43C6B005D5137 /* CTFActivityResult.swift in Sources */,
+				E2CCB66A1DB158AF00C801A4 /* CTFScheduleItem.swift in Sources */,
 				E2AA6D191DA43C83005D5137 /* CTFFormItemCell.swift in Sources */,
 				E2AA6D031DA43C54005D5137 /* CTFActivityTableViewController.swift in Sources */,
 				E2AA6D1C1DA43C83005D5137 /* CTFPulsusFormBridgeTask.swift in Sources */,
