@@ -39,28 +39,20 @@ class CTFPulsusFormStepViewController: ORKStepViewController, UITableViewDataSou
         self.step = step
         self.initializeResults(result)
         self.restorationIdentifier = step!.identifier
-        
-//        self.restorationClass = CTFPulsusFormStepViewController.self
-        
-        
-        
-        print(self.step)
-        print(self.step?.title)
-        if let formStep = self.step as? CTFPulsusFormStep {
-            formStep.formItems?.forEach { formItem in
-                print(formItem)
-            }
-        }
+    
+//        print(self.step)
+//        print(self.step?.title)
+//        if let formStep = self.step as? CTFPulsusFormStep {
+//            formStep.formItems?.forEach { formItem in
+//                print(formItem)
+//            }
+//        }
         
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let stepIdentifier = self.step?.identifier {
-            print(self.previousStepResult(stepIdentifier: stepIdentifier))
-        }
         
         //register cell
         let nib = UINib(nibName: "CTFFormItemCell", bundle: nil)
@@ -150,16 +142,18 @@ class CTFPulsusFormStepViewController: ORKStepViewController, UITableViewDataSou
         return parentResult
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         self.titleTextView.text = self.step?.title
-        let sizeThatFits = self.titleTextView.sizeThatFits(CGSize(width: self.titleTextView.frame.size.width, height: CGFloat(MAXFLOAT)))
-        
-        self.titleTextViewHeight.constant = sizeThatFits.height
         self.nextButton.setTitle("Next", for: UIControlState())
         self.nextButton.configuredColor = self.view.tintColor
         
+    }
+    
+    override func viewWillLayoutSubviews() {
+        
+        let sizeThatFits = self.titleTextView.sizeThatFits(CGSize(width: self.titleTextView.frame.size.width, height: CGFloat(MAXFLOAT)))
+        self.titleTextViewHeight.constant = sizeThatFits.height
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -179,7 +173,8 @@ class CTFPulsusFormStepViewController: ORKStepViewController, UITableViewDataSou
                 return cell
         }
         
-        print(formItem.text)
+//        print(formItem.text)
+//        print(formItem)
         pulsusCell.configure(formItem, value: self.answerDictionary![formItem.identifier]!)
         
         pulsusCell.delegate = self

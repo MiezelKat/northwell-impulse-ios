@@ -42,7 +42,7 @@ class CTFFormStepSurveyItem: NSObject, SBAFormStepSurveyItem {
     
     static func isCTFFormStep(formStepSurveyItem: SBAFormStepSurveyItem) -> Bool {
         if let customTypeIdentifier = formStepSurveyItem.surveyItemType.customTypeIdentifier {
-            print(customTypeIdentifier)
+//            print(customTypeIdentifier)
             return true
         }
         

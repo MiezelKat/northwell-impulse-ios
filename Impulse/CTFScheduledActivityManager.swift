@@ -40,7 +40,7 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
         super.init()
         self.delegate = delegate
         
-        print(json)
+//        print(json)
         
         guard let scheduleArray = json["schedules"] as? [AnyObject] else {
             return
@@ -301,8 +301,6 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
         
         let taskRef = bridgeInfo.taskReferenceWithIdentifier(schedule.activity.identifier)
         
-        //note that at some point, we should probably 
-        print(taskRef)
         let task = taskRef?.transformToTask(with: CTFTaskFactory(), isLastStep: true)
         if let surveyTask = task as? SBASurveyTask {
             surveyTask.title = schedule.activity.title

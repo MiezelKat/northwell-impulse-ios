@@ -53,13 +53,14 @@ class CTFPulsusFormBridgeTask: NSObject, SBABridgeTask, SBAStepTransformer {
         let itemIdentifier:String = (dictionary?["identifier"])! as! String
         let text: String? = dictionary?["text"] as? String
         
-        let range: AnyObject? = dictionary?["range"] as AnyObject?
-        let minimumValue = range?["min"] as? Int ?? 0
-        let maximumValue = range?["max"] as? Int ?? 10
-        let defaultValue = range?["default"] as? Int ?? 5
-        let stepValue = range?["step"] as? Int ?? 1
-        let maximumValueDescription = range?["maxValueText"] as? String ?? "extremely"
-        let minimumValueDescription = range?["minValueText"] as? String ??  "not at all"
+        let range: [String: AnyObject]? = dictionary?["range"] as? [String: AnyObject]
+//        print(range)
+        let minimumValue: Int = range?["min"] as? Int ?? 0
+        let maximumValue: Int = range?["max"] as? Int ?? 10
+        let defaultValue: Int = range?["default"] as? Int ?? 5
+        let stepValue: Int = range?["step"] as? Int ?? 1
+        let maximumValueDescription: String = range?["maxValueText"] as? String ?? "extremely"
+        let minimumValueDescription: String = range?["minValueText"] as? String ??  "not at all"
 
         let scaleAnswerFormat = ORKAnswerFormat.scale(withMaximumValue: maximumValue, minimumValue: minimumValue, defaultValue: defaultValue, step: stepValue, vertical: false, maximumValueDescription: maximumValueDescription, minimumValueDescription: minimumValueDescription)
         
@@ -67,7 +68,7 @@ class CTFPulsusFormBridgeTask: NSObject, SBABridgeTask, SBAStepTransformer {
     }
     
     init(dictionaryRepresentation: NSDictionary) {
-        print(dictionaryRepresentation)
+//        print(dictionaryRepresentation)
         super.init()
         
         self._taskIdentifier = dictionaryRepresentation["taskIdentifier"] as! String

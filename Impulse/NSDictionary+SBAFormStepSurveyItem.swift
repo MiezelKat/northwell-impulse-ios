@@ -11,7 +11,7 @@ import BridgeAppSDK
 
 extension NSDictionary {
     var range: AnyObject? {
-        print(self)
+//        print(self)
         guard let range = self["range"] else {
             return nil
         }

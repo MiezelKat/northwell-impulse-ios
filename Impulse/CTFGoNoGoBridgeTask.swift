@@ -18,7 +18,7 @@ class CTFGoNoGoBridgeTask: NSObject, SBABridgeTask, SBAStepTransformer {
     var stepParams: CTFGoNoGoStepParams!
     
     static func stepParamsFromDictionary(_ dictionary: AnyObject?) -> CTFGoNoGoStepParams? {
-        print(dictionary)
+//        print(dictionary)
         guard let paramsDict = dictionary,
             let numTrials = paramsDict["numberOfTrials"] as? Int,
             let waitTime = paramsDict["waitTime"] as? TimeInterval,
@@ -49,7 +49,7 @@ class CTFGoNoGoBridgeTask: NSObject, SBABridgeTask, SBAStepTransformer {
         super.init()
         
         if let dict = dictionaryRepresentation as? [String: AnyObject] {
-            print(dict)
+//            print(dict)
             self._taskIdentifier = dict["taskIdentifier"] as! String
             self._schemaIdentifier = dict["schemaIdentifier"] as? String
             self.stepParams = CTFGoNoGoBridgeTask.stepParamsFromDictionary(dict["parameters"])

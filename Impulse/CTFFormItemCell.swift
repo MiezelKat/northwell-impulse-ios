@@ -20,8 +20,15 @@ protocol CTFFormItemCellDelegate {
 
 
 class CTFFormItemCell: UITableViewCell {
+    
+    let kStackViewWidthDifference: CGFloat = 24
+    let kValueLabelWidth: CGFloat = 24
+    let kValueLabelHeight: CGFloat = 24
+    let kStackViewSpacing: CGFloat = 20
 
-    @IBOutlet weak var titleTextView: UITextView!
+//    @IBOutlet weak var titleTextView: UITextView!
+    
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var valueSlider: UISlider!
     @IBOutlet weak var minTextLabel: UILabel!
@@ -45,20 +52,15 @@ class CTFFormItemCell: UITableViewCell {
         self.contentView.layoutMargins = UIEdgeInsetsMake(0, 0, 0, 8)
     }
     
+    
+    
     func configure(_ formItem: ORKFormItem, value: Int) {
-        
         self.formItem = formItem
-        self.titleTextView.text = formItem.text
+        self.titleLabel.text = formItem.text
         
-        let textView = self.titleTextView
-        let label = self.valueLabel
-        
-        let fixedWidth = textView?.frame.size.width
-        textView?.sizeThatFits(CGSize(width: fixedWidth!, height: CGFloat.greatestFiniteMagnitude))
-        let newSize = textView?.sizeThatFits(CGSize(width: fixedWidth!, height: CGFloat.greatestFiniteMagnitude))
-        
-        self.topStackViewHeight.constant = max((newSize?.height)!, (label?.frame.size.height)!)
-        
+//        let fixedWidth = (self.frame.size.width - (kStackViewWidthDifference + kValueLabelWidth + kStackViewSpacing))
+//        let newSize = self.titleTextView?.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+//        self.topStackViewHeight.constant = max((newSize?.height)!, kValueLabelHeight)
         
         self.setValue(value)
         
@@ -88,5 +90,24 @@ class CTFFormItemCell: UITableViewCell {
     func updateValueLabel(_ value: Int) {
         self.valueLabel.text = "\(value)"
     }
+    
+//    override func layoutSubviews() {
+//        
+//        
+//        
+//        super.layoutSubviews()
+//    }
+//    
+//    override func sizeThatFits(_ size: CGSize) -> CGSize {
+//        return size
+//    }
+//    
+//    override func didMoveToSuperview() {
+//        super.didMoveToSuperview()
+//        
+//        print(self.titleTextView?.frame.size.width)
+//    }
+//    
+    
 
 }
