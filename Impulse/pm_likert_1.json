@@ -1,0 +1,137 @@
+{
+    "taskIdentifier": "pm_1",
+    "schemaIdentifier": "pm_likert_1",
+    "title": "Please select for each, which comes closest to how you feel right now:",
+    "items" : [
+      {
+        "identifier"        : "focus_pm",
+        "text"              : "",
+        "type"              : "pulsusScale",
+        "range"             : {
+          "min"     : 0,
+          "max"      : 10,
+          "default"   : 5,
+          "step": 1,
+          "minValueText": "focused",
+          "maxValueText": "distracted"
+        }
+      },
+      {
+        "identifier"        : "intentional_pm",
+        "text"              : "",
+        "type"              : "pulsusScale",
+        "range"             : {
+          "min"     : 0,
+          "max"      : 10,
+          "default"   : 5,
+          "step": 1,
+          "minValueText": "impulsive",
+          "maxValueText": "intentional"
+        }
+      },
+      {
+        "identifier"        : "bored_pm",
+        "text"              : "",
+        "type"              : "pulsusScale",
+        "range"             : {
+          "min"     : 0,
+          "max"      : 10,
+          "default"   : 5,
+          "step": 1,
+          "minValueText": "bored",
+          "maxValueText": "engaged"
+        }
+      },
+      {
+        "identifier"        : "proud_pm",
+        "text"              : "",
+        "type"              : "pulsusScale",
+        "range"             : {
+          "min"     : 0,
+          "max"      : 10,
+          "default"   : 5,
+          "step": 1,
+          "minValueText": "proud",
+          "maxValueText": "ashamed"
+        }
+      },
+      {
+        "identifier"        : "energetic_pm",
+        "text"              : "",
+        "type"              : "pulsusScale",
+        "range"             : {
+          "min"     : 0,
+          "max"      : 10,
+          "default"   : 5,
+          "step": 1,
+          "minValueText": "energetic",
+          "maxValueText": "tired"
+        }
+      },
+      {
+        "identifier"        : "frustrated_pm",
+        "text"              : "",
+        "type"              : "pulsusScale",
+        "range"             : {
+          "min"     : 0,
+          "max"      : 10,
+          "default"   : 5,
+          "step": 1,
+          "minValueText": "frustrated",
+          "maxValueText": "content"
+        }
+      },
+      {
+        "identifier"        : "cautious_pm",
+        "text"              : "",
+        "type"              : "pulsusScale",
+        "range"             : {
+          "min"     : 0,
+          "max"      : 10,
+          "default"   : 5,
+          "step": 1,
+          "minValueText": "cautious",
+          "maxValueText": "wreckless"
+        }
+      },
+      {
+        "identifier"        : "lonely_pm",
+        "text"              : "",
+        "type"              : "pulsusScale",
+        "range"             : {
+          "min"     : 0,
+          "max"      : 10,
+          "default"   : 5,
+          "step": 1,
+          "minValueText": "lonely",
+          "maxValueText": "connected"
+        }
+      },
+      {
+        "identifier"        : "optimistic_pm",
+        "text"              : "",
+        "type"              : "pulsusScale",
+        "range"             : {
+          "min"     : 0,
+          "max"      : 10,
+          "default"   : 5,
+          "step": 1,
+          "minValueText": "optimistic",
+          "maxValueText": "pessimistic"
+        }
+      },
+      {
+        "identifier"        : "determined_pm",
+        "text"              : "",
+        "type"              : "pulsusScale",
+        "range"             : {
+          "min"     : 0,
+          "max"      : 10,
+          "default"   : 5,
+          "step": 1,
+          "minValueText": "determined",
+          "maxValueText": "aimless"
+        }
+      },
+    ]
+}

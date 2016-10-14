@@ -1,0 +1,33 @@
+{
+    "taskIdentifier"    : "pm_survey_go_no_go_variable",
+    "steps"         : [
+      {
+        "identifier"       : "Pulsus",
+        "resourceName"            : "pm_likert_1",
+        "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+      },
+      {
+        "identifier"   :   "PAM",
+        "resourceName"            : "PAM",
+        "classType"               : "Impulse.CTFPAMTask",
+      },
+      {
+        "identifier"   : "introduction",
+        "type"         : "instruction",
+        "title"        : "Welcome to the Square Task.",
+        "text"         : "Once you start, you will be presented with a rectangle. When the rectangle turns green, tap anywhere on the screen as quickly as possible. When it turns blue, do not respond at all. \n\nThe test will take approximately 3 min.",
+      },
+      {
+        "taskIdentifier": "go_no_go_variable_stimulus_active_task",
+        "resourceName": "go_no_go_variable_stimulus_active_task",
+        "classType": "Impulse.CTFGoNoGoBridgeTask"
+      },
+      {
+         "identifier"   : "results",
+         "type"         : "instruction",
+         "title"        : "Results",
+         "text"         : "This is a placeholder for the results",
+       }
+
+    ]
+}

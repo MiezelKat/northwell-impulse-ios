@@ -1,6 +1,5 @@
 {
-    "taskIdentifier"    : "Baseline",
-    "identifier"        : "Baseline",
+    "taskIdentifier"    : "am_survey_go_no_go_stable",
     "steps"         : [
       {
         "identifier"       : "Pulsus",

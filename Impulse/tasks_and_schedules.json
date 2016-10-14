@@ -56,5 +56,22 @@
         }
       ]
     },
+    {
+      "scheduleType": "recurring",
+      "scheduleString": "* * * * *",
+      "scheduleIdentifier": "pm_survey_go_no_go_stable-1",
+      "scheduleTitle": "Evening Survey",
+      "activityType": "random",
+      "tasks": [
+        {
+          "taskTitle": "Evening Survey",
+          "taskIdentifier": "pm_survey_go_no_go_stable",
+        },
+        {
+          "taskTitle": "Evening Survey",
+          "taskIdentifier": "pm_survey_go_no_go_variable",
+        }
+      ]
+    },
   ]
 }

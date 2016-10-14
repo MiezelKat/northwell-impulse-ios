@@ -58,6 +58,9 @@
 		E2AA6D331DA43CEE005D5137 /* self_assessment_10.json in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6D2D1DA43CEE005D5137 /* self_assessment_10.json */; };
 		E2AA6D351DA43D07005D5137 /* CTFMainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D341DA43D07005D5137 /* CTFMainTabViewController.swift */; };
 		E2AA6D381DA43F57005D5137 /* CTFPAMTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D371DA43F57005D5137 /* CTFPAMTask.swift */; };
+		E2CCB6661DB151F700C801A4 /* pm_likert_1.json in Resources */ = {isa = PBXBuildFile; fileRef = E2CCB6631DB151F700C801A4 /* pm_likert_1.json */; };
+		E2CCB6671DB151F700C801A4 /* pm_survey_go_no_go_stable.json in Resources */ = {isa = PBXBuildFile; fileRef = E2CCB6641DB151F700C801A4 /* pm_survey_go_no_go_stable.json */; };
+		E2CCB6681DB151F700C801A4 /* pm_survey_go_no_go_variable.json in Resources */ = {isa = PBXBuildFile; fileRef = E2CCB6651DB151F700C801A4 /* pm_survey_go_no_go_variable.json */; };
 		E2E759341DA2F7FB00D00C55 /* BridgeAppSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E759311DA2F7D200D00C55 /* BridgeAppSDK.framework */; };
 		E2E759351DA2F7FB00D00C55 /* BridgeAppSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E2E759311DA2F7D200D00C55 /* BridgeAppSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E2E759391DA2F80200D00C55 /* SDLRKX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E759221DA2F7AC00D00C55 /* SDLRKX.framework */; };
@@ -71,6 +74,12 @@
 		E2FE1AA61DAEEA1B00DBB8E7 /* ORKStepViewController+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE1AA51DAEEA1B00DBB8E7 /* ORKStepViewController+Helpers.swift */; };
 		E2FE1AA81DAEF56F00DBB8E7 /* go_no_go_stable_stimulus_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2FE1AA71DAEF56F00DBB8E7 /* go_no_go_stable_stimulus_full_task.json */; };
 		E2FE1AAC1DAFED4A00DBB8E7 /* go_no_go_variable_stimulus_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2FE1AAB1DAFED4A00DBB8E7 /* go_no_go_variable_stimulus_full_task.json */; };
+		E2FE1AAE1DB00CF900DBB8E7 /* CTFPAMMultipleSelectionTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE1AAD1DB00CF900DBB8E7 /* CTFPAMMultipleSelectionTask.swift */; };
+		E2FE1AB21DB00D0100DBB8E7 /* am_likert_1.json in Resources */ = {isa = PBXBuildFile; fileRef = E2FE1AAF1DB00D0100DBB8E7 /* am_likert_1.json */; };
+		E2FE1AB31DB00D0100DBB8E7 /* am_likert_3.json in Resources */ = {isa = PBXBuildFile; fileRef = E2FE1AB01DB00D0100DBB8E7 /* am_likert_3.json */; };
+		E2FE1AB41DB00D0100DBB8E7 /* am_survey_go_no_go_stable.json in Resources */ = {isa = PBXBuildFile; fileRef = E2FE1AB11DB00D0100DBB8E7 /* am_survey_go_no_go_stable.json */; };
+		E2FE1AB71DB0337200DBB8E7 /* Array+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE1AB61DB0337200DBB8E7 /* Array+Random.swift */; };
+		E2FE1AB91DB0393000DBB8E7 /* am_survey_go_no_go_variable.json in Resources */ = {isa = PBXBuildFile; fileRef = E2FE1AB81DB0393000DBB8E7 /* am_survey_go_no_go_variable.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -200,6 +209,9 @@
 		E2AA6D2D1DA43CEE005D5137 /* self_assessment_10.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = self_assessment_10.json; sourceTree = "<group>"; };
 		E2AA6D341DA43D07005D5137 /* CTFMainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFMainTabViewController.swift; sourceTree = "<group>"; };
 		E2AA6D371DA43F57005D5137 /* CTFPAMTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFPAMTask.swift; sourceTree = "<group>"; };
+		E2CCB6631DB151F700C801A4 /* pm_likert_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pm_likert_1.json; sourceTree = "<group>"; };
+		E2CCB6641DB151F700C801A4 /* pm_survey_go_no_go_stable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pm_survey_go_no_go_stable.json; sourceTree = "<group>"; };
+		E2CCB6651DB151F700C801A4 /* pm_survey_go_no_go_variable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pm_survey_go_no_go_variable.json; sourceTree = "<group>"; };
 		E2E7591D1DA2F7AC00D00C55 /* SDLRKX.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDLRKX.xcodeproj; path = "sdl-rkx/SDLRKX/SDLRKX.xcodeproj"; sourceTree = "<group>"; };
 		E2E759231DA2F7D200D00C55 /* BridgeAppSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BridgeAppSDK.xcodeproj; path = BridgeAppSDK/BridgeAppSDK.xcodeproj; sourceTree = "<group>"; };
 		E2EF6B1B1DA2E2970034456A /* Impulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Impulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -217,6 +229,12 @@
 		E2FE1AA51DAEEA1B00DBB8E7 /* ORKStepViewController+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ORKStepViewController+Helpers.swift"; sourceTree = "<group>"; };
 		E2FE1AA71DAEF56F00DBB8E7 /* go_no_go_stable_stimulus_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = go_no_go_stable_stimulus_full_task.json; sourceTree = "<group>"; };
 		E2FE1AAB1DAFED4A00DBB8E7 /* go_no_go_variable_stimulus_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = go_no_go_variable_stimulus_full_task.json; sourceTree = "<group>"; };
+		E2FE1AAD1DB00CF900DBB8E7 /* CTFPAMMultipleSelectionTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFPAMMultipleSelectionTask.swift; sourceTree = "<group>"; };
+		E2FE1AAF1DB00D0100DBB8E7 /* am_likert_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = am_likert_1.json; sourceTree = "<group>"; };
+		E2FE1AB01DB00D0100DBB8E7 /* am_likert_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = am_likert_3.json; sourceTree = "<group>"; };
+		E2FE1AB11DB00D0100DBB8E7 /* am_survey_go_no_go_stable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = am_survey_go_no_go_stable.json; sourceTree = "<group>"; };
+		E2FE1AB61DB0337200DBB8E7 /* Array+Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Random.swift"; sourceTree = "<group>"; };
+		E2FE1AB81DB0393000DBB8E7 /* am_survey_go_no_go_variable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = am_survey_go_no_go_variable.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +299,7 @@
 		E27E29111DA5A47E0050788A /* Sage SDK Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E2FE1AAD1DB00CF900DBB8E7 /* CTFPAMMultipleSelectionTask.swift */,
 				E2AA6D371DA43F57005D5137 /* CTFPAMTask.swift */,
 				E21F238E1DA5684500760EA7 /* CTFGoNoGoBridgeTask.swift */,
 				E2AA6D151DA43C83005D5137 /* CTFPulsusFormBridgeTask.swift */,
@@ -315,13 +334,13 @@
 		E2AA6D011DA43BC7005D5137 /* Study Management */ = {
 			isa = PBXGroup;
 			children = (
+				E2AA6D041DA43C5C005D5137 /* CTFScheduledActivityManager.swift */,
 				E2AA6D061DA43C6B005D5137 /* CTFScheduledActivity.swift */,
 				E2AA6D071DA43C6B005D5137 /* CTFActivity.swift */,
 				E2AA6D081DA43C6B005D5137 /* CTFActivityArchive.swift */,
 				E2AA6D091DA43C6B005D5137 /* CTFActivityResult.swift */,
 				E2AA6D0A1DA43C6B005D5137 /* CTFActivityTableViewCell.swift */,
 				E2AA6D021DA43C54005D5137 /* CTFActivityTableViewController.swift */,
-				E2AA6D041DA43C5C005D5137 /* CTFScheduledActivityManager.swift */,
 				E27E29121DA5AB5F0050788A /* CTFTaskFactory.swift */,
 			);
 			name = "Study Management";
@@ -356,9 +375,16 @@
 		E2AA6D231DA43CCC005D5137 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				E2FE1AB81DB0393000DBB8E7 /* am_survey_go_no_go_variable.json */,
+				E2FE1AB11DB00D0100DBB8E7 /* am_survey_go_no_go_stable.json */,
 				E2AA6D241DA43CD6005D5137 /* tasks_and_schedules.json */,
 				E2AA6D261DA43CDD005D5137 /* PAM.json */,
 				E2AA6D281DA43CEE005D5137 /* Baseline.json */,
+				E2FE1AAF1DB00D0100DBB8E7 /* am_likert_1.json */,
+				E2FE1AB01DB00D0100DBB8E7 /* am_likert_3.json */,
+				E2CCB6631DB151F700C801A4 /* pm_likert_1.json */,
+				E2CCB6641DB151F700C801A4 /* pm_survey_go_no_go_stable.json */,
+				E2CCB6651DB151F700C801A4 /* pm_survey_go_no_go_variable.json */,
 				E2AA6D291DA43CEE005D5137 /* self_assessment_5.json */,
 				E2AA6D2B1DA43CEE005D5137 /* self_assessment_6.json */,
 				E2AA6D2C1DA43CEE005D5137 /* self_assessment_9.json */,
@@ -421,8 +447,7 @@
 		E2EF6B1D1DA2E2970034456A /* Impulse */ = {
 			isa = PBXGroup;
 			children = (
-				E2FE1AA41DAEE9C200DBB8E7 /* RK Helpers */,
-				E27E29111DA5A47E0050788A /* Sage SDK Helpers */,
+				E2FE1AB51DB0336200DBB8E7 /* Helpers */,
 				E2AA6D361DA43F45005D5137 /* SDLRKX Helpers */,
 				E2EF6B1E1DA2E2970034456A /* AppDelegate.swift */,
 				E2AA6D341DA43D07005D5137 /* CTFMainTabViewController.swift */,
@@ -476,6 +501,16 @@
 				E2FE1AA51DAEEA1B00DBB8E7 /* ORKStepViewController+Helpers.swift */,
 			);
 			name = "RK Helpers";
+			sourceTree = "<group>";
+		};
+		E2FE1AB51DB0336200DBB8E7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E2FE1AA41DAEE9C200DBB8E7 /* RK Helpers */,
+				E27E29111DA5A47E0050788A /* Sage SDK Helpers */,
+				E2FE1AB61DB0337200DBB8E7 /* Array+Random.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -642,24 +677,31 @@
 				E2AA6D311DA43CEE005D5137 /* self_assessment_6.json in Resources */,
 				E2EF6B291DA2E2970034456A /* LaunchScreen.storyboard in Resources */,
 				E2EF6B261DA2E2970034456A /* Assets.xcassets in Resources */,
+				E2FE1AB91DB0393000DBB8E7 /* am_survey_go_no_go_variable.json in Resources */,
 				E2AA6D301DA43CEE005D5137 /* self_assessment_11.json in Resources */,
 				E2AA6D321DA43CEE005D5137 /* self_assessment_9.json in Resources */,
 				E2FE1AA81DAEF56F00DBB8E7 /* go_no_go_stable_stimulus_full_task.json in Resources */,
 				E2AA6D271DA43CDD005D5137 /* PAM.json in Resources */,
+				E2FE1AB41DB00D0100DBB8E7 /* am_survey_go_no_go_stable.json in Resources */,
 				E21F23921DA58D9500760EA7 /* go_no_go_stable_stimulus_active_task.json in Resources */,
 				E2AA6D331DA43CEE005D5137 /* self_assessment_10.json in Resources */,
+				E2CCB6671DB151F700C801A4 /* pm_survey_go_no_go_stable.json in Resources */,
 				E2EF6B241DA2E2970034456A /* Main.storyboard in Resources */,
 				E2AA6CDE1DA41A60005D5137 /* Onboarding.storyboard in Resources */,
+				E2CCB6681DB151F700C801A4 /* pm_survey_go_no_go_variable.json in Resources */,
 				E2AA6D2F1DA43CEE005D5137 /* self_assessment_5.json in Resources */,
 				E21F23931DA58D9500760EA7 /* go_no_go_variable_stimulus_active_task.json in Resources */,
 				E21F237D1DA44F2700760EA7 /* CTFGoNoGoStepViewController.xib in Resources */,
 				E2AA6D221DA43CC1005D5137 /* cornell-mhealth-eval.pem in Resources */,
 				E2AA6D1E1DA43C83005D5137 /* CTFPulsusFormStepViewController.xib in Resources */,
 				E2AA6CF91DA41E19005D5137 /* BridgeInfo.plist in Resources */,
+				E2FE1AB31DB00D0100DBB8E7 /* am_likert_3.json in Resources */,
 				E2FE1AAC1DAFED4A00DBB8E7 /* go_no_go_variable_stimulus_full_task.json in Resources */,
+				E2CCB6661DB151F700C801A4 /* pm_likert_1.json in Resources */,
 				E2AA6D1A1DA43C83005D5137 /* CTFFormItemCell.xib in Resources */,
 				E2AA6CFA1DA41E19005D5137 /* BridgeInfo-private.plist in Resources */,
 				E2AA6D251DA43CD6005D5137 /* tasks_and_schedules.json in Resources */,
+				E2FE1AB21DB00D0100DBB8E7 /* am_likert_1.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -696,9 +738,11 @@
 				E2AA6D191DA43C83005D5137 /* CTFFormItemCell.swift in Sources */,
 				E2AA6D031DA43C54005D5137 /* CTFActivityTableViewController.swift in Sources */,
 				E2AA6D1C1DA43C83005D5137 /* CTFPulsusFormBridgeTask.swift in Sources */,
+				E2FE1AAE1DB00CF900DBB8E7 /* CTFPAMMultipleSelectionTask.swift in Sources */,
 				E2AA6D381DA43F57005D5137 /* CTFPAMTask.swift in Sources */,
 				E2EF6B1F1DA2E2970034456A /* AppDelegate.swift in Sources */,
 				E2AA6D0C1DA43C6B005D5137 /* CTFActivity.swift in Sources */,
+				E2FE1AB71DB0337200DBB8E7 /* Array+Random.swift in Sources */,
 				E2AA6D0B1DA43C6B005D5137 /* CTFScheduledActivity.swift in Sources */,
 				E2AA6CFC1DA41F3D005D5137 /* CTFLogInViaExternalIdViewController.swift in Sources */,
 				E21F23851DA4522600760EA7 /* CTFGoNoGoStep.swift in Sources */,
