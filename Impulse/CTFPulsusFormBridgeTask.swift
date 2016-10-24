@@ -9,36 +9,6 @@
 import UIKit
 import BridgeAppSDK
 
-//class CTFPulsusFormStepTransformer: NSObject, SBAStepTransformer {
-//    
-//    //this needs to contain all the info necessary to render a step
-//    //in the case of the CTFPulsusFormStep, this includes:
-//    //  - identifier
-//    //  - title
-//    //  - ORKFormItems (or info to generate)
-//    //  - 
-//    
-//    var stepIdentifier: String!
-//    var stepTitle: String?
-//    var formItems: [ORKFormItem]?
-//    
-//    init(identifier: String, title: String?, formItems: [ORKFormItem]?) {
-//        super.init()
-//        self.stepIdentifier = identifier
-//        self.stepTitle = title
-//        self.formItems = formItems
-//    }
-//    
-//    func transformToStep(with factory: SBASurveyFactory, isLastStep: Bool) -> ORKStep? {
-//        let formStep = CTFPulsusFormStep(identifier: self.stepIdentifier)
-//        formStep.title = self.stepTitle
-//        formStep.isOptional = false
-//        formStep.formItems = self.formItems
-//        
-//        return formStep
-//    }
-//}
-
 class CTFPulsusFormBridgeTask: NSObject, SBABridgeTask, SBAStepTransformer {
     
     var _taskIdentifier: String!
@@ -54,7 +24,6 @@ class CTFPulsusFormBridgeTask: NSObject, SBABridgeTask, SBAStepTransformer {
         let text: String? = dictionary?["text"] as? String
         
         let range: [String: AnyObject]? = dictionary?["range"] as? [String: AnyObject]
-//        print(range)
         let minimumValue: Int = range?["min"] as? Int ?? 0
         let maximumValue: Int = range?["max"] as? Int ?? 10
         let defaultValue: Int = range?["default"] as? Int ?? 5
@@ -68,7 +37,6 @@ class CTFPulsusFormBridgeTask: NSObject, SBABridgeTask, SBAStepTransformer {
     }
     
     init(dictionaryRepresentation: NSDictionary) {
-//        print(dictionaryRepresentation)
         super.init()
         
         self._taskIdentifier = dictionaryRepresentation["taskIdentifier"] as! String
@@ -81,10 +49,6 @@ class CTFPulsusFormBridgeTask: NSObject, SBABridgeTask, SBAStepTransformer {
         
         self.formItems = dictionaryItems.flatMap(CTFPulsusFormBridgeTask.formItemFromDictionary)
         self.stepTitle = dictionaryRepresentation["title"] as? String
-//        
-//        self.stepTransformer = CTFPulsusFormStepTransformer(identifier: self._taskIdentifier,
-//                                                            title: dictionaryRepresentation["title"] as? String,
-//                                                            formItems: formItems)
         
     }
     

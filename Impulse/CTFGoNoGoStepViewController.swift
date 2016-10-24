@@ -96,27 +96,16 @@ class CTFGoNoGoStepViewController: ORKStepViewController, CTFGoNoGoViewDelegate 
         self.trials = self.generateTrials(params)
     }
     
-    func coinFlip<T>(_ obj1: T, obj2: T, bias: Float = 0.5) -> T {
-        
-        let realBias: Float = min(bias, 1.0)
-        let flip = Float(arc4random()) /  Float(UInt32.max)
-        
-        if flip < realBias {
-            return obj1
-        }
-        else {
-            return obj2
-        }
-    }
+    
     
     func generateTrials(_ goNoGoParams:CTFGoNoGoStepParams) -> [CTFGoNoGoTrial]? {
         if let numTrials = goNoGoParams.numTrials {
             return (0..<numTrials).map { index in
                 let cueTime: TimeInterval = (goNoGoParams.cueTimeOptions?.random())!
-                let cueType: CTFGoNoGoCueType = self.coinFlip(CTFGoNoGoCueType.go, obj2: CTFGoNoGoCueType.noGo)
+                let cueType: CTFGoNoGoCueType = coinFlip(CTFGoNoGoCueType.go, obj2: CTFGoNoGoCueType.noGo)
                 let goCueGoTargetProbability: Float = Float(goNoGoParams.goCueTargetProb ?? 0.7)
                 let noGoCueGoTargetProbability: Float = 1.0 - Float(goNoGoParams.noGoCueTargetProb ?? 0.7)
-                let targetType: CTFGoNoGoTargetType = self.coinFlip(CTFGoNoGoTargetType.go, obj2: CTFGoNoGoTargetType.noGo, bias: (cueType == CTFGoNoGoCueType.go) ? goCueGoTargetProbability: noGoCueGoTargetProbability)
+                let targetType: CTFGoNoGoTargetType = coinFlip(CTFGoNoGoTargetType.go, obj2: CTFGoNoGoTargetType.noGo, bias: (cueType == CTFGoNoGoCueType.go) ? goCueGoTargetProbability: noGoCueGoTargetProbability)
                 
                 return CTFGoNoGoTrial(
                     waitTime: goNoGoParams.waitTime,
@@ -197,7 +186,7 @@ class CTFGoNoGoStepViewController: ORKStepViewController, CTFGoNoGoViewDelegate 
         }
         if let head = trials.first {
             let tail = Array(trials.dropFirst())
-            doTrial(head, completion: { (result) in
+            self.doTrial(head, completion: { (result) in
                 var newResults = Array(results)
                 newResults.append(result)
                 self.performTrials(tail, results: newResults, completion: completion)
