@@ -205,6 +205,18 @@
 			<key>resourceName</key>
 			<string>go_no_go_variable_stimulus_full_task</string>
 		</dict>
+		<dict>
+			<key>taskIdentifier</key>
+			<string>bart_25_cents_active_task</string>
+			<key>resourceName</key>
+			<string>bart_25_cents_active_task</string>
+		</dict>
+		<dict>
+			<key>taskIdentifier</key>
+			<string>bart_25_cents_full_task</string>
+			<key>resourceName</key>
+			<string>bart_25_cents_full_task</string>
+		</dict>
 	</array>
 </dict>
 </plist>

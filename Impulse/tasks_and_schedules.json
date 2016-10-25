@@ -42,6 +42,19 @@
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
+      "scheduleTitle": "BART.25",
+      "scheduleIdentifier": "bart-1",
+      "activityType": "sequential",
+      "tasks": [
+        {
+          "taskTitle": "BART.25",
+          "taskIdentifier": "bart_25_cents_full_task",
+        }
+      ]
+    },
+    {
+      "scheduleType": "recurring",
+      "scheduleString": "* * * * *",
       "scheduleIdentifier": "am_survey_go_no_go_stable-1",
       "scheduleTitle": "Morning Survey",
       "activityType": "random",
