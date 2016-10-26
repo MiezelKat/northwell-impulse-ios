@@ -9,6 +9,20 @@
 import UIKit
 import ResearchKit
 
+extension Array where Element: Integer {
+    /// Returns the sum of all elements in the array
+    var total: Element {
+        return reduce(0, +)
+    }
+}
+extension Collection where Iterator.Element == Int, Index == Int {
+    /// Returns the average of all elements in the array
+    var average: Float {
+        return isEmpty ? 0 : Float(reduce(0, +)) / Float(endIndex-startIndex)
+    }
+}
+
+
 struct CTFBARTTrial {
     var earningsPerPump: Float!
     var maxPayingPumps: Int!
@@ -79,6 +93,99 @@ class CTFBARTStepViewController: ORKStepViewController {
     }
     
     
+    
+    
+    func generateSummary(slice: ArraySlice<(CTFBARTTrialResult, CTFBARTTrialResult?)>) -> CTFBARTResultSummary? {
+        
+        guard slice.count > 0 else {
+            return nil
+        }
+        
+        var summary = CTFBARTResultSummary()
+        
+        let pumpsArray: [Int] = slice.map({$0.0.numPumps})
+        
+        //mean
+        summary.meanNumberOfPumps = pumpsArray.average
+        
+        //range
+        summary.numberOfPumpsRange = pumpsArray.max()! - pumpsArray.min()!
+        
+        //std dev
+        let stdDevExpression = NSExpression(forFunction:"stddev:", arguments:[NSExpression(forConstantValue: pumpsArray)])
+        summary.numberOfPumpsStdDev = stdDevExpression.expressionValue(with: nil, context: nil) as? Float
+        
+        let pumpsAfterExplode: [Int] = slice.filter { (pair) -> Bool in
+            if let previousResult = pair.1 {
+                return previousResult.exploded
+            }
+            else {
+                return false
+            }
+        }.map({$0.0.numPumps})
+        
+        summary.meanNumberOfPumpsAfterExplosion = pumpsAfterExplode.average
+        
+        let pumpsAfterNoExplode: [Int] = slice.filter { (pair) -> Bool in
+            if let previousResult = pair.1 {
+                return !previousResult.exploded
+            }
+            else {
+                return false
+            }
+        }.map({$0.0.numPumps})
+        
+        summary.meanNumberOfPumpsAfterNoExplosion = pumpsAfterNoExplode.average
+        
+        summary.numberOfExplosions = slice.map({$0.0}).filter({$0.exploded}).count
+        
+        summary.numberOfBalloons = slice.count
+        
+        summary.totalWinnings = slice.map({$0.0.payout}).reduce(0.0, +)
+        
+        return summary
+    }
+    
+    override var result: ORKStepResult? {
+        guard let parentResult = super.result else {
+            return nil
+        }
+        
+        if let trialResults = self.trialResults {
+//            var lastResult: CTFBARTTrialResult? = nil
+//            
+//            let pairArray: [(CTFBARTTrialResult, CTFBARTTrialResult?)] =
+//                trialResults.map { result in
+//                    
+//                    let returnPair = (result, lastResult)
+//                    lastResult = result
+//                    return returnPair
+//                    
+//            }
+//            
+//            let bartResult = CTFBARTResult(identifier: step!.identifier)
+//            bartResult.startDate = parentResult.startDate
+//            bartResult.endDate = parentResult.endDate
+//
+//            bartResult.totalSummary = self.generateSummary(slice: ArraySlice(pairArray))
+//            
+//            bartResult.firstThirdSummary = self.generateSummary(slice: pairArray[0..<(pairArray.count/3)])
+//            bartResult.secondThirdSummary = self.generateSummary(slice: pairArray[(pairArray.count/3)..<((2*pairArray.count)/3)])
+//            bartResult.lastThirdSummary = self.generateSummary(slice: pairArray[((2*pairArray.count)/3)..<pairArray.count])
+            
+            
+            let bartResult = CTFBARTResult(identifier: step!.identifier)
+            bartResult.startDate = parentResult.startDate
+            bartResult.endDate = parentResult.endDate
+            bartResult.trialResults = trialResults
+            
+            parentResult.results = [bartResult]
+        }
+        
+        return parentResult
+    }
+    
+    
     func generateTrials(params: CTFBARTStepParams) -> [CTFBARTTrial]? {
         if let numTrials = params.numTrials {
             return (0..<numTrials).map { index in
@@ -118,7 +225,7 @@ class CTFBARTStepViewController: ORKStepViewController {
         //clear results
         if let trials = self.trials {
             self.performTrials(trials, results: [], completion: { (results) in
-                print(results)
+//                print(results)
                 
                 
                 if !self.canceled {
@@ -212,12 +319,12 @@ class CTFBARTStepViewController: ORKStepViewController {
                     1.0 / Float( (trial.maxPayingPumps+2) - pumpCount) :
                     1.0 / 2.0
                 
-                print(popProb)
+//                print(popProb)
                 //note for coinFlip, p1 = bias = popProb, p2 = (1.0-bias) = !popProb
                 let popped: Bool = coinFlip(true, obj2: false, bias: popProb)
                 
                 if popped {
-                    print("should pop here")
+//                    print("should pop here")
                     
                     self.collectButton.isEnabled = false
                     self.pumpButton.isEnabled = false
@@ -225,7 +332,7 @@ class CTFBARTStepViewController: ORKStepViewController {
                     self.balloonImageView.lp_explode(callback: {
                         let result = CTFBARTTrialResult(
                             trial: trial,
-                            numPumps: min(trial.maxPayingPumps, pumpCount),
+                            numPumps: pumpCount+1,
                             payout: 0.0,
                             exploded: true
                         )
@@ -240,10 +347,7 @@ class CTFBARTStepViewController: ORKStepViewController {
                     let monitaryValueString = String(format: "%.2f", trial.earningsPerPump * Float( min(trial.maxPayingPumps, pumpCount+1)))
                     self.trialPayoutLabel.text = "$\(monitaryValueString)"
                     
-                    let increment: CGFloat = (self.view.frame.width / CGFloat(trial.maxPayingPumps * 1000))
-                    print(increment)
-                    let newIncrement = increment * (8.0/(1.0 + CGFloat(pumpCount)))
-                    print(newIncrement)
+                    let increment: CGFloat = (self.view.frame.width / CGFloat(trial.maxPayingPumps * 1000)) * (8.0/(1.0 + CGFloat(pumpCount)))
                     
                     UIView.animate(
                         withDuration: 0.3,
@@ -252,8 +356,8 @@ class CTFBARTStepViewController: ORKStepViewController {
                         initialSpringVelocity: 0.5,
                         options: UIViewAnimationOptions.curveEaseIn, animations: { 
                             let transform = self.balloonImageView.transform.scaledBy(
-                                x: 1.0025 * (1.0+newIncrement),
-                                y: (1.0+newIncrement)
+                                x: 1.0025 * (1.0+increment),
+                                y: (1.0+increment)
                             )
                             
                             self.balloonImageView.transform = transform
@@ -279,7 +383,7 @@ class CTFBARTStepViewController: ORKStepViewController {
                         let result = CTFBARTTrialResult(
                             trial: trial,
                             numPumps: pumpCount,
-                            payout: Float(pumpCount) * trial.earningsPerPump,
+                            payout: Float(min(trial.maxPayingPumps, pumpCount)) * trial.earningsPerPump,
                             exploded: false
                         )
                         

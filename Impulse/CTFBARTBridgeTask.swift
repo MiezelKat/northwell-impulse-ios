@@ -62,7 +62,7 @@ class CTFBARTBridgeTask: NSObject, SBABridgeTask, SBAStepTransformer {
     }
     
     func transformToStep(with factory: SBASurveyFactory, isLastStep: Bool) -> ORKStep? {
-        let bartStep = CTFBARTStep(identifier: CTFGoNoGoTask.CTFGoNoGoStepIdentifier)
+        let bartStep = CTFBARTStep(identifier: CTFBARTStep.identifier)
         bartStep.params = self.stepParams
         return bartStep
     }
