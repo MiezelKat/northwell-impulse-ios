@@ -144,31 +144,55 @@
 			<string>Baseline</string>
 			<key>resourceName</key>
 			<string>Baseline</string>
-		</dict>
-		<dict>
-			<key>taskIdentifier</key>
-			<string>am_survey_go_no_go_stable</string>
-			<key>resourceName</key>
-			<string>am_survey_go_no_go_stable</string>
-		</dict>
-		<dict>
-			<key>taskIdentifier</key>
-			<string>am_survey_go_no_go_variable</string>
-			<key>resourceName</key>
-			<string>am_survey_go_no_go_variable</string>
-		</dict>
-		<dict>
-			<key>taskIdentifier</key>
-			<string>pm_survey_go_no_go_stable</string>
-			<key>resourceName</key>
-			<string>pm_survey_go_no_go_stable</string>
-		</dict>
-		<dict>
-			<key>taskIdentifier</key>
-			<string>pm_survey_go_no_go_variable</string>
-			<key>resourceName</key>
-			<string>pm_survey_go_no_go_variable</string>
-		</dict>
+        </dict>
+        <dict>
+            <key>taskIdentifier</key>
+            <string>am_survey_go_no_go_stable</string>
+            <key>resourceName</key>
+            <string>am_survey_go_no_go_stable</string>
+        </dict>
+        <dict>
+            <key>taskIdentifier</key>
+            <string>am_survey_go_no_go_variable</string>
+            <key>resourceName</key>
+            <string>am_survey_go_no_go_variable</string>
+        </dict>
+        <dict>
+            <key>taskIdentifier</key>
+            <string>am_survey_bart_25_cents</string>
+            <key>resourceName</key>
+            <string>am_survey_bart_25_cents</string>
+        </dict>
+        <dict>
+            <key>taskIdentifier</key>
+            <string>am_survey_bart_250_dollars</string>
+            <key>resourceName</key>
+            <string>am_survey_bart_250_dollars</string>
+        </dict>
+        <dict>
+            <key>taskIdentifier</key>
+            <string>pm_survey_go_no_go_stable</string>
+            <key>resourceName</key>
+            <string>pm_survey_go_no_go_stable</string>
+        </dict>
+        <dict>
+            <key>taskIdentifier</key>
+            <string>pm_survey_go_no_go_variable</string>
+            <key>resourceName</key>
+            <string>pm_survey_go_no_go_variable</string>
+        </dict>
+        <dict>
+            <key>taskIdentifier</key>
+            <string>pm_survey_bart_25_cents</string>
+            <key>resourceName</key>
+            <string>pm_survey_bart_25_cents</string>
+        </dict>
+        <dict>
+            <key>taskIdentifier</key>
+            <string>pm_survey_bart_250_dollars</string>
+            <key>resourceName</key>
+            <string>pm_survey_bart_250_dollars</string>
+        </dict>
 		<dict>
 			<key>taskIdentifier</key>
 			<string>Pulsus</string>
@@ -213,9 +237,21 @@
 		</dict>
 		<dict>
 			<key>taskIdentifier</key>
+			<string>bart_250_dollars_active_task</string>
+			<key>resourceName</key>
+			<string>bart_250_dollars_active_task</string>
+		</dict>
+		<dict>
+			<key>taskIdentifier</key>
 			<string>bart_25_cents_full_task</string>
 			<key>resourceName</key>
 			<string>bart_25_cents_full_task</string>
+		</dict>
+		<dict>
+			<key>taskIdentifier</key>
+			<string>bart_250_dollars_full_task</string>
+			<key>resourceName</key>
+			<string>bart_250_dollars_full_task</string>
 		</dict>
 	</array>
 </dict>

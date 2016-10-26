@@ -42,13 +42,26 @@
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
-      "scheduleTitle": "BART.25",
+      "scheduleTitle": "BART $.25",
       "scheduleIdentifier": "bart-1",
       "activityType": "sequential",
       "tasks": [
         {
-          "taskTitle": "BART.25",
+          "taskTitle": "BART $.25",
           "taskIdentifier": "bart_25_cents_full_task",
+        }
+      ]
+    },
+    {
+      "scheduleType": "recurring",
+      "scheduleString": "* * * * *",
+      "scheduleTitle": "BART$250",
+      "scheduleIdentifier": "bart-1",
+      "activityType": "sequential",
+      "tasks": [
+        {
+          "taskTitle": "BART $250",
+          "taskIdentifier": "bart_250_dollars_full_task",
         }
       ]
     },
@@ -66,6 +79,14 @@
         {
           "taskTitle": "Morning Survey",
           "taskIdentifier": "am_survey_go_no_go_variable",
+        },
+        {
+          "taskTitle": "Morning Survey",
+          "taskIdentifier": "am_survey_bart_25_cents",
+        },
+        {
+          "taskTitle": "Morning Survey",
+          "taskIdentifier": "am_survey_bart_250_dollars",
         }
       ]
     },
@@ -83,7 +104,15 @@
         {
           "taskTitle": "Evening Survey",
           "taskIdentifier": "pm_survey_go_no_go_variable",
-        }
+        },
+        {
+          "taskTitle": "Evening Survey",
+          "taskIdentifier": "pm_survey_bart_25_cents",
+        },
+        {
+          "taskTitle": "Evening Survey",
+          "taskIdentifier": "pm_survey_bart_250_dollars",
+        },
       ]
     },
   ]

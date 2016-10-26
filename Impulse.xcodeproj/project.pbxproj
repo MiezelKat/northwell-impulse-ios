@@ -62,6 +62,12 @@
 		E2AA6D381DA43F57005D5137 /* CTFPAMTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D371DA43F57005D5137 /* CTFPAMTask.swift */; };
 		E2C20D731DC003B000382527 /* bart_25_cents_active_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2C20D711DC003B000382527 /* bart_25_cents_active_task.json */; };
 		E2C20D741DC003B000382527 /* bart_25_cents_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2C20D721DC003B000382527 /* bart_25_cents_full_task.json */; };
+		E2C20D771DC0296F00382527 /* bart_250_dollars_active_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2C20D751DC0296F00382527 /* bart_250_dollars_active_task.json */; };
+		E2C20D781DC0296F00382527 /* bart_250_dollars_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2C20D761DC0296F00382527 /* bart_250_dollars_full_task.json */; };
+		E2C20D7D1DC02BBD00382527 /* am_survey_bart_25_cents.json in Resources */ = {isa = PBXBuildFile; fileRef = E2C20D791DC02BBD00382527 /* am_survey_bart_25_cents.json */; };
+		E2C20D7E1DC02BBD00382527 /* am_survey_bart_250_dollars.json in Resources */ = {isa = PBXBuildFile; fileRef = E2C20D7A1DC02BBD00382527 /* am_survey_bart_250_dollars.json */; };
+		E2C20D7F1DC02BBD00382527 /* pm_survey_bart_25_cents.json in Resources */ = {isa = PBXBuildFile; fileRef = E2C20D7B1DC02BBD00382527 /* pm_survey_bart_25_cents.json */; };
+		E2C20D801DC02BBD00382527 /* pm_survey_bart_250_dollars.json in Resources */ = {isa = PBXBuildFile; fileRef = E2C20D7C1DC02BBD00382527 /* pm_survey_bart_250_dollars.json */; };
 		E2CCB6661DB151F700C801A4 /* pm_likert_1.json in Resources */ = {isa = PBXBuildFile; fileRef = E2CCB6631DB151F700C801A4 /* pm_likert_1.json */; };
 		E2CCB6671DB151F700C801A4 /* pm_survey_go_no_go_stable.json in Resources */ = {isa = PBXBuildFile; fileRef = E2CCB6641DB151F700C801A4 /* pm_survey_go_no_go_stable.json */; };
 		E2CCB6681DB151F700C801A4 /* pm_survey_go_no_go_variable.json in Resources */ = {isa = PBXBuildFile; fileRef = E2CCB6651DB151F700C801A4 /* pm_survey_go_no_go_variable.json */; };
@@ -222,6 +228,12 @@
 		E2AA6D371DA43F57005D5137 /* CTFPAMTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFPAMTask.swift; sourceTree = "<group>"; };
 		E2C20D711DC003B000382527 /* bart_25_cents_active_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bart_25_cents_active_task.json; sourceTree = "<group>"; };
 		E2C20D721DC003B000382527 /* bart_25_cents_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bart_25_cents_full_task.json; sourceTree = "<group>"; };
+		E2C20D751DC0296F00382527 /* bart_250_dollars_active_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bart_250_dollars_active_task.json; sourceTree = "<group>"; };
+		E2C20D761DC0296F00382527 /* bart_250_dollars_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bart_250_dollars_full_task.json; sourceTree = "<group>"; };
+		E2C20D791DC02BBD00382527 /* am_survey_bart_25_cents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = am_survey_bart_25_cents.json; sourceTree = "<group>"; };
+		E2C20D7A1DC02BBD00382527 /* am_survey_bart_250_dollars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = am_survey_bart_250_dollars.json; sourceTree = "<group>"; };
+		E2C20D7B1DC02BBD00382527 /* pm_survey_bart_25_cents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pm_survey_bart_25_cents.json; sourceTree = "<group>"; };
+		E2C20D7C1DC02BBD00382527 /* pm_survey_bart_250_dollars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pm_survey_bart_250_dollars.json; sourceTree = "<group>"; };
 		E2CCB6631DB151F700C801A4 /* pm_likert_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pm_likert_1.json; sourceTree = "<group>"; };
 		E2CCB6641DB151F700C801A4 /* pm_survey_go_no_go_stable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pm_survey_go_no_go_stable.json; sourceTree = "<group>"; };
 		E2CCB6651DB151F700C801A4 /* pm_survey_go_no_go_variable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pm_survey_go_no_go_variable.json; sourceTree = "<group>"; };
@@ -404,6 +416,12 @@
 				E2AA6D261DA43CDD005D5137 /* PAM.json */,
 				E2C20D711DC003B000382527 /* bart_25_cents_active_task.json */,
 				E2C20D721DC003B000382527 /* bart_25_cents_full_task.json */,
+				E2C20D751DC0296F00382527 /* bart_250_dollars_active_task.json */,
+				E2C20D761DC0296F00382527 /* bart_250_dollars_full_task.json */,
+				E2C20D791DC02BBD00382527 /* am_survey_bart_25_cents.json */,
+				E2C20D7A1DC02BBD00382527 /* am_survey_bart_250_dollars.json */,
+				E2C20D7B1DC02BBD00382527 /* pm_survey_bart_25_cents.json */,
+				E2C20D7C1DC02BBD00382527 /* pm_survey_bart_250_dollars.json */,
 				E2AA6D281DA43CEE005D5137 /* Baseline.json */,
 				E2FE1AAF1DB00D0100DBB8E7 /* am_likert_1.json */,
 				E2FE1AB01DB00D0100DBB8E7 /* am_likert_3.json */,
@@ -715,12 +733,15 @@
 				E2AA6D2E1DA43CEE005D5137 /* Baseline.json in Resources */,
 				E2CCB6731DB5610F00C801A4 /* CTFBARTStepViewController.xib in Resources */,
 				E2AA6D311DA43CEE005D5137 /* self_assessment_6.json in Resources */,
+				E2C20D771DC0296F00382527 /* bart_250_dollars_active_task.json in Resources */,
+				E2C20D7E1DC02BBD00382527 /* am_survey_bart_250_dollars.json in Resources */,
 				E2EF6B291DA2E2970034456A /* LaunchScreen.storyboard in Resources */,
 				E2EF6B261DA2E2970034456A /* Assets.xcassets in Resources */,
 				E2FE1AB91DB0393000DBB8E7 /* am_survey_go_no_go_variable.json in Resources */,
 				E2AA6D301DA43CEE005D5137 /* self_assessment_11.json in Resources */,
 				E2AA6D321DA43CEE005D5137 /* self_assessment_9.json in Resources */,
 				E2C20D731DC003B000382527 /* bart_25_cents_active_task.json in Resources */,
+				E2C20D781DC0296F00382527 /* bart_250_dollars_full_task.json in Resources */,
 				E2FE1AA81DAEF56F00DBB8E7 /* go_no_go_stable_stimulus_full_task.json in Resources */,
 				E2AA6D271DA43CDD005D5137 /* PAM.json in Resources */,
 				E2FE1AB41DB00D0100DBB8E7 /* am_survey_go_no_go_stable.json in Resources */,
@@ -734,6 +755,7 @@
 				E2C20D741DC003B000382527 /* bart_25_cents_full_task.json in Resources */,
 				E21F23931DA58D9500760EA7 /* go_no_go_variable_stimulus_active_task.json in Resources */,
 				E21F237D1DA44F2700760EA7 /* CTFGoNoGoStepViewController.xib in Resources */,
+				E2C20D7F1DC02BBD00382527 /* pm_survey_bart_25_cents.json in Resources */,
 				E2AA6D221DA43CC1005D5137 /* cornell-mhealth-eval.pem in Resources */,
 				E2AA6D1E1DA43C83005D5137 /* CTFPulsusFormStepViewController.xib in Resources */,
 				E2AA6CF91DA41E19005D5137 /* BridgeInfo.plist in Resources */,
@@ -741,7 +763,9 @@
 				E2FE1AAC1DAFED4A00DBB8E7 /* go_no_go_variable_stimulus_full_task.json in Resources */,
 				E2CCB6661DB151F700C801A4 /* pm_likert_1.json in Resources */,
 				E2AA6D1A1DA43C83005D5137 /* CTFFormItemCell.xib in Resources */,
+				E2C20D7D1DC02BBD00382527 /* am_survey_bart_25_cents.json in Resources */,
 				E2AA6CFA1DA41E19005D5137 /* BridgeInfo-private.plist in Resources */,
+				E2C20D801DC02BBD00382527 /* pm_survey_bart_250_dollars.json in Resources */,
 				E2AA6D251DA43CD6005D5137 /* tasks_and_schedules.json in Resources */,
 				E2FE1AB21DB00D0100DBB8E7 /* am_likert_1.json in Resources */,
 			);

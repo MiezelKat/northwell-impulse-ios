@@ -208,8 +208,8 @@ class CTFBARTStepViewController: ORKStepViewController {
                 //compute probability of pop
                 //function of pump count
                 //probability starts low and eventually gets to 1/2
-                let popProb = ((trial.maxPayingPumps-2) >= pumpCount) ?
-                    1.0 / Float(trial.maxPayingPumps - pumpCount) :
+                let popProb = ((trial.maxPayingPumps) >= pumpCount) ?
+                    1.0 / Float( (trial.maxPayingPumps+2) - pumpCount) :
                     1.0 / 2.0
                 
                 print(popProb)
@@ -225,7 +225,7 @@ class CTFBARTStepViewController: ORKStepViewController {
                     self.balloonImageView.lp_explode(callback: {
                         let result = CTFBARTTrialResult(
                             trial: trial,
-                            numPumps: pumpCount,
+                            numPumps: min(trial.maxPayingPumps, pumpCount),
                             payout: 0.0,
                             exploded: true
                         )
@@ -237,7 +237,7 @@ class CTFBARTStepViewController: ORKStepViewController {
                 else {
                     
                     //set potential gain label
-                    let monitaryValueString = String(format: "%.2f", trial.earningsPerPump * Float(pumpCount+1))
+                    let monitaryValueString = String(format: "%.2f", trial.earningsPerPump * Float( min(trial.maxPayingPumps, pumpCount+1)))
                     self.trialPayoutLabel.text = "$\(monitaryValueString)"
                     
                     let increment: CGFloat = (self.view.frame.width / CGFloat(trial.maxPayingPumps * 1000))
