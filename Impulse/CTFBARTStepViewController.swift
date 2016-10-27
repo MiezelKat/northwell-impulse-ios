@@ -36,6 +36,10 @@ struct CTFBARTTrialResult {
     var exploded: Bool!
 }
 
+class CTFBARTResult: ORKResult {
+    var trialResults: [CTFBARTTrialResult]?
+}
+
 
 
 class CTFBARTStepViewController: ORKStepViewController {
@@ -95,56 +99,56 @@ class CTFBARTStepViewController: ORKStepViewController {
     
     
     
-    func generateSummary(slice: ArraySlice<(CTFBARTTrialResult, CTFBARTTrialResult?)>) -> CTFBARTResultSummary? {
-        
-        guard slice.count > 0 else {
-            return nil
-        }
-        
-        var summary = CTFBARTResultSummary()
-        
-        let pumpsArray: [Int] = slice.map({$0.0.numPumps})
-        
-        //mean
-        summary.meanNumberOfPumps = pumpsArray.average
-        
-        //range
-        summary.numberOfPumpsRange = pumpsArray.max()! - pumpsArray.min()!
-        
-        //std dev
-        let stdDevExpression = NSExpression(forFunction:"stddev:", arguments:[NSExpression(forConstantValue: pumpsArray)])
-        summary.numberOfPumpsStdDev = stdDevExpression.expressionValue(with: nil, context: nil) as? Float
-        
-        let pumpsAfterExplode: [Int] = slice.filter { (pair) -> Bool in
-            if let previousResult = pair.1 {
-                return previousResult.exploded
-            }
-            else {
-                return false
-            }
-        }.map({$0.0.numPumps})
-        
-        summary.meanNumberOfPumpsAfterExplosion = pumpsAfterExplode.average
-        
-        let pumpsAfterNoExplode: [Int] = slice.filter { (pair) -> Bool in
-            if let previousResult = pair.1 {
-                return !previousResult.exploded
-            }
-            else {
-                return false
-            }
-        }.map({$0.0.numPumps})
-        
-        summary.meanNumberOfPumpsAfterNoExplosion = pumpsAfterNoExplode.average
-        
-        summary.numberOfExplosions = slice.map({$0.0}).filter({$0.exploded}).count
-        
-        summary.numberOfBalloons = slice.count
-        
-        summary.totalWinnings = slice.map({$0.0.payout}).reduce(0.0, +)
-        
-        return summary
-    }
+//    func generateSummary(slice: ArraySlice<(CTFBARTTrialResult, CTFBARTTrialResult?)>) -> CTFBARTResultSummary? {
+//        
+//        guard slice.count > 0 else {
+//            return nil
+//        }
+//        
+//        var summary = CTFBARTResultSummary()
+//        
+//        let pumpsArray: [Int] = slice.map({$0.0.numPumps})
+//        
+//        //mean
+//        summary.meanNumberOfPumps = pumpsArray.average
+//        
+//        //range
+//        summary.numberOfPumpsRange = pumpsArray.max()! - pumpsArray.min()!
+//        
+//        //std dev
+//        let stdDevExpression = NSExpression(forFunction:"stddev:", arguments:[NSExpression(forConstantValue: pumpsArray)])
+//        summary.numberOfPumpsStdDev = stdDevExpression.expressionValue(with: nil, context: nil) as? Float
+//        
+//        let pumpsAfterExplode: [Int] = slice.filter { (pair) -> Bool in
+//            if let previousResult = pair.1 {
+//                return previousResult.exploded
+//            }
+//            else {
+//                return false
+//            }
+//        }.map({$0.0.numPumps})
+//        
+//        summary.meanNumberOfPumpsAfterExplosion = pumpsAfterExplode.average
+//        
+//        let pumpsAfterNoExplode: [Int] = slice.filter { (pair) -> Bool in
+//            if let previousResult = pair.1 {
+//                return !previousResult.exploded
+//            }
+//            else {
+//                return false
+//            }
+//        }.map({$0.0.numPumps})
+//        
+//        summary.meanNumberOfPumpsAfterNoExplosion = pumpsAfterNoExplode.average
+//        
+//        summary.numberOfExplosions = slice.map({$0.0}).filter({$0.exploded}).count
+//        
+//        summary.numberOfBalloons = slice.count
+//        
+//        summary.totalWinnings = slice.map({$0.0.payout}).reduce(0.0, +)
+//        
+//        return summary
+//    }
     
     override var result: ORKStepResult? {
         guard let parentResult = super.result else {

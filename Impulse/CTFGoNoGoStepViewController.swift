@@ -23,10 +23,10 @@ enum CTFGoNoGoTargetType {
 
 enum CTFGoNoGoResponseCode{
     /**
-     * correctBlue = user does not tap when rectangle is blue (NoGo target)
-     * incorrectBlue = user taps when rectangle is blue ( NoGo target)
-     * correctGreen = user taps when rectangle is green (Go target)
-     * incorrectGreen = user does not tap when rectangle is green (Go target)
+     correctBlue = user does not tap when rectangle is blue (NoGo target)
+     incorrectBlue = user taps when rectangle is blue ( NoGo target)
+     correctGreen = user taps when rectangle is green (Go target)
+     incorrectGreen = user does not tap when rectangle is green (Go target)
     */
     case correctBlue
     case incorrectBlue
@@ -58,6 +58,50 @@ struct CTFGoNoGoTrialResult {
     
 }
 
+class CTFGoNoGoResult: ORKResult {
+    var trialResults: [CTFGoNoGoTrialResult]?
+}
+
+
+//<<<<<<< HEAD
+//=======
+//enum CTFGoNoGoResult{
+//    case full
+//    case firstThird
+//    case secondThird
+//    case lastThird
+//}
+//
+//struct CTFGoNoGoResults {
+//    // variable label?
+//    var numTrials: Int!
+//    var numCorrectResponses: Int!
+//    var numIncorrectResponses: Int!
+//    var numCorrectBlueResponses: Int!
+//    var numCorrectGreenResponses: Int!
+//    var numIncorrectBlueResponses:Int!
+//    var numIncorrectGreenResponses:Int!
+//    var meanAccuracy:Double!
+//    var meanResponseTime:Double!
+//    var rangeResponseTime:(Double,Double)!
+//    var variability:Double!
+//    var avgCorrectResponseTime:Double!
+//    var avgIncorrectResponseTime:Double!
+//}
+//
+//extension Array {
+//    func random() -> Element? {
+//        if self.count == 0 {
+//            return nil
+//        }
+//        else{
+//            let index = Int(arc4random_uniform(UInt32(self.count)))
+//            return self[index]
+//        }
+//    }
+//}
+//
+//>>>>>>> results
 class CTFGoNoGoStepViewController: ORKStepViewController, CTFGoNoGoViewDelegate {
 
     
@@ -153,7 +197,9 @@ class CTFGoNoGoStepViewController: ORKStepViewController, CTFGoNoGoViewDelegate 
                 if !self.canceled {
                     //set results
                     // results is a list that contains all the trial results - Francesco
-                    self.calculateAggregateResults(results)
+                    //aggregateResults is a dictionary of 4 CTFGoNoGoResults structs - Francesco
+//                    let aggregateResults = self.calculateAllAggregateResults(results)
+//                    print(aggregateResults)
                     self.trialResults = results
                     self.goForward()
                 }
@@ -176,6 +222,17 @@ class CTFGoNoGoStepViewController: ORKStepViewController, CTFGoNoGoViewDelegate 
         guard let parentResult = super.result else {
             return nil
         }
+        
+        if let trialResults = self.trialResults {
+            
+            let goNoGoResults = CTFGoNoGoResult(identifier: step!.identifier)
+            goNoGoResults.startDate = parentResult.startDate
+            goNoGoResults.endDate = parentResult.endDate
+            goNoGoResults.trialResults = trialResults
+            
+            parentResult.results = [goNoGoResults]
+        }
+        
         return parentResult
     }
     
@@ -299,151 +356,128 @@ class CTFGoNoGoStepViewController: ORKStepViewController, CTFGoNoGoViewDelegate 
         }
     }
     
-    func calculateAggregateResults(_ results:[CTFGoNoGoTrialResult]){
-        /**
-         * uses data in results to calculate the aggregate results.
-        */
-        
-        let firstThird = (results.count * 1/3) - 1
-        let secondThird = (results.count * 2/3) - 1
-        print(firstThird)
-        print(secondThird)
-        print(results.count - 1)
-        
-        let trialResponseCodeAndTime = results.map{(checkResponse($0.trial, tapped: $0.tapped),$0.responseTime!)}
-        print(trialResponseCodeAndTime)
-        
-        
-        //Number of  Total Correct Responses
-        let taskNumCorrectResponses = trialResponseCodeAndTime.filter{$0.0 == CTFGoNoGoResponseCode.correctGreen || $0.0 == CTFGoNoGoResponseCode.correctBlue}.count
-        let firstThirdNumCorrectResponses = trialResponseCodeAndTime[0...firstThird].filter{$0.0 == CTFGoNoGoResponseCode.correctGreen ||
-                                                                                            $0.0 == CTFGoNoGoResponseCode.correctBlue}.count
-        let secondThirdNumCorrectResponses = trialResponseCodeAndTime[firstThird+1...secondThird].filter{$0.0 == CTFGoNoGoResponseCode.correctGreen ||
-                                                                                                         $0.0 == CTFGoNoGoResponseCode.correctBlue}.count
-        let lastThirdNumCorrectResponses = trialResponseCodeAndTime[secondThird+1...results.count-1].filter{$0.0 == CTFGoNoGoResponseCode.correctGreen ||
-                                                                                                            $0.0 == CTFGoNoGoResponseCode.correctBlue}.count
-        print(taskNumCorrectResponses,firstThirdNumCorrectResponses,secondThirdNumCorrectResponses,lastThirdNumCorrectResponses)
-        
-        // Number of  Total Incorrect Responses
-        let taskNumIncorrectResponses = trialResponseCodeAndTime.filter{$0.0 == CTFGoNoGoResponseCode.incorrectGreen || $0.0 == CTFGoNoGoResponseCode.incorrectBlue}.count
-        let firstThirdNumIncorrectResponses = trialResponseCodeAndTime[0...firstThird].filter{$0.0 == CTFGoNoGoResponseCode.incorrectGreen ||
-                                                                                              $0.0 == CTFGoNoGoResponseCode.incorrectBlue}.count
-        let secondThirdNumIncorrectResponses = trialResponseCodeAndTime[firstThird+1...secondThird].filter{$0.0 == CTFGoNoGoResponseCode.incorrectGreen ||
-                                                                                                           $0.0 == CTFGoNoGoResponseCode.incorrectBlue}.count
-        let lastThirdNumIncorrectResponses = trialResponseCodeAndTime[secondThird+1...results.count-1].filter{$0.0 == CTFGoNoGoResponseCode.incorrectGreen ||
-                                                                                                              $0.0 == CTFGoNoGoResponseCode.incorrectBlue}.count
-        print(taskNumIncorrectResponses,firstThirdNumIncorrectResponses,secondThirdNumIncorrectResponses,lastThirdNumIncorrectResponses)
-        
-        // Number of Correct Blue Responses
-        let taskNumCorrectBlueResponses = trialResponseCodeAndTime.filter{$0.0 == CTFGoNoGoResponseCode.correctBlue}.count
-        let firstThirdNumCorrectBlueResponses = trialResponseCodeAndTime[0...firstThird].filter{$0.0 == CTFGoNoGoResponseCode.correctBlue}.count
-        let secondThirdNumCorrectBlueResponses = trialResponseCodeAndTime[firstThird+1...secondThird].filter{$0.0 == CTFGoNoGoResponseCode.correctBlue}.count
-        let lastThirdNumCorrectBlueResponses = trialResponseCodeAndTime[secondThird+1...results.count-1].filter{$0.0 == CTFGoNoGoResponseCode.correctBlue}.count
-        print(taskNumCorrectBlueResponses,firstThirdNumCorrectBlueResponses,secondThirdNumCorrectBlueResponses,lastThirdNumCorrectBlueResponses)
-        
-        //Number of Correct Green Responses
-        let taskNumCorrectGreenResponses = trialResponseCodeAndTime.filter{$0.0 == CTFGoNoGoResponseCode.correctGreen}.count
-        let firstThirdNumCorrectGreenResponses = trialResponseCodeAndTime[0...firstThird].filter{$0.0 == CTFGoNoGoResponseCode.correctGreen}.count
-        let secondThirdNumCorrectGreenResponses = trialResponseCodeAndTime[firstThird+1...secondThird].filter{$0.0 == CTFGoNoGoResponseCode.correctGreen}.count
-        let lastThirdNumCorrectGreenResponses = trialResponseCodeAndTime[secondThird+1...results.count-1].filter{$0.0 == CTFGoNoGoResponseCode.correctGreen}.count
-        print(taskNumCorrectGreenResponses,firstThirdNumCorrectGreenResponses,secondThirdNumCorrectGreenResponses,lastThirdNumCorrectGreenResponses)
-        
-        // Number of Incorrect Blue Responses
-        let taskNumIncorrectBlueResponses = trialResponseCodeAndTime.filter{$0.0 == CTFGoNoGoResponseCode.incorrectBlue}.count
-        let firstThirdNumIncorrectBlueResponses = trialResponseCodeAndTime[0...firstThird].filter{$0.0 == CTFGoNoGoResponseCode.incorrectBlue}.count
-        let secondThirdNumIncorrectBlueResponses = trialResponseCodeAndTime[firstThird+1...secondThird].filter{$0.0 == CTFGoNoGoResponseCode.incorrectBlue}.count
-        let lastThirdNumIncorrectBlueResponses = trialResponseCodeAndTime[secondThird+1...results.count-1].filter{$0.0 == CTFGoNoGoResponseCode.incorrectBlue}.count
-        print(taskNumIncorrectBlueResponses,firstThirdNumIncorrectBlueResponses,secondThirdNumIncorrectBlueResponses,lastThirdNumIncorrectBlueResponses)
-        
-        //Number of Incorrect Green Responses
-        let taskNumIncorrectGreenResponses = trialResponseCodeAndTime.filter{$0.0 == CTFGoNoGoResponseCode.incorrectGreen}.count
-        let firstThirdNumIncorrectGreenResponses = trialResponseCodeAndTime[0...firstThird].filter{$0.0 == CTFGoNoGoResponseCode.incorrectGreen}.count
-        let secondThirdNumIncorrectGreenResponses = trialResponseCodeAndTime[firstThird+1...secondThird].filter{$0.0 == CTFGoNoGoResponseCode.incorrectGreen}.count
-        let lastThirdNumIncorrectGreenResponses = trialResponseCodeAndTime[secondThird+1...results.count-1].filter{$0.0 == CTFGoNoGoResponseCode.incorrectGreen}.count
-        print(taskNumIncorrectGreenResponses,firstThirdNumIncorrectGreenResponses,secondThirdNumIncorrectGreenResponses,lastThirdNumIncorrectGreenResponses)
-        
-        //Mean Accuracy
-        let taskMeanAccuracy = trialResponseCodeAndTime.filter{$0.0 == CTFGoNoGoResponseCode.correctGreen ||
-                                                               $0.0 == CTFGoNoGoResponseCode.correctBlue}.count/(trialResponseCodeAndTime.count)
-        let firstThirdMeanAccuracy = trialResponseCodeAndTime[0...firstThird].filter{$0.0 == CTFGoNoGoResponseCode.correctGreen ||
-                                                                                     $0.0 == CTFGoNoGoResponseCode.correctBlue}.count/(trialResponseCodeAndTime.count)
-        let secondThirdMeanAccuracy = trialResponseCodeAndTime[firstThird+1...secondThird].filter{$0.0 == CTFGoNoGoResponseCode.correctGreen ||
-                                                                                            $0.0 == CTFGoNoGoResponseCode.correctBlue}.count/(trialResponseCodeAndTime.count)
-        let lastThirdMeanAccuracy = trialResponseCodeAndTime[secondThird+1...results.count-1].filter{$0.0 == CTFGoNoGoResponseCode.correctGreen ||
-                                                                                            $0.0 == CTFGoNoGoResponseCode.correctBlue}.count/(trialResponseCodeAndTime.count)
-        print(taskMeanAccuracy,firstThirdMeanAccuracy,secondThirdMeanAccuracy,lastThirdMeanAccuracy)
-        
-        
-        //Mean Response Time
-        let taskMeanResponseTime = trialResponseCodeAndTime.map{$0.1}.reduce(0, {$0 + $1})/Double(trialResponseCodeAndTime.count)
-        let firstThirdMeanResponseTime = trialResponseCodeAndTime[0...firstThird].map{$0.1}.reduce(0, {$0 + $1})/Double(trialResponseCodeAndTime.count * 1/3)
-        let secondThirdMeanResponseTime = trialResponseCodeAndTime[firstThird+1...secondThird].map{$0.1}
-                                                                                              .reduce(0, {$0 + $1})/Double(trialResponseCodeAndTime.count * 1/3)
-        let lastThirdMeanResponseTime = trialResponseCodeAndTime[secondThird+1...results.count-1].map{$0.1}
-                                                                                                 .reduce(0, {$0 + $1})/Double(trialResponseCodeAndTime.count * 1/3)
-        print(taskMeanResponseTime,firstThirdMeanResponseTime,secondThirdMeanResponseTime,lastThirdMeanResponseTime)
-        
-        // Range Response Time
-        let taskMaxResponseTime = trialResponseCodeAndTime.map{$0.1}.max()
-        let taskMinResponseTime = trialResponseCodeAndTime.map{$0.1}.min()
-        let firstThirdMaxResponseTime = trialResponseCodeAndTime[0...firstThird].map{$0.1}.max()
-        let firstThirdMinResponseTime = trialResponseCodeAndTime[0...firstThird].map{$0.1}.min()
-        let secondThirdMaxResponseTime = trialResponseCodeAndTime[firstThird+1...secondThird].map{$0.1}.max()
-        let secondThirdMinResponseTime = trialResponseCodeAndTime[firstThird+1...secondThird].map{$0.1}.min()
-        let lastThirdMaxResponseTime = trialResponseCodeAndTime[secondThird+1...results.count-1].map{$0.1}.max()
-        let lastThirdMinResponseTime = trialResponseCodeAndTime[secondThird+1...results.count-1].map{$0.1}.min()
-        print(taskMaxResponseTime,taskMinResponseTime)
-        print(firstThirdMaxResponseTime,firstThirdMinResponseTime)
-        print(secondThirdMaxResponseTime,secondThirdMinResponseTime)
-        print(lastThirdMaxResponseTime,lastThirdMinResponseTime)
-        
-        //Variability
-        let taskExpression = NSExpression(forFunction: "stddev:", arguments: [NSExpression(forConstantValue:trialResponseCodeAndTime.map{$0.1})])
-        let taskStd = taskExpression.expressionValue(with: nil, context: nil)
-        let firstThirdExpression = NSExpression(forFunction: "stddev:", arguments: [NSExpression(forConstantValue:trialResponseCodeAndTime[0...firstThird].map{$0.1})])
-        let firstThirdStd = firstThirdExpression.expressionValue(with: nil, context: nil)
-        let secondThirdExpression = NSExpression(forFunction: "stddev:", arguments: [NSExpression(forConstantValue:trialResponseCodeAndTime[firstThird+1...secondThird].map{$0.1})])
-        let secondThirdStd = secondThirdExpression.expressionValue(with: nil, context: nil)
-        let lastThirdExpression = NSExpression(forFunction: "stddev:", arguments: [NSExpression(forConstantValue:trialResponseCodeAndTime[secondThird+1...results.count-1].map{$0.1})])
-        let lastThirdStd = lastThirdExpression.expressionValue(with: nil, context: nil)
-        
-        
-        
-        
-
-        
-    }
+//    func calculateAllAggregateResults(_ results:[CTFGoNoGoTrialResult])->Dictionary<CTFGoNoGoResult,CTFGoNoGoResults>{
+//        /**
+//          uses data in results to calculate the aggregate results.
+//        */
+//        var resultsDict = Dictionary<CTFGoNoGoResult,CTFGoNoGoResults>()
+//        let firstThirdIdx = (results.count * 1/3) - 1
+//        let secondThirdIdx = (results.count * 2/3) - 1
+//      
+//        let trialResponseCodeAndTime = results.map{(checkResponse($0.trial, tapped: $0.tapped),$0.responseTime!)}
+//        let trialResponseCodeAndTimeFirstThird = results[0...firstThirdIdx].map{(checkResponse($0.trial, tapped: $0.tapped),$0.responseTime!)}
+//        let trialResponseCodeAndTimeSecondThird = results[firstThirdIdx+1...secondThirdIdx].map{(checkResponse($0.trial, tapped: $0.tapped),$0.responseTime!)}
+//        let trialResponseCodeAndTimeLastThird = results[secondThirdIdx+1...results.count-1].map{(checkResponse($0.trial, tapped: $0.tapped),$0.responseTime!)}
+//        
+//        resultsDict[CTFGoNoGoResult.full] = self.getResults(responseList: trialResponseCodeAndTime)
+//        resultsDict[CTFGoNoGoResult.firstThird] = self.getResults(responseList: trialResponseCodeAndTimeFirstThird)
+//        resultsDict[CTFGoNoGoResult.secondThird] = self.getResults(responseList: trialResponseCodeAndTimeSecondThird)
+//        resultsDict[CTFGoNoGoResult.lastThird] = self.getResults(responseList:trialResponseCodeAndTimeLastThird)
+//        return resultsDict
+//    }
     
-    func checkResponse(_ trial:CTFGoNoGoTrial?,tapped:Bool?) -> CTFGoNoGoResponseCode{
-        /**
-         * checkResponses uses the trial.target and compares to the bool tapped and returns an Int.
-         * response codes:
-            1 :Go target and user taps
-            2: Go target and user does not tap
-            3: No Go target and user taps
-            4: No Go target and user does not tap
-        */
-        let targetType: CTFGoNoGoTargetType = (trial!.target)!
-        let userResponse: Bool = tapped!
-        switch ((targetType,userResponse) ) {
-            
-        case (CTFGoNoGoTargetType.go, true):
-            return CTFGoNoGoResponseCode.correctGreen
-        case (CTFGoNoGoTargetType.go, false):
-            return CTFGoNoGoResponseCode.incorrectGreen
-        case (CTFGoNoGoTargetType.noGo, true):
-            return CTFGoNoGoResponseCode.incorrectBlue
-        case (CTFGoNoGoTargetType.noGo, false):
-            return CTFGoNoGoResponseCode.correctBlue
-        default:
-            assertionFailure("programming error")
-            return CTFGoNoGoResponseCode.correctGreen
-        }
-        
-    }
+//    func checkResponse(_ trial:CTFGoNoGoTrial?,tapped:Bool?) -> CTFGoNoGoResponseCode{
+//        /**
+//         checkResponses uses the trial.target and compares to the bool tapped and returns a response code.
+//         response codes:
+//            CorrectBlue :Go target and user taps
+//            IncorrectBlue: Go target and user does not tap
+//            CorrectGreen: No Go target and user taps
+//            IncorrectGreen: No Go target and user does not tap
+//        */
+//        let targetType: CTFGoNoGoTargetType = (trial!.target)!
+//        let userResponse: Bool = tapped!
+//        switch ((targetType,userResponse) ) {
+//            
+//        case (CTFGoNoGoTargetType.go, true):
+//            return CTFGoNoGoResponseCode.correctGreen
+//        case (CTFGoNoGoTargetType.go, false):
+//            return CTFGoNoGoResponseCode.incorrectGreen
+//        case (CTFGoNoGoTargetType.noGo, true):
+//            return CTFGoNoGoResponseCode.incorrectBlue
+//        case (CTFGoNoGoTargetType.noGo, false):
+//            return CTFGoNoGoResponseCode.correctBlue
+//        default:
+//            assertionFailure("programming error")
+//            return CTFGoNoGoResponseCode.correctGreen
+//        }
+//        
+//    }
+//    
+//    func getResults(responseList:[(CTFGoNoGoResponseCode,TimeInterval)]) -> CTFGoNoGoResults {
+//        return CTFGoNoGoResults(
+//            numTrials:self.calculateNumTrials(responseAndTime: responseList),
+//            numCorrectResponses:self.calculateCorrectResponse(responseAndTime: responseList),
+//            numIncorrectResponses: self.calculateIncorrectResponse(responseAndTime: responseList),
+//            numCorrectBlueResponses: self.calculateCorrectBlueResponse(responseAndTime: responseList),
+//            numCorrectGreenResponses: self.calculateCorrectGreenResponse(responseAndTime: responseList),
+//            numIncorrectBlueResponses: self.calculateIncorrectBlueResponse(responseAndTime: responseList),
+//            numIncorrectGreenResponses: self.calculateIncorrectGreenResponses(responseAndTime: responseList),
+//            meanAccuracy: self.calculateMeanAccuracy(responseAndTime: responseList),
+//            meanResponseTime: self.calculateMeanResponseTime(responseAndTime: responseList),
+//            rangeResponseTime: self.calculateRangeResponseTime(responseAndTime: responseList),
+//            variability: self.calculateVariability(responseAndTime: responseList),
+//            avgCorrectResponseTime: self.calculateAverageResponseTimeCorrect(responseAndTime: responseList),
+//            avgIncorrectResponseTime: self.calculateAverageResponseTimeIncorrect(responseAndTime: responseList)
+//        )
+//    }
+//    
+//    func calculateNumTrials(responseAndTime:[(CTFGoNoGoResponseCode,TimeInterval)]) -> Int{
+//        return responseAndTime.count
+//    }
+//    
+//    func calculateCorrectResponse(responseAndTime:[(CTFGoNoGoResponseCode,TimeInterval)]) -> Int{
+//        return responseAndTime.filter{$0.0 == CTFGoNoGoResponseCode.correctGreen || $0.0 == CTFGoNoGoResponseCode.correctBlue}.count
+//    }
+//    
+//    func calculateIncorrectResponse(responseAndTime:[(CTFGoNoGoResponseCode,TimeInterval)]) -> Int {
+//        return responseAndTime.filter{$0.0 == CTFGoNoGoResponseCode.incorrectGreen || $0.0 == CTFGoNoGoResponseCode.incorrectBlue}.count
+//    }
+//    
+//    func calculateCorrectBlueResponse(responseAndTime:[(CTFGoNoGoResponseCode,TimeInterval)]) -> Int {
+//        return responseAndTime.filter{$0.0 == CTFGoNoGoResponseCode.correctBlue}.count
+//    }
+//    
+//    func calculateCorrectGreenResponse(responseAndTime:[(CTFGoNoGoResponseCode,TimeInterval)]) -> Int{
+//        return responseAndTime.filter{$0.0 == CTFGoNoGoResponseCode.correctGreen}.count
+//    }
+//    
+//    func calculateIncorrectBlueResponse(responseAndTime:[(CTFGoNoGoResponseCode,TimeInterval)]) -> Int{
+//        return responseAndTime.filter{$0.0 == CTFGoNoGoResponseCode.incorrectBlue}.count
+//    }
+//    
+//    func calculateIncorrectGreenResponses(responseAndTime:[(CTFGoNoGoResponseCode,TimeInterval)]) -> Int{
+//        return responseAndTime.filter{$0.0 == CTFGoNoGoResponseCode.incorrectGreen}.count
+//    }
+//    
+//    func calculateMeanAccuracy(responseAndTime:[(CTFGoNoGoResponseCode,TimeInterval)]) -> Double{
+//        return Double(responseAndTime.filter{$0.0 == CTFGoNoGoResponseCode.correctGreen || $0.0 == CTFGoNoGoResponseCode.correctBlue}.count)/Double(responseAndTime.count)
+//    }
+//    
+//    func calculateMeanResponseTime(responseAndTime:[(CTFGoNoGoResponseCode,TimeInterval)]) -> Double{
+//        return responseAndTime.map{$0.1}.reduce(0, {$0 + $1})/Double(responseAndTime.count)
+//    }
+//    
+//    func calculateRangeResponseTime(responseAndTime:[(CTFGoNoGoResponseCode,TimeInterval)]) -> (Double,Double){
+//        return (responseAndTime.map{$0.1}.min()!,responseAndTime.map{$0.1}.max()!)
+//    }
+//    
+//    func calculateVariability(responseAndTime:[(CTFGoNoGoResponseCode,TimeInterval)]) -> Double {
+//        let expression = NSExpression(forFunction: "stddev:", arguments: [NSExpression(forConstantValue:responseAndTime.map{$0.1})])
+//        return expression.expressionValue(with: nil, context: nil) as! Double
+//    }
+//    
+//    //TODO:create method that calculates average response time after one error - Francesco
+//    
+//    //TODO:create method that calculates average response time after a streak of 10 - Francesco
+//
+//    func calculateAverageResponseTimeCorrect(responseAndTime:[(CTFGoNoGoResponseCode,TimeInterval)]) -> Double {
+//        return responseAndTime.filter{$0.0 == CTFGoNoGoResponseCode.correctGreen || $0.0 == CTFGoNoGoResponseCode.correctBlue}.map{$0.1}.reduce(0, {$0 + $1})/Double(responseAndTime.count)
+//    }
+//    
+//    func calculateAverageResponseTimeIncorrect(responseAndTime:[(CTFGoNoGoResponseCode,TimeInterval)]) -> Double{
+//        return responseAndTime.filter{$0.0 == CTFGoNoGoResponseCode.incorrectGreen || $0.0 == CTFGoNoGoResponseCode.incorrectBlue}.map{$0.1}.reduce(0, {$0 + $1})/Double(responseAndTime.count)
+//    }
+//    
     
-    
-    
-
-
 }
