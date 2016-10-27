@@ -9,6 +9,25 @@
 import UIKit
 import ResearchKit
 
+enum CTFDelayDiscoutingChoice{
+    case Now
+    case Later
+}
+
+struct CTFDelayDiscoutingTrial{
+    var now:Double!
+    var later:Double!
+    var questionNum:Int
+    
+}
+
+struct CTFDelayDiscoutingTrialResult{
+    var trial:CTFDelayDiscoutingTrial!
+    var choiceType: CTFDelayDiscoutingChoice!
+    var choiceValue: Double!
+    var choiceTime:Double! //time required to make choice
+}
+
 class CTFDelayDiscoutingStepViewController: ORKStepViewController {
     
     //Adding UI Elements
@@ -22,10 +41,22 @@ class CTFDelayDiscoutingStepViewController: ORKStepViewController {
 
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+   
+    override convenience init(step: ORKStep?) {
+        let framework = Bundle(for: CTFBARTStepViewController.self) //check nib creation - Francesco
+        self.init(nibName: "CTFBARTStepViewController", bundle: framework)
+        self.step = step
+        self.restorationIdentifier = step!.identifier
+        
+        guard let delayDiscoutingStep = self.step as? CTFDelayDiscoutingStep,
+            let params = delayDiscoutingStep.params
+            else {
+                return
+        }
+        
+//        self.trials = self.generateTrials(params: params)
+    
     }
     
 

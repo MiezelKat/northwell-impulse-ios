@@ -11,6 +11,9 @@ import ResearchKit
 
 struct CTFDelayDiscoutingStepParams {
     
+    var maxAmount: Double!
+    var numQuestions: Int
+    
 
 }
 
