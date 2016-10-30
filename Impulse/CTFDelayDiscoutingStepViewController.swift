@@ -18,7 +18,7 @@ struct CTFDelayDiscoutingTrial{
     var now:Double!
     var later:Double!
     var questionNum:Int
-    
+    var differenceValue:Double!
 }
 
 struct CTFDelayDiscoutingTrialResult{
@@ -30,7 +30,7 @@ struct CTFDelayDiscoutingTrialResult{
 
 class CTFDelayDiscoutingStepViewController: ORKStepViewController {
     
-    //Adding UI Elements
+    //UI Elements
     @IBOutlet weak var nowLabel: UILabel!
     @IBOutlet weak var laterLabel:UILabel!
     @IBOutlet weak var nowButton:UIButton!
@@ -39,7 +39,7 @@ class CTFDelayDiscoutingStepViewController: ORKStepViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
     
    
@@ -57,6 +57,45 @@ class CTFDelayDiscoutingStepViewController: ORKStepViewController {
         
 //        self.trials = self.generateTrials(params: params)
     
+    }
+    
+    func generateTrials(_ delayDiscoutingParams:CTFDelayDiscoutingStepParams) -> [CTFDelayDiscoutingTrial]? {
+        if let numQuestions = delayDiscoutingParams.numQuestions {
+            return (0..< numQuestions).map { index in
+                let questionNum: Int = index + 1
+                let laterValue: Double = delayDiscoutingParams.maxAmount
+                
+                if index == 0 {
+                    let nowValue:Double = delayDiscoutingParams.maxAmount/2
+                }
+                else{
+                    
+                }
+               
+                
+                return CTFGoNoGoTrial(
+                    waitTime: goNoGoParams.waitTime,
+                    crossTime: goNoGoParams.crossTime,
+                    blankTime: goNoGoParams.blankTime,
+                    cueTime: cueTime,
+                    fillTime: goNoGoParams.fillTime,
+                    cue: cueType,
+                    target: targetType,
+                    trialIndex: index)
+                
+            }
+        }
+        else {
+            return nil
+        }
+    }
+
+    
+    
+    @IBAction func nowButtonPress(_ sender: AnyObject) {
+    }
+    
+    @IBAction func laterButtonPress(_ sender: AnyObject) {
     }
     
 
