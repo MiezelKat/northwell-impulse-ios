@@ -265,6 +265,31 @@
 			<key>resourceName</key>
 			<string>bart_250_dollars_full_task</string>
 		</dict>
+        <dict>
+            <key>taskIdentifier</key>
+            <string>delayDiscounting_Money_1Month_active_task</string>
+            <key>resourceName</key>
+            <string>delayDiscounting_Money_1Month_active_task</string>
+        </dict>
+        <dict>
+            <key>taskIdentifier</key>
+            <string>delayDiscounting_Money_1Month_full_task</string>
+            <key>resourceName</key>
+            <string>delayDiscounting_Money_1Month_full_task</string>
+        </dict>
+        <dict>
+            <key>taskIdentifier</key>
+            <string>delayDiscounting_Money_6Month_active_task</string>
+            <key>resourceName</key>
+            <string>delayDiscounting_Money_6Month_active_task</string>
+        </dict>
+        <dict>
+            <key>taskIdentifier</key>
+            <string>delayDiscounting_Money_6Month_full_task</string>
+            <key>resourceName</key>
+            <string>delayDiscounting_Money_6Month_full_task</string>
+        </dict>
+        
 	</array>
 </dict>
 </plist>

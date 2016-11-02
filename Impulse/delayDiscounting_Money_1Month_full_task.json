@@ -1,0 +1,24 @@
+{
+  "identifier": "delayDiscounting_Money_1Month_full_task",
+  "taskIdentifier": "delayDiscounting_Money_1Month_full_task",
+  "schemaIdentifier": "delayDiscountingSchema",
+  "steps": [
+     {
+       "identifier"   : "introduction",
+       "type"         : "instruction",
+       "title"        : "Welcome to the Delay Discounting Task.",
+       "text"         : ""
+     },
+     {
+       "taskIdentifier": "delayDiscounting_Money_1Month_active_task",
+       "resourceName": "delayDiscounting_Money_1Month_active_task",
+       "classType": "Impulse.CTFDelayDiscountingBridgeTask"
+     },
+     {
+        "identifier"   : "results",
+        "type"         : "instruction",
+        "title"        : "Results",
+        "text"         : "This is a placeholder for the results",
+      },
+  ]
+}
