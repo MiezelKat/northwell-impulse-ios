@@ -43,7 +43,7 @@ class CTFDelayDiscoutingStepViewController: ORKStepViewController {
     
     
     var canceled = false
-    var pressedButton = pressed.NotPressed
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,12 +83,12 @@ class CTFDelayDiscoutingStepViewController: ORKStepViewController {
                 newResults.append(result)
                 //based on the decision made by the user ( click on now or later button),update the next now value
                 var nextNow = Double(0) // dummy value - for now
-                switch self.pressedButton{
-                case pressed.Now:
-                    var diff = trial.now - trial.differenceValue
-                case pressed.Later:
-                    var diff = trial.now + trial.differenceValue
-                }
+//                switch self.pressedButton{
+//                case pressed.Now:
+//                    var diff = trial.now - trial.differenceValue
+//                case pressed.Later:
+//                    var diff = trial.now + trial.differenceValue
+//                }
                 let nextLater = trial.later!
                 let nextDifference = trial.differenceValue/2
                 let nextQuestionNum = head + 1
@@ -106,7 +106,7 @@ class CTFDelayDiscoutingStepViewController: ORKStepViewController {
     
     func createNewTrial(id:Int,result:CTFDelayDiscoutingTrialResult){}
     
-    func doTrial(_ trial: CTFDelayDiscoutingTrial, trialIndex:Double , completion: @escaping (CTFDelayDiscoutingTrialResult) -> ()) {
+    func doTrial(_ trial: CTFDelayDiscoutingTrial, trialIndex:Int , completion: @escaping (CTFDelayDiscoutingTrialResult) -> ()) {
         // link UI to Trial params
         self.nowButton.setTitle(String(trial.now), for: .normal)
         self.laterButton.setTitle(String(trial.later), for: .normal)
