@@ -78,7 +78,7 @@ class CTFDelayDiscoutingStepViewController: ORKStepViewController {
         if let head = trialIds.first {
             let tail = Array(trialIds.dropFirst())
             //let tail = Array(trials.dropFirst())
-            self.doTrial(trial,trialIndex: head, completion: { (result) in
+            self.doTrial(trial,trialIndex: Int(head), completion: { (result) in
                 var newResults = Array(results)
                 newResults.append(result)
                 //based on the decision made by the user ( click on now or later button),update the next now value
