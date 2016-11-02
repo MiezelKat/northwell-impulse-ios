@@ -28,10 +28,10 @@ public protocol CTFScheduledActivityDataSource: SBAScheduledActivityDataSource {
 class CTFActivityTableViewController: SBAActivityTableViewController {
 
     override var scheduledActivityDataSource: SBAScheduledActivityDataSource {
-        return _scheduledActivityManager
+        return _ctfScheduledActivityManager
     }
     
-    lazy fileprivate var _scheduledActivityManager : CTFScheduledActivityManager = {
+    lazy fileprivate var _ctfScheduledActivityManager : CTFScheduledActivityManager = {
         guard let filePath = Bundle.main.path(forResource: "tasks_and_schedules", ofType: "json")
             else {
                 fatalError("Unable to locate file tasks_and_schedules")

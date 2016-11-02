@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="1265" y="352"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Activities-->
         <scene sceneID="Evy-eZ-zfe">
             <objects>
                 <tableViewController id="UDn-Qy-rRU" customClass="CTFActivityTableViewController" customModule="Impulse" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,11 +33,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActivityCell" id="wjD-RX-rGa" customClass="CTFActivityTableViewCell" customModule="BridgeAppSDKSample" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActivityCell" id="wjD-RX-rGa" customClass="CTFActivityTableViewCell" customModule="Impulse" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wjD-RX-rGa" id="PYz-NW-i7N">
-                                    <frame key="frameInset" width="375" height="59.5"/>
+                                    <frame key="frameInset" width="375" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pVI-IV-aZh">
@@ -95,7 +95,7 @@
                             <outlet property="delegate" destination="UDn-Qy-rRU" id="4Kd-jR-7LG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="JOf-Sp-BNE"/>
+                    <navigationItem key="navigationItem" title="Activities" id="JOf-Sp-BNE"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7jM-rp-BUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

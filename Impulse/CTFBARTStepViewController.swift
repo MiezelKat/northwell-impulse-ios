@@ -156,6 +156,8 @@ class CTFBARTStepViewController: ORKStepViewController {
         }
         
         if let trialResults = self.trialResults {
+            
+            
 //            var lastResult: CTFBARTTrialResult? = nil
 //            
 //            let pairArray: [(CTFBARTTrialResult, CTFBARTTrialResult?)] =

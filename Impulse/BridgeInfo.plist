@@ -138,12 +138,24 @@
 			<string>Impulse.CTFPAMMultipleSelectionTask</string>
 			<key>resourceName</key>
 			<string>PAM</string>
-		</dict>
-		<dict>
-			<key>taskIdentifier</key>
-			<string>Baseline</string>
-			<key>resourceName</key>
-			<string>Baseline</string>
+        </dict>
+        <dict>
+            <key>taskIdentifier</key>
+            <string>Baseline</string>
+            <key>resourceName</key>
+            <string>Baseline</string>
+        </dict>
+        <dict>
+            <key>taskIdentifier</key>
+            <string>Day_21</string>
+            <key>resourceName</key>
+            <string>Day_21</string>
+        </dict>
+        <dict>
+            <key>taskIdentifier</key>
+            <string>NotificationTest</string>
+            <key>resourceName</key>
+            <string>NotificationTest</string>
         </dict>
         <dict>
             <key>taskIdentifier</key>

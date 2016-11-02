@@ -21,13 +21,37 @@ import BridgeAppSDK
 //    optional func sectionTitle(section: Int) -> String?
 //}
 
+let kMorningSurveyTime: String = "MorningSurveyTime"
+let kEveningSurveyTime: String = "EveningSurveyTime"
+let kLastMorningSurveyCompleted: String = "LastMorningSurveyCompleted"
+let kLastEveningSurveyCompleted: String = "LastEveningSurveycompleted"
+let kBaselineSurveyCompleted: String = "BaselineSurveyCompleted"
+let k21DaySurveyCompleted: String = "21DaySurveyCompleted"
+
+let k1MinuteInterval: TimeInterval = 60.0
+let k1HourInterval: TimeInterval = k1MinuteInterval * 60.0
+let k1DayInterval: TimeInterval = 24.0 * k1HourInterval
+let k21DaySurveyDelayInterval: TimeInterval = 21.0 * k1DayInterval
+//let k21DaySurveyDelayInterval: TimeInterval = 21.0 * k1MinuteInterval
+let kDailySurveyNotificationInterval = 2.0 * k1MinuteInterval
+
+
+let kDailySurveyTimeInterval: TimeInterval = 2.0 * k1HourInterval
+let kDailySurveyDelaySinceBaselineTimeInterval: TimeInterval = 1.0 * k1HourInterval
+//let kDailySurveyDelaySinceBaselineTimeInterval: TimeInterval = 2.0 * k1MinuteInterval
+
+let kMorningNotificationIdentifer: String = "MorningNotification"
+let kEveningNotificationIdentifer: String = "EveningNotification"
+let k21DayNotificationIdentifier: String = "21DayNotification"
+
+let kMorningNotificationText: String = "Hey, it's time to take your morning survey!"
+let kEveningNotificationText: String = "Hey, it's time to take your evening survey!"
+let k21DayNotificationText: String = "Hey, it's time to take your 21 day survey!"
+
+
+
+
 class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskViewControllerDelegate, SBAScheduledActivityDataSource, CTFScheduledActivityDataSource {
-    
-
-    
-
-    
-    
 
     weak var delegate: SBAScheduledActivityManagerDelegate?
     
@@ -47,7 +71,23 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
         }
  
         self.scheduleItems = scheduleArray.flatMap( {CTFScheduleItem(json: $0)})
-        self.reloadData()
+        self.loadData()
+        
+        //check for firstRun
+        if UserDefaults.standard.object(forKey: "FirstRun") == nil {
+            UserDefaults.standard.set("1stRun", forKey: "FirstRun")
+            UserDefaults.standard.synchronize()
+            
+            self.setNotificationsBasedOnKeychainState()
+//            self.clearKeychain()
+        }
+        
+        if let scheduledNotifications = UIApplication.shared.scheduledLocalNotifications {
+            scheduledNotifications.forEach({print($0)})
+        }
+        
+        
+        
     }
     
     lazy var sharedAppDelegate: SBAAppInfoDelegate = {
@@ -60,15 +100,63 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
     
     var scheduleItems: [CTFScheduleItem]! = []
     var activities: [CTFScheduledActivity]! = []
+    var trialActivities: [CTFScheduledActivity]! = []
+    
+    func loadData() {
+        //note that we will add filters in the future to only show items that should be shown based on context
+        self.activities = self.scheduleItems.filter(self.scheduledItemsFilter).flatMap({$0.generateScheduledActivity()})
+        self.trialActivities = self.scheduleItems.filter(self.trialItemsFilter).flatMap({$0.generateScheduledActivity()})
+    }
     
     func reloadData() {
-        //note that we will add filters in the future to only show items that should be shown based on context
-        self.activities = self.scheduleItems.flatMap({$0.generateScheduledActivity()})
+        self.loadData()
+        self.delegate?.reloadFinished(self)
     }
     
     func numberOfSections() -> Int {
-        return 1
+        return 2
     }
+    
+    @objc(titleForSection:)
+    public func title(for section: Int) -> String? {
+        if section == 0 {
+            return "Pending Activities"
+        }
+        else {
+            return "Trial Activities"
+        }
+    }
+    
+    
+    func setKeychainObject(_ object: NSSecureCoding, forKey key: String) {
+        do {
+            try ORKKeychainWrapper.setObject(object, forKey: key)
+        } catch let error {
+            assertionFailure("Got error \(error) when setting \(key)")
+        }
+    }
+    
+    func clearKeychain() {
+        do {
+            try ORKKeychainWrapper.resetKeychain()
+        } catch let error {
+            assertionFailure("Got error \(error) when resetting keychain")
+        }
+    }
+    
+    func getKeychainObject(_ key: String) -> NSSecureCoding? {
+        
+        var error: NSError?
+        let o = ORKKeychainWrapper.object(forKey: key, error: &error)
+        if error == nil {
+            return o
+        }
+        else {
+            print("Got error \(error) when getting \(key). This may just be the key has not yet been set!!")
+            return nil
+        }
+    }
+    
     
 //    func numberOfRowsInSection(_ section: Int) -> Int {
 //        return self.activities.count
@@ -82,7 +170,7 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
             return self.activities.count
         }
         else {
-            return 0
+            return self.trialActivities.count
         }
     }
     
@@ -91,25 +179,175 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
 //    }
     
     func ctfScheduledActivityAtIndexPath(_ indexPath: IndexPath) -> CTFScheduledActivity? {
-        return self.activities[(indexPath as NSIndexPath).row]
+        if (indexPath as NSIndexPath).section == 0 {
+            return self.activities[(indexPath as NSIndexPath).row]
+        }
+        else {
+            return self.trialActivities[(indexPath as NSIndexPath).row]
+        }
+        
+    }
+    
+    func todayWithDateComponents(_ components: NSDateComponents) -> NSDate? {
+        
+        // *** define calendar components to use as well Timezone to UTC ***
+        let unitFlags = Set<Calendar.Component>([.year, .month, .day])
+        let calendar = Locale.current.calendar
+        // *** Get components from date ***
+        var todayComponents = calendar.dateComponents(unitFlags, from: Date())
+        todayComponents.hour = components.hour
+        todayComponents.minute = components.minute
+        print("Components : \(todayComponents)")
+        
+        let returnDate = calendar.date(from: todayComponents)
+        
+        return returnDate != nil ? returnDate! as NSDate : nil
+    }
+    
+    
+    
+    func scheduledItemsFilter(scheduleItem: CTFScheduleItem) -> Bool {
+        if scheduleItem.trial == true {
+            return false
+        }
+        
+        let baselineCompletedDate = self.getKeychainObject(kBaselineSurveyCompleted) as? NSDate
+        
+        switch(scheduleItem.identifier) {
+        case "baseline":
+            //baseline shown if not yet completed
+            return baselineCompletedDate == nil
+        case "21-day-assessment":
+            
+            
+            //show am survey if the following are true
+            //1) at least k21DayInterval since baseline has been completed
+            //2) 21 day survey has not been completed
+            guard let baselineDate = baselineCompletedDate else {
+                return false
+            }
+            
+            let timeSinceBaseline = NSDate().timeIntervalSince(baselineDate as Date)
+            
+            //1
+            if timeSinceBaseline <= k21DaySurveyDelayInterval {
+                return false
+            }
+            
+            //2
+            return self.getKeychainObject(k21DaySurveyCompleted) == nil
+            
+        case "am_survey":
+            
+            //show am survey if the following are true
+            //1) Baseline has been completed at least kDailySurveyDelaySinceBaselineTimeInterval ago
+            //2) we are in the time range that the survey should be shown
+            //3) survey has not yet been completed today
+            
+            //1
+            guard let baselineDate = baselineCompletedDate else {
+                return false
+            }
+            
+            let timeSinceBaseline = NSDate().timeIntervalSince(baselineDate as Date)
+            guard timeSinceBaseline > kDailySurveyDelaySinceBaselineTimeInterval else {
+                return false
+            }
+            
+            //2
+            guard let morningSurveyTime = self.getKeychainObject(kMorningSurveyTime) as? NSDateComponents,
+                let todaysMorningSurveyTime = self.todayWithDateComponents(morningSurveyTime)  else {
+                    return false
+            }
+            
+            let halfInterval = kDailySurveyTimeInterval / 2.0
+            let lowerDate = Date(timeIntervalSinceNow: -1.0 * halfInterval)
+            let upperDate = Date(timeIntervalSinceNow: halfInterval)
+            let dateRange = Range(uncheckedBounds: (lower: lowerDate, upper: upperDate))
+            if !dateRange.contains(todaysMorningSurveyTime as Date) {
+                return false
+            }
+            
+            //3 (note: if never taken, automatic true)
+            //if it has been taken, it will be in today's range
+            if let latestSurveyTime = self.getKeychainObject(kLastMorningSurveyCompleted) as? NSDate {
+                return !dateRange.contains(latestSurveyTime as Date)
+            }
+            else {
+                return true
+            }
+            
+        case "pm_survey":
+            
+            //show am survey if the following are true
+            //1) Baseline has been completed at least kDailySurveyDelaySinceBaselineTimeInterval ago
+            //2) we are in the time range that the survey should be shown
+            //3) survey has not yet been completed today
+            
+            //1
+            guard let baselineDate = baselineCompletedDate else {
+                return false
+            }
+            
+            let timeSinceBaseline = NSDate().timeIntervalSince(baselineDate as Date)
+            guard timeSinceBaseline > kDailySurveyDelaySinceBaselineTimeInterval else {
+                    return false
+            }
+            
+            //2
+            guard let eveningSurveyTime = self.getKeychainObject(kEveningSurveyTime) as? NSDateComponents,
+                let todaysMorningSurveyTime = self.todayWithDateComponents(eveningSurveyTime)  else {
+                return false
+            }
+            
+            let halfInterval = kDailySurveyTimeInterval / 2.0
+            let lowerDate = Date(timeIntervalSinceNow: -1.0 * halfInterval)
+            let upperDate = Date(timeIntervalSinceNow: halfInterval)
+            let dateRange = Range(uncheckedBounds: (lower: lowerDate, upper: upperDate))
+            if !dateRange.contains(todaysMorningSurveyTime as Date) {
+                return false
+            }
+            
+            //3 (note: if never taken, automatic true)
+            //if it has been taken, it will be in today's range
+            if let latestSurveyTime = self.getKeychainObject(kLastMorningSurveyCompleted) as? NSDate {
+                return !dateRange.contains(latestSurveyTime as Date)
+            }
+            else {
+                return true
+            }
+            
+        default:
+            return true
+        }
+    }
+    
+    func trialItemsFilter(scheduleItem: CTFScheduleItem) -> Bool {
+        return scheduleItem.trial
     }
     
     /**
      Should the task associated with the given index path be disabled.
      */
     @objc(shouldShowTaskForIndexPath:) public func shouldShowTask(for indexPath: IndexPath) -> Bool {
-//        guard let schedule = scheduledActivityAtIndexPath(indexPath) where shouldShowTaskForSchedule(schedule)
-//            else {
-//                return false
-//        }
+        guard let schedule = self.ctfScheduledActivityAtIndexPath(indexPath),
+            shouldShowTaskForSchedule(schedule: schedule)
+            else {
+                return false
+        }
         return true
     }
     
-//    func shouldShowTaskForSchedule(schedule: SBBScheduledActivity) -> Bool {
-//        // Allow user to perform a task again as long as the task is not expired
+    func shouldShowTaskForSchedule(schedule: CTFScheduledActivity) -> Bool {
+        // Allow user to perform a task again as long as the task is not expired
 //        guard let taskRef = bridgeInfo.taskReferenceForSchedule(schedule) else { return false }
 //        return !schedule.isExpired && (!schedule.isCompleted || taskRef.allowMultipleRun)
-//    }
+        
+        switch(schedule) {
+        default:
+            return true
+        }
+    }
     
     func scheduledActivityForTaskViewController(_ taskViewController: ORKTaskViewController) -> CTFScheduledActivity? {
         guard let vc = taskViewController as? SBATaskViewController,
@@ -134,6 +372,7 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
         return nil
     }
     
+    
     func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
         
 //        if reason == ORKTaskViewControllerFinishReason.Completed,
@@ -154,10 +393,12 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
 //        else {
 //            taskViewController.task?.updateTrackedDataStores(shouldCommit: false)
 //        }
+        
         if reason == ORKTaskViewControllerFinishReason.completed,
             let schedule = scheduledActivityForTaskViewController(taskViewController) {
             let results = activityResultsForSchedule(schedule, taskViewController: taskViewController)
-            print(results)
+            
+            self.activityResultsHandler(results)
         }
         
         self.reloadData()
@@ -269,10 +510,10 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
         }
         
         // If there are any results that were not filtered into a subgroup then include them at the top level
-//        if topLevelResults.filter({ $0.hasResults }).count > 0 {
-//            let topResult = createActivityResult(taskResult.identifier, schedule: schedule, stepResults: topLevelResults)
-//            allResults.insert(topResult, atIndex: 0)
-//        }
+        if topLevelResults.filter({ $0.hasResults }).count > 0 {
+            let topResult = createActivityResult(taskResult.identifier, schedule: schedule, stepResults: topLevelResults)
+            allResults.insert(topResult, at: 0)
+        }
         
         return allResults
     }
@@ -325,6 +566,221 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
     
     func instantiateTaskViewController(_ task: ORKTask) -> SBATaskViewController {
         return SBATaskViewController(task: task, taskRun: nil)
+    }
+    
+    
+    
+}
+
+//Results Handling Extensions
+//this would be better if we could come up with a way to register results handlers for each identifier
+extension CTFScheduledActivityManager {
+    
+    func cancelNotification(withIdentifier identifierToCancel: String) {
+        if let scheduledNotifications = UIApplication.shared.scheduledLocalNotifications {
+            let notificationsToCancel = scheduledNotifications.filter({ (notification) -> Bool in
+                guard let userInfo = notification.userInfo as? [String: AnyObject],
+                    let identifer = userInfo["identifier"] as? String,
+                    identifer == identifierToCancel else {
+                        return false
+                }
+                return true
+            })
+            notificationsToCancel.forEach({ (notification) in
+                UIApplication.shared.cancelLocalNotification(notification)
+            })
+        }
+    }
+    
+    func setNotification(forIdentifier: String, initialFireDate: Date, text: String) {
+        let notification = UILocalNotification()
+        notification.userInfo = ["identifier": forIdentifier]
+        notification.fireDate = initialFireDate
+        notification.repeatInterval = NSCalendar.Unit.minute
+//        notification.repeatInterval = NSCalendar.Unit.day
+        notification.alertBody = text
+        UIApplication.shared.scheduleLocalNotification(notification)
+    }
+    
+    func setNotificationsBasedOnKeychainState() {
+        
+        //note that we may only wannt to do this if the 21 day has not yet been completed
+        
+        //morning notification
+        //cancel notification if exists
+        self.cancelNotification(withIdentifier: kMorningNotificationIdentifer)
+        //Set notification
+        if let dateComponents = self.getKeychainObject(kMorningSurveyTime) as? NSDateComponents,
+            let fireDate = self.getInitialFireDate(forComponents: dateComponents) {
+            self.setNotification(forIdentifier: kMorningNotificationIdentifer, initialFireDate: fireDate, text: kMorningNotificationText)
+        }
+        
+        
+        //evening notification
+        //cancel notification if exists
+        self.cancelNotification(withIdentifier: kEveningNotificationIdentifer)
+        //Set notification
+        if let dateComponents = self.getKeychainObject(kEveningSurveyTime) as? NSDateComponents,
+            let fireDate = self.getInitialFireDate(forComponents: dateComponents) {
+            self.setNotification(forIdentifier: kEveningNotificationIdentifer, initialFireDate: fireDate, text: kEveningNotificationText)
+        }
+        
+        //21 day notification
+        //cancel notification if exists
+        self.cancelNotification(withIdentifier: k21DayNotificationIdentifier)
+        
+        //Set notification
+        if let baselineDate = self.getKeychainObject(kBaselineSurveyCompleted) as? Date {
+            let fireDate = Date(timeInterval: k21DaySurveyDelayInterval, since: baselineDate)
+            self.setNotification(forIdentifier: k21DayNotificationIdentifier, initialFireDate: fireDate, text: k21DayNotificationText)
+        }
+    }
+    
+    func getInitialFireDate(forComponents components: NSDateComponents) -> Date? {
+        guard let todaysNotificationDate = self.todayWithDateComponents(components as NSDateComponents) else {
+            return nil
+        }
+        let timeUntilTodaysNotification = todaysNotificationDate.timeIntervalSinceNow
+        if timeUntilTodaysNotification > kDailySurveyDelaySinceBaselineTimeInterval {
+            return todaysNotificationDate as Date
+        }
+        else {
+            return Date(timeInterval: k1DayInterval, since: todaysNotificationDate as Date)
+        }
+    }
+    
+    func setMorningSurveyTime(_ result: ORKTaskResult) {
+        if let notificationTimeResult = result.result(forIdentifier: "morning_notification_time_picker") as? ORKStepResult,
+            let timeOfDayResult = notificationTimeResult.firstResult as? ORKTimeOfDayQuestionResult,
+            let dateComponents = timeOfDayResult.dateComponentsAnswer {
+            
+            //save morning survey time - note that we will only display morning survey +- 1 hr from this time
+            self.setKeychainObject(dateComponents as NSDateComponents, forKey: kMorningSurveyTime)
+            
+            //set notifications
+            //simple case, repeating notification for next 21 days at this time
+            //Talk to Fred about this
+            
+            //cancel notification if exists
+            self.cancelNotification(withIdentifier: kMorningNotificationIdentifer)
+            
+            //Set notification
+            if let fireDate = self.getInitialFireDate(forComponents: dateComponents as NSDateComponents) {
+                self.setNotification(forIdentifier: kMorningNotificationIdentifer, initialFireDate: fireDate, text: kMorningNotificationText)
+            }
+            
+        }
+    }
+    
+    func setEveningSurveyTime(_ result: ORKTaskResult) {
+        if let notificationTimeResult = result.result(forIdentifier: "evening_notification_time_picker") as? ORKStepResult,
+            let timeOfDayResult = notificationTimeResult.firstResult as? ORKTimeOfDayQuestionResult,
+            let dateComponents = timeOfDayResult.dateComponentsAnswer {
+            
+            //save morning survey time - note that we will only display morning survey +- 1 hr from this time
+            self.setKeychainObject(dateComponents as NSDateComponents, forKey: kEveningSurveyTime)
+            
+            //set notifications
+            //simple case, repeating notification for next 21 days at this time
+            //Talk to Fred about this
+            
+            //cancel notification if exists
+            self.cancelNotification(withIdentifier: kEveningNotificationIdentifer)
+            
+            //Set notification
+            if let fireDate = self.getInitialFireDate(forComponents: dateComponents as NSDateComponents) {
+                self.setNotification(forIdentifier: kEveningNotificationIdentifer, initialFireDate: fireDate, text: kEveningNotificationText)
+            }
+            
+        }
+    }
+    
+    func set21DaySurveyNotification(_ result: ORKTaskResult) {
+        //cancel notification if exists
+        self.cancelNotification(withIdentifier: k21DayNotificationIdentifier)
+        
+        //Set notification
+        let fireDate = Date(timeIntervalSinceNow: k21DaySurveyDelayInterval)
+        self.setNotification(forIdentifier: k21DayNotificationIdentifier, initialFireDate: fireDate, text: k21DayNotificationText)
+    }
+    
+    
+    func handleBaselineSurvey(_ result: ORKTaskResult) {
+        //1) set baseline completed date
+        let completedDate: NSDate = result.endDate as NSDate
+        self.setKeychainObject(completedDate, forKey: kBaselineSurveyCompleted)
+        
+        //ask for permissions for notifications
+        let settings = UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil)
+        UIApplication.shared.registerUserNotificationSettings(settings)
+        
+        //2) set 21 day notification
+        self.set21DaySurveyNotification(result)
+        
+        //3) set am/pm notifications
+//        self.handleAMPMNotificationResults(result)
+        self.setMorningSurveyTime(result)
+        self.setEveningSurveyTime(result)
+        //4) handle survey results
+        
+    }
+    
+    func handleAMSurvey(_ result: ORKTaskResult) {
+        //1) set latest AM survey completion
+        let completedDate: NSDate = result.endDate as NSDate
+        self.setKeychainObject(completedDate, forKey: kLastMorningSurveyCompleted)
+        
+        //2) handle results
+    }
+    
+    func handlePMSurvey(_ result: ORKTaskResult) {
+        //1) set latest PM survey completion
+        let completedDate: NSDate = result.endDate as NSDate
+        self.setKeychainObject(completedDate, forKey: kLastEveningSurveyCompleted)
+        
+        //2) handle results
+    }
+    
+    func handle21DaySurvey(_ result: ORKTaskResult) {
+        let completedDate: NSDate = result.endDate as NSDate
+        self.setKeychainObject(completedDate, forKey: k21DaySurveyCompleted)
+        
+        //cancel 21 day survey notification
+        self.cancelNotification(withIdentifier: k21DayNotificationIdentifier)
+        
+        //cancel other surveys too
+        self.cancelNotification(withIdentifier: kMorningNotificationIdentifer)
+        self.cancelNotification(withIdentifier: kEveningNotificationIdentifer)
+        
+    }
+    
+    
+    func handleActivityResult(_ result: CTFActivityResult) {
+        print(result)
+        switch(result.identifier) {
+        case "NotificationTest":
+            print(result)
+            self.handleBaselineSurvey(result)
+            
+        case "Baseline":
+            print(result)
+            self.handleBaselineSurvey(result)
+            
+        case "21Day":
+            self.handle21DaySurvey(result)
+            
+        case let identifier where identifier.hasPrefix("am_survey"):
+            self.handleAMSurvey(result)
+            
+        case let identifier where identifier.hasPrefix("pm_survey"):
+            self.handlePMSurvey(result)
+            
+        default: break
+        }
+    }
+    
+    func activityResultsHandler(_ results: [CTFActivityResult]) {
+        results.forEach(self.handleActivityResult)
     }
     
 }

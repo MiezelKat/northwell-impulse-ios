@@ -3,33 +3,11 @@
     "identifier"        : "Baseline",
     "steps"         :
     [
-
-     
-
-
-
-
-
-
-
-
-
-     {
+      {
      "identifier"   : "introduction",
      "type"         : "instruction",
      "title"        : "Introduction",
      "text"         : "In order to help us gain a better understanding of your thoughts, feelings and experiences, please complete the following questions. This will take approximately 10 minutes to complete today and about 4-6 minutes per day for the next 21 days.  ",
-     },
-     {
-       "identifier":  "notification_time_picker",
-       "type"     :   "timePicker",
-       "text"       : "Please choose a time to be reminded when to perform your morning survey.",
-     },
-     {
-       "identifier":  "notes",
-       "type"     :   "textfield",
-       "text"       : "Please choose a time to be reminded when to perform your morning survey.",
-       "optional" : true
      },
      {
        "identifier"       : "baseline_4",
@@ -176,7 +154,7 @@
     }
        ],
      },
-     
+
      {
      "identifier"       : "Pulsus",
      "resourceName"            : "self_assessment_5",
@@ -187,7 +165,7 @@
      "resourceName"            : "self_assessment_6",
      "classType"               : "Impulse.CTFPulsusFormBridgeTask",
      },
-     
+
      {
        "identifier":  "baseline_7",
        "type"       : "multipleChoiceText",
@@ -289,6 +267,22 @@
        "identifier"   :   "PAMMultipleSelection",
        "resourceName"            : "PAM",
        "classType"               : "Impulse.CTFPAMMultipleSelectionTask",
+     },
+     {
+     "identifier":  "morning_notification_time_picker",
+     "type"     :   "timePicker",
+     "text"       : "Please choose a time to be reminded when to perform your morning survey.",
+     },
+     {
+     "identifier":  "evening_notification_time_picker",
+     "type"     :   "timePicker",
+     "text"       : "Please choose a time to be reminded when to perform your evening survey.",
+     },
+     {
+     "identifier":  "notes",
+     "type"     :   "textfield",
+     "text"       : "Is there any additional information you would like to share with us?",
+     "optional" : true
      },
    ]
 }
