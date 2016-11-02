@@ -289,7 +289,31 @@
             <key>resourceName</key>
             <string>delayDiscounting_Money_6Month_full_task</string>
         </dict>
-        
+        <dict>
+            <key>taskIdentifier</key>
+            <string>delayDiscounting_Time_1Month_active_task</string>
+            <key>resourceName</key>
+            <string>delayDiscounting_Time_1Month_active_task</string>
+        </dict>
+        <dict>
+            <key>taskIdentifier</key>
+            <string>delayDiscounting_Time_1Month_full_task</string>
+            <key>resourceName</key>
+            <string>delayDiscounting_Time_1Month_full_task</string>
+        </dict>
+        <dict>
+            <key>taskIdentifier</key>
+            <string>delayDiscounting_Time_6Month_active_task</string>
+            <key>resourceName</key>
+            <string>delayDiscounting_Time_6Month_active_task</string>
+        </dict>
+        <dict>
+            <key>taskIdentifier</key>
+            <string>delayDiscounting_Time_6Month_full_task</string>
+            <key>resourceName</key>
+            <string>delayDiscounting_Time_6Month_full_task</string>
+        </dict>
+
 	</array>
 </dict>
 </plist>
