@@ -26,9 +26,11 @@ public enum CTFScheduleItemType {
 class CTFScheduleItem: NSObject {
     
     private var activities: [CTFActivity]!
+    var identifier: String!
     var guid: String!
     var title: String!
     var type: CTFScheduleItemType!
+    var trial: Bool! = false
     
     override init() {
         super.init()
@@ -37,10 +39,14 @@ class CTFScheduleItem: NSObject {
     init?(json: AnyObject) {
         super.init()
         
+        print(json)
+        
         guard let tasks = json["tasks"] as? [AnyObject],
             let title = json["scheduleTitle"] as? String,
             let scheduleIdentifier = json["scheduleIdentifier"] as? String,
-            let type = CTFScheduleItemType(name: json["activityType"] as? String) else {
+            let scheduleGUID = json["scheduleGUID"] as? String,
+            let type = CTFScheduleItemType(name: json["activityType"] as? String),
+            let trial = json["trialActivity"] as? Bool else {
                 return nil
         }
         
@@ -49,8 +55,10 @@ class CTFScheduleItem: NSObject {
         }
         
         self.title = title
-        self.guid = scheduleIdentifier
+        self.identifier = scheduleIdentifier
+        self.guid = scheduleGUID
         self.type = type
+        self.trial = trial
     }
     
     private func selectActivity() -> CTFActivity? {

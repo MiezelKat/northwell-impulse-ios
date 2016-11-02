@@ -8,6 +8,7 @@
 
 import Foundation
 
+//p1 = bias, p2 = (1.0-bias)
 func coinFlip<T>(_ obj1: T, obj2: T, bias: Float = 0.5) -> T {
     
     //ensure bias is in range [0.0, 1.0]

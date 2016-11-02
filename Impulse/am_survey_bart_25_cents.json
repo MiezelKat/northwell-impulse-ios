@@ -1,0 +1,79 @@
+{
+    "taskIdentifier"    : "am_survey_bart_25_cents",
+    "steps"         : [
+      {
+        "identifier"       : "Pulsus",
+        "resourceName"            : "am_likert_1",
+        "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+      },
+      {
+        "identifier":  "am_2",
+        "type"       : "multipleChoiceText",
+        "text"       : "Which of the following behaviors did you engage in more than you intended yesterday?",
+        "items"      : [  {   "prompt" : "Eating unhealthy food",
+                          "value" : "junkfood_am"},
+                          {   "prompt" : "Gambling",
+                          "value" : "gambling_am"},
+                          {   "prompt" : "Smoking/Vaping",
+                          "value" : "smoke_am"},
+                          {   "prompt" : "Mobile phone",
+                          "value" : "mobile_am"},
+
+                          {   "prompt" : "Overeating (general)",
+                          "value" : "overeat_am"},
+                          {   "prompt" : "Masturbation",
+                          "value" : "mast_am"},
+                          {   "prompt" : "Cutting",
+                          "value" : "cut_am"},
+                          {   "prompt" : "Social media",
+                          "value" : "smedia_am"},
+
+                          {   "prompt" : "Alcohol",
+                          "value" : "alcohol_am"},
+                          {   "prompt" : "Pornography",
+                          "value" : "porn_am"},
+                          {   "prompt" : "Hair pulling/skin picking",
+                          "value" : "hair_am"},
+                          {   "prompt" : "Gaming",
+                          "value" : "gaming_am"},
+
+                          {   "prompt" : "Marijuana",
+                          "value" : "pot_am"},
+                          {   "prompt" : "Spending/Shopping",
+                          "value" : "spend_am"},
+                          {   "prompt" : "Temper",
+                          "value" : "temper_am"},
+                          {   "prompt" : "Other",
+                          "value" : "othermore_am"}
+                        ],
+      },
+      {
+        "identifier"       : "Pulsus",
+        "resourceName"            : "am_likert_3",
+        "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+      },
+      {
+        "identifier"   :   "PAM",
+        "resourceName"            : "PAM",
+        "classType"               : "Impulse.CTFPAMTask",
+      },
+      {
+        "identifier"   : "introduction",
+        "type"         : "instruction",
+        "title"        : "Welcome to the Balloon Analogue Risk Task.",
+        "text"         : "Your goal for this game is to make as much money as possible by inflating the balloons. To play, tap the pump button to inflate the balloon and earn 25 cents for each pump. To collect your money for each balloon, hit the collect button. But remember, the more you pump the balloon, the greater chance of it bursting. The max amount you can win per balloon is $2.50. When it bursts, you get no money for that balloon. Your goal is to earn as much possible over the 15 balloons.",
+      },
+      {
+        "taskIdentifier": "bart_25_cents_active_task",
+        "resourceName": "bart_25_cents_active_task",
+        "classType": "Impulse.CTFBARTBridgeTask"
+      },
+      {
+         "identifier"   : "results",
+         "type"         : "instruction",
+         "title"        : "Results",
+         "text"         : "This is a placeholder for the results",
+       },
+
+    ]
+}

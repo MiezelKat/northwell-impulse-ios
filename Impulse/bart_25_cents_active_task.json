@@ -1,0 +1,9 @@
+{
+  "taskIdentifier": "bart_25_cents_active_task",
+  "schemaIdentifier": "bartSchema",
+  "parameters": {
+    "numberOfTrials": 15,
+    "earningsPerPump": 0.25,
+    "maxPayingPumpsPerTrial": 10
+  }
+}

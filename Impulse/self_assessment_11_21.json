@@ -1,0 +1,137 @@
+{
+    "taskIdentifier": "self_assessment_baseline_11",
+    "schemaIdentifier": "sdffse",
+    "title": "Overall, which comes closest to how you think, feel and behave between these two opposites.",
+    "items" : [
+               {
+               "identifier"        : "frustrated_bl",
+               "text"              : "",
+               "type"              : "pulsusScale",
+               "range"             : {
+                   "min"     : 0,
+                   "max"      : 10,
+                   "default"   : 5,
+                   "step": 1,
+                   "minValueText": "frustrated",
+                   "maxValueText": "content"
+                 }
+               },
+               {
+               "identifier"        : "cautious_bl",
+               "text"              : "",
+               "type"              : "pulsusScale",
+               "range"             : {
+                   "min"     : 0,
+                   "max"      : 10,
+                   "default"   : 5,
+                   "step": 1,
+                   "minValueText": "cautious",
+                   "maxValueText": "distracted"
+                 }
+               },
+               {
+               "identifier"        : "sad_sd_bl",
+               "text"              : "",
+               "type"              : "pulsusScale",
+               "range"             : {
+                   "min"     : 0,
+                   "max"      : 10,
+                   "default"   : 5,
+                   "step": 1,
+                   "minValueText": "sad",
+                   "maxValueText": "happy"
+                 }
+               },
+               {
+               "identifier"        : "lonely_bl",
+               "text"              : "",
+               "type"              : "pulsusScale",
+               "range"             : {
+                   "min"     : 0,
+                   "max"      : 10,
+                   "default"   : 5,
+                   "step": 1,
+                   "minValueText": "lonely",
+                   "maxValueText": "connected"
+                 }
+               },
+               {
+               "identifier"        : "optimistic_bl",
+               "text"              : "",
+               "type"              : "pulsusScale",
+               "range"             : {
+                   "min"     : 0,
+                   "max"      : 10,
+                   "default"   : 5,
+                   "step": 1,
+                   "minValueText": "optimistic",
+                   "maxValueText": "pessimistic"
+                 }
+               },
+               {
+               "identifier"        : "determined_bl",
+               "text"              : "",
+               "type"              : "pulsusScale",
+               "range"             : {
+                   "min"     : 0,
+                   "max"      : 10,
+                   "default"   : 5,
+                   "step": 1,
+                   "minValueText": "determined",
+                   "maxValueText": "aimless"
+                 }
+               },
+               {
+               "identifier"        : "stressed_bl",
+               "text"              : "",
+               "type"              : "pulsusScale",
+               "range"             : {
+                   "min"     : 0,
+                   "max"      : 10,
+                   "default"   : 5,
+                   "step": 1,
+                   "minValueText": "stressed",
+                   "maxValueText": "relaxed"
+                 }
+               },
+               {
+               "identifier"        : "positive_bl",
+               "text"              : "",
+               "type"              : "pulsusScale",
+               "range"             : {
+                   "min"     : 0,
+                   "max"      : 10,
+                   "default"   : 5,
+                   "step": 1,
+                   "minValueText": "positive",
+                   "maxValueText": "negative"
+                 }
+               },
+               {
+               "identifier"        : "healthy_bl",
+               "text"              : "",
+               "type"              : "pulsusScale",
+               "range"             : {
+                   "min"     : 0,
+                   "max"      : 10,
+                   "default"   : 5,
+                   "step": 1,
+                   "minValueText": "healthy",
+                   "maxValueText": "unhealthy"
+                 }
+               },
+               {
+               "identifier"        : "productive_bl",
+               "text"              : "",
+               "type"              : "pulsusScale",
+               "range"             : {
+                   "min"     : 0,
+                   "max"      : 10,
+                   "default"   : 5,
+                   "step": 1,
+                   "minValueText": "productive",
+                   "maxValueText": "unproductive"
+                 }
+               },
+              ]
+}

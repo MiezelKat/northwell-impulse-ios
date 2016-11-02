@@ -19,6 +19,8 @@ struct CTFBARTStepParams {
 }
 
 class CTFBARTStep: ORKActiveStep {
+    
+    static let identifier = "BARTStep"
 
     var params:CTFBARTStepParams?
     

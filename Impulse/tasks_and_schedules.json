@@ -3,9 +3,11 @@
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
-      "scheduleTitle": "Baseline",
-      "scheduleIdentifier": "baseline-1",
+      "scheduleTitle": "Baseline Assessment",
+      "scheduleIdentifier": "baseline",
+      "scheduleGUID": "baseline-1",
       "activityType": "sequential",
+      "trialActivity": false,
       "tasks": [
         {
           "taskTitle": "Baseline",
@@ -13,12 +15,32 @@
         }
       ]
     },
+
+    {
+      "scheduleType": "recurring",
+      "scheduleString": "* * * * *",
+      "scheduleTitle": "21-Day Assessment",
+      "scheduleIdentifier": "21-day-assessment",
+      "scheduleGUID": "21-day-assessment-1",
+      "activityType": "sequential",
+      "trialActivity": false,
+      "tasks": [
+        {
+          "taskTitle": "Day_21",
+          "taskIdentifier": "Day_21",
+        }
+      ]
+    },
+
+
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
       "scheduleTitle": "Go No Go Stable Stimulus",
-      "scheduleIdentifier": "go-no-go-stable-1",
+      "scheduleIdentifier": "go-no-go-stable",
+      "scheduleGUID": "go-no-go-stable-1",
       "activityType": "sequential",
+      "trialActivity": true,
       "tasks": [
         {
           "taskTitle": "Go No Go Stable Stimulus",
@@ -30,8 +52,10 @@
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
       "scheduleTitle": "Go No Go Variable Stimulus",
-      "scheduleIdentifier": "go-no-go-variable-1",
+      "scheduleIdentifier": "go-no-go-variable",
+      "scheduleGUID": "go-no-go-variable-1",
       "activityType": "sequential",
+      "trialActivity": true,
       "tasks": [
         {
           "taskTitle": "Go No Go Variable Stimulus",
@@ -42,9 +66,41 @@
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
-      "scheduleIdentifier": "am_survey_go_no_go_stable-1",
+      "scheduleTitle": "BART $.25",
+      "scheduleIdentifier": "bart.25",
+      "scheduleGUID": "bart.25-1",
+      "activityType": "sequential",
+      "trialActivity": true,
+      "tasks": [
+        {
+          "taskTitle": "BART $.25",
+          "taskIdentifier": "bart_25_cents_full_task",
+        }
+      ]
+    },
+    {
+      "scheduleType": "recurring",
+      "scheduleString": "* * * * *",
+      "scheduleTitle": "BART$250",
+      "scheduleIdentifier": "bart250",
+      "scheduleGUID": "bart250-1",
+      "activityType": "sequential",
+      "trialActivity": true,
+      "tasks": [
+        {
+          "taskTitle": "BART $250",
+          "taskIdentifier": "bart_250_dollars_full_task",
+        }
+      ]
+    },
+    {
+      "scheduleType": "recurring",
+      "scheduleString": "* * * * *",
+      "scheduleIdentifier": "am_survey",
+      "scheduleGUID": "am_survey-1",
       "scheduleTitle": "Morning Survey",
       "activityType": "random",
+      "trialActivity": false,
       "tasks": [
         {
           "taskTitle": "Morning Survey",
@@ -53,15 +109,25 @@
         {
           "taskTitle": "Morning Survey",
           "taskIdentifier": "am_survey_go_no_go_variable",
+        },
+        {
+          "taskTitle": "Morning Survey",
+          "taskIdentifier": "am_survey_bart_25_cents",
+        },
+        {
+          "taskTitle": "Morning Survey",
+          "taskIdentifier": "am_survey_bart_250_dollars",
         }
       ]
     },
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
-      "scheduleIdentifier": "pm_survey_go_no_go_stable-1",
+      "scheduleIdentifier": "pm_survey",
+      "scheduleGUID": "pm_survey-1",
       "scheduleTitle": "Evening Survey",
       "activityType": "random",
+      "trialActivity": false,
       "tasks": [
         {
           "taskTitle": "Evening Survey",
@@ -70,8 +136,17 @@
         {
           "taskTitle": "Evening Survey",
           "taskIdentifier": "pm_survey_go_no_go_variable",
-        }
+        },
+        {
+          "taskTitle": "Evening Survey",
+          "taskIdentifier": "pm_survey_bart_25_cents",
+        },
+        {
+          "taskTitle": "Evening Survey",
+          "taskIdentifier": "pm_survey_bart_250_dollars",
+        },
       ]
     },
+                
   ]
 }
