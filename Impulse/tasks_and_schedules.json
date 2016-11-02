@@ -100,7 +100,7 @@
       "scheduleGUID": "am_survey-1",
       "scheduleTitle": "Morning Survey",
       "activityType": "random",
-      "trialActivity": false,
+      "trialActivity": true,
       "tasks": [
         {
           "taskTitle": "Morning Survey",
