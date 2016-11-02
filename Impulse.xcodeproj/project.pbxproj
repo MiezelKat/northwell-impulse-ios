@@ -10,6 +10,8 @@
 		081989261DCA3D0D0047ACA6 /* CTFDelayDiscountingBridgeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081989251DCA3D0D0047ACA6 /* CTFDelayDiscountingBridgeTask.swift */; };
 		0819892B1DCA476E0047ACA6 /* delayDiscounting_Money_1Month_active_task.json in Resources */ = {isa = PBXBuildFile; fileRef = 081989291DCA476E0047ACA6 /* delayDiscounting_Money_1Month_active_task.json */; };
 		0819892C1DCA476E0047ACA6 /* delayDiscounting_Money_1Month_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = 0819892A1DCA476E0047ACA6 /* delayDiscounting_Money_1Month_full_task.json */; };
+		084DA64E1DCA754B00299DD6 /* delayDiscounting_Money_6Month_active_task.json in Resources */ = {isa = PBXBuildFile; fileRef = 084DA64C1DCA754B00299DD6 /* delayDiscounting_Money_6Month_active_task.json */; };
+		084DA64F1DCA754B00299DD6 /* delayDiscounting_Money_6Month_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = 084DA64D1DCA754B00299DD6 /* delayDiscounting_Money_6Month_full_task.json */; };
 		08D2028A1DC279DA00F43C07 /* CTFDelayDiscountingStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08D202891DC279DA00F43C07 /* CTFDelayDiscountingStepViewController.xib */; };
 		08F6069C1DBF9BB70066760F /* CTFDelayDiscountingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F6069B1DBF9BB70066760F /* CTFDelayDiscountingStep.swift */; };
 		08F6069E1DBF9EF40066760F /* CTFDelayDiscountingStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F6069D1DBF9EF40066760F /* CTFDelayDiscountingStepViewController.swift */; };
@@ -193,6 +195,8 @@
 		081989251DCA3D0D0047ACA6 /* CTFDelayDiscountingBridgeTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CTFDelayDiscountingBridgeTask.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		081989291DCA476E0047ACA6 /* delayDiscounting_Money_1Month_active_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = delayDiscounting_Money_1Month_active_task.json; sourceTree = "<group>"; };
 		0819892A1DCA476E0047ACA6 /* delayDiscounting_Money_1Month_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = delayDiscounting_Money_1Month_full_task.json; sourceTree = "<group>"; };
+		084DA64C1DCA754B00299DD6 /* delayDiscounting_Money_6Month_active_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = delayDiscounting_Money_6Month_active_task.json; sourceTree = "<group>"; };
+		084DA64D1DCA754B00299DD6 /* delayDiscounting_Money_6Month_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = delayDiscounting_Money_6Month_full_task.json; sourceTree = "<group>"; };
 		08D202891DC279DA00F43C07 /* CTFDelayDiscountingStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CTFDelayDiscountingStepViewController.xib; sourceTree = "<group>"; };
 		08F6069B1DBF9BB70066760F /* CTFDelayDiscountingStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CTFDelayDiscountingStep.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		08F6069D1DBF9EF40066760F /* CTFDelayDiscountingStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CTFDelayDiscountingStepViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -455,6 +459,8 @@
 		E2AA6D231DA43CCC005D5137 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				084DA64C1DCA754B00299DD6 /* delayDiscounting_Money_6Month_active_task.json */,
+				084DA64D1DCA754B00299DD6 /* delayDiscounting_Money_6Month_full_task.json */,
 				081989291DCA476E0047ACA6 /* delayDiscounting_Money_1Month_active_task.json */,
 				0819892A1DCA476E0047ACA6 /* delayDiscounting_Money_1Month_full_task.json */,
 				E2FE1AB81DB0393000DBB8E7 /* am_survey_go_no_go_variable.json */,
@@ -792,6 +798,7 @@
 				E2AA6D311DA43CEE005D5137 /* self_assessment_6.json in Resources */,
 				E2C20D771DC0296F00382527 /* bart_250_dollars_active_task.json in Resources */,
 				E2A5F0CC1DC7EFCA002CA609 /* self_assessment_5_21.json in Resources */,
+				084DA64E1DCA754B00299DD6 /* delayDiscounting_Money_6Month_active_task.json in Resources */,
 				E2C20D7E1DC02BBD00382527 /* am_survey_bart_250_dollars.json in Resources */,
 				E2EF6B291DA2E2970034456A /* LaunchScreen.storyboard in Resources */,
 				E2EF6B261DA2E2970034456A /* Assets.xcassets in Resources */,
@@ -809,6 +816,7 @@
 				E21F23921DA58D9500760EA7 /* go_no_go_stable_stimulus_active_task.json in Resources */,
 				E2A5F0CE1DC7EFCA002CA609 /* self_assessment_9_21.json in Resources */,
 				E2AA6D331DA43CEE005D5137 /* self_assessment_10.json in Resources */,
+				084DA64F1DCA754B00299DD6 /* delayDiscounting_Money_6Month_full_task.json in Resources */,
 				E2CCB6671DB151F700C801A4 /* pm_survey_go_no_go_stable.json in Resources */,
 				E2EF6B241DA2E2970034456A /* Main.storyboard in Resources */,
 				E2AA6CDE1DA41A60005D5137 /* Onboarding.storyboard in Resources */,
