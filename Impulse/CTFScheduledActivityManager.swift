@@ -33,7 +33,6 @@ let k1HourInterval: TimeInterval = k1MinuteInterval * 60.0
 let k1DayInterval: TimeInterval = 24.0 * k1HourInterval
 let k21DaySurveyDelayInterval: TimeInterval = 21.0 * k1DayInterval
 //let k21DaySurveyDelayInterval: TimeInterval = 21.0 * k1MinuteInterval
-let kDailySurveyNotificationInterval = 2.0 * k1MinuteInterval
 
 
 let kDailySurveyTimeInterval: TimeInterval = 2.0 * k1HourInterval
@@ -563,13 +562,9 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
         taskViewController.delegate = self
     }
     
-    
     func instantiateTaskViewController(_ task: ORKTask) -> SBATaskViewController {
         return SBATaskViewController(task: task, taskRun: nil)
     }
-    
-    
-    
 }
 
 //Results Handling Extensions
@@ -596,8 +591,8 @@ extension CTFScheduledActivityManager {
         let notification = UILocalNotification()
         notification.userInfo = ["identifier": forIdentifier]
         notification.fireDate = initialFireDate
-        notification.repeatInterval = NSCalendar.Unit.minute
-//        notification.repeatInterval = NSCalendar.Unit.day
+//        notification.repeatInterval = NSCalendar.Unit.minute
+        notification.repeatInterval = NSCalendar.Unit.day
         notification.alertBody = text
         UIApplication.shared.scheduleLocalNotification(notification)
     }

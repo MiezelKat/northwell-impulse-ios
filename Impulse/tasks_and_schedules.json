@@ -3,22 +3,6 @@
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
-      "scheduleTitle": "NotificationTest",
-      "scheduleIdentifier": "notification-test",
-      "scheduleGUID": "notification-1",
-      "activityType": "sequential",
-      "trialActivity": false,
-      "tasks": [
-        {
-          "taskTitle": "NotificationTest",
-          "taskIdentifier": "NotificationTest",
-        }
-      ]
-    },
-
-    {
-      "scheduleType": "recurring",
-      "scheduleString": "* * * * *",
       "scheduleTitle": "Baseline Assessment",
       "scheduleIdentifier": "baseline",
       "scheduleGUID": "baseline-1",
