@@ -9,11 +9,6 @@
 import UIKit
 import ResearchKit
 
-enum pressed{
-    case NotPressed
-    case Now
-    case Later
-}
 
 enum CTFDelayDiscoutingChoice{
     case Now
@@ -32,7 +27,7 @@ struct CTFDelayDiscoutingTrialResult{
     var trial:CTFDelayDiscoutingTrial!
     var choiceType: CTFDelayDiscoutingChoice!
     var choiceValue: Double!
-    var choiceTime:Double! //time required to make choice
+    var choiceTime: TimeInterval! //time required to make choice
 }
 
 class CTFDelayDiscoutingStepViewController: ORKStepViewController {
@@ -42,6 +37,9 @@ class CTFDelayDiscoutingStepViewController: ORKStepViewController {
     @IBOutlet weak var laterLabel:UILabel!
     @IBOutlet weak var nowButton:UIButton!
     @IBOutlet weak var laterButton:UIButton!
+    
+    var _nowButtonHandler:(()->())?
+    var _laterButtonHandler:(()->())?
     
     
     var canceled = false
@@ -71,26 +69,34 @@ class CTFDelayDiscoutingStepViewController: ORKStepViewController {
     }
     
     
-    func performTrials(_ trial:CTFDelayDiscoutingTrial, trialIds:[Double] ,results: [CTFBARTTrialResult], completion: @escaping ([CTFBARTTrialResult]) -> ()) {
+    func performTrials(_ trial:CTFDelayDiscoutingTrial, trialIds:[Int] ,results: [CTFDelayDiscoutingTrialResult],
+                       completion: @escaping ([CTFDelayDiscoutingTrialResult]) -> ()) {
         if self.canceled {
             completion([])
             return
         }
         if let head = trialIds.first {
+            let tail = Array(trialIds.dropFirst())
             //let tail = Array(trials.dropFirst())
-            self.doTrial(trial,head, completion: { (result) in
+            self.doTrial(trial,trialIndex: head, completion: { (result) in
                 var newResults = Array(results)
                 newResults.append(result)
                 //based on the decision made by the user ( click on now or later button),update the next now value
-                let nextNow = Double(0) // dummy value - for now
+                var nextNow = Double(0) // dummy value - for now
+                switch self.pressedButton{
+                case pressed.Now:
+                    var diff = trial.now - trial.differenceValue
+                case pressed.Later:
+                    var diff = trial.now + trial.differenceValue
+                }
                 let nextLater = trial.later!
                 let nextDifference = trial.differenceValue/2
                 let nextQuestionNum = head + 1
                 let nextTrial = CTFDelayDiscoutingTrial(now:nextNow,
                                                         later:nextLater,
-                                                        questionNum: nextQuestionNum,
+                                                        questionNum: Int(nextQuestionNum),
                                                         differenceValue:nextDifference) // check this with James - Francesco
-                self.performTrials(nextTrial,head,results: newResults, completion: completion)
+                self.performTrials(nextTrial,trialIds: tail ,results: newResults, completion: completion)
             })
         }
         else {
@@ -98,39 +104,47 @@ class CTFDelayDiscoutingStepViewController: ORKStepViewController {
         }
     }
     
+    func createNewTrial(id:Int,result:CTFDelayDiscoutingTrialResult){}
+    
     func doTrial(_ trial: CTFDelayDiscoutingTrial, trialIndex:Double , completion: @escaping (CTFDelayDiscoutingTrialResult) -> ()) {
         // link UI to Trial params
         self.nowButton.setTitle(String(trial.now), for: .normal)
         self.laterButton.setTitle(String(trial.later), for: .normal)
         
-        if (self.pressedButton == pressed.Now){
-            // return CTFCTFDelayDiscoutingTrialResult(trial,CTFDelayDiscoutingChoice.Now,trial.now, addTime)
+        let trialStartTime: Date = Date()
+        
+        
+        func completeTrial(pressAction:CTFDelayDiscoutingChoice){
+            let trialEndTime  = Date()
+            let amount:Double = (pressAction == .Now) ? trial.now : trial.later
+            let result = CTFDelayDiscoutingTrialResult(trial: trial,
+                                                       choiceType: pressAction,
+                                                       choiceValue: amount,
+                                                       choiceTime: trialEndTime.timeIntervalSince(trialStartTime))
+            completion(result)
         }
-        else if (self.pressedButton == pressed.Now){
-             // return CTFCTFDelayDiscoutingTrialResult(trial,CTFDelayDiscoutingChoice.Later,trial.later, addTime)
+        
+        self._nowButtonHandler = {
+            completeTrial(pressAction:CTFDelayDiscoutingChoice.Now)
         }
-        else{
-            print("pressedButton value is: ")
-            print(self.pressedButton)
+        self._laterButtonHandler = {
+            completeTrial(pressAction:CTFDelayDiscoutingChoice.Later)
         }
         
     }
     
     
     @IBAction func nowButtonPress(_ sender: AnyObject) {
-        if (self.pressedButton != pressed.Now){
-            self.pressedButton =  pressed.Now
-        }
+      self._nowButtonHandler?()
         
     }
     
     @IBAction func laterButtonPress(_ sender: AnyObject) {
-        if (self.pressedButton != pressed.Later){
-            self.pressedButton = pressed.Later
-            
-        }
+        self._laterButtonHandler?()
         
     }
+    
+    
     
 
 
