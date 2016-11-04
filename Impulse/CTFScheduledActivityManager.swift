@@ -31,6 +31,8 @@ let k21DaySurveyCompleted: String = "21DaySurveyCompleted"
 let k1MinuteInterval: TimeInterval = 60.0
 let k1HourInterval: TimeInterval = k1MinuteInterval * 60.0
 let k1DayInterval: TimeInterval = 24.0 * k1HourInterval
+
+
 let k21DaySurveyDelayInterval: TimeInterval = 21.0 * k1DayInterval
 //let k21DaySurveyDelayInterval: TimeInterval = 21.0 * k1MinuteInterval
 
@@ -248,10 +250,10 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
                 return false
             }
             
-            let timeSinceBaseline = NSDate().timeIntervalSince(baselineDate as Date)
-            guard timeSinceBaseline > kDailySurveyDelaySinceBaselineTimeInterval else {
-                return false
-            }
+//            let timeSinceBaseline = NSDate().timeIntervalSince(baselineDate as Date)
+//            guard timeSinceBaseline > kDailySurveyDelaySinceBaselineTimeInterval else {
+//                return false
+//            }
             
             //2
             guard let morningSurveyTime = self.getKeychainObject(kMorningSurveyTime) as? NSDateComponents,
@@ -288,10 +290,10 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
                 return false
             }
             
-            let timeSinceBaseline = NSDate().timeIntervalSince(baselineDate as Date)
-            guard timeSinceBaseline > kDailySurveyDelaySinceBaselineTimeInterval else {
-                    return false
-            }
+//            let timeSinceBaseline = NSDate().timeIntervalSince(baselineDate as Date)
+//            guard timeSinceBaseline > kDailySurveyDelaySinceBaselineTimeInterval else {
+//                    return false
+//            }
             
             //2
             guard let eveningSurveyTime = self.getKeychainObject(kEveningSurveyTime) as? NSDateComponents,
@@ -309,7 +311,7 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
             
             //3 (note: if never taken, automatic true)
             //if it has been taken, it will be in today's range
-            if let latestSurveyTime = self.getKeychainObject(kLastMorningSurveyCompleted) as? NSDate {
+            if let latestSurveyTime = self.getKeychainObject(kLastEveningSurveyCompleted) as? NSDate {
                 return !dateRange.contains(latestSurveyTime as Date)
             }
             else {
@@ -354,11 +356,13 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
             else {
                 return nil
         }
-        return activities.first(where: { $0.guid == guid })
+        return activities.first(where: { $0.guid == guid }) ??
+            self.trialActivities.first(where: { $0.guid == guid })
     }
     
     func scheduledActivityForTaskIdentifier(_ taskIdentifier: String) -> CTFScheduledActivity? {
-        return activities.first(where: { $0.activity!.identifier == taskIdentifier })
+        return activities.first(where: { $0.activity!.identifier == taskIdentifier }) ??
+            self.trialActivities.first(where: { $0.activity!.identifier == taskIdentifier })
     }
     
     
@@ -395,13 +399,33 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
         
         if reason == ORKTaskViewControllerFinishReason.completed,
             let schedule = scheduledActivityForTaskViewController(taskViewController) {
-            let results = activityResultsForSchedule(schedule, taskViewController: taskViewController)
+//            let results = activityResultsForSchedule(schedule, taskViewController: taskViewController)
             
-            self.activityResultsHandler(results)
+            let taskResult = taskViewController.result
+            if let results = self.handleActivityResult(taskResult, schedule: schedule) {
+                let archives = results.mapAndFilter({ self.archive(for: $0) })
+                //print(archives)
+                //SBADataArchive.encryptAndUploadArchives(archives)
+            }
+            
+            
         }
         
         self.reloadData()
         taskViewController.dismiss(animated: true) {}
+    }
+    
+    @objc(archiveForActivityResult:)
+    open func archive(for activityResult: CTFActivityResult) -> CTFActivityArchive? {
+        if let archive = CTFActivityArchive(result: activityResult,
+                                            jsonValidationMapping: nil) {
+            do {
+                try archive.complete()
+                return archive
+            }
+            catch {}
+        }
+        return nil
     }
     
 //    func defaultResultsParser()
@@ -591,7 +615,6 @@ extension CTFScheduledActivityManager {
         let notification = UILocalNotification()
         notification.userInfo = ["identifier": forIdentifier]
         notification.fireDate = initialFireDate
-//        notification.repeatInterval = NSCalendar.Unit.minute
         notification.repeatInterval = NSCalendar.Unit.day
         notification.alertBody = text
         UIApplication.shared.scheduleLocalNotification(notification)
@@ -636,7 +659,8 @@ extension CTFScheduledActivityManager {
             return nil
         }
         let timeUntilTodaysNotification = todaysNotificationDate.timeIntervalSinceNow
-        if timeUntilTodaysNotification > kDailySurveyDelaySinceBaselineTimeInterval {
+//        if timeUntilTodaysNotification > kDailySurveyDelaySinceBaselineTimeInterval {
+        if timeUntilTodaysNotification > 0.0 {
             return todaysNotificationDate as Date
         }
         else {
@@ -700,6 +724,8 @@ extension CTFScheduledActivityManager {
     }
     
     
+    
+    
     func handleBaselineSurvey(_ result: ORKTaskResult) {
         //1) set baseline completed date
         let completedDate: NSDate = result.endDate as NSDate
@@ -728,12 +754,54 @@ extension CTFScheduledActivityManager {
         //2) handle results
     }
     
-    func handlePMSurvey(_ result: ORKTaskResult) {
+    func getStepResults(forIdentifiers identifiers: [String], _ result: ORKTaskResult) -> [ORKStepResult] {
+        return identifiers.flatMap { (identifier) -> ORKStepResult? in
+            return result.stepResult(forStepIdentifier: identifier)
+        }
+    }
+    
+    func handlePMSurvey(_ result: ORKTaskResult, schedule: CTFScheduledActivity) -> [CTFActivityResult]? {
         //1) set latest PM survey completion
         let completedDate: NSDate = result.endDate as NSDate
         self.setKeychainObject(completedDate, forKey: kLastEveningSurveyCompleted)
         
+        
+        var surveyResults: [String: AnyObject] = [:]
         //2) handle results
+        
+        let pmSurveyResults: [ORKStepResult] = self.getStepResults(forIdentifiers: ["pm_1", "pam_pm"], result)
+        let pmSurveyActivityResult = self.createActivityResult("pm_survey_1", taskResult: result, schedule: schedule, stepResults: pmSurveyResults, schemaRevision: 4)
+        
+        let activeTaskResult: [ORKStepResult] = self.getStepResults(forIdentifiers: ["goNoGoStep", "BARTStep"], result)
+        
+        print(pmSurveyResults)
+        print(activeTaskResult)
+        
+        
+        /*
+        if let eveningLikertResult = result.result(forIdentifier: "pm_1") as? ORKStepResult,
+            let individualResults = eveningLikertResult.results{
+            let pairs: [(String, Int)] = individualResults.flatMap({ (result) -> (String, Int)? in
+                
+                guard let scaleResult = result as? ORKScaleQuestionResult,
+                    let intValue = scaleResult.scaleAnswer?.intValue else {
+                    return nil
+                }
+                
+                return (scaleResult.identifier, intValue)
+            })
+            
+            if let resultDictionary: [String: Int] = pairs.toDict() {
+                resultDictionary.forEach({ (identifier, answer) in
+                    surveyResults[identifier] = answer as AnyObject?
+                })
+            }
+        }
+        */
+        
+        return [pmSurveyActivityResult]
+        
+        
     }
     
     func handle21DaySurvey(_ result: ORKTaskResult) {
@@ -749,13 +817,27 @@ extension CTFScheduledActivityManager {
         
     }
     
+    func outputDate(_ inputDate: Date?, comparison:ComparisonResult, taskResult: ORKTaskResult) -> Date {
+        let compareDate = (comparison == .orderedAscending) ? taskResult.startDate : taskResult.endDate
+        guard let date = inputDate , date.compare(compareDate) == comparison else {
+            return compareDate
+        }
+        return date
+    }
     
-    func handleActivityResult(_ result: CTFActivityResult) {
+    func createActivityResult(_ schemaIdentifier: String, taskResult: ORKTaskResult, schedule: CTFScheduledActivity, stepResults: [ORKStepResult], schemaRevision: Int) -> CTFActivityResult {
+        let result = CTFActivityResult(taskIdentifier: schemaIdentifier, taskRun: taskResult.taskRunUUID, outputDirectory: taskResult.outputDirectory)
+        result.results = stepResults
+        result.schedule = schedule
+        result.startDate = outputDate(stepResults.first?.startDate, comparison: .orderedAscending, taskResult: taskResult)
+        result.endDate = outputDate(stepResults.last?.endDate, comparison: .orderedDescending, taskResult: taskResult)
+        result.schemaRevision = schemaRevision as NSNumber?
+        return result
+    }
+    
+    func handleActivityResult(_ result: ORKTaskResult, schedule: CTFScheduledActivity) -> [CTFActivityResult]? {
         print(result)
         switch(result.identifier) {
-        case "NotificationTest":
-            print(result)
-            self.handleBaselineSurvey(result)
             
         case "Baseline":
             print(result)
@@ -768,15 +850,17 @@ extension CTFScheduledActivityManager {
             self.handleAMSurvey(result)
             
         case let identifier where identifier.hasPrefix("pm_survey"):
-            self.handlePMSurvey(result)
+            return self.handlePMSurvey(result, schedule: schedule)
             
         default: break
         }
+        
+        return nil
     }
     
-    func activityResultsHandler(_ results: [CTFActivityResult]) {
-        results.forEach(self.handleActivityResult)
-    }
+//    func activityResultsHandler(_ results: [CTFActivityResult]) {
+//        results.forEach(self.handleActivityResult)
+//    }
     
 }
 

@@ -11,19 +11,29 @@ import SDLRKX
 
 @objc class CTFPAMMultipleSelectionTask: NSObject, SBABridgeTask, SBAStepTransformer {
 
-    let task: PAMMultipleSelectionTask
+    
+    var _taskIdentifier: String!
+    var _schemaIdentifier: String?
+    var task: PAMMultipleSelectionTask!
+
+    
     init(dictionaryRepresentation: NSDictionary) {
-        self.task = PAMMultipleSelectionTask(identifier: "testIdentifier", json: dictionaryRepresentation, bundle:  Bundle(for: PAMMultipleSelectionTask.self))
         super.init()
+        
+        if let dict = dictionaryRepresentation as? [String: AnyObject] {
+            self._taskIdentifier = dict["taskIdentifier"] as! String
+            self._schemaIdentifier = dict["schemaIdentifier"] as? String
+            self.task = PAMMultipleSelectionTask(identifier: self._taskIdentifier, json: dictionaryRepresentation, bundle:  Bundle(for: PAMMultipleSelectionTask.self))
+        }
     }
     
     
     var taskIdentifier: String! {
-        return "PAM"
+        return self._taskIdentifier
     }
     
     var schemaIdentifier: String! {
-        return "1"
+        return self._schemaIdentifier
     }
     
     var taskSteps: [SBAStepTransformer] {
@@ -33,9 +43,10 @@ import SDLRKX
     var insertSteps: [SBAStepTransformer]? {
         return nil
     }
-
+    
     func transformToStep(with factory: SBASurveyFactory, isLastStep: Bool) -> ORKStep? {
-        return self.task.steps[0]
+        let task = PAMTask(identifier: self.taskIdentifier)
+        return task.steps[0]
     }
     
 }

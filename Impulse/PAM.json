@@ -1,4 +1,6 @@
 {
+    "taskIdentifier":"PAMTaskIdentifier",
+    "schemaIdentifier": "PAMSchemaIdentifier",
    "PAM":{
       "identifier":"PAMIdentifier",
       "prompt":"When you think about yourself and how you generally feel, which do you think comes closest to how you feel most days? Please check all that apply.",

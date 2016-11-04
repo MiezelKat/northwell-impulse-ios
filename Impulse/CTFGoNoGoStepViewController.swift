@@ -191,7 +191,7 @@ class CTFGoNoGoStepViewController: ORKStepViewController, CTFGoNoGoViewDelegate 
         //clear results
         if let trials = self.trials {
             self.performTrials(trials, results: [], completion: { (results) in
-                print(results)
+//                print(results)
                 
             
                 if !self.canceled {
@@ -267,7 +267,7 @@ class CTFGoNoGoStepViewController: ORKStepViewController, CTFGoNoGoViewDelegate 
         
         goNoGoView?.state = CTFGoNoGoState.blank
         
-        print("Trial number \(trial.trialIndex)")
+//        print("Trial number \(trial.trialIndex)")
         
         delay(trial.waitTime) {
             
@@ -308,16 +308,16 @@ class CTFGoNoGoStepViewController: ORKStepViewController, CTFGoNoGoViewDelegate 
                         
                         //race for tap and timer expiration
                         let startTime: NSDate = NSDate()
-                        print("Start time: \(self.RFC3339DateFormatter.string(from: startTime as Date))")
+//                        print("Start time: \(self.RFC3339DateFormatter.string(from: startTime as Date))")
                         self.tapTime = nil
                         
                         delay(trial.fillTime) {
                             let tapped = self.tapTime != nil
                             let responseTime: TimeInterval = (tapped ? self.tapTime!.timeIntervalSince(startTime as Date) : trial.fillTime) * 1000
                             
-                            if let tapTime = self.tapTime {
-                                print("Tapped Handler: \(self.RFC3339DateFormatter.string(from: tapTime))")
-                            }
+//                            if let tapTime = self.tapTime {
+//                                print("Tapped Handler: \(self.RFC3339DateFormatter.string(from: tapTime))")
+//                            }
                             
                             goNoGoView?.state = CTFGoNoGoState.blank
                             

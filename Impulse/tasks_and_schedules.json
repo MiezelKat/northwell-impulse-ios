@@ -127,7 +127,7 @@
       "scheduleGUID": "pm_survey-1",
       "scheduleTitle": "Evening Survey",
       "activityType": "random",
-      "trialActivity": false,
+      "trialActivity": true,
       "tasks": [
         {
           "taskTitle": "Evening Survey",

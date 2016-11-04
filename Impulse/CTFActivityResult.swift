@@ -17,5 +17,7 @@ class CTFActivityResult: ORKTaskResult {
     
     var schedule: CTFScheduledActivity?
     var schemaRevision: NSNumber?
-    var schemaIdentifier: String?
+    var schemaIdentifier: String {
+        return self.identifier
+    }
 }

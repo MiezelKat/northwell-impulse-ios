@@ -8,7 +8,7 @@
       },
       {
         "identifier"   :   "PAM",
-        "resourceName"            : "PAM",
+        "resourceName"            : "pam_pm",
         "classType"               : "Impulse.CTFPAMTask",
       },
       {

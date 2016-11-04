@@ -49,7 +49,6 @@ class CTFGoNoGoBridgeTask: NSObject, SBABridgeTask, SBAStepTransformer {
         super.init()
         
         if let dict = dictionaryRepresentation as? [String: AnyObject] {
-//            print(dict)
             self._taskIdentifier = dict["taskIdentifier"] as! String
             self._schemaIdentifier = dict["schemaIdentifier"] as? String
             self.stepParams = CTFGoNoGoBridgeTask.stepParamsFromDictionary(dict["parameters"])

@@ -22,3 +22,25 @@ func coinFlip<T>(_ obj1: T, obj2: T, bias: Float = 0.5) -> T {
         return obj2
     }
 }
+
+protocol Idable {
+    var id : String { get }
+}
+
+extension Sequence {
+    
+    func toDict<K: Hashable, V>() -> [K: V]? {
+        guard let arrayOfPairs = self as? [(K, V)] else {
+            return nil
+        }
+        
+        var returnDict: Dictionary<K, V> = [:]
+        
+        for pair in arrayOfPairs {
+            let key: K = pair.0
+            let value: V = pair.1
+            returnDict[key] = value
+        }
+        return returnDict
+    }
+}

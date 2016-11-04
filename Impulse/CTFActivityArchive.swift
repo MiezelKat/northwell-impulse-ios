@@ -23,18 +23,18 @@ class CTFActivityArchive: SBADataArchive {
     
     fileprivate var metadata = [String: AnyObject]()
     
-    init?(result: SBAActivityResult, jsonValidationMapping: [String: NSPredicate]? = nil) {
+    init?(result: CTFActivityResult, jsonValidationMapping: [String: NSPredicate]? = nil) {
         super.init(reference: result.schemaIdentifier, jsonValidationMapping: jsonValidationMapping)
         
         // set up the activity metadata
         // -- always set scheduledActivityGuid and taskRunUUID
-        self.metadata[kScheduledActivityGuidKey] = result.schedule.guid as AnyObject?
+        self.metadata[kScheduledActivityGuidKey] = result.schedule?.guid as AnyObject?
         self.metadata[kTaskRunUUIDKey] = result.taskRunUUID.uuidString as AnyObject?
         
         // -- if it's a task, also set the taskIdentifier
-        if let taskReference = result.schedule.activity.task {
-            self.metadata[kTaskIdentifierKey] = taskReference.identifier as AnyObject?
-        }
+//        if let taskReference = result.schedule?.activity.task {
+//            self.metadata[kTaskIdentifierKey] = taskReference.identifier as AnyObject?
+//        }
         
         // -- add the start/end date
         self.metadata[kStartDate] = (result.startDate as NSDate).iso8601String() as AnyObject?
@@ -42,15 +42,15 @@ class CTFActivityArchive: SBADataArchive {
         
         // set up the info.json
         // -- always set the schemaRevision
-        self.setArchiveInfoObject(result.schemaRevision, forKey: kSchemaRevisionKey)
+        self.setArchiveInfoObject(result.schemaRevision!, forKey: kSchemaRevisionKey)
         
         // -- if it's a survey, also set the survey's guid and createdOn
-        if let surveyReference = result.schedule.activity.survey {
-            // Survey schema is better matched by created date and survey guid
-            self.setArchiveInfoObject(surveyReference.guid as SBAJSONObject, forKey: kSurveyGuidKey)
-            let createdOn = surveyReference.createdOn ?? NSDate() as Date
-            self.setArchiveInfoObject((createdOn as NSDate).iso8601String() as SBAJSONObject, forKey: kSurveyCreatedOnKey)
-        }
+//        if let surveyReference = result.schedule.activity.survey {
+//            // Survey schema is better matched by created date and survey guid
+//            self.setArchiveInfoObject(surveyReference.guid as SBAJSONObject, forKey: kSurveyGuidKey)
+//            let createdOn = surveyReference.createdOn ?? NSDate() as Date
+//            self.setArchiveInfoObject((createdOn as NSDate).iso8601String() as SBAJSONObject, forKey: kSurveyCreatedOnKey)
+//        }
         
         if !self.buildArchiveForResult(result) {
             self.remove()
@@ -58,7 +58,7 @@ class CTFActivityArchive: SBADataArchive {
         }
     }
     
-    func buildArchiveForResult(_ activityResult: SBAActivityResult) -> Bool {
+    func buildArchiveForResult(_ activityResult: CTFActivityResult) -> Bool {
         
         // exit early with false if nothing to archive
         guard let activityResultResults = activityResult.results as? [ORKStepResult]
@@ -90,7 +90,7 @@ class CTFActivityArchive: SBADataArchive {
     /**
      * Method for inserting a result into an archive. Allows for override by subclasses
      */
-    func insertResult(_ result: ORKResult, stepResult: ORKStepResult, activityResult: SBAActivityResult) -> Bool {
+    func insertResult(_ result: ORKResult, stepResult: ORKStepResult, activityResult: CTFActivityResult) -> Bool {
         
         guard let archiveableResult = result.bridgeData(stepResult.identifier) else {
             assertionFailure("Something went wrong getting result to archive from result \(result.identifier) of step \(stepResult.identifier) of activity result \(activityResult.identifier)")

@@ -63,6 +63,9 @@ class CTFPulsusFormStepViewController: ORKStepViewController, UITableViewDataSou
         self.formItemTableView.separatorInset = UIEdgeInsets.zero
         
         
+        self.titleTextView.text = self.step?.title
+        self.nextButton.setTitle("Next", for: UIControlState())
+        self.nextButton.configuredColor = self.view.tintColor
         
     }
     
@@ -143,18 +146,16 @@ class CTFPulsusFormStepViewController: ORKStepViewController, UITableViewDataSou
         return parentResult
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.titleTextView.text = self.step?.title
-        self.nextButton.setTitle("Next", for: UIControlState())
-        self.nextButton.configuredColor = self.view.tintColor
-        
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        
+//    }
     
     override func viewWillLayoutSubviews() {
         
         let sizeThatFits = self.titleTextView.sizeThatFits(CGSize(width: self.titleTextView.frame.size.width, height: CGFloat(MAXFLOAT)))
         self.titleTextViewHeight.constant = sizeThatFits.height
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

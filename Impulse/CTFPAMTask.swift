@@ -11,19 +11,25 @@ import SDLRKX
 
 @objc class CTFPAMTask: NSObject, SBABridgeTask, SBAStepTransformer {
 
-    let task: PAMTask
+    var _taskIdentifier: String!
+    var _schemaIdentifier: String?
+    
     init(dictionaryRepresentation: NSDictionary) {
-        self.task = PAMTask(identifier: "testIdentifier")
         super.init()
+        
+        if let dict = dictionaryRepresentation as? [String: AnyObject] {
+            self._taskIdentifier = dict["taskIdentifier"] as! String
+            self._schemaIdentifier = dict["schemaIdentifier"] as? String
+        }
     }
     
     
     var taskIdentifier: String! {
-        return "PAM"
+        return self._taskIdentifier
     }
     
     var schemaIdentifier: String! {
-        return "1"
+        return self._schemaIdentifier
     }
     
     var taskSteps: [SBAStepTransformer] {
@@ -35,7 +41,8 @@ import SDLRKX
     }
 
     func transformToStep(with factory: SBASurveyFactory, isLastStep: Bool) -> ORKStep? {
-        return self.task.steps[0]
+        let task = PAMTask(identifier: self.taskIdentifier)
+        return task.steps[0]
     }
     
 }
