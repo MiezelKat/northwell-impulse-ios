@@ -1,0 +1,33 @@
+{
+    "taskIdentifier"    : "pm_survey_dd_money_6_month",
+    "steps"         : [
+      {
+        "identifier"       : "Pulsus",
+        "resourceName"            : "pm_likert_1",
+        "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+      },
+      {
+        "identifier"   :   "PAM",
+        "resourceName"            : "pam_pm",
+        "classType"               : "Impulse.CTFPAMTask",
+      },
+      {
+        "identifier"   : "introduction",
+        "type"         : "instruction",
+        "title"        : "Welcome to the Delay Discounting Task.",
+        "text"         : "You will be asked six questions where you will choose between an amount of money that you would rather have now vs. an amount of money that you can have in 6 months."
+      },
+      {
+        "taskIdentifier": "delayDiscounting_Money_6Month_active_task",
+        "resourceName": "delayDiscounting_Money_6Month_active_task",
+        "classType": "Impulse.CTFDelayDiscountingBridgeTask"
+      },
+      {
+         "identifier"   : "results",
+         "type"         : "instruction",
+         "title"        : "Results",
+         "text"         : "This is a placeholder for the results",
+       },
+
+    ]
+}

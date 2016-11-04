@@ -205,6 +205,54 @@
             <key>resourceName</key>
             <string>pm_survey_bart_250_dollars</string>
         </dict>
+        <dict>
+            <key>taskIdentifier</key>
+            <string>pm_survey_dd_money_1_month</string>
+            <key>resourceName</key>
+            <string>pm_survey_dd_money_1_month</string>
+        </dict>
+        <dict>
+            <key>taskIdentifier</key>
+            <string>pm_survey_dd_money_6_month</string>
+            <key>resourceName</key>
+            <string>pm_survey_dd_money_6_month</string>
+        </dict>
+        <dict>
+            <key>taskIdentifier</key>
+            <string>pm_survey_dd_time_1_month</string>
+            <key>resourceName</key>
+            <string>pm_survey_dd_time_1_month</string>
+        </dict>
+        <dict>
+            <key>taskIdentifier</key>
+            <string>pm_survey_dd_time_6_month</string>
+            <key>resourceName</key>
+            <string>pm_survey_dd_time_6_month</string>
+        </dict>
+        <dict>
+            <key>taskIdentifier</key>
+            <string>am_survey_dd_money_1_month</string>
+            <key>resourceName</key>
+            <string>am_survey_dd_money_1_month</string>
+        </dict>
+        <dict>
+            <key>taskIdentifier</key>
+            <string>am_survey_dd_money_6_month</string>
+            <key>resourceName</key>
+            <string>am_survey_dd_money_6_month</string>
+        </dict>
+        <dict>
+            <key>taskIdentifier</key>
+            <string>am_survey_dd_time_1_month</string>
+            <key>resourceName</key>
+            <string>am_survey_dd_time_1_month</string>
+        </dict>
+        <dict>
+            <key>taskIdentifier</key>
+            <string>am_survey_dd_time_6_month</string>
+            <key>resourceName</key>
+            <string>am_survey_dd_time_6_month</string>
+        </dict>
 		<dict>
 			<key>taskIdentifier</key>
 			<string>Pulsus</string>

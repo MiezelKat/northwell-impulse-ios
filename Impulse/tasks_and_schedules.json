@@ -117,6 +117,22 @@
         {
           "taskTitle": "Morning Survey",
           "taskIdentifier": "am_survey_bart_250_dollars",
+        },
+        {
+          "taskTitle": "Morning Survey",
+          "taskIdentifier": "am_survey_dd_time_1_month",
+        },
+        {
+          "taskTitle": "Morning Survey",
+          "taskIdentifier": "am_survey_dd_time_6_month",
+        },
+        {
+          "taskTitle": "Morning Survey",
+          "taskIdentifier": "am_survey_dd_money_1_month",
+        },
+        {
+          "taskTitle": "Morning Survey",
+          "taskIdentifier": "am_survey_dd_money_6_month",
         }
       ]
     },
@@ -145,6 +161,22 @@
           "taskTitle": "Evening Survey",
           "taskIdentifier": "pm_survey_bart_250_dollars",
         },
+          {
+            "taskTitle": "Evening Survey",
+            "taskIdentifier": "pm_survey_dd_time_1_month",
+          },
+          {
+            "taskTitle": "Evening Survey",
+            "taskIdentifier": "pm_survey_dd_time_6_month",
+          },
+          {
+            "taskTitle": "Evening Survey",
+            "taskIdentifier": "pm_survey_dd_money_1_month",
+          },
+          {
+            "taskTitle": "Evening Survey",
+            "taskIdentifier": "pm_survey_dd_money_6_month",
+          },
       ]
     },
     {
@@ -207,6 +239,6 @@
         }
       ]
     }
-                
+
   ]
 }

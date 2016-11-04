@@ -1,0 +1,79 @@
+{
+    "taskIdentifier"    : "am_survey_dd_money_1_month",
+    "steps"         : [
+      {
+        "identifier"       : "Pulsus",
+        "resourceName"            : "am_likert_1",
+        "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+      },
+      {
+        "identifier":  "am_2",
+        "type"       : "multipleChoiceText",
+        "text"       : "Which of the following behaviors did you engage in more than you intended yesterday?",
+        "items"      : [  {   "prompt" : "Eating unhealthy food",
+                          "value" : "junkfood_am"},
+                          {   "prompt" : "Gambling",
+                          "value" : "gambling_am"},
+                          {   "prompt" : "Smoking/Vaping",
+                          "value" : "smoke_am"},
+                          {   "prompt" : "Mobile phone",
+                          "value" : "mobile_am"},
+
+                          {   "prompt" : "Overeating (general)",
+                          "value" : "overeat_am"},
+                          {   "prompt" : "Masturbation",
+                          "value" : "mast_am"},
+                          {   "prompt" : "Cutting",
+                          "value" : "cut_am"},
+                          {   "prompt" : "Social media",
+                          "value" : "smedia_am"},
+
+                          {   "prompt" : "Alcohol",
+                          "value" : "alcohol_am"},
+                          {   "prompt" : "Pornography",
+                          "value" : "porn_am"},
+                          {   "prompt" : "Hair pulling/skin picking",
+                          "value" : "hair_am"},
+                          {   "prompt" : "Gaming",
+                          "value" : "gaming_am"},
+
+                          {   "prompt" : "Marijuana",
+                          "value" : "pot_am"},
+                          {   "prompt" : "Spending/Shopping",
+                          "value" : "spend_am"},
+                          {   "prompt" : "Temper",
+                          "value" : "temper_am"},
+                          {   "prompt" : "Other",
+                          "value" : "othermore_am"}
+                        ],
+      },
+      {
+        "identifier"       : "Pulsus",
+        "resourceName"            : "am_likert_3",
+        "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+      },
+      {
+        "identifier"   :   "PAM",
+        "resourceName"            : "PAM",
+        "classType"               : "Impulse.CTFPAMTask",
+      },
+      {
+        "identifier"   : "introduction",
+        "type"         : "instruction",
+        "title"        : "Welcome to the Delay Discounting Task.",
+        "text"         : "You will be asked six questions where you will choose between an amount of money that you would rather have now vs. an amount of money that you can have in 1 month."
+      },
+      {
+        "taskIdentifier": "delayDiscounting_Money_1Month_active_task",
+        "resourceName": "delayDiscounting_Money_1Month_active_task",
+        "classType": "Impulse.CTFDelayDiscountingBridgeTask"
+      },
+      {
+         "identifier"   : "results",
+         "type"         : "instruction",
+         "title"        : "Results",
+         "text"         : "This is a placeholder for the results",
+       },
+
+    ]
+}
