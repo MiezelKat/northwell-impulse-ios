@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		081989261DCA3D0D0047ACA6 /* CTFDelayDiscountingBridgeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081989251DCA3D0D0047ACA6 /* CTFDelayDiscountingBridgeTask.swift */; };
+		0819892B1DCA476E0047ACA6 /* delayDiscounting_Money_1Month_active_task.json in Resources */ = {isa = PBXBuildFile; fileRef = 081989291DCA476E0047ACA6 /* delayDiscounting_Money_1Month_active_task.json */; };
+		0819892C1DCA476E0047ACA6 /* delayDiscounting_Money_1Month_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = 0819892A1DCA476E0047ACA6 /* delayDiscounting_Money_1Month_full_task.json */; };
+		084DA64E1DCA754B00299DD6 /* delayDiscounting_Money_6Month_active_task.json in Resources */ = {isa = PBXBuildFile; fileRef = 084DA64C1DCA754B00299DD6 /* delayDiscounting_Money_6Month_active_task.json */; };
+		084DA64F1DCA754B00299DD6 /* delayDiscounting_Money_6Month_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = 084DA64D1DCA754B00299DD6 /* delayDiscounting_Money_6Month_full_task.json */; };
+		084DA6541DCA956400299DD6 /* delayDiscounting_Time_1Month_active_task.json in Resources */ = {isa = PBXBuildFile; fileRef = 084DA6521DCA956400299DD6 /* delayDiscounting_Time_1Month_active_task.json */; };
+		084DA6551DCA956400299DD6 /* delayDiscounting_Time_1Month_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = 084DA6531DCA956400299DD6 /* delayDiscounting_Time_1Month_full_task.json */; };
+		084DA6581DCA978200299DD6 /* delayDiscounting_Time_6Month_active_task.json in Resources */ = {isa = PBXBuildFile; fileRef = 084DA6561DCA978200299DD6 /* delayDiscounting_Time_6Month_active_task.json */; };
+		084DA6591DCA978200299DD6 /* delayDiscounting_Time_6Month_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = 084DA6571DCA978200299DD6 /* delayDiscounting_Time_6Month_full_task.json */; };
+		08D2028A1DC279DA00F43C07 /* CTFDelayDiscountingStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08D202891DC279DA00F43C07 /* CTFDelayDiscountingStepViewController.xib */; };
+		08F6069C1DBF9BB70066760F /* CTFDelayDiscountingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F6069B1DBF9BB70066760F /* CTFDelayDiscountingStep.swift */; };
+		08F6069E1DBF9EF40066760F /* CTFDelayDiscountingStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F6069D1DBF9EF40066760F /* CTFDelayDiscountingStepViewController.swift */; };
 		E21F237C1DA44F2700760EA7 /* CTFGoNoGoStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21F23781DA44F2700760EA7 /* CTFGoNoGoStepViewController.swift */; };
 		E21F237D1DA44F2700760EA7 /* CTFGoNoGoStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E21F23791DA44F2700760EA7 /* CTFGoNoGoStepViewController.xib */; };
 		E21F237E1DA44F2700760EA7 /* CTFGoNoGoActiveStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21F237A1DA44F2700760EA7 /* CTFGoNoGoActiveStepViewController.swift */; };
@@ -185,6 +197,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		081989251DCA3D0D0047ACA6 /* CTFDelayDiscountingBridgeTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CTFDelayDiscountingBridgeTask.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		081989291DCA476E0047ACA6 /* delayDiscounting_Money_1Month_active_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = delayDiscounting_Money_1Month_active_task.json; sourceTree = "<group>"; };
+		0819892A1DCA476E0047ACA6 /* delayDiscounting_Money_1Month_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = delayDiscounting_Money_1Month_full_task.json; sourceTree = "<group>"; };
+		084DA64C1DCA754B00299DD6 /* delayDiscounting_Money_6Month_active_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = delayDiscounting_Money_6Month_active_task.json; sourceTree = "<group>"; };
+		084DA64D1DCA754B00299DD6 /* delayDiscounting_Money_6Month_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = delayDiscounting_Money_6Month_full_task.json; sourceTree = "<group>"; };
+		084DA6521DCA956400299DD6 /* delayDiscounting_Time_1Month_active_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = delayDiscounting_Time_1Month_active_task.json; sourceTree = "<group>"; };
+		084DA6531DCA956400299DD6 /* delayDiscounting_Time_1Month_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = delayDiscounting_Time_1Month_full_task.json; sourceTree = "<group>"; };
+		084DA6561DCA978200299DD6 /* delayDiscounting_Time_6Month_active_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = delayDiscounting_Time_6Month_active_task.json; sourceTree = "<group>"; };
+		084DA6571DCA978200299DD6 /* delayDiscounting_Time_6Month_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = delayDiscounting_Time_6Month_full_task.json; sourceTree = "<group>"; };
+		08D202891DC279DA00F43C07 /* CTFDelayDiscountingStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CTFDelayDiscountingStepViewController.xib; sourceTree = "<group>"; };
+		08F6069B1DBF9BB70066760F /* CTFDelayDiscountingStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CTFDelayDiscountingStep.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		08F6069D1DBF9EF40066760F /* CTFDelayDiscountingStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CTFDelayDiscountingStepViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E21F23781DA44F2700760EA7 /* CTFGoNoGoStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFGoNoGoStepViewController.swift; sourceTree = "<group>"; };
 		E21F23791DA44F2700760EA7 /* CTFGoNoGoStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CTFGoNoGoStepViewController.xib; sourceTree = "<group>"; };
 		E21F237A1DA44F2700760EA7 /* CTFGoNoGoActiveStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFGoNoGoActiveStepViewController.swift; sourceTree = "<group>"; };
@@ -323,6 +347,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08F606961DBF966F0066760F /* Delay Discounting */ = {
+			isa = PBXGroup;
+			children = (
+				08F6069B1DBF9BB70066760F /* CTFDelayDiscountingStep.swift */,
+				08F6069D1DBF9EF40066760F /* CTFDelayDiscountingStepViewController.swift */,
+				08D202891DC279DA00F43C07 /* CTFDelayDiscountingStepViewController.xib */,
+			);
+			name = "Delay Discounting";
+			sourceTree = "<group>";
+		};
 		E21F23741DA44EE300760EA7 /* Likert */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,6 +396,7 @@
 				E27E29291DA84A630050788A /* CTFFormStepSurveyItem.swift */,
 				E27E29251DA826350050788A /* CTFNumberRange.swift */,
 				E27E29271DA826980050788A /* CTFIntegerRange.swift */,
+				081989251DCA3D0D0047ACA6 /* CTFDelayDiscountingBridgeTask.swift */,
 			);
 			name = "Sage SDK Helpers";
 			sourceTree = "<group>";
@@ -406,6 +441,7 @@
 		E2AA6D101DA43C6F005D5137 /* RK Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				08F606961DBF966F0066760F /* Delay Discounting */,
 				E2CCB66B1DB547CF00C801A4 /* BART */,
 				E21F23771DA44EFA00760EA7 /* Go No Go */,
 				E21F23741DA44EE300760EA7 /* Likert */,
@@ -433,6 +469,14 @@
 		E2AA6D231DA43CCC005D5137 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				084DA6561DCA978200299DD6 /* delayDiscounting_Time_6Month_active_task.json */,
+				084DA6571DCA978200299DD6 /* delayDiscounting_Time_6Month_full_task.json */,
+				084DA6521DCA956400299DD6 /* delayDiscounting_Time_1Month_active_task.json */,
+				084DA6531DCA956400299DD6 /* delayDiscounting_Time_1Month_full_task.json */,
+				084DA64C1DCA754B00299DD6 /* delayDiscounting_Money_6Month_active_task.json */,
+				084DA64D1DCA754B00299DD6 /* delayDiscounting_Money_6Month_full_task.json */,
+				081989291DCA476E0047ACA6 /* delayDiscounting_Money_1Month_active_task.json */,
+				0819892A1DCA476E0047ACA6 /* delayDiscounting_Money_1Month_full_task.json */,
 				E2FE1AB81DB0393000DBB8E7 /* am_survey_go_no_go_variable.json */,
 				E2FE1AB11DB00D0100DBB8E7 /* am_survey_go_no_go_stable.json */,
 				E2A5F0C51DC7EFCA002CA609 /* Day_21.json */,
@@ -763,18 +807,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0819892B1DCA476E0047ACA6 /* delayDiscounting_Money_1Month_active_task.json in Resources */,
 				E2AA6D2E1DA43CEE005D5137 /* Baseline.json in Resources */,
+				084DA6591DCA978200299DD6 /* delayDiscounting_Time_6Month_full_task.json in Resources */,
 				E2CCB6731DB5610F00C801A4 /* CTFBARTStepViewController.xib in Resources */,
 				E2AA6D311DA43CEE005D5137 /* self_assessment_6.json in Resources */,
 				E2C20D771DC0296F00382527 /* bart_250_dollars_active_task.json in Resources */,
 				E2A5F0CC1DC7EFCA002CA609 /* self_assessment_5_21.json in Resources */,
+				084DA64E1DCA754B00299DD6 /* delayDiscounting_Money_6Month_active_task.json in Resources */,
 				E2C20D7E1DC02BBD00382527 /* am_survey_bart_250_dollars.json in Resources */,
 				E2EF6B291DA2E2970034456A /* LaunchScreen.storyboard in Resources */,
 				E2EF6B261DA2E2970034456A /* Assets.xcassets in Resources */,
 				E2FE1AB91DB0393000DBB8E7 /* am_survey_go_no_go_variable.json in Resources */,
 				E2AA6D301DA43CEE005D5137 /* self_assessment_11.json in Resources */,
+				0819892C1DCA476E0047ACA6 /* delayDiscounting_Money_1Month_full_task.json in Resources */,
 				E2AA6D321DA43CEE005D5137 /* self_assessment_9.json in Resources */,
 				E2C20D731DC003B000382527 /* bart_25_cents_active_task.json in Resources */,
+				084DA6581DCA978200299DD6 /* delayDiscounting_Time_6Month_active_task.json in Resources */,
 				E2A5F0CB1DC7EFCA002CA609 /* Day_21.json in Resources */,
 				E2C20D781DC0296F00382527 /* bart_250_dollars_full_task.json in Resources */,
 				E2FE1AA81DAEF56F00DBB8E7 /* go_no_go_stable_stimulus_full_task.json in Resources */,
@@ -785,11 +834,15 @@
 				E26772901DCBF1850049D161 /* pam_pm.json in Resources */,
 				E2A5F0CE1DC7EFCA002CA609 /* self_assessment_9_21.json in Resources */,
 				E2AA6D331DA43CEE005D5137 /* self_assessment_10.json in Resources */,
+				084DA64F1DCA754B00299DD6 /* delayDiscounting_Money_6Month_full_task.json in Resources */,
 				E2CCB6671DB151F700C801A4 /* pm_survey_go_no_go_stable.json in Resources */,
 				E2EF6B241DA2E2970034456A /* Main.storyboard in Resources */,
 				E2AA6CDE1DA41A60005D5137 /* Onboarding.storyboard in Resources */,
+				08D2028A1DC279DA00F43C07 /* CTFDelayDiscountingStepViewController.xib in Resources */,
+				084DA6551DCA956400299DD6 /* delayDiscounting_Time_1Month_full_task.json in Resources */,
 				E2CCB6681DB151F700C801A4 /* pm_survey_go_no_go_variable.json in Resources */,
 				E2AA6D2F1DA43CEE005D5137 /* self_assessment_5.json in Resources */,
+				084DA6541DCA956400299DD6 /* delayDiscounting_Time_1Month_active_task.json in Resources */,
 				E2C20D741DC003B000382527 /* bart_25_cents_full_task.json in Resources */,
 				E21F23931DA58D9500760EA7 /* go_no_go_variable_stimulus_active_task.json in Resources */,
 				E21F237D1DA44F2700760EA7 /* CTFGoNoGoStepViewController.xib in Resources */,
@@ -839,6 +892,7 @@
 				E2AA6D0F1DA43C6B005D5137 /* CTFActivityTableViewCell.swift in Sources */,
 				E2FE1AA61DAEEA1B00DBB8E7 /* ORKStepViewController+Helpers.swift in Sources */,
 				E23535E01DB593C2005BAFE3 /* CTFBARTBridgeTask.swift in Sources */,
+				08F6069C1DBF9BB70066760F /* CTFDelayDiscountingStep.swift in Sources */,
 				E2AA6D051DA43C5C005D5137 /* CTFScheduledActivityManager.swift in Sources */,
 				E2AA6D1B1DA43C83005D5137 /* CTFPulsusFormStep.swift in Sources */,
 				E21F23821DA44F2F00760EA7 /* ORKOrderedTask+GoNoGo.swift in Sources */,
@@ -853,6 +907,7 @@
 				E2AA6D381DA43F57005D5137 /* CTFPAMTask.swift in Sources */,
 				E2CCB6721DB5610F00C801A4 /* CTFBARTStepViewController.swift in Sources */,
 				E2EF6B1F1DA2E2970034456A /* AppDelegate.swift in Sources */,
+				081989261DCA3D0D0047ACA6 /* CTFDelayDiscountingBridgeTask.swift in Sources */,
 				E2AA6D0C1DA43C6B005D5137 /* CTFActivity.swift in Sources */,
 				E2FE1AB71DB0337200DBB8E7 /* Array+Random.swift in Sources */,
 				E2AA6D0B1DA43C6B005D5137 /* CTFScheduledActivity.swift in Sources */,
@@ -860,6 +915,7 @@
 				E21F23851DA4522600760EA7 /* CTFGoNoGoStep.swift in Sources */,
 				E21F237E1DA44F2700760EA7 /* CTFGoNoGoActiveStepViewController.swift in Sources */,
 				E2CCB6771DB568CB00C801A4 /* UIView+Explode.m in Sources */,
+				08F6069E1DBF9EF40066760F /* CTFDelayDiscountingStepViewController.swift in Sources */,
 				E2CCB66D1DB55DB500C801A4 /* CTFBARTStep.swift in Sources */,
 				E2AA6D1D1DA43C83005D5137 /* CTFPulsusFormStepViewController.swift in Sources */,
 				E27E29221DA823F40050788A /* NSDictionary+SBAFormStepSurveyItem.swift in Sources */,

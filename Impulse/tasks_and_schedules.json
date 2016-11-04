@@ -147,6 +147,66 @@
         },
       ]
     },
+    {
+      "scheduleType": "recurring",
+      "scheduleString": "* * * * *",
+      "scheduleTitle": "Delay Discounting Money 1 Month",
+      "scheduleIdentifier": "DD_Money_1Month",
+      "scheduleGUID": "DD_Money_1Month-1",
+      "activityType": "sequential",
+      "trialActivity": true,
+      "tasks": [
+        {
+          "taskTitle": "Delay Discounting Money 1 Month",
+          "taskIdentifier": "delayDiscounting_Money_1Month_full_task",
+        }
+      ]
+    },
+    {
+      "scheduleType": "recurring",
+      "scheduleString": "* * * * *",
+      "scheduleTitle": "Delay Discounting Money 6 Months",
+      "scheduleIdentifier": "DD_Money_6Months",
+      "scheduleGUID": "DD_Money_6Months-1",
+      "activityType": "sequential",
+      "trialActivity": true,
+      "tasks": [
+        {
+          "taskTitle": "Delay Discounting Money 6 Months",
+          "taskIdentifier": "delayDiscounting_Money_6Month_full_task",
+        }
+      ]
+    },
+    {
+      "scheduleType": "recurring",
+      "scheduleString": "* * * * *",
+      "scheduleTitle": "Delay Discounting Time 1 Month",
+      "scheduleIdentifier": "DD_Time_1Month",
+      "scheduleGUID": "DD_Time_1Month-1",
+      "activityType": "sequential",
+      "trialActivity": true,
+      "tasks": [
+        {
+          "taskTitle": "Delay Discounting Time 1 Month",
+          "taskIdentifier": "delayDiscounting_Time_1Month_full_task",
+        }
+      ]
+    },
+    {
+      "scheduleType": "recurring",
+      "scheduleString": "* * * * *",
+      "scheduleTitle": "Delay Discounting Time 6 Months",
+      "scheduleIdentifier": "DD_Time_6Months",
+      "scheduleGUID": "DD_Time_6Months-1",
+      "activityType": "sequential",
+      "trialActivity": true,
+      "tasks": [
+        {
+          "taskTitle": "Delay Discounting Time 6 Months",
+          "taskIdentifier": "delayDiscounting_Time_6Month_full_task",
+        }
+      ]
+    }
                 
   ]
 }
