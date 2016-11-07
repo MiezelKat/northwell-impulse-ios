@@ -404,8 +404,8 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
             let taskResult = taskViewController.result
             if let results = self.handleActivityResult(taskResult, schedule: schedule) {
                 let archives = results.mapAndFilter({ self.archive(for: $0) })
-                //print(archives)
-                //SBADataArchive.encryptAndUploadArchives(archives)
+                print(archives)
+                SBADataArchive.encryptAndUploadArchives(archives)
             }
             
             
@@ -770,7 +770,7 @@ extension CTFScheduledActivityManager {
         //2) handle results
         
         let pmSurveyResults: [ORKStepResult] = self.getStepResults(forIdentifiers: ["pm_1", "pam_pm"], result)
-        let pmSurveyActivityResult = self.createActivityResult("pm_survey_1", taskResult: result, schedule: schedule, stepResults: pmSurveyResults, schemaRevision: 4)
+        let pmSurveyActivityResult = self.createActivityResult("pm_survey_1", taskResult: result, schedule: schedule, stepResults: pmSurveyResults, schemaRevision: 6)
         
         let activeTaskResult: [ORKStepResult] = self.getStepResults(forIdentifiers: ["goNoGoStep", "BARTStep"], result)
         

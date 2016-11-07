@@ -37,17 +37,19 @@ open class CTFScheduledActivity: NSObject {
     var activity: CTFActivity!
     var guid: String!
     var title: String!
+    var timeEstimate: String!
     
     override init() {
         super.init()
     }
     
-    convenience init?(guid: String?, title: String?, activity: CTFActivity?) {
+    convenience init?(guid: String?, title: String?, activity: CTFActivity?, timeEstimate: String?) {
         self.init()
         
         self.guid = guid
         self.title = title
         self.activity = activity
+        self.timeEstimate = timeEstimate
     }
     
     

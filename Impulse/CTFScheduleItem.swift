@@ -31,6 +31,7 @@ class CTFScheduleItem: NSObject {
     var title: String!
     var type: CTFScheduleItemType!
     var trial: Bool! = false
+    var timeEstimate: String!
     
     override init() {
         super.init()
@@ -46,7 +47,8 @@ class CTFScheduleItem: NSObject {
             let scheduleIdentifier = json["scheduleIdentifier"] as? String,
             let scheduleGUID = json["scheduleGUID"] as? String,
             let type = CTFScheduleItemType(name: json["activityType"] as? String),
-            let trial = json["trialActivity"] as? Bool else {
+            let trial = json["trialActivity"] as? Bool,
+            let timeEstimate = json["timeEstimate"] as? String else {
                 return nil
         }
         
@@ -59,6 +61,7 @@ class CTFScheduleItem: NSObject {
         self.guid = scheduleGUID
         self.type = type
         self.trial = trial
+        self.timeEstimate = timeEstimate
     }
     
     private func selectActivity() -> CTFActivity? {
@@ -79,7 +82,7 @@ class CTFScheduleItem: NSObject {
             return nil
         }
         
-        return CTFScheduledActivity(guid: self.guid, title: self.title, activity: activity)
+        return CTFScheduledActivity(guid: self.guid, title: self.title, activity: activity, timeEstimate: self.timeEstimate)
     }
     
     

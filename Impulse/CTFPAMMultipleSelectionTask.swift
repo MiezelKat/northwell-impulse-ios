@@ -45,8 +45,7 @@ import SDLRKX
     }
     
     func transformToStep(with factory: SBASurveyFactory, isLastStep: Bool) -> ORKStep? {
-        let task = PAMTask(identifier: self.taskIdentifier)
-        return task.steps[0]
+        return self.task.steps[0]
     }
     
 }

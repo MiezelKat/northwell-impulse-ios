@@ -7,6 +7,7 @@
       "scheduleIdentifier": "baseline",
       "scheduleGUID": "baseline-1",
       "activityType": "sequential",
+      "timeEstimate": "10 minutes",
       "trialActivity": false,
       "tasks": [
         {
@@ -23,7 +24,8 @@
       "scheduleIdentifier": "21-day-assessment",
       "scheduleGUID": "21-day-assessment-1",
       "activityType": "sequential",
-      "trialActivity": false,
+      "timeEstimate": "10 minutes",
+      "trialActivity": true,
       "tasks": [
         {
           "taskTitle": "Day_21",
@@ -40,6 +42,7 @@
       "scheduleIdentifier": "go-no-go-stable",
       "scheduleGUID": "go-no-go-stable-1",
       "activityType": "sequential",
+      "timeEstimate": "5 minutes",
       "trialActivity": true,
       "tasks": [
         {
@@ -55,6 +58,7 @@
       "scheduleIdentifier": "go-no-go-variable",
       "scheduleGUID": "go-no-go-variable-1",
       "activityType": "sequential",
+      "timeEstimate": "5 minutes",
       "trialActivity": true,
       "tasks": [
         {
@@ -70,6 +74,7 @@
       "scheduleIdentifier": "bart.25",
       "scheduleGUID": "bart.25-1",
       "activityType": "sequential",
+      "timeEstimate": "5 minutes",
       "trialActivity": true,
       "tasks": [
         {
@@ -85,6 +90,7 @@
       "scheduleIdentifier": "bart250",
       "scheduleGUID": "bart250-1",
       "activityType": "sequential",
+      "timeEstimate": "5 minutes",
       "trialActivity": true,
       "tasks": [
         {
@@ -100,6 +106,7 @@
       "scheduleGUID": "am_survey-1",
       "scheduleTitle": "Morning Survey",
       "activityType": "random",
+      "timeEstimate": "5 minutes",
       "trialActivity": true,
       "tasks": [
         {
@@ -143,6 +150,7 @@
       "scheduleGUID": "pm_survey-1",
       "scheduleTitle": "Evening Survey",
       "activityType": "random",
+      "timeEstimate": "5 minutes",
       "trialActivity": true,
       "tasks": [
         {
@@ -182,10 +190,11 @@
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
-      "scheduleTitle": "Delay Discounting Money 1 Month",
+      "scheduleTitle": "Delay Discounting 1",
       "scheduleIdentifier": "DD_Money_1Month",
       "scheduleGUID": "DD_Money_1Month-1",
       "activityType": "sequential",
+      "timeEstimate": "2 minutes",
       "trialActivity": true,
       "tasks": [
         {
@@ -197,10 +206,11 @@
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
-      "scheduleTitle": "Delay Discounting Money 6 Months",
+      "scheduleTitle": "Delay Discounting 2",
       "scheduleIdentifier": "DD_Money_6Months",
       "scheduleGUID": "DD_Money_6Months-1",
       "activityType": "sequential",
+      "timeEstimate": "2 minutes",
       "trialActivity": true,
       "tasks": [
         {
@@ -212,14 +222,15 @@
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
-      "scheduleTitle": "Delay Discounting Time 1 Month",
+      "scheduleTitle": "Delay Discounting 3",
       "scheduleIdentifier": "DD_Time_1Month",
       "scheduleGUID": "DD_Time_1Month-1",
       "activityType": "sequential",
+      "timeEstimate": "2 minutes",
       "trialActivity": true,
       "tasks": [
         {
-          "taskTitle": "Delay Discounting Time 1 Month",
+          "taskTitle": "Delay Discounting 4",
           "taskIdentifier": "delayDiscounting_Time_1Month_full_task",
         }
       ]
@@ -227,10 +238,11 @@
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
-      "scheduleTitle": "Delay Discounting Time 6 Months",
+      "scheduleTitle": "Delay Discounting 4",
       "scheduleIdentifier": "DD_Time_6Months",
       "scheduleGUID": "DD_Time_6Months-1",
       "activityType": "sequential",
+      "timeEstimate": "2 minutes",
       "trialActivity": true,
       "tasks": [
         {
