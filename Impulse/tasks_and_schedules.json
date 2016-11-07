@@ -7,7 +7,7 @@
       "scheduleIdentifier": "baseline",
       "scheduleGUID": "baseline-1",
       "activityType": "sequential",
-      "timeEstimate": "10 minutes",
+      "timeEstimate": "",
       "trialActivity": false,
       "tasks": [
         {
@@ -24,7 +24,7 @@
       "scheduleIdentifier": "21-day-assessment",
       "scheduleGUID": "21-day-assessment-1",
       "activityType": "sequential",
-      "timeEstimate": "10 minutes",
+      "timeEstimate": "",
       "trialActivity": true,
       "tasks": [
         {
@@ -42,7 +42,7 @@
       "scheduleIdentifier": "go-no-go-stable",
       "scheduleGUID": "go-no-go-stable-1",
       "activityType": "sequential",
-      "timeEstimate": "5 minutes",
+      "timeEstimate": "",
       "trialActivity": true,
       "tasks": [
         {
@@ -58,7 +58,7 @@
       "scheduleIdentifier": "go-no-go-variable",
       "scheduleGUID": "go-no-go-variable-1",
       "activityType": "sequential",
-      "timeEstimate": "5 minutes",
+      "timeEstimate": "",
       "trialActivity": true,
       "tasks": [
         {
@@ -74,7 +74,7 @@
       "scheduleIdentifier": "bart.25",
       "scheduleGUID": "bart.25-1",
       "activityType": "sequential",
-      "timeEstimate": "5 minutes",
+      "timeEstimate": "",
       "trialActivity": true,
       "tasks": [
         {
@@ -90,7 +90,7 @@
       "scheduleIdentifier": "bart250",
       "scheduleGUID": "bart250-1",
       "activityType": "sequential",
-      "timeEstimate": "5 minutes",
+      "timeEstimate": "",
       "trialActivity": true,
       "tasks": [
         {
@@ -106,7 +106,7 @@
       "scheduleGUID": "am_survey-1",
       "scheduleTitle": "Morning Survey",
       "activityType": "random",
-      "timeEstimate": "5 minutes",
+      "timeEstimate": "",
       "trialActivity": true,
       "tasks": [
         {
@@ -150,7 +150,7 @@
       "scheduleGUID": "pm_survey-1",
       "scheduleTitle": "Evening Survey",
       "activityType": "random",
-      "timeEstimate": "5 minutes",
+      "timeEstimate": "",
       "trialActivity": true,
       "tasks": [
         {
@@ -194,7 +194,7 @@
       "scheduleIdentifier": "DD_Money_1Month",
       "scheduleGUID": "DD_Money_1Month-1",
       "activityType": "sequential",
-      "timeEstimate": "2 minutes",
+      "timeEstimate": "",
       "trialActivity": true,
       "tasks": [
         {
@@ -210,7 +210,7 @@
       "scheduleIdentifier": "DD_Money_6Months",
       "scheduleGUID": "DD_Money_6Months-1",
       "activityType": "sequential",
-      "timeEstimate": "2 minutes",
+      "timeEstimate": "",
       "trialActivity": true,
       "tasks": [
         {
@@ -226,7 +226,7 @@
       "scheduleIdentifier": "DD_Time_1Month",
       "scheduleGUID": "DD_Time_1Month-1",
       "activityType": "sequential",
-      "timeEstimate": "2 minutes",
+      "timeEstimate": "",
       "trialActivity": true,
       "tasks": [
         {
@@ -242,7 +242,7 @@
       "scheduleIdentifier": "DD_Time_6Months",
       "scheduleGUID": "DD_Time_6Months-1",
       "activityType": "sequential",
-      "timeEstimate": "2 minutes",
+      "timeEstimate": "",
       "trialActivity": true,
       "tasks": [
         {

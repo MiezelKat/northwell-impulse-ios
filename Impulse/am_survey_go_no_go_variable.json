@@ -71,9 +71,9 @@
       {
          "identifier"   : "results",
          "type"         : "instruction",
-         "title"        : "Results",
-         "text"         : "This is a placeholder for the results",
-       }
+         "title"        : "Thanks!",
+         "text"         : "",
+       },
 
     ]
 }
