@@ -21,7 +21,8 @@ class CTFDelayDiscountingBridgeTask: NSObject ,SBABridgeTask,SBAStepTransformer{
             let numQuestions = paramsDict["numQuestions"] as? Int,
             let nowDescription = paramsDict["nowDescription"] as? String,
             let laterDescription = paramsDict["laterDescription"] as? String,
-            let formatString = paramsDict["formatString"] as? String else {
+            let formatString = paramsDict["formatString"] as? String,
+            let prompt = paramsDict["prompt"] as? String else {
                 return nil
         }
         
@@ -30,7 +31,8 @@ class CTFDelayDiscountingBridgeTask: NSObject ,SBABridgeTask,SBAStepTransformer{
             numQuestions: numQuestions,
             nowDescription:nowDescription,
             laterDescription:laterDescription,
-            formatString:formatString
+            formatString:formatString,
+            prompt: prompt
         )
     }
     

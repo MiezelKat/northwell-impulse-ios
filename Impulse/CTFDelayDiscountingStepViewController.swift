@@ -35,8 +35,9 @@ class CTFDelayDiscountingStepViewController: ORKStepViewController {
     //UI Elements
     @IBOutlet weak var nowLabel: UILabel!
     @IBOutlet weak var laterLabel:UILabel!
-    @IBOutlet weak var nowButton:UIButton!
-    @IBOutlet weak var laterButton:UIButton!
+    @IBOutlet weak var nowButton:CTFBorderedButton!
+    @IBOutlet weak var laterButton:CTFBorderedButton!
+    @IBOutlet weak var promptLabel: UILabel!
     
     var _nowButtonHandler:(()->())?
     var _laterButtonHandler:(()->())?
@@ -58,24 +59,44 @@ class CTFDelayDiscountingStepViewController: ORKStepViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.nowButton.configuredColor = self.view.tintColor
+        self.laterButton.configuredColor = self.view.tintColor
         
+        
+        if let stepParams = self.stepParams {
+            
+            let firstTrial = self.firstTrial(stepParams: stepParams, trialId: 0)
+            self.nowLabel.text = stepParams.nowDescription
+            self.laterLabel.text = stepParams.laterDescription
+            
+            // link UI to Trial params
+            let nowString = String(format: stepParams.formatString, firstTrial.now)
+            let laterString = String(format: stepParams.formatString, firstTrial.later)
+            self.nowButton.setTitle(nowString, for: .normal)
+            self.laterButton.setTitle(laterString, for: .normal)
+            self.promptLabel.text = stepParams.prompt
+            
+            
+        }
+        
+        
+    }
+    
+    func firstTrial(stepParams: CTFDelayDiscountingStepParams, trialId: Int) -> CTFDelayDiscountingTrial {
+        return CTFDelayDiscountingTrial(now: stepParams.maxAmount/2,
+                                        later: stepParams.maxAmount,
+                                        questionNum: trialId,
+                                        differenceValue: stepParams.maxAmount/4)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if let stepParams = self.stepParams{
             
-            //setup labels
-            self.nowLabel.text = stepParams.nowDescription
-            self.laterLabel.text = stepParams.laterDescription
-            
             let idList = Array(0..<stepParams.numQuestions)
             let idListHead = idList.first!
             let idListTail = Array(idList.dropFirst())
-            let firstTrial = CTFDelayDiscountingTrial(now: stepParams.maxAmount/2,
-                                                      later: stepParams.maxAmount,
-                                                      questionNum: idListHead,
-                                                      differenceValue: stepParams.maxAmount/4)
+            let firstTrial = self.firstTrial(stepParams: stepParams, trialId: idListHead)
             self.performTrials(firstTrial, trialIds: idListTail, results: [], completion: { (results) in
                 if !self.canceled{
                     self.trialResults = results
@@ -93,14 +114,6 @@ class CTFDelayDiscountingStepViewController: ORKStepViewController {
         self.init(nibName: "CTFDelayDiscountingStepViewController", bundle: framework)
         self.step = step
         self.restorationIdentifier = step!.identifier
-        
-//        guard let delayDiscoutingStep = self.step as? CTFDelayDiscountingStep,
-//            let params = delayDiscoutingStep.params
-//            else {
-//                return
-//        }
-        
-//        self.trials = self.generateTrials(params: params)
     
     }
     
@@ -124,19 +137,6 @@ class CTFDelayDiscountingStepViewController: ORKStepViewController {
                 completion(newResults)
             }
         }
-//        if let head = trialIds.first {
-//            let tail = Array(trialIds.dropFirst())
-//            //let tail = Array(trials.dropFirst())
-//            self.doTrial(trial,trialIndex: Int(head), completion: { (result) in
-//                var newResults = Array(results)
-//                newResults.append(result)
-//                //call createTrial
-//                self.performTrials(nextTrial,trialIds: tail ,results: newResults, completion: completion)
-//            })
-//        }
-//        else {
-//            completion(results)
-//        }
     }
     
     func createNewTrial(id:Int,result:CTFDelayDiscountingTrialResult)-> CTFDelayDiscountingTrial{
@@ -157,7 +157,6 @@ class CTFDelayDiscountingStepViewController: ORKStepViewController {
         }
         
         let trialStartTime: Date = Date()
-        
         
         func completeTrial(pressAction:CTFDelayDiscountingChoice){
             let trialEndTime  = Date()

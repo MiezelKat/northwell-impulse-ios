@@ -10,14 +10,12 @@ import ResearchKit
 
 
 struct CTFDelayDiscountingStepParams {
-    
     var maxAmount: Double!
     var numQuestions: Int!
     var nowDescription:String!
     var laterDescription:String!
     var formatString: String!
-    
-
+    var prompt: String!
 }
 
 class CTFDelayDiscountingStep: ORKActiveStep {

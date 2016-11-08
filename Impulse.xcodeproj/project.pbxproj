@@ -395,7 +395,6 @@
 		E21F23741DA44EE300760EA7 /* Likert */ = {
 			isa = PBXGroup;
 			children = (
-				E2AA6D111DA43C83005D5137 /* CTFBorderedButton.swift */,
 				E2AA6D121DA43C83005D5137 /* CTFFormItemCell.swift */,
 				E2AA6D131DA43C83005D5137 /* CTFFormItemCell.xib */,
 				E2AA6D141DA43C83005D5137 /* CTFPulsusFormStep.swift */,
@@ -418,6 +417,14 @@
 				E21F237B1DA44F2700760EA7 /* CTFGoNoGoView.swift */,
 			);
 			name = "Go No Go";
+			sourceTree = "<group>";
+		};
+		E22792A61DD270960026F8AB /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E2AA6D111DA43C83005D5137 /* CTFBorderedButton.swift */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 		E27E29111DA5A47E0050788A /* Sage SDK Helpers */ = {
@@ -682,6 +689,7 @@
 		E2FE1AB51DB0336200DBB8E7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E22792A61DD270960026F8AB /* UI */,
 				E2FE1AA41DAEE9C200DBB8E7 /* RK Helpers */,
 				E27E29111DA5A47E0050788A /* Sage SDK Helpers */,
 				E2FE1AB61DB0337200DBB8E7 /* Array+Random.swift */,

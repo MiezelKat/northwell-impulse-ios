@@ -5,7 +5,8 @@
     "maxAmount": 100.0,
     "numQuestions": 6,
     "nowDescription": "Now",
-    "laterDescription": "6 Months",
-    "formatString":"$%.02f"
+    "laterDescription": "In 6 Months",
+    "formatString":"$%.02f",
+    "prompt": "Which would you rather have?"
   }
 }
