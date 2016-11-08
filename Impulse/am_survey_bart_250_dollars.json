@@ -7,6 +7,11 @@
         "classType"               : "Impulse.CTFPulsusFormBridgeTask",
       },
       {
+        "identifier"       : "Pulsus",
+        "resourceName"            : "am_likert_1a",
+        "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+      },
+      {
         "identifier":  "am_2",
         "type"       : "multipleChoiceText",
         "text"       : "Which of the following behaviors did you engage in more than you intended yesterday?",

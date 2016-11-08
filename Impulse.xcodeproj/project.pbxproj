@@ -29,6 +29,19 @@
 		E21F238F1DA5684500760EA7 /* CTFGoNoGoBridgeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21F238E1DA5684500760EA7 /* CTFGoNoGoBridgeTask.swift */; };
 		E21F23921DA58D9500760EA7 /* go_no_go_stable_stimulus_active_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E21F23901DA58D9500760EA7 /* go_no_go_stable_stimulus_active_task.json */; };
 		E21F23931DA58D9500760EA7 /* go_no_go_variable_stimulus_active_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E21F23911DA58D9500760EA7 /* go_no_go_variable_stimulus_active_task.json */; };
+		E22792901DD238BC0026F8AB /* SDLRKX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E759221DA2F7AC00D00C55 /* SDLRKX.framework */; };
+		E22792911DD238BC0026F8AB /* SDLRKX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E2E759221DA2F7AC00D00C55 /* SDLRKX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E22792941DD238D00026F8AB /* BridgeAppSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E759311DA2F7D200D00C55 /* BridgeAppSDK.framework */; };
+		E22792951DD238D00026F8AB /* BridgeAppSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E2E759311DA2F7D200D00C55 /* BridgeAppSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E22792991DD23E150026F8AB /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E22792981DD23E150026F8AB /* ResearchKit.framework */; };
+		E227929A1DD23E150026F8AB /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E22792981DD23E150026F8AB /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E227929C1DD23E4E0026F8AB /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E227929B1DD23E4E0026F8AB /* openssl.framework */; };
+		E227929D1DD23E4E0026F8AB /* openssl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E227929B1DD23E4E0026F8AB /* openssl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E227929F1DD23E830026F8AB /* ZipZap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E227929E1DD23E830026F8AB /* ZipZap.framework */; };
+		E22792A01DD23E830026F8AB /* ZipZap.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E227929E1DD23E830026F8AB /* ZipZap.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E22792A21DD23EBB0026F8AB /* BridgeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E22792A11DD23EBB0026F8AB /* BridgeSDK.framework */; };
+		E22792A31DD23EBB0026F8AB /* BridgeSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E22792A11DD23EBB0026F8AB /* BridgeSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E22792A51DD25B7E0026F8AB /* am_likert_1a.json in Resources */ = {isa = PBXBuildFile; fileRef = E22792A41DD25B7E0026F8AB /* am_likert_1a.json */; };
 		E22E434B1DC67FA700F024D4 /* NotificationTest.json in Resources */ = {isa = PBXBuildFile; fileRef = E22E434A1DC67FA700F024D4 /* NotificationTest.json */; };
 		E23535DC1DB57B6F005BAFE3 /* GenericHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23535DB1DB57B6F005BAFE3 /* GenericHelpers.swift */; };
 		E23535E01DB593C2005BAFE3 /* CTFBARTBridgeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23535DF1DB593C2005BAFE3 /* CTFBARTBridgeTask.swift */; };
@@ -41,13 +54,6 @@
 		E256598A1DCC3A230067481C /* am_survey_dd_time_1_month.json in Resources */ = {isa = PBXBuildFile; fileRef = E25659861DCC3A230067481C /* am_survey_dd_time_1_month.json */; };
 		E256598B1DCC3A230067481C /* am_survey_dd_time_6_month.json in Resources */ = {isa = PBXBuildFile; fileRef = E25659871DCC3A230067481C /* am_survey_dd_time_6_month.json */; };
 		E26772901DCBF1850049D161 /* pam_pm.json in Resources */ = {isa = PBXBuildFile; fileRef = E267728F1DCBF1850049D161 /* pam_pm.json */; };
-		E27E28F81DA59A7C0050788A /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E27E28F71DA59A7C0050788A /* ResearchKit.framework */; };
-		E27E28F91DA59A7C0050788A /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E27E28F71DA59A7C0050788A /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E27E29051DA5A2560050788A /* BridgeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E27E29041DA5A2560050788A /* BridgeSDK.framework */; };
-		E27E29071DA5A25D0050788A /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E27E29061DA5A25D0050788A /* openssl.framework */; };
-		E27E290C1DA5A2AE0050788A /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2AA6CFF1DA42593005D5137 /* HealthKit.framework */; };
-		E27E290F1DA5A2F30050788A /* ZipZap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E27E290E1DA5A2F30050788A /* ZipZap.framework */; };
-		E27E29101DA5A2F30050788A /* ZipZap.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E27E290E1DA5A2F30050788A /* ZipZap.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E27E29131DA5AB5F0050788A /* CTFTaskFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27E29121DA5AB5F0050788A /* CTFTaskFactory.swift */; };
 		E27E29221DA823F40050788A /* NSDictionary+SBAFormStepSurveyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27E29211DA823F40050788A /* NSDictionary+SBAFormStepSurveyItem.swift */; };
 		E27E29261DA826350050788A /* CTFNumberRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27E29251DA826350050788A /* CTFNumberRange.swift */; };
@@ -108,10 +114,6 @@
 		E2CCB6771DB568CB00C801A4 /* UIView+Explode.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CCB6761DB568CB00C801A4 /* UIView+Explode.m */; };
 		E2D56E751DC12A2600E6A9C4 /* CTFBARTResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D56E741DC12A2600E6A9C4 /* CTFBARTResult.swift */; };
 		E2D56E8A1DC2AB9E00E6A9C4 /* CTFStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D56E891DC2AB9E00E6A9C4 /* CTFStorageManager.swift */; };
-		E2E759341DA2F7FB00D00C55 /* BridgeAppSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E759311DA2F7D200D00C55 /* BridgeAppSDK.framework */; };
-		E2E759351DA2F7FB00D00C55 /* BridgeAppSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E2E759311DA2F7D200D00C55 /* BridgeAppSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E2E759391DA2F80200D00C55 /* SDLRKX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E759221DA2F7AC00D00C55 /* SDLRKX.framework */; };
-		E2E7593A1DA2F80200D00C55 /* SDLRKX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E2E759221DA2F7AC00D00C55 /* SDLRKX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E2EF6B1F1DA2E2970034456A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF6B1E1DA2E2970034456A /* AppDelegate.swift */; };
 		E2EF6B241DA2E2970034456A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EF6B221DA2E2970034456A /* Main.storyboard */; };
 		E2EF6B261DA2E2970034456A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2EF6B251DA2E2970034456A /* Assets.xcassets */; };
@@ -130,6 +132,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		E22792921DD238BC0026F8AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2E7591D1DA2F7AC00D00C55 /* SDLRKX.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 486AACC91D07414D00EE4C7C;
+			remoteInfo = SDLRKX;
+		};
+		E22792961DD238D00026F8AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2E759231DA2F7D200D00C55 /* BridgeAppSDK.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 801040B11C5A843D00D26E19;
+			remoteInfo = BridgeAppSDK;
+		};
 		E2E759211DA2F7AC00D00C55 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E2E7591D1DA2F7AC00D00C55 /* SDLRKX.xcodeproj */;
@@ -195,10 +211,12 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E27E29101DA5A2F30050788A /* ZipZap.framework in Embed Frameworks */,
-				E2E7593A1DA2F80200D00C55 /* SDLRKX.framework in Embed Frameworks */,
-				E2E759351DA2F7FB00D00C55 /* BridgeAppSDK.framework in Embed Frameworks */,
-				E27E28F91DA59A7C0050788A /* ResearchKit.framework in Embed Frameworks */,
+				E22792951DD238D00026F8AB /* BridgeAppSDK.framework in Embed Frameworks */,
+				E227929D1DD23E4E0026F8AB /* openssl.framework in Embed Frameworks */,
+				E22792A31DD23EBB0026F8AB /* BridgeSDK.framework in Embed Frameworks */,
+				E22792911DD238BC0026F8AB /* SDLRKX.framework in Embed Frameworks */,
+				E22792A01DD23E830026F8AB /* ZipZap.framework in Embed Frameworks */,
+				E227929A1DD23E150026F8AB /* ResearchKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -228,6 +246,11 @@
 		E21F238E1DA5684500760EA7 /* CTFGoNoGoBridgeTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFGoNoGoBridgeTask.swift; sourceTree = "<group>"; };
 		E21F23901DA58D9500760EA7 /* go_no_go_stable_stimulus_active_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = go_no_go_stable_stimulus_active_task.json; sourceTree = "<group>"; };
 		E21F23911DA58D9500760EA7 /* go_no_go_variable_stimulus_active_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = go_no_go_variable_stimulus_active_task.json; sourceTree = "<group>"; };
+		E22792981DD23E150026F8AB /* ResearchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E227929B1DD23E4E0026F8AB /* openssl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = openssl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E227929E1DD23E830026F8AB /* ZipZap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZipZap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E22792A11DD23EBB0026F8AB /* BridgeSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BridgeSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E22792A41DD25B7E0026F8AB /* am_likert_1a.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = am_likert_1a.json; sourceTree = "<group>"; };
 		E22E434A1DC67FA700F024D4 /* NotificationTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NotificationTest.json; sourceTree = "<group>"; };
 		E23535DB1DB57B6F005BAFE3 /* GenericHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericHelpers.swift; sourceTree = "<group>"; };
 		E23535DF1DB593C2005BAFE3 /* CTFBARTBridgeTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFBARTBridgeTask.swift; sourceTree = "<group>"; };
@@ -240,10 +263,6 @@
 		E25659861DCC3A230067481C /* am_survey_dd_time_1_month.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = am_survey_dd_time_1_month.json; sourceTree = "<group>"; };
 		E25659871DCC3A230067481C /* am_survey_dd_time_6_month.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = am_survey_dd_time_6_month.json; sourceTree = "<group>"; };
 		E267728F1DCBF1850049D161 /* pam_pm.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pam_pm.json; sourceTree = "<group>"; };
-		E27E28F71DA59A7C0050788A /* ResearchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E27E29041DA5A2560050788A /* BridgeSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BridgeSDK.framework; path = "../../../Library/Developer/Xcode/DerivedData/Impulse-eckwbznculhlghcfmyitenwazrjo/Build/Products/Debug-iphoneos/BridgeSDK.framework"; sourceTree = "<group>"; };
-		E27E29061DA5A25D0050788A /* openssl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = openssl.framework; path = "../../../Library/Developer/Xcode/DerivedData/Impulse-eckwbznculhlghcfmyitenwazrjo/Build/Products/Debug-iphoneos/openssl.framework"; sourceTree = "<group>"; };
-		E27E290E1DA5A2F30050788A /* ZipZap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZipZap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E27E29121DA5AB5F0050788A /* CTFTaskFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFTaskFactory.swift; sourceTree = "<group>"; };
 		E27E29211DA823F40050788A /* NSDictionary+SBAFormStepSurveyItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDictionary+SBAFormStepSurveyItem.swift"; sourceTree = "<group>"; };
 		E27E29251DA826350050788A /* CTFNumberRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFNumberRange.swift; sourceTree = "<group>"; };
@@ -260,7 +279,6 @@
 		E2AA6CF81DA41E19005D5137 /* BridgeInfo-private.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BridgeInfo-private.plist"; sourceTree = "<group>"; };
 		E2AA6CFB1DA41F3D005D5137 /* CTFLogInViaExternalIdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFLogInViaExternalIdViewController.swift; sourceTree = "<group>"; };
 		E2AA6CFE1DA42593005D5137 /* Impulse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Impulse.entitlements; sourceTree = "<group>"; };
-		E2AA6CFF1DA42593005D5137 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		E2AA6D021DA43C54005D5137 /* CTFActivityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFActivityTableViewController.swift; sourceTree = "<group>"; };
 		E2AA6D041DA43C5C005D5137 /* CTFScheduledActivityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFScheduledActivityManager.swift; sourceTree = "<group>"; };
 		E2AA6D061DA43C6B005D5137 /* CTFScheduledActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFScheduledActivity.swift; sourceTree = "<group>"; };
@@ -338,13 +356,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E27E290C1DA5A2AE0050788A /* HealthKit.framework in Frameworks */,
-				E27E29071DA5A25D0050788A /* openssl.framework in Frameworks */,
-				E27E29051DA5A2560050788A /* BridgeSDK.framework in Frameworks */,
-				E2E759391DA2F80200D00C55 /* SDLRKX.framework in Frameworks */,
-				E27E28F81DA59A7C0050788A /* ResearchKit.framework in Frameworks */,
-				E27E290F1DA5A2F30050788A /* ZipZap.framework in Frameworks */,
-				E2E759341DA2F7FB00D00C55 /* BridgeAppSDK.framework in Frameworks */,
+				E22792941DD238D00026F8AB /* BridgeAppSDK.framework in Frameworks */,
+				E227929C1DD23E4E0026F8AB /* openssl.framework in Frameworks */,
+				E22792A21DD23EBB0026F8AB /* BridgeSDK.framework in Frameworks */,
+				E22792901DD238BC0026F8AB /* SDLRKX.framework in Frameworks */,
+				E227929F1DD23E830026F8AB /* ZipZap.framework in Frameworks */,
+				E22792991DD23E150026F8AB /* ResearchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,6 +514,7 @@
 				081989291DCA476E0047ACA6 /* delayDiscounting_Money_1Month_active_task.json */,
 				0819892A1DCA476E0047ACA6 /* delayDiscounting_Money_1Month_full_task.json */,
 				E2FE1AB81DB0393000DBB8E7 /* am_survey_go_no_go_variable.json */,
+				E22792A41DD25B7E0026F8AB /* am_likert_1a.json */,
 				E2FE1AB11DB00D0100DBB8E7 /* am_survey_go_no_go_stable.json */,
 				E2A5F0C51DC7EFCA002CA609 /* Day_21.json */,
 				E2A5F0C61DC7EFCA002CA609 /* self_assessment_5_21.json */,
@@ -643,11 +661,10 @@
 		E2EF6B4C1DA2F4120034456A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E27E290E1DA5A2F30050788A /* ZipZap.framework */,
-				E27E29061DA5A25D0050788A /* openssl.framework */,
-				E27E29041DA5A2560050788A /* BridgeSDK.framework */,
-				E27E28F71DA59A7C0050788A /* ResearchKit.framework */,
-				E2AA6CFF1DA42593005D5137 /* HealthKit.framework */,
+				E22792981DD23E150026F8AB /* ResearchKit.framework */,
+				E227929B1DD23E4E0026F8AB /* openssl.framework */,
+				E227929E1DD23E830026F8AB /* ZipZap.framework */,
+				E22792A11DD23EBB0026F8AB /* BridgeSDK.framework */,
 				E2E759231DA2F7D200D00C55 /* BridgeAppSDK.xcodeproj */,
 				E2E7591D1DA2F7AC00D00C55 /* SDLRKX.xcodeproj */,
 			);
@@ -691,6 +708,8 @@
 			dependencies = (
 				E2E759371DA2F7FB00D00C55 /* PBXTargetDependency */,
 				E2E7593C1DA2F80200D00C55 /* PBXTargetDependency */,
+				E22792931DD238BC0026F8AB /* PBXTargetDependency */,
+				E22792971DD238D00026F8AB /* PBXTargetDependency */,
 			);
 			name = Impulse;
 			productName = Impulse;
@@ -868,6 +887,7 @@
 				E2A5F0CE1DC7EFCA002CA609 /* self_assessment_9_21.json in Resources */,
 				E2AA6D331DA43CEE005D5137 /* self_assessment_10.json in Resources */,
 				084DA64F1DCA754B00299DD6 /* delayDiscounting_Money_6Month_full_task.json in Resources */,
+				E22792A51DD25B7E0026F8AB /* am_likert_1a.json in Resources */,
 				E2CCB6671DB151F700C801A4 /* pm_survey_go_no_go_stable.json in Resources */,
 				E2EF6B241DA2E2970034456A /* Main.storyboard in Resources */,
 				E2AA6CDE1DA41A60005D5137 /* Onboarding.storyboard in Resources */,
@@ -987,6 +1007,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		E22792931DD238BC0026F8AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SDLRKX;
+			targetProxy = E22792921DD238BC0026F8AB /* PBXContainerItemProxy */;
+		};
+		E22792971DD238D00026F8AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BridgeAppSDK;
+			targetProxy = E22792961DD238D00026F8AB /* PBXContainerItemProxy */;
+		};
 		E2E759371DA2F7FB00D00C55 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = BridgeAppSDK;
@@ -1125,6 +1155,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Impulse/Impulse.entitlements;
 				DEVELOPMENT_TEAM = AA753846B2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BridgeAppSDK/CMSSupport/openssl/build/Release-iphoneos",
+				);
 				INFOPLIST_FILE = Impulse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1144,6 +1178,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Impulse/Impulse.entitlements;
 				DEVELOPMENT_TEAM = AA753846B2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BridgeAppSDK/CMSSupport/openssl/build/Release-iphoneos",
+				);
 				INFOPLIST_FILE = Impulse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

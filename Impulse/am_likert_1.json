@@ -67,48 +67,6 @@
           "minValueText": "healthy",
           "maxValueText": "unhealthy"
         }
-      },
-      {
-        "identifier"        : "regret_am",
-        "text"              : "Yesterday, I did or said things that I later regretted.",
-        "type"              : "pulsusScale",
-        "range"             : {
-          "min"     : 0,
-          "max"      : 10,
-          "default"   : 5,
-          "step": 1,
-          "minValueText": "0-not at all",
-          "midValueText": "moderate",
-          "maxValueText": "10-extremely"
-        }
-      },
-      {
-        "identifier"        : "goal_am",
-        "text"              : "Yesterday, I tried to improve my life and well-being.",
-        "type"              : "pulsusScale",
-        "range"             : {
-          "min"     : 0,
-          "max"      : 10,
-          "default"   : 5,
-          "step": 1,
-          "minValueText": "0-not at all",
-          "midValueText": "moderate",
-          "maxValueText": "10-extremely"
-        }
-      },
-      {
-        "identifier"        : "exer_am",
-        "text"              : "Yesterday, I engaged in strenuous physical activity (e.g., exercise, hard labor, etc.)",
-        "type"              : "pulsusScale",
-        "range"             : {
-          "min"     : 0,
-          "max"      : 10,
-          "default"   : 5,
-          "step": 1,
-          "minValueText": "0-not at all",
-          "midValueText": "moderate",
-          "maxValueText": "10-extremely"
-        }
       }
     ]
 }

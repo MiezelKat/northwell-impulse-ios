@@ -6,106 +6,114 @@
                {
                "identifier"        : "PBEffort_bl",
                "text"              : "In general, how much effort does it take to resist engaging in the behavior when you don’t want to?",
-               "type"              : "pulsusScale",
+               "type"              : "likert",
                "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "not at all",
-                   "maxValueText": "extremely"
-                 }
+                 "min"     : 0,
+                 "max"      : 10,
+                 "default"   : 5,
+                 "step": 1,
+                 "minValueText": "0-not at all",
+                 "midValueText": "moderate",
+                 "maxValueText": "10-extremely"
+               }
                },
                {
                "identifier"        : "PBcrave_bl",
                "text"              : "How much effort does it take to resist engaging in the behavior when you have an urge or craving to do so.",
-               "type"              : "pulsusScale",
+               "type"              : "likert",
                "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "not at all",
-                   "maxValueText": "extremely"
-                 }
+                 "min"     : 0,
+                 "max"      : 10,
+                 "default"   : 5,
+                 "step": 1,
+                 "minValueText": "0-not at all",
+                 "midValueText": "moderate",
+                 "maxValueText": "10-extremely"
+               }
                },
                {
                "identifier"        : "PBblock_bl",
                "text"              : "When you have an urge to engage in the behavior, how anxious do you become when you are blocked from doing so?",
-               "type"              : "pulsusScale",
+               "type"              : "likert",
                "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "not at all",
-                   "maxValueText": "extremely"
-                 }
+                 "min"     : 0,
+                 "max"      : 10,
+                 "default"   : 5,
+                 "step": 1,
+                 "minValueText": "0-not at all",
+                 "midValueText": "moderate",
+                 "maxValueText": "10-extremely"
+               }
                },
                {
                "identifier"        : "PBsocialtemp_bl",
                "text"              : "How much effort does it take to resist engaging in the behavior when you don’t want to do it, but someone is encouraging you to do so.",
-               "type"              : "pulsusScale",
+               "type"              : "likert",
                "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "not at all",
-                   "maxValueText": "extremely"
-                 }
+                 "min"     : 0,
+                 "max"      : 10,
+                 "default"   : 5,
+                 "step": 1,
+                 "minValueText": "0-not at all",
+                 "midValueText": "moderate",
+                 "maxValueText": "10-extremely"
+               }
                },
                {
                "identifier"        : "PBmorn_bl",
                "text"              : "How much effort does it take to resist engaging in the behavior in the morning?",
-               "type"              : "pulsusScale",
+               "type"              : "likert",
                "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "not at all",
-                   "maxValueText": "extremely"
-                 }
+                 "min"     : 0,
+                 "max"      : 10,
+                 "default"   : 5,
+                 "step": 1,
+                 "minValueText": "0-not at all",
+                 "midValueText": "moderate",
+                 "maxValueText": "10-extremely"
+               }
                },
                {
                "identifier"        : "PBeve_bl",
                "text"              : "How much effort does it take to resist engaging in the behavior in the evening?",
-               "type"              : "pulsusScale",
+               "type"              : "likert",
                "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "not at all",
-                   "maxValueText": "extremely"
-                 }
+                 "min"     : 0,
+                 "max"      : 10,
+                 "default"   : 5,
+                 "step": 1,
+                 "minValueText": "0-not at all",
+                 "midValueText": "moderate",
+                 "maxValueText": "10-extremely"
+               }
                },
                {
                "identifier"        : "Change_bl",
                "text"              : "How important is for you to change the behavior?",
-               "type"              : "pulsusScale",
+               "type"              : "likert",
                "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "not at all",
-                   "maxValueText": "extremely"
-                 }
+                 "min"     : 0,
+                 "max"      : 10,
+                 "default"   : 5,
+                 "step": 1,
+                 "minValueText": "0-not at all",
+                 "midValueText": "moderate",
+                 "maxValueText": "10-extremely"
+               }
                },
                {
                "identifier"        : "Conseq_bl",
                "text"              : "How much does the behavior impact your life negatively?",
-               "type"              : "pulsusScale",
+               "type"              : "likert",
                "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "not at all",
-                   "maxValueText": "extremely"
-                 }
+                 "min"     : 0,
+                 "max"      : 10,
+                 "default"   : 5,
+                 "step": 1,
+                 "minValueText": "0-not at all",
+                 "midValueText": "moderate",
+                 "maxValueText": "10-extremely"
+               }
                }
               ]
 }

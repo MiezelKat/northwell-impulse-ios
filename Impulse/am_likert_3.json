@@ -6,7 +6,7 @@
       {
         "identifier"        : "focus_am",
         "text"              : "",
-        "type"              : "pulsusScale",
+        "type"              : "semanticDifferential",
         "range"             : {
           "min"     : 0,
           "max"      : 10,
@@ -19,7 +19,7 @@
       {
         "identifier"        : "intentional_am",
         "text"              : "",
-        "type"              : "pulsusScale",
+        "type"              : "semanticDifferential",
         "range"             : {
           "min"     : 0,
           "max"      : 10,
@@ -32,7 +32,7 @@
       {
         "identifier"        : "bored_am",
         "text"              : "",
-        "type"              : "pulsusScale",
+        "type"              : "semanticDifferential",
         "range"             : {
           "min"     : 0,
           "max"      : 10,
@@ -45,7 +45,7 @@
       {
         "identifier"        : "proud_am",
         "text"              : "",
-        "type"              : "pulsusScale",
+        "type"              : "semanticDifferential",
         "range"             : {
           "min"     : 0,
           "max"      : 10,
@@ -58,7 +58,7 @@
       {
         "identifier"        : "energetic_am",
         "text"              : "",
-        "type"              : "pulsusScale",
+        "type"              : "semanticDifferential",
         "range"             : {
           "min"     : 0,
           "max"      : 10,
@@ -71,7 +71,7 @@
       {
         "identifier"        : "frustrated_am",
         "text"              : "",
-        "type"              : "pulsusScale",
+        "type"              : "semanticDifferential",
         "range"             : {
           "min"     : 0,
           "max"      : 10,
@@ -84,7 +84,7 @@
       {
         "identifier"        : "cautious_am",
         "text"              : "",
-        "type"              : "pulsusScale",
+        "type"              : "semanticDifferential",
         "range"             : {
           "min"     : 0,
           "max"      : 10,
@@ -97,7 +97,7 @@
       {
         "identifier"        : "lonely_am",
         "text"              : "",
-        "type"              : "pulsusScale",
+        "type"              : "semanticDifferential",
         "range"             : {
           "min"     : 0,
           "max"      : 10,
@@ -110,7 +110,7 @@
       {
         "identifier"        : "optimistic_am",
         "text"              : "",
-        "type"              : "pulsusScale",
+        "type"              : "semanticDifferential",
         "range"             : {
           "min"     : 0,
           "max"      : 10,
@@ -123,7 +123,7 @@
       {
         "identifier"        : "determined_am",
         "text"              : "",
-        "type"              : "pulsusScale",
+        "type"              : "semanticDifferential",
         "range"             : {
           "min"     : 0,
           "max"      : 10,

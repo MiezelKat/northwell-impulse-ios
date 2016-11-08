@@ -6,171 +6,184 @@
                {
                "identifier"        : "Taskpers_2_bl",
                "text"              : "I have difficulty completing tasks that require me to stay focused for long periods.",
-               "type"              : "pulsusScale",
+               "type"              : "likert",
                "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "not at all",
-                   "maxValueText": "extremely"
-                 }
+                 "min"     : 0,
+                 "max"      : 10,
+                 "default"   : 5,
+                 "step": 1,
+                 "minValueText": "0-not at all",
+                 "midValueText": "moderate",
+                 "maxValueText": "10-extremely"
+               }
                },
                {
                "identifier"        : "socialtemp_bl",
                "text"              : "I do things I later regret because I get influenced by other people.",
-               "type"              : "pulsusScale",
+               "type"              : "likert",
                "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "not at all",
-                   "maxValueText": "extremely"
-                 }
+                 "min"     : 0,
+                 "max"      : 10,
+                 "default"   : 5,
+                 "step": 1,
+                 "minValueText": "0-not at all",
+                 "midValueText": "moderate",
+                 "maxValueText": "10-extremely"
+               }
                },
                {
                "identifier"        : "socialcomp_bl",
                "text"              : "I feel other people have better lives than I do.",
-               "type"              : "pulsusScale",
+               "type"              : "likert",
                "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "not at all",
-                   "maxValueText": "extremely"
-                 }
+                 "min"     : 0,
+                 "max"      : 10,
+                 "default"   : 5,
+                 "step": 1,
+                 "minValueText": "0-not at all",
+                 "midValueText": "moderate",
+                 "maxValueText": "10-extremely"
+               }
                },
                {
                "identifier"        : "socialblock_bl",
                "text"              : "I feel blocked in meeting my goals by other people and situations beyond my control.",
-               "type"              : "pulsusScale",
+               "type"              : "likert",
                "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "not at all",
-                   "maxValueText": "extremely"
-                 }
+                 "min"     : 0,
+                 "max"      : 10,
+                 "default"   : 5,
+                 "step": 1,
+                 "minValueText": "0-not at all",
+                 "midValueText": "moderate",
+                 "maxValueText": "10-extremely"
+               }
                },
                {
                "identifier"        : "bored_bl",
                "text"              : "I get bored easily.",
-               "type"              : "pulsusScale",
+               "type"              : "likert",
                "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "not at all",
-                   "maxValueText": "extremely"
-                 }
+                 "min"     : 0,
+                 "max"      : 10,
+                 "default"   : 5,
+                 "step": 1,
+                 "minValueText": "0-not at all",
+                 "midValueText": "moderate",
+                 "maxValueText": "10-extremely"
+               }
                },
                {
                "identifier"        : "posoutcome_bl",
                "text"              : "I tend to think things will work out when I jump into new experiences.",
-               "type"              : "pulsusScale",
+               "type"              : "likert",
                "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "not at all",
-                   "maxValueText": "extremely"
-                 }
+                 "min"     : 0,
+                 "max"      : 10,
+                 "default"   : 5,
+                 "step": 1,
+                 "minValueText": "0-not at all",
+                 "midValueText": "moderate",
+                 "maxValueText": "10-extremely"
+               }
                },
                {
                "identifier"        : "fomo_bl",
                "text"              : "I feel like I am missing out on fun activities going on around me.",
-               "type"              : "pulsusScale",
+               "type"              : "likert",
                "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "not at all",
-                   "maxValueText": "extremely"
-                 }
+                 "min"     : 0,
+                 "max"      : 10,
+                 "default"   : 5,
+                 "step": 1,
+                 "minValueText": "0-not at all",
+                 "midValueText": "moderate",
+                 "maxValueText": "10-extremely"
+               }
                },
                {
                "identifier"        : "Taskper_3_bl",
                "text"              : "I continue towards my goals that I set for myself, even when there are obstacles.",
-               "type"              : "pulsusScale",
+               "type"              : "likert",
                "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "not at all",
-                   "maxValueText": "extremely"
-                 }
+                 "min"     : 0,
+                 "max"      : 10,
+                 "default"   : 5,
+                 "step": 1,
+                 "minValueText": "0-not at all",
+                 "midValueText": "moderate",
+                 "maxValueText": "10-extremely"
+               }
                },
                {
                "identifier"        : "leisuretime_bl",
                "text"              : "I have enough time and money for leisure and hobbies that I enjoy.",
-               "type"              : "pulsusScale",
+               "type"              : "likert",
                "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "not at all",
-                   "maxValueText": "extremely"
-                 }
+                 "min"     : 0,
+                 "max"      : 10,
+                 "default"   : 5,
+                 "step": 1,
+                 "minValueText": "0-not at all",
+                 "midValueText": "moderate",
+                 "maxValueText": "10-extremely"
+               }
                },
                {
                "identifier"        : "Jealous",
                "text"              : "I have never been jealous of a friend’s success.",
-               "type"              : "pulsusScale",
+               "type"              : "likert",
                "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "not at all",
-                   "maxValueText": "extremely"
-                 }
+                 "min"     : 0,
+                 "max"      : 10,
+                 "default"   : 5,
+                 "step": 1,
+                 "minValueText": "0-not at all",
+                 "midValueText": "moderate",
+                 "maxValueText": "10-extremely"
+               }
                },
                {
                "identifier"        : "grateful_bl",
                "text"              : "I am grateful and appreciative about my life and circumstances.",
-               "type"              : "pulsusScale",
+               "type"              : "likert",
                "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "not at all",
-                   "maxValueText": "extremely"
-                 }
+                 "min"     : 0,
+                 "max"      : 10,
+                 "default"   : 5,
+                 "step": 1,
+                 "minValueText": "0-not at all",
+                 "midValueText": "moderate",
+                 "maxValueText": "10-extremely"
+               }
                },
                {
                "identifier"        : "social_bl",
                "text"              : "Most of the people I spend time with are a positive influence on my health and well-being.",
-               "type"              : "pulsusScale",
+               "type"              : "likert",
                "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "not at all",
-                   "maxValueText": "extremely"
-                 }
+                 "min"     : 0,
+                 "max"      : 10,
+                 "default"   : 5,
+                 "step": 1,
+                 "minValueText": "0-not at all",
+                 "midValueText": "moderate",
+                 "maxValueText": "10-extremely"
+               }
                },
                {
                "identifier"        : "child_bl",
                "text"              : "As I child, I was a sensation seeker who took risks.",
-               "type"              : "pulsusScale",
+               "type"              : "likert",
                "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "not at all",
-                   "maxValueText": "extremely"
-                 }
+                 "min"     : 0,
+                 "max"      : 10,
+                 "default"   : 5,
+                 "step": 1,
+                 "minValueText": "0-not at all",
+                 "midValueText": "moderate",
+                 "maxValueText": "10-extremely"
+               }
                }
               ]
 }
