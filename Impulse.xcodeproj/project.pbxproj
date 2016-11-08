@@ -88,6 +88,7 @@
 		E2AA6D331DA43CEE005D5137 /* self_assessment_10.json in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6D2D1DA43CEE005D5137 /* self_assessment_10.json */; };
 		E2AA6D351DA43D07005D5137 /* CTFMainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D341DA43D07005D5137 /* CTFMainTabViewController.swift */; };
 		E2AA6D381DA43F57005D5137 /* CTFPAMTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D371DA43F57005D5137 /* CTFPAMTask.swift */; };
+		E2C18EAD1DD147C1005E0324 /* CTFScaleAnswerFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C18EAC1DD147C1005E0324 /* CTFScaleAnswerFormat.swift */; };
 		E2C20D731DC003B000382527 /* bart_25_cents_active_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2C20D711DC003B000382527 /* bart_25_cents_active_task.json */; };
 		E2C20D741DC003B000382527 /* bart_25_cents_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2C20D721DC003B000382527 /* bart_25_cents_full_task.json */; };
 		E2C20D771DC0296F00382527 /* bart_250_dollars_active_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2C20D751DC0296F00382527 /* bart_250_dollars_active_task.json */; };
@@ -285,6 +286,7 @@
 		E2AA6D2D1DA43CEE005D5137 /* self_assessment_10.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = self_assessment_10.json; sourceTree = "<group>"; };
 		E2AA6D341DA43D07005D5137 /* CTFMainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFMainTabViewController.swift; sourceTree = "<group>"; };
 		E2AA6D371DA43F57005D5137 /* CTFPAMTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFPAMTask.swift; sourceTree = "<group>"; };
+		E2C18EAC1DD147C1005E0324 /* CTFScaleAnswerFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFScaleAnswerFormat.swift; sourceTree = "<group>"; };
 		E2C20D711DC003B000382527 /* bart_25_cents_active_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bart_25_cents_active_task.json; sourceTree = "<group>"; };
 		E2C20D721DC003B000382527 /* bart_25_cents_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bart_25_cents_full_task.json; sourceTree = "<group>"; };
 		E2C20D751DC0296F00382527 /* bart_250_dollars_active_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bart_250_dollars_active_task.json; sourceTree = "<group>"; };
@@ -380,6 +382,7 @@
 				E2AA6D121DA43C83005D5137 /* CTFFormItemCell.swift */,
 				E2AA6D131DA43C83005D5137 /* CTFFormItemCell.xib */,
 				E2AA6D141DA43C83005D5137 /* CTFPulsusFormStep.swift */,
+				E2C18EAC1DD147C1005E0324 /* CTFScaleAnswerFormat.swift */,
 				E2AA6D161DA43C83005D5137 /* CTFPulsusFormStepViewController.swift */,
 				E2AA6D171DA43C83005D5137 /* CTFPulsusFormStepViewController.xib */,
 			);
@@ -941,6 +944,7 @@
 				E2EF6B1F1DA2E2970034456A /* AppDelegate.swift in Sources */,
 				081989261DCA3D0D0047ACA6 /* CTFDelayDiscountingBridgeTask.swift in Sources */,
 				E2AA6D0C1DA43C6B005D5137 /* CTFActivity.swift in Sources */,
+				E2C18EAD1DD147C1005E0324 /* CTFScaleAnswerFormat.swift in Sources */,
 				E2FE1AB71DB0337200DBB8E7 /* Array+Random.swift in Sources */,
 				E2AA6D0B1DA43C6B005D5137 /* CTFScheduledActivity.swift in Sources */,
 				E2AA6CFC1DA41F3D005D5137 /* CTFLogInViaExternalIdViewController.swift in Sources */,

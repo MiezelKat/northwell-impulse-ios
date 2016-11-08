@@ -6,7 +6,7 @@
       {
         "identifier"        : "positive_am",
         "text"              : "",
-        "type"              : "pulsusScale",
+        "type"              : "semanticDifferential",
         "range"             : {
           "min"     : 0,
           "max"      : 10,
@@ -19,7 +19,7 @@
       {
         "identifier"        : "intentional_am",
         "text"              : "",
-        "type"              : "pulsusScale",
+        "type"              : "semanticDifferential",
         "range"             : {
           "min"     : 0,
           "max"      : 10,
@@ -32,7 +32,7 @@
       {
         "identifier"        : "productive_am",
         "text"              : "",
-        "type"              : "pulsusScale",
+        "type"              : "semanticDifferential",
         "range"             : {
           "min"     : 0,
           "max"      : 10,
@@ -45,7 +45,7 @@
       {
         "identifier"        : "stressed_am",
         "text"              : "",
-        "type"              : "pulsusScale",
+        "type"              : "semanticDifferential",
         "range"             : {
           "min"     : 0,
           "max"      : 10,
@@ -58,7 +58,7 @@
       {
         "identifier"        : "healthy_am",
         "text"              : "",
-        "type"              : "pulsusScale",
+        "type"              : "semanticDifferential",
         "range"             : {
           "min"     : 0,
           "max"      : 10,
@@ -77,8 +77,9 @@
           "max"      : 10,
           "default"   : 5,
           "step": 1,
-          "minValueText": "not at all",
-          "maxValueText": "extremely"
+          "minValueText": "0-not at all",
+          "midValueText": "moderate",
+          "maxValueText": "10-extremely"
         }
       },
       {
@@ -90,8 +91,9 @@
           "max"      : 10,
           "default"   : 5,
           "step": 1,
-          "minValueText": "not at all",
-          "maxValueText": "extremely"
+          "minValueText": "0-not at all",
+          "midValueText": "moderate",
+          "maxValueText": "10-extremely"
         }
       },
       {
@@ -103,8 +105,9 @@
           "max"      : 10,
           "default"   : 5,
           "step": 1,
-          "minValueText": "not at all",
-          "maxValueText": "extremely"
+          "minValueText": "0-not at all",
+          "midValueText": "moderate",
+          "maxValueText": "10-extremely"
         }
       }
     ]

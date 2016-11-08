@@ -108,7 +108,7 @@ class CTFPulsusFormStepViewController: ORKStepViewController, UITableViewDataSou
             self.answerDictionary = [String: Int]()
             
             step.formItems?.forEach { formItem in
-                if let answerFormat = formItem.answerFormat as? ORKScaleAnswerFormat{
+                if let answerFormat = formItem.answerFormat as? ORKScaleAnswerFormat {
                     self.answerDictionary![formItem.identifier] = answerFormat.defaultValue
                 }
                 else {

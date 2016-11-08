@@ -25,6 +25,7 @@ class CTFFormItemCell: UITableViewCell {
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var valueSlider: UISlider!
     @IBOutlet weak var minTextLabel: UILabel!
+    @IBOutlet weak var midTextLabel: UILabel!
     @IBOutlet weak var maxTextLabel: UILabel!
     
     var delegate: CTFFormItemCellDelegate?
@@ -48,8 +49,6 @@ class CTFFormItemCell: UITableViewCell {
         self.formItem = formItem
         self.titleLabel.text = formItem.text
 
-        self.setValue(value)
-        
         if let scaleAnswerFormat = formItem.answerFormat as? ORKScaleAnswerFormat {
             self.valueSlider.minimumValue = Float(scaleAnswerFormat.minimum)
             self.valueSlider.maximumValue = Float(scaleAnswerFormat.maximum)
@@ -57,6 +56,12 @@ class CTFFormItemCell: UITableViewCell {
             self.minTextLabel.text = scaleAnswerFormat.minimumValueDescription
             self.maxTextLabel.text = scaleAnswerFormat.maximumValueDescription
         }
+        
+        if let scaleAnswerFormat = formItem.answerFormat as? CTFScaleAnswerFormat {
+            self.midTextLabel.text = scaleAnswerFormat.intermediateValueDescription
+        }
+        
+        self.setValue(value)
         
     }
 
@@ -77,6 +82,15 @@ class CTFFormItemCell: UITableViewCell {
     }
     
     func updateValueLabel(_ value: Int) {
-        self.valueLabel.text = "\(value)"
+        if let scaleAnswerFormat = (self.formItem?.answerFormat as? CTFScaleAnswerFormat),
+            let type = scaleAnswerFormat.scaleType,
+            type == CTFScaleAnswerType.semanticDifferential
+            {
+            self.valueLabel.text = nil
+        }
+        else {
+            self.valueLabel.text = "\(value)"
+        }
+        
     }
 }

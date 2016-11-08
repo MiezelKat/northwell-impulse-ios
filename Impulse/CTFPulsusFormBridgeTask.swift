@@ -28,10 +28,32 @@ class CTFPulsusFormBridgeTask: NSObject, SBABridgeTask, SBAStepTransformer {
         let maximumValue: Int = range?["max"] as? Int ?? 10
         let defaultValue: Int = range?["default"] as? Int ?? 5
         let stepValue: Int = range?["step"] as? Int ?? 1
-        let maximumValueDescription: String = range?["maxValueText"] as? String ?? "extremely"
-        let minimumValueDescription: String = range?["minValueText"] as? String ??  "not at all"
+        let maximumValueDescription: String? = range?["maxValueText"] as? String
+        let intermediateValueDescription: String? = range?["midValueText"] as? String
+        let minimumValueDescription: String? = range?["minValueText"] as? String
+        
+        let scaleAnswerType: CTFScaleAnswerType? = {
+            switch(dictionary?["type"] as? String){
+            case .some("likert"):
+                return CTFScaleAnswerType.likert
+            case .some("semanticDifferential"):
+                return CTFScaleAnswerType.semanticDifferential
+            default:
+                return nil
+            }
+        }()
+        
 
-        let scaleAnswerFormat = ORKAnswerFormat.scale(withMaximumValue: maximumValue, minimumValue: minimumValue, defaultValue: defaultValue, step: stepValue, vertical: false, maximumValueDescription: maximumValueDescription, minimumValueDescription: minimumValueDescription)
+//        let scaleAnswerFormat = ORKAnswerFormat.scale(withMaximumValue: maximumValue, minimumValue: minimumValue, defaultValue: defaultValue, step: stepValue, vertical: false, maximumValueDescription: maximumValueDescription, minimumValueDescription: minimumValueDescription)
+        let scaleAnswerFormat = CTFScaleAnswerFormat(withMaximumValue: maximumValue,
+                                                     minimumValue: minimumValue,
+                                                     defaultValue: defaultValue,
+                                                     step: stepValue,
+                                                     vertical: false,
+                                                     maximumValueDescription: maximumValueDescription,
+                                                     intermediateValueDescription: intermediateValueDescription,
+                                                     minimumValueDescription: minimumValueDescription,
+                                                     scaleAnswerType: scaleAnswerType)
         
         return ORKFormItem(identifier: itemIdentifier, text: text, answerFormat: scaleAnswerFormat)
     }

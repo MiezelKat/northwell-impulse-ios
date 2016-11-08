@@ -14,9 +14,4 @@ class CTFPulsusFormStep: ORKFormStep {
     override func stepViewControllerClass() -> AnyClass {
         return CTFPulsusFormStepViewController.self
     }
-
-//    override func stepViewControllerClass() -> AnyClass {
-//        return ORKFormStepViewController.self
-//    }
-//    
 }
