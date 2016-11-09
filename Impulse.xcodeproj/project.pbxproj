@@ -42,6 +42,7 @@
 		E22792A21DD23EBB0026F8AB /* BridgeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E22792A11DD23EBB0026F8AB /* BridgeSDK.framework */; };
 		E22792A31DD23EBB0026F8AB /* BridgeSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E22792A11DD23EBB0026F8AB /* BridgeSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E22792A51DD25B7E0026F8AB /* am_likert_1a.json in Resources */ = {isa = PBXBuildFile; fileRef = E22792A41DD25B7E0026F8AB /* am_likert_1a.json */; };
+		E22792A81DD3DD010026F8AB /* CTFKeychainHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22792A71DD3DD010026F8AB /* CTFKeychainHelpers.swift */; };
 		E22E434B1DC67FA700F024D4 /* NotificationTest.json in Resources */ = {isa = PBXBuildFile; fileRef = E22E434A1DC67FA700F024D4 /* NotificationTest.json */; };
 		E23535DC1DB57B6F005BAFE3 /* GenericHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23535DB1DB57B6F005BAFE3 /* GenericHelpers.swift */; };
 		E23535E01DB593C2005BAFE3 /* CTFBARTBridgeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23535DF1DB593C2005BAFE3 /* CTFBARTBridgeTask.swift */; };
@@ -251,6 +252,7 @@
 		E227929E1DD23E830026F8AB /* ZipZap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZipZap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E22792A11DD23EBB0026F8AB /* BridgeSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BridgeSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E22792A41DD25B7E0026F8AB /* am_likert_1a.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = am_likert_1a.json; sourceTree = "<group>"; };
+		E22792A71DD3DD010026F8AB /* CTFKeychainHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFKeychainHelpers.swift; sourceTree = "<group>"; };
 		E22E434A1DC67FA700F024D4 /* NotificationTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NotificationTest.json; sourceTree = "<group>"; };
 		E23535DB1DB57B6F005BAFE3 /* GenericHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericHelpers.swift; sourceTree = "<group>"; };
 		E23535DF1DB593C2005BAFE3 /* CTFBARTBridgeTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFBARTBridgeTask.swift; sourceTree = "<group>"; };
@@ -694,6 +696,7 @@
 				E27E29111DA5A47E0050788A /* Sage SDK Helpers */,
 				E2FE1AB61DB0337200DBB8E7 /* Array+Random.swift */,
 				E23535DB1DB57B6F005BAFE3 /* GenericHelpers.swift */,
+				E22792A71DD3DD010026F8AB /* CTFKeychainHelpers.swift */,
 				E2CA7E611DC81486000B9B7D /* NSDate+Range.swift */,
 			);
 			name = Helpers;
@@ -956,6 +959,7 @@
 				E2FE1AA61DAEEA1B00DBB8E7 /* ORKStepViewController+Helpers.swift in Sources */,
 				E23535E01DB593C2005BAFE3 /* CTFBARTBridgeTask.swift in Sources */,
 				08F6069C1DBF9BB70066760F /* CTFDelayDiscountingStep.swift in Sources */,
+				E22792A81DD3DD010026F8AB /* CTFKeychainHelpers.swift in Sources */,
 				E2AA6D051DA43C5C005D5137 /* CTFScheduledActivityManager.swift in Sources */,
 				E2AA6D1B1DA43C83005D5137 /* CTFPulsusFormStep.swift in Sources */,
 				E21F23821DA44F2F00760EA7 /* ORKOrderedTask+GoNoGo.swift in Sources */,

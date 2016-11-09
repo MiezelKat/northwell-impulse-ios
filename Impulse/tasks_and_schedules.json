@@ -105,41 +105,53 @@
       "scheduleIdentifier": "am_survey",
       "scheduleGUID": "am_survey-1",
       "scheduleTitle": "Morning Survey",
-      "activityType": "random",
+      "activityType": "selectOneByDate",
       "timeEstimate": "",
       "trialActivity": true,
       "tasks": [
         {
-          "taskTitle": "Morning Survey",
-          "taskIdentifier": "am_survey_go_no_go_stable",
+          "tasks":  [
+            {
+              "taskTitle": "Morning Survey",
+              "taskIdentifier": "am_survey_go_no_go_stable",
+            },
+            {
+              "taskTitle": "Morning Survey",
+              "taskIdentifier": "am_survey_go_no_go_variable",
+            },
+          ]
         },
         {
-          "taskTitle": "Morning Survey",
-          "taskIdentifier": "am_survey_go_no_go_variable",
+          "tasks":  [
+            {
+              "taskTitle": "Morning Survey",
+              "taskIdentifier": "am_survey_bart_25_cents",
+            },
+            {
+              "taskTitle": "Morning Survey",
+              "taskIdentifier": "am_survey_bart_250_dollars",
+            },
+          ]
         },
         {
-          "taskTitle": "Morning Survey",
-          "taskIdentifier": "am_survey_bart_25_cents",
-        },
-        {
-          "taskTitle": "Morning Survey",
-          "taskIdentifier": "am_survey_bart_250_dollars",
-        },
-        {
-          "taskTitle": "Morning Survey",
-          "taskIdentifier": "am_survey_dd_time_1_month",
-        },
-        {
-          "taskTitle": "Morning Survey",
-          "taskIdentifier": "am_survey_dd_time_6_month",
-        },
-        {
-          "taskTitle": "Morning Survey",
-          "taskIdentifier": "am_survey_dd_money_1_month",
-        },
-        {
-          "taskTitle": "Morning Survey",
-          "taskIdentifier": "am_survey_dd_money_6_month",
+          "tasks":  [
+            {
+              "taskTitle": "Morning Survey",
+              "taskIdentifier": "am_survey_dd_time_1_month",
+            },
+            {
+              "taskTitle": "Morning Survey",
+              "taskIdentifier": "am_survey_dd_time_6_month",
+            },
+            {
+              "taskTitle": "Morning Survey",
+              "taskIdentifier": "am_survey_dd_money_1_month",
+            },
+            {
+              "taskTitle": "Morning Survey",
+              "taskIdentifier": "am_survey_dd_money_6_month",
+            }
+          ]
         }
       ]
     },
@@ -149,42 +161,54 @@
       "scheduleIdentifier": "pm_survey",
       "scheduleGUID": "pm_survey-1",
       "scheduleTitle": "Evening Survey",
-      "activityType": "random",
+      "activityType": "selectOneByDate",
       "timeEstimate": "",
       "trialActivity": true,
       "tasks": [
         {
-          "taskTitle": "Evening Survey",
-          "taskIdentifier": "pm_survey_go_no_go_stable",
+          "tasks": [
+            {
+              "taskTitle": "Evening Survey",
+              "taskIdentifier": "pm_survey_go_no_go_stable",
+            },
+            {
+              "taskTitle": "Evening Survey",
+              "taskIdentifier": "pm_survey_go_no_go_variable",
+            },
+          ]
         },
         {
-          "taskTitle": "Evening Survey",
-          "taskIdentifier": "pm_survey_go_no_go_variable",
+          "tasks": [
+            {
+              "taskTitle": "Evening Survey",
+              "taskIdentifier": "pm_survey_bart_25_cents",
+            },
+            {
+              "taskTitle": "Evening Survey",
+              "taskIdentifier": "pm_survey_bart_250_dollars",
+            },
+          ]
         },
         {
-          "taskTitle": "Evening Survey",
-          "taskIdentifier": "pm_survey_bart_25_cents",
+          "tasks": [
+            {
+              "taskTitle": "Evening Survey",
+              "taskIdentifier": "pm_survey_dd_time_1_month",
+            },
+            {
+              "taskTitle": "Evening Survey",
+              "taskIdentifier": "pm_survey_dd_time_6_month",
+            },
+            {
+              "taskTitle": "Evening Survey",
+              "taskIdentifier": "pm_survey_dd_money_1_month",
+            },
+            {
+              "taskTitle": "Evening Survey",
+              "taskIdentifier": "pm_survey_dd_money_6_month",
+            },
+          ]
         },
-        {
-          "taskTitle": "Evening Survey",
-          "taskIdentifier": "pm_survey_bart_250_dollars",
-        },
-          {
-            "taskTitle": "Evening Survey",
-            "taskIdentifier": "pm_survey_dd_time_1_month",
-          },
-          {
-            "taskTitle": "Evening Survey",
-            "taskIdentifier": "pm_survey_dd_time_6_month",
-          },
-          {
-            "taskTitle": "Evening Survey",
-            "taskIdentifier": "pm_survey_dd_money_1_month",
-          },
-          {
-            "taskTitle": "Evening Survey",
-            "taskIdentifier": "pm_survey_dd_money_6_month",
-          },
       ]
     },
     {
