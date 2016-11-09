@@ -44,3 +44,16 @@ extension Sequence {
         return returnDict
     }
 }
+
+extension Date {
+    static func RandomDateBetween(from: Date, to: Date) -> Date? {
+        let interval = to.timeIntervalSince(from)
+        
+        guard interval > 0.0 else {
+            return nil
+        }
+        
+        let multiplier = CGFloat(Float(arc4random()) / Float(UINT32_MAX))
+        return Date(timeInterval: interval * Double(multiplier), since: from)
+    }
+}

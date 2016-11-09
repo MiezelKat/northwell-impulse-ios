@@ -8,7 +8,7 @@
       "scheduleGUID": "baseline-1",
       "activityType": "sequential",
       "timeEstimate": "",
-      "trialActivity": true,
+      "trialActivity": false,
       "tasks": [
         {
           "taskTitle": "Baseline",
@@ -25,7 +25,7 @@
       "scheduleGUID": "21-day-assessment-1",
       "activityType": "sequential",
       "timeEstimate": "",
-      "trialActivity": true,
+      "trialActivity": false,
       "tasks": [
         {
           "taskTitle": "Day_21",
@@ -43,7 +43,7 @@
       "scheduleGUID": "go-no-go-stable-1",
       "activityType": "sequential",
       "timeEstimate": "",
-      "trialActivity": true,
+      "trialActivity": false,
       "tasks": [
         {
           "taskTitle": "Go No Go Stable Stimulus",
@@ -59,7 +59,7 @@
       "scheduleGUID": "go-no-go-variable-1",
       "activityType": "sequential",
       "timeEstimate": "",
-      "trialActivity": true,
+      "trialActivity": false,
       "tasks": [
         {
           "taskTitle": "Go No Go Variable Stimulus",
@@ -75,7 +75,7 @@
       "scheduleGUID": "bart.25-1",
       "activityType": "sequential",
       "timeEstimate": "",
-      "trialActivity": true,
+      "trialActivity": false,
       "tasks": [
         {
           "taskTitle": "BART $.25",
@@ -91,7 +91,7 @@
       "scheduleGUID": "bart250-1",
       "activityType": "sequential",
       "timeEstimate": "",
-      "trialActivity": true,
+      "trialActivity": false,
       "tasks": [
         {
           "taskTitle": "BART $250",
@@ -195,7 +195,7 @@
       "scheduleGUID": "DD_Money_1Month-1",
       "activityType": "sequential",
       "timeEstimate": "",
-      "trialActivity": true,
+      "trialActivity": false,
       "tasks": [
         {
           "taskTitle": "Delay Discounting Money 1 Month",
@@ -211,7 +211,7 @@
       "scheduleGUID": "DD_Money_6Months-1",
       "activityType": "sequential",
       "timeEstimate": "",
-      "trialActivity": true,
+      "trialActivity": false,
       "tasks": [
         {
           "taskTitle": "Delay Discounting Money 6 Months",
@@ -227,7 +227,7 @@
       "scheduleGUID": "DD_Time_1Month-1",
       "activityType": "sequential",
       "timeEstimate": "",
-      "trialActivity": true,
+      "trialActivity": false,
       "tasks": [
         {
           "taskTitle": "Delay Discounting 4",
@@ -243,7 +243,7 @@
       "scheduleGUID": "DD_Time_6Months-1",
       "activityType": "sequential",
       "timeEstimate": "",
-      "trialActivity": true,
+      "trialActivity": false,
       "tasks": [
         {
           "taskTitle": "Delay Discounting Time 6 Months",
