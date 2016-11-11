@@ -253,14 +253,14 @@
             <key>resourceName</key>
             <string>am_survey_dd_time_6_month</string>
         </dict>
-		<dict>
-			<key>taskIdentifier</key>
-			<string>Pulsus</string>
-			<key>classType</key>
-			<string>Impulse.CTFPulsusFormBridgeTask</string>
-			<key>resourceName</key>
-			<string>self_assessment_5</string>
-		</dict>
+        <dict>
+            <key>taskIdentifier</key>
+            <string>Pulsus</string>
+            <key>classType</key>
+            <string>Impulse.CTFPulsusFormBridgeTask</string>
+            <key>resourceName</key>
+            <string>self_assessment_5</string>
+        </dict>
 		<dict>
 			<key>taskIdentifier</key>
 			<string>go_no_go_stable_stimulus_active_task</string>
@@ -360,6 +360,14 @@
             <string>delayDiscounting_Time_6Month_full_task</string>
             <key>resourceName</key>
             <string>delayDiscounting_Time_6Month_full_task</string>
+        </dict>
+        <dict>
+            <key>taskIdentifier</key>
+            <string>BehaviorVSR</string>
+            <key>classType</key>
+            <string>Impulse.CTFBehaviorVSRTask</string>
+            <key>resourceName</key>
+            <string>self_assessment_5</string>
         </dict>
 
 	</array>
