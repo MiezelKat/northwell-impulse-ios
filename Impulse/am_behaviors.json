@@ -3,7 +3,7 @@
     "schemaIdentifier": "behaviors",
     "text"       : "Which of the following behaviors did you engage in more than you intended yesterday?",
     "valueSuffix": "_am",
-    "fullAssessmentStorageKey": "kSelectedBehaviorArray",
+    "fullAssessmentStorageKey": "BaselineBehaviorResults",
     "options":{
             "somethingSelectedButtonColor":"#0080ff",
             "nothingSelectedButtonColor":"#FCC103",

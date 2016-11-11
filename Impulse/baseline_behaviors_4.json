@@ -3,7 +3,6 @@
     "schemaIdentifier": "behaviors",
     "text"       : "Below is a list of behaviors that people may have trouble controlling. Please select UP TO 4 of the ones that you have the most trouble controlling.",
     "valueSuffix": "_bl_4",
-    "fullAssessmentStorageKey": "kSelectedBehaviorArray",
     "options":{
             "somethingSelectedButtonColor":"#0080ff",
             "nothingSelectedButtonColor":"#FCC103",

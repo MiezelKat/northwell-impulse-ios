@@ -20,6 +20,7 @@ class CTFBehaviorVSRTask: NSObject, SBABridgeTask, SBAStepTransformer {
     var prompt: String!
     var behaviors: [ORKTextChoice]!
     var options: RKXMultipleImageSelectionSurveyOptions?
+    var visibilityFilter: ((NSCoding & NSCopying & NSObjectProtocol) -> Bool)?
     
     
     init(dictionaryRepresentation: NSDictionary) {
@@ -43,6 +44,24 @@ class CTFBehaviorVSRTask: NSObject, SBABridgeTask, SBAStepTransformer {
             
             if let optionsDict = dict["options"] as? [String: AnyObject] {
                 self.options = RKXMultipleImageSelectionSurveyOptions(optionsDictionary: optionsDict)
+            }
+            
+            if let fullAssessmentStorageKey = dict["fullAssessmentStorageKey"] as? String,
+                let baselineBehaviorString = CTFKeychainHelpers.getKeychainObject(fullAssessmentStorageKey) as? String {
+                let behaviors: [String] = baselineBehaviorString.components(separatedBy: ",")
+                self.visibilityFilter = { (id: NSCoding & NSCopying & NSObjectProtocol) in
+                    if let identifier = id as? String {
+                        return behaviors.reduce(false, { (acc, behavior) -> Bool in
+                            return acc || identifier.hasPrefix(behavior)
+                        })
+                    }
+                    else {
+                        return false
+                    }
+                    
+                    
+                }
+                
             }
         }
     }
@@ -104,7 +123,7 @@ class CTFBehaviorVSRTask: NSObject, SBABridgeTask, SBAStepTransformer {
         }
         
         let answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: imageChoices)
-        return CTFBehaviorVSRFullAssessmentStep(identifier: self.taskIdentifier, title: self.prompt, answerFormat: answerFormat, options: options)
+        return CTFBehaviorVSRFullAssessmentStep(identifier: self.taskIdentifier, title: self.prompt, answerFormat: answerFormat, options: options, visibilityFilter: self.visibilityFilter)
         
     }
 

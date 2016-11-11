@@ -27,6 +27,7 @@ let kLastMorningSurveyCompleted: String = "LastMorningSurveyCompleted"
 let kLastEveningSurveyCompleted: String = "LastEveningSurveycompleted"
 let kBaselineSurveyCompleted: String = "BaselineSurveyCompleted"
 let k21DaySurveyCompleted: String = "21DaySurveyCompleted"
+let kBaselineBehaviorResults: String = "BaselineBehaviorResults"
 
 let k1MinuteInterval: TimeInterval = 60.0
 let k1HourInterval: TimeInterval = k1MinuteInterval * 60.0
@@ -739,7 +740,18 @@ extension CTFScheduledActivityManager {
     }
     
     
-    
+    func handleBaselineBehaviorResults(_ result: ORKTaskResult) {
+        guard let stepResult = result.result(forIdentifier: "baseline_behaviors_4") as? ORKStepResult,
+            let questionResult = stepResult.firstResult as? ORKChoiceQuestionResult,
+            let answers = questionResult.choiceAnswers as? [String] else {
+                return
+        }
+        
+        let joinedAnswers = answers
+            .map( { return $0.replacingOccurrences(of: "_bl_4", with: "")} )
+            .joined(separator: ",") as NSString
+        CTFKeychainHelpers.setKeychainObject(joinedAnswers, forKey: kBaselineBehaviorResults)
+    }
     
     func handleBaselineSurvey(_ result: ORKTaskResult) {
         //1) set baseline completed date
@@ -758,6 +770,9 @@ extension CTFScheduledActivityManager {
         self.setMorningSurveyTime(result)
         self.setEveningSurveyTime(result)
         //4) handle survey results
+        
+        //set Behavior full results
+        self.handleBaselineBehaviorResults(result)
         
     }
     

@@ -3,7 +3,6 @@
     "schemaIdentifier": "behaviors",
     "text"       : "Please select the ONE behavior that you feel you have the most difficulty controlling and/or is the most bothersome for you.",
     "valueSuffix": "_bl_1",
-    "fullAssessmentStorageKey": "kSelectedBehaviorArray",
     "options":{
             "somethingSelectedButtonColor":"#0080ff",
             "nothingSelectedButtonColor":"#FCC103",
