@@ -32,6 +32,8 @@ struct CTFDelayDiscountingTrialResult{
 
 class CTFDelayDiscountingStepViewController: ORKStepViewController {
     
+    static let totalAnimationDuration: TimeInterval = 0.3
+    
     //UI Elements
     @IBOutlet weak var nowLabel: UILabel!
     @IBOutlet weak var laterLabel:UILabel!
@@ -62,6 +64,7 @@ class CTFDelayDiscountingStepViewController: ORKStepViewController {
         self.nowButton.configuredColor = self.view.tintColor
         self.laterButton.configuredColor = self.view.tintColor
         
+        self.beforeFirstTrial()
         
         if let stepParams = self.stepParams {
             
@@ -146,17 +149,41 @@ class CTFDelayDiscountingStepViewController: ORKStepViewController {
         return CTFDelayDiscountingTrial(now:newNow, later: result.trial.later, questionNum: id, differenceValue: newDifference)
     }
     
+    func beforeFirstTrial() {
+        self.nowButton.isEnabled = false
+        self.laterButton.isEnabled = false
+    }
+    
     func doTrial(_ trial: CTFDelayDiscountingTrial , completion: @escaping (CTFDelayDiscountingTrialResult) -> ()) {
+
+        var trialStartTime: Date!
+        
         if let stepParams = self.stepParams{
             // link UI to Trial params
             let nowString = String(format: stepParams.formatString, trial.now)
             let laterString = String(format: stepParams.formatString, trial.later)
             self.nowButton.setTitle(nowString, for: .normal)
             self.laterButton.setTitle(laterString, for: .normal)
-
+            
         }
         
-        let trialStartTime: Date = Date()
+        //fade in
+        UIView.animate(withDuration: CTFDelayDiscountingStepViewController.totalAnimationDuration / 2.0, animations: {
+            
+            self.nowButton.titleLabel?.alpha = 1.0
+            self.laterButton.titleLabel?.alpha = 1.0
+            
+            
+        }, completion: { (completed) in
+            
+            
+            self.nowButton.isEnabled = true
+            self.laterButton.isEnabled = true
+            
+            trialStartTime = Date()
+            
+        })
+
         
         func completeTrial(pressAction:CTFDelayDiscountingChoice){
             let trialEndTime  = Date()
@@ -165,7 +192,20 @@ class CTFDelayDiscountingStepViewController: ORKStepViewController {
                                                        choiceType: pressAction,
                                                        choiceValue: amount,
                                                        choiceTime: trialEndTime.timeIntervalSince(trialStartTime))
-            completion(result)
+            
+            self.nowButton.isEnabled = false
+            self.laterButton.isEnabled = false
+            
+            //fade out
+            UIView.animate(withDuration: CTFDelayDiscountingStepViewController.totalAnimationDuration / 2.0, animations: {
+                
+                self.nowButton.titleLabel?.alpha = 0.0
+                self.laterButton.titleLabel?.alpha = 0.0
+                
+            }, completion: { completed in
+                completion(result)
+            })
+        
         }
         
         self._nowButtonHandler = {
@@ -174,6 +214,9 @@ class CTFDelayDiscountingStepViewController: ORKStepViewController {
         self._laterButtonHandler = {
             completeTrial(pressAction:CTFDelayDiscountingChoice.Later)
         }
+        
+        
+        
         
     }
     

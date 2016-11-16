@@ -219,7 +219,7 @@
       "scheduleGUID": "DD_Money_1Month-1",
       "activityType": "sequential",
       "timeEstimate": "",
-      "trialActivity": false,
+      "trialActivity": true,
       "tasks": [
         {
           "taskTitle": "Delay Discounting Money 1 Month",
