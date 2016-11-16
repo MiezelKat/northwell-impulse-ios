@@ -8,7 +8,7 @@
       "scheduleGUID": "baseline-1",
       "activityType": "sequential",
       "timeEstimate": "",
-      "trialActivity": true,
+      "trialActivity": false,
       "tasks": [
         {
           "taskTitle": "Baseline",
@@ -107,7 +107,7 @@
       "scheduleTitle": "Morning Survey",
       "activityType": "selectOneByDate",
       "timeEstimate": "",
-      "trialActivity": true,
+      "trialActivity": false,
       "tasks": [
         {
           "tasks":  [
@@ -163,7 +163,7 @@
       "scheduleTitle": "Evening Survey",
       "activityType": "selectOneByDate",
       "timeEstimate": "",
-      "trialActivity": true,
+      "trialActivity": false,
       "tasks": [
         {
           "tasks": [

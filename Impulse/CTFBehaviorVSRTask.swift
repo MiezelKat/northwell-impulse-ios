@@ -102,7 +102,7 @@ class CTFBehaviorVSRTask: NSObject, SBABridgeTask, SBAStepTransformer {
         
 //        let image = UIImage(named: "balloon")
         
-        let imageChoices: [ORKImageChoice] = self.behaviors.map { (textChoice) -> ORKImageChoice in
+        let imageChoices: [ORKImageChoice] = self.behaviors.shuffled().map { (textChoice) -> ORKImageChoice in
             
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: kImageWidth, height: kImageWidth))
             label.numberOfLines = 0
