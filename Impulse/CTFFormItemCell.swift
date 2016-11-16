@@ -68,19 +68,17 @@ class CTFFormItemCell: UITableViewCell {
     func configureTrack() {
         self.trackView.layer.sublayers?.forEach({$0.removeFromSuperlayer()})
         if let scaleAnswerFormat = self.formItem?.answerFormat as? CTFScaleAnswerFormat,
-            let type = scaleAnswerFormat.scaleType,
-            type == CTFScaleAnswerType.semanticDifferential {
-            
+            let gradientColors = scaleAnswerFormat.gradientColors {
             self.valueSlider.minimumTrackTintColor = UIColor.clear
             self.valueSlider.maximumTrackTintColor = UIColor.clear
+            
             
             let gradient: CAGradientLayer = CAGradientLayer()
             print("bounds: \(self.trackView.bounds)")
             gradient.frame = self.trackView.bounds
             gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
             gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
-            
-            gradient.colors = [UIColor.red.cgColor, UIColor.orange.cgColor, UIColor.white.cgColor, UIColor.green.cgColor, UIColor.blue.cgColor]
+            gradient.colors = gradientColors.map({$0.cgColor})
             self.trackView.layer.insertSublayer(gradient, at: 0)
         }
         else {

@@ -2,6 +2,7 @@
     "taskIdentifier": "am_1",
     "schemaIdentifier": "am_likert_1",
     "title": "Think about yesterday as a whole. Yesterday, I generally felt:",
+    "gradientColors": ["#1B75BB", "#FFFFFF", "#1B75BB"],
     "items" : [
       {
         "identifier"        : "positive_am",

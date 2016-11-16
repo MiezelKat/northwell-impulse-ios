@@ -2,6 +2,7 @@
     "taskIdentifier": "am_3",
     "schemaIdentifier": "am_likert_3",
     "title": "Please select for each, which comes closest to how you feel right now:",
+    "gradientColors": ["#1B75BB", "#FFFFFF", "#1B75BB"],
     "items" : [
       {
         "identifier"        : "focus_am",

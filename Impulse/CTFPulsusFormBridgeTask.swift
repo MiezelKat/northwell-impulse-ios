@@ -18,7 +18,19 @@ class CTFPulsusFormBridgeTask: NSObject, SBABridgeTask, SBAStepTransformer {
     var formItems: [ORKFormItem]?
     var stepTitle: String?
     
-    static func formItemFromDictionary(_ dictionary: AnyObject?) -> ORKFormItem? {
+    var gradientColors: [UIColor]?
+    
+    static func gradientForColorDescriptorArray(colorDescriptors: [String]?) -> [UIColor]? {
+        guard let descriptors = colorDescriptors,
+            let colors: [UIColor] = colorDescriptors?.flatMap({ UIColor(hexString: $0) }),
+            colors.count == descriptors.count else {
+                return nil
+        }
+        
+        return colors
+    }
+    
+    static func formItemFromDictionary(_ dictionary: AnyObject?, gradientColors: [UIColor]?) -> ORKFormItem? {
         
         let itemIdentifier:String = (dictionary?["identifier"])! as! String
         let text: String? = dictionary?["text"] as? String
@@ -55,6 +67,13 @@ class CTFPulsusFormBridgeTask: NSObject, SBABridgeTask, SBAStepTransformer {
                                                      minimumValueDescription: minimumValueDescription,
                                                      scaleAnswerType: scaleAnswerType)
         
+        if scaleAnswerType == CTFScaleAnswerType.semanticDifferential {
+            scaleAnswerFormat.gradientColors =
+                CTFPulsusFormBridgeTask.gradientForColorDescriptorArray(colorDescriptors: dictionary?["gradientColors"] as? [String]) ??
+                gradientColors
+        }
+        
+        
         return ORKFormItem(identifier: itemIdentifier, text: text, answerFormat: scaleAnswerFormat)
     }
     
@@ -69,7 +88,9 @@ class CTFPulsusFormBridgeTask: NSObject, SBABridgeTask, SBAStepTransformer {
                 return
         }
         
-        self.formItems = dictionaryItems.flatMap(CTFPulsusFormBridgeTask.formItemFromDictionary)
+        
+        let gradientColors = CTFPulsusFormBridgeTask.gradientForColorDescriptorArray(colorDescriptors: dictionaryRepresentation["gradientColors"] as? [String])
+        self.formItems = dictionaryItems.flatMap( {CTFPulsusFormBridgeTask.formItemFromDictionary($0, gradientColors: gradientColors)} )
         self.stepTitle = dictionaryRepresentation["title"] as? String
         
     }

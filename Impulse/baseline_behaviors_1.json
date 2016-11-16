@@ -8,7 +8,7 @@
             "nothingSelectedButtonColor":"#FCC103",
             "itemCellSelectedColor":"#7FEE7D",
             "itemsPerRow":2,
-            "itemMinSpacing":10.0,
+            "itemMinSpacing":32.0,
             "maximumSelectedNumberOfItems": 1,
             "optional": false,
          },

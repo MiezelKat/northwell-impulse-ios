@@ -65,6 +65,7 @@
 		E27E29261DA826350050788A /* CTFNumberRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27E29251DA826350050788A /* CTFNumberRange.swift */; };
 		E27E29281DA826980050788A /* CTFIntegerRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27E29271DA826980050788A /* CTFIntegerRange.swift */; };
 		E27E292A1DA84A630050788A /* CTFFormStepSurveyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27E29291DA84A630050788A /* CTFFormStepSurveyItem.swift */; };
+		E295FC211DDCC001001B175D /* UIColor+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295FC201DDCC001001B175D /* UIColor+String.swift */; };
 		E2A5F0CB1DC7EFCA002CA609 /* Day_21.json in Resources */ = {isa = PBXBuildFile; fileRef = E2A5F0C51DC7EFCA002CA609 /* Day_21.json */; };
 		E2A5F0CC1DC7EFCA002CA609 /* self_assessment_5_21.json in Resources */ = {isa = PBXBuildFile; fileRef = E2A5F0C61DC7EFCA002CA609 /* self_assessment_5_21.json */; };
 		E2A5F0CD1DC7EFCA002CA609 /* self_assessment_6_21.json in Resources */ = {isa = PBXBuildFile; fileRef = E2A5F0C71DC7EFCA002CA609 /* self_assessment_6_21.json */; };
@@ -280,6 +281,7 @@
 		E27E29251DA826350050788A /* CTFNumberRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFNumberRange.swift; sourceTree = "<group>"; };
 		E27E29271DA826980050788A /* CTFIntegerRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFIntegerRange.swift; sourceTree = "<group>"; };
 		E27E29291DA84A630050788A /* CTFFormStepSurveyItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFFormStepSurveyItem.swift; sourceTree = "<group>"; };
+		E295FC201DDCC001001B175D /* UIColor+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+String.swift"; sourceTree = "<group>"; };
 		E2A5F0C51DC7EFCA002CA609 /* Day_21.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Day_21.json; sourceTree = "<group>"; };
 		E2A5F0C61DC7EFCA002CA609 /* self_assessment_5_21.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = self_assessment_5_21.json; sourceTree = "<group>"; };
 		E2A5F0C71DC7EFCA002CA609 /* self_assessment_6_21.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = self_assessment_6_21.json; sourceTree = "<group>"; };
@@ -721,6 +723,7 @@
 				E23535DB1DB57B6F005BAFE3 /* GenericHelpers.swift */,
 				E22792A71DD3DD010026F8AB /* CTFKeychainHelpers.swift */,
 				E2CA7E611DC81486000B9B7D /* NSDate+Range.swift */,
+				E295FC201DDCC001001B175D /* UIColor+String.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -992,6 +995,7 @@
 				E2AA6D0E1DA43C6B005D5137 /* CTFActivityResult.swift in Sources */,
 				E2D56E8A1DC2AB9E00E6A9C4 /* CTFStorageManager.swift in Sources */,
 				E2CCB66A1DB158AF00C801A4 /* CTFScheduleItem.swift in Sources */,
+				E295FC211DDCC001001B175D /* UIColor+String.swift in Sources */,
 				E2CA7E621DC81486000B9B7D /* NSDate+Range.swift in Sources */,
 				E2AA6D191DA43C83005D5137 /* CTFFormItemCell.swift in Sources */,
 				E2AA6D031DA43C54005D5137 /* CTFActivityTableViewController.swift in Sources */,

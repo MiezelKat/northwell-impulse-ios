@@ -38,7 +38,8 @@ let k21DaySurveyDelayInterval: TimeInterval = 21.0 * k1DayInterval
 //let k21DaySurveyDelayInterval: TimeInterval = 21.0 * k1MinuteInterval
 
 
-let kDailySurveyNotificationWindowInterval: TimeInterval = 2.0 * k1HourInterval
+let kDailySurveyNotificationWindowBeforeInterval: TimeInterval = 0.0
+let kDailySurveyNotificationWindowAfterInterval: TimeInterval = 30.0 * k1MinuteInterval
 let kDailySurveyTimeBeforeInterval: TimeInterval = 2.0 * k1HourInterval
 let kDailySurveyTimeAfterInterval: TimeInterval = 6.0 * k1HourInterval
 let kDailySurveyDelaySinceBaselineTimeInterval: TimeInterval = 0.0
@@ -672,8 +673,8 @@ extension CTFScheduledActivityManager {
         }
         
         //select window around baseDate
-        let fromDate = baseDate.addingTimeInterval(-0.5 * kDailySurveyNotificationWindowInterval)
-        let toDate = baseDate.addingTimeInterval(0.5 * kDailySurveyNotificationWindowInterval)
+        let fromDate = baseDate.addingTimeInterval(-1.0 * kDailySurveyNotificationWindowBeforeInterval)
+        let toDate = baseDate.addingTimeInterval(kDailySurveyNotificationWindowAfterInterval)
         
         return Date.RandomDateBetween(from: fromDate, to: toDate)
         
@@ -683,6 +684,8 @@ extension CTFScheduledActivityManager {
         if let notificationTimeResult = result.result(forIdentifier: "morning_notification_time_picker") as? ORKStepResult,
             let timeOfDayResult = notificationTimeResult.firstResult as? ORKTimeOfDayQuestionResult,
             let dateComponents = timeOfDayResult.dateComponentsAnswer {
+            
+            print("morning date components: \(dateComponents)")
             
             //save morning survey time - note that we will only display morning survey +- 1 hr from this time
             CTFKeychainHelpers.setKeychainObject(dateComponents as NSDateComponents, forKey: kMorningSurveyTime)
@@ -709,6 +712,8 @@ extension CTFScheduledActivityManager {
         if let notificationTimeResult = result.result(forIdentifier: "evening_notification_time_picker") as? ORKStepResult,
             let timeOfDayResult = notificationTimeResult.firstResult as? ORKTimeOfDayQuestionResult,
             let dateComponents = timeOfDayResult.dateComponentsAnswer {
+            
+            print("evening date components: \(dateComponents)")
             
             //save morning survey time - note that we will only display morning survey +- 1 hr from this time
             CTFKeychainHelpers.setKeychainObject(dateComponents as NSDateComponents, forKey: kEveningSurveyTime)

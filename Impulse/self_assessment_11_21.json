@@ -2,6 +2,7 @@
     "taskIdentifier": "self_assessment_baseline_11",
     "schemaIdentifier": "sdffse",
     "title": "Overall, which comes closest to how you think, feel and behave between these two opposites.",
+    "gradientColors": ["#1B75BB", "#FFFFFF", "#1B75BB"],
     "items" : [
                {
                "identifier"        : "frustrated_bl",
