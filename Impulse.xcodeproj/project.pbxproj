@@ -606,7 +606,6 @@
 			isa = PBXGroup;
 			children = (
 				E2CCB6751DB568CB00C801A4 /* UIView+Explode.h */,
-				E2CCB6761DB568CB00C801A4 /* UIView+Explode.m */,
 				E2CCB66C1DB55DB500C801A4 /* CTFBARTStep.swift */,
 				E2CCB6701DB5610F00C801A4 /* CTFBARTStepViewController.swift */,
 				E2D56E741DC12A2600E6A9C4 /* CTFBARTResult.swift */,
@@ -659,6 +658,7 @@
 			children = (
 				E2CCB6741DB568CB00C801A4 /* Impulse-Bridging-Header.h */,
 				E2FE1AB51DB0336200DBB8E7 /* Helpers */,
+				E2CCB6761DB568CB00C801A4 /* UIView+Explode.m */,
 				E2AA6D361DA43F45005D5137 /* SDLRKX Helpers */,
 				E2EF6B1E1DA2E2970034456A /* AppDelegate.swift */,
 				E2AA6D341DA43D07005D5137 /* CTFMainTabViewController.swift */,

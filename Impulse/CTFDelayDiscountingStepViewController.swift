@@ -61,10 +61,8 @@ class CTFDelayDiscountingStepViewController: ORKStepViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.nowButton.configuredColor = self.view.tintColor
-        self.laterButton.configuredColor = self.view.tintColor
-        
-        self.beforeFirstTrial()
+        self.nowButton.tintColor = self.view.tintColor
+        self.laterButton.tintColor = self.view.tintColor
         
         if let stepParams = self.stepParams {
             
@@ -106,7 +104,6 @@ class CTFDelayDiscountingStepViewController: ORKStepViewController {
                     self.goForward()
                 }
             })
-            
 
         }
         
@@ -148,38 +145,29 @@ class CTFDelayDiscountingStepViewController: ORKStepViewController {
         
         return CTFDelayDiscountingTrial(now:newNow, later: result.trial.later, questionNum: id, differenceValue: newDifference)
     }
-    
-    func beforeFirstTrial() {
-        self.nowButton.isEnabled = false
-        self.laterButton.isEnabled = false
-    }
-    
+
     func doTrial(_ trial: CTFDelayDiscountingTrial , completion: @escaping (CTFDelayDiscountingTrialResult) -> ()) {
 
         var trialStartTime: Date!
-        
-        if let stepParams = self.stepParams{
-            // link UI to Trial params
-            let nowString = String(format: stepParams.formatString, trial.now)
-            let laterString = String(format: stepParams.formatString, trial.later)
-            self.nowButton.setTitle(nowString, for: .normal)
-            self.laterButton.setTitle(laterString, for: .normal)
-            
-        }
-        
+
         //fade in
         UIView.animate(withDuration: CTFDelayDiscountingStepViewController.totalAnimationDuration / 2.0, animations: {
+            
+            if let stepParams = self.stepParams{
+                // link UI to Trial params
+                let nowString = String(format: stepParams.formatString, trial.now)
+                let laterString = String(format: stepParams.formatString, trial.later)
+                self.nowButton.setTitle(nowString, for: .normal)
+                self.laterButton.setTitle(laterString, for: .normal)
+                
+            }
             
             self.nowButton.titleLabel?.alpha = 1.0
             self.laterButton.titleLabel?.alpha = 1.0
             
             
         }, completion: { (completed) in
-            
-            
-            self.nowButton.isEnabled = true
-            self.laterButton.isEnabled = true
-            
+
             trialStartTime = Date()
             
         })
@@ -193,14 +181,11 @@ class CTFDelayDiscountingStepViewController: ORKStepViewController {
                                                        choiceValue: amount,
                                                        choiceTime: trialEndTime.timeIntervalSince(trialStartTime))
             
-            self.nowButton.isEnabled = false
-            self.laterButton.isEnabled = false
-            
             //fade out
             UIView.animate(withDuration: CTFDelayDiscountingStepViewController.totalAnimationDuration / 2.0, animations: {
                 
-                self.nowButton.titleLabel?.alpha = 0.3
-                self.laterButton.titleLabel?.alpha = 0.3
+                self.nowButton.titleLabel?.alpha = 0.0
+                self.laterButton.titleLabel?.alpha = 0.0
                 
             }, completion: { completed in
                 completion(result)
@@ -209,17 +194,14 @@ class CTFDelayDiscountingStepViewController: ORKStepViewController {
         }
         
         self._nowButtonHandler = {
+            self.nowButton.titleLabel?.alpha = 0.0
             completeTrial(pressAction:CTFDelayDiscountingChoice.Now)
         }
         self._laterButtonHandler = {
+            self.laterButton.titleLabel?.alpha = 0.0
             completeTrial(pressAction:CTFDelayDiscountingChoice.Later)
         }
-        
-        
-        
-        
     }
-    
     
     @IBAction func nowButtonPress(_ sender: AnyObject) {
       self._nowButtonHandler?()
@@ -230,9 +212,5 @@ class CTFDelayDiscountingStepViewController: ORKStepViewController {
         self._laterButtonHandler?()
         
     }
-    
-    
-    
-
 
 }
