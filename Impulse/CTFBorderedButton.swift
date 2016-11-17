@@ -30,19 +30,39 @@ class CTFBorderedButton: UIButton {
         self.layer.cornerRadius = 5.0
     }
     
-    func setBorderAndTitleColor(_ color: UIColor) {
-        self.setTitleColor(color, for: UIControlState())
-        self.layer.borderColor = color.cgColor
+//    func setBorderAndTitleColor(_ color: UIColor, for state: UIControlState) {
+//        
+//        self.setTitleColor(color, for: state)
+//        self.setTitleColor(UIColor.gray, for: UIControlState.disabled)
+////        self.layer.borderColor = color.cgColor
+//        
+//    }
+    
+    func setTitleColor(_ color: UIColor?) {
+        self.setTitleColor(color, for: UIControlState.normal)
+        self.setTitleColor(UIColor.white, for: UIControlState.highlighted)
+        self.setTitleColor(UIColor.white, for: UIControlState.selected)
+        self.setTitleColor(UIColor.black.withAlphaComponent(0.3), for: UIControlState.disabled)
     }
+    
     var configuredColor: UIColor? {
         didSet {
             if let color = self.configuredColor {
-                self.setBorderAndTitleColor(color)
+                self.setTitleColor(color)
             }
             else {
-                self.setBorderAndTitleColor(self.tintColor)
+                self.setTitleColor(self.tintColor)
             }
         }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        if let color = self.titleColor(for: self.state) {
+            self.layer.borderColor = color.cgColor
+        }
+        
+        
     }
     
     override func tintColorDidChange() {
@@ -52,7 +72,7 @@ class CTFBorderedButton: UIButton {
             return
         }
         else {
-            self.setBorderAndTitleColor(self.tintColor)
+            self.setTitleColor(self.tintColor)
         }
     }
     

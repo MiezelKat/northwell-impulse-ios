@@ -54,9 +54,9 @@ class CTFBARTStepViewController: ORKStepViewController {
     @IBOutlet weak var totalPayoutLabel: UILabel!
     @IBOutlet weak var taskProgressLabel: UILabel!
     
-    @IBOutlet weak var pumpButton: UIButton!
+    @IBOutlet weak var pumpButton: CTFBorderedButton!
     var _pumpButtonHandler:(() -> ())?
-    @IBOutlet weak var collectButton: UIButton!
+    @IBOutlet weak var collectButton: CTFBorderedButton!
     var _collectButtonHandler:(() -> ())?
     
     
@@ -211,6 +211,12 @@ class CTFBARTStepViewController: ORKStepViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        self.pumpButton.configuredColor = self.view.tintColor
+//        self.collectButton.configuredColor = self.view.tintColor
+        
+        self.pumpButton.tintColor = self.view.tintColor
+        self.collectButton.tintColor = self.view.tintColor
 
         // Do any additional setup after loading the view.
         if let trials = self.trials {

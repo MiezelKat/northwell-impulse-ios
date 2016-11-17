@@ -75,7 +75,7 @@
       "scheduleGUID": "bart.25-1",
       "activityType": "sequential",
       "timeEstimate": "",
-      "trialActivity": false,
+      "trialActivity": true,
       "tasks": [
         {
           "taskTitle": "BART $.25",

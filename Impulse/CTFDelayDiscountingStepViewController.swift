@@ -32,7 +32,7 @@ struct CTFDelayDiscountingTrialResult{
 
 class CTFDelayDiscountingStepViewController: ORKStepViewController {
     
-    static let totalAnimationDuration: TimeInterval = 0.3
+    static let totalAnimationDuration: TimeInterval = 0.2
     
     //UI Elements
     @IBOutlet weak var nowLabel: UILabel!
@@ -199,8 +199,8 @@ class CTFDelayDiscountingStepViewController: ORKStepViewController {
             //fade out
             UIView.animate(withDuration: CTFDelayDiscountingStepViewController.totalAnimationDuration / 2.0, animations: {
                 
-                self.nowButton.titleLabel?.alpha = 0.0
-                self.laterButton.titleLabel?.alpha = 0.0
+                self.nowButton.titleLabel?.alpha = 0.3
+                self.laterButton.titleLabel?.alpha = 0.3
                 
             }, completion: { completed in
                 completion(result)
