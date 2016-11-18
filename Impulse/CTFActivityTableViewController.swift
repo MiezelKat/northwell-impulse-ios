@@ -64,7 +64,7 @@ class CTFActivityTableViewController: SBAActivityTableViewController, CTFSetting
         
     }
     
-    func showTrialsChanged(_ showTrials: Bool) {
+    func settingsUpdated() {
         self.scheduledActivityDataSource.reloadData()
     }
     

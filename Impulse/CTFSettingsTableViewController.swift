@@ -10,7 +10,7 @@ import UIKit
 import ResearchKit
 
 public protocol CTFSettingsDelegate {
-    func showTrialsChanged(_ showTrials: Bool)
+    func settingsUpdated()
 }
 
 class CTFSettingsTableViewController: UITableViewController, ORKTaskViewControllerDelegate {
@@ -19,16 +19,24 @@ class CTFSettingsTableViewController: UITableViewController, ORKTaskViewControll
 
     @IBOutlet weak var showTrialsSwitch: UISwitch!
     
+    private var _taskResultFinishedCompletionHandler: ((ORKTaskResult) -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.updateUI()
     }
 
+    
+    func updateUI() {
+        self.showTrialsSwitch.isEnabled = CTFStateManager.defaultManager.isBaselineCompleted
+        self.showTrialsSwitch.setOn(CTFStateManager.defaultManager.shouldShowTrialActivities(), animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.updateUI()
+    }
+    
     func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
         /*
          The `reason` passed to this method indicates why the task view
@@ -39,17 +47,7 @@ class CTFSettingsTableViewController: UITableViewController, ORKTaskViewControll
          view controller.
          */
         
-        print(taskViewController.result)
-//        if let stepResult = taskViewController.result.stepResult(forStepIdentifier: "locationQuestionStep"),
-//            let locationResult = stepResult.results?.first as? ORKLocationQuestionResult,
-//            let locationAnswer = locationResult.locationAnswer {
-//            print(locationAnswer.coordinate)
-//            print(locationAnswer.addressDictionary)
-//            print(locationAnswer.region)
-//            print(locationAnswer.userInput)
-//        }
-        
-//        taskResultFinishedCompletionHandler?(taskViewController.result)
+        self._taskResultFinishedCompletionHandler?(taskViewController.result)
         
         taskViewController.dismiss(animated: true, completion: nil)
     }
@@ -59,12 +57,15 @@ class CTFSettingsTableViewController: UITableViewController, ORKTaskViewControll
         
         if let cell = tableView.cellForRow(at: indexPath) {
             cell.isSelected = false
+            
+            guard CTFStateManager.defaultManager.isBaselineCompleted else {
+                return 
+            }
+            
             switch cell.reuseIdentifier {
             case .some("set_morning_survey"):
-                print("launch morning survey setting")
                 
-                let answerFormat = ORKAnswerFormat.timeOfDayAnswerFormat()
-                
+                let answerFormat = ORKAnswerFormat.timeOfDayAnswerFormat(withDefaultComponents: CTFStateManager.defaultManager.getMorningSurveyTime())
                 let questionStep = ORKQuestionStep(identifier: "morning_notification_time_picker_step", title: nil, answer: answerFormat)
                 
                 questionStep.text = "Please choose a time to be reminded when to perform your morning survey."
@@ -76,6 +77,19 @@ class CTFSettingsTableViewController: UITableViewController, ORKTaskViewControll
                 // Make sure we receive events from `taskViewController`.
                 taskViewController.delegate = self
                 
+                //set result handler
+                self._taskResultFinishedCompletionHandler = { result in
+                    
+                    if let stepResult = result.stepResult(forStepIdentifier: "morning_notification_time_picker_step"),
+                        let timeOfDayResult = stepResult.results?.first as? ORKTimeOfDayQuestionResult,
+                        let dateComponents = timeOfDayResult.dateComponentsAnswer {
+                        
+                        CTFStateManager.defaultManager.setMorningSurveyTime(dateComponents)
+                    }
+                    
+                    self.delegate?.settingsUpdated()
+                }
+                
                 // Assign a directory to store `taskViewController` output.
                 taskViewController.outputDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
                 
@@ -83,7 +97,37 @@ class CTFSettingsTableViewController: UITableViewController, ORKTaskViewControll
                 
                 
             case .some("set_evening_survey"):
-                print("Launch evening survey setting")
+                
+                let answerFormat = ORKAnswerFormat.timeOfDayAnswerFormat(withDefaultComponents: CTFStateManager.defaultManager.getMorningSurveyTime())
+                let questionStep = ORKQuestionStep(identifier: "evening_notification_time_picker_step", title: nil, answer: answerFormat)
+                
+                questionStep.text = "Please choose a time to be reminded when to perform your evening survey."
+                
+                let task = ORKOrderedTask(identifier: "evening_notification_time_picker_task", steps: [questionStep])
+                
+                let taskViewController = ORKTaskViewController(task: task, taskRun: nil)
+                
+                // Make sure we receive events from `taskViewController`.
+                taskViewController.delegate = self
+                
+                //set result handler
+                self._taskResultFinishedCompletionHandler = { result in
+                    
+                    if let stepResult = result.stepResult(forStepIdentifier: "evening_notification_time_picker_step"),
+                        let timeOfDayResult = stepResult.results?.first as? ORKTimeOfDayQuestionResult,
+                        let dateComponents = timeOfDayResult.dateComponentsAnswer {
+                        
+                        CTFStateManager.defaultManager.setEveningSurveyTime(dateComponents)
+                    }
+                    
+                    self.delegate?.settingsUpdated()
+                }
+                
+                // Assign a directory to store `taskViewController` output.
+                taskViewController.outputDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+                
+                present(taskViewController, animated: true, completion: nil)
+                
             default:
                 print("do nothing")
             }
@@ -92,15 +136,12 @@ class CTFSettingsTableViewController: UITableViewController, ORKTaskViewControll
     
     @IBAction func showTrialsChanged(_ sender: UISwitch) {
         
-        self.setShowTrials(showTrials: sender.isOn)
+        CTFStateManager.defaultManager.setShowTrials(showTrials: sender.isOn)
+        self.delegate?.settingsUpdated()
         
     }
     
-    func setShowTrials(showTrials: Bool) {
-        //set keychain value
-        CTFKeychainHelpers.setKeychainObject(showTrials as NSSecureCoding, forKey: kTrialActivitiesEnabled)
-        self.delegate?.showTrialsChanged(showTrials)
-    }
+    
     
     
 

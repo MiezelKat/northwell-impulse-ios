@@ -39,13 +39,7 @@ let kDailySurveyTimeAfterInterval: TimeInterval = 6.0 * k1HourInterval
 let kDailySurveyDelaySinceBaselineTimeInterval: TimeInterval = 0.0
 //let kDailySurveyDelaySinceBaselineTimeInterval: TimeInterval = 2.0 * k1MinuteInterval
 
-let kMorningNotificationIdentifer: String = "MorningNotification"
-let kEveningNotificationIdentifer: String = "EveningNotification"
-let k21DayNotificationIdentifier: String = "21DayNotification"
 
-let kMorningNotificationText: String = "Hey, it's time to take your morning survey!"
-let kEveningNotificationText: String = "Hey, it's time to take your evening survey!"
-let k21DayNotificationText: String = "Hey, it's time to take your 21 day survey!"
 
 
 
@@ -71,22 +65,7 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
  
         self.scheduleItems = scheduleArray.flatMap( {CTFScheduleItem(json: $0)})
         self.loadData()
-        
-        //check for firstRun
-        if UserDefaults.standard.object(forKey: "FirstRun") == nil {
-            UserDefaults.standard.set("1stRun", forKey: "FirstRun")
-            UserDefaults.standard.synchronize()
-            
-            self.setNotificationsBasedOnKeychainState()
-//            self.clearKeychain()
-        }
-        
-        if let scheduledNotifications = UIApplication.shared.scheduledLocalNotifications {
-            scheduledNotifications.forEach({print($0)})
-        }
-        
-        
-        
+
     }
     
     lazy var sharedAppDelegate: SBAAppInfoDelegate = {
@@ -101,13 +80,6 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
     var activities: [CTFScheduledActivity]! = []
     var trialActivities: [CTFScheduledActivity]! = []
     
-    var showTrialActivities: Bool {
-        guard let showActivities = CTFKeychainHelpers.getKeychainObject(kTrialActivitiesEnabled) as? Bool else {
-            return true
-        }
-        return showActivities
-    }
-    
     func loadData() {
         //note that we will add filters in the future to only show items that should be shown based on context
         self.activities = self.scheduleItems.filter(self.scheduledItemsFilter).flatMap({$0.generateScheduledActivity()})
@@ -120,7 +92,7 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
     }
     
     func numberOfSections() -> Int {
-        return self.showTrialActivities ? 2 : 1
+        return CTFStateManager.defaultManager.shouldShowTrialActivities() ? 2 : 1
     }
     
     @objc(titleForSection:)
@@ -132,11 +104,7 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
             return "Trial Activities"
         }
     }
-    
-    
-    
-    
-    
+
 //    func numberOfRowsInSection(_ section: Int) -> Int {
 //        return self.activities.count
 //    }
@@ -167,143 +135,23 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
         
     }
     
-    func dateComponents(forDate date: Date) -> DateComponents {
-        let unitFlags = Set<Calendar.Component>([.year, .month, .day])
-        let calendar = Locale.current.calendar
-        // *** Get components from date ***
-        return calendar.dateComponents(unitFlags, from: date)
-    }
-    
-    func combineDateWithDateComponents(date: Date, timeComponents: NSDateComponents) -> Date? {
-        
-        // *** define calendar components to use as well Timezone to UTC ***
-        let unitFlags = Set<Calendar.Component>([.year, .month, .day])
-        let calendar = Locale.current.calendar
-        // *** Get components from date ***
-        var dateComponents = self.dateComponents(forDate: date)
-        dateComponents.hour = timeComponents.hour
-        dateComponents.minute = timeComponents.minute
-        print("Components : \(dateComponents)")
-        
-        let returnDate = calendar.date(from: dateComponents)
-        
-        return returnDate != nil ? returnDate! : nil
-    }
-    
-    
-    
     func scheduledItemsFilter(scheduleItem: CTFScheduleItem) -> Bool {
         if scheduleItem.trial == true {
             return false
         }
         
-        let baselineCompletedDate = CTFKeychainHelpers.getKeychainObject(kBaselineSurveyCompleted) as? NSDate
-        
         switch(scheduleItem.identifier) {
         case "baseline":
-            //baseline shown if not yet completed
-            return baselineCompletedDate == nil
+            return CTFStateManager.defaultManager.shouldShowBaselineSurvey()
+            
         case "21-day-assessment":
-            
-            
-            //show am survey if the following are true
-            //1) at least k21DayInterval since baseline has been completed
-            //2) 21 day survey has not been completed
-            guard let baselineDate = baselineCompletedDate else {
-                return false
-            }
-            
-            let timeSinceBaseline = NSDate().timeIntervalSince(baselineDate as Date)
-            
-            //1
-            if timeSinceBaseline <= k21DaySurveyDelayInterval {
-                return false
-            }
-            
-            //2
-            return CTFKeychainHelpers.getKeychainObject(k21DaySurveyCompleted) == nil
+            return CTFStateManager.defaultManager.shouldShow21DaySurvey()
             
         case "am_survey":
-            
-            //show am survey if the following are true
-            //1) Baseline has been completed at least kDailySurveyDelaySinceBaselineTimeInterval ago
-            //2) we are in the time range that the survey should be shown
-            //3) survey has not yet been completed today
-            
-            //1
-            guard let baselineDate = baselineCompletedDate else {
-                return false
-            }
-            
-            let timeSinceBaseline = NSDate().timeIntervalSince(baselineDate as Date)
-            guard timeSinceBaseline > kDailySurveyDelaySinceBaselineTimeInterval else {
-                return false
-            }
-            
-            //2
-            guard let morningSurveyTimeComponents = CTFKeychainHelpers.getKeychainObject(kMorningSurveyTime) as? NSDateComponents,
-                let todaysMorningSurveyTime = self.combineDateWithDateComponents(date: Date(), timeComponents: morningSurveyTimeComponents) else {
-                    return false
-            }
-            
-            print(Date())
-            
-            let lowerDate = Date(timeIntervalSinceNow: -1.0 * kDailySurveyTimeAfterInterval)
-            let upperDate = Date(timeIntervalSinceNow: kDailySurveyTimeBeforeInterval)
-            let dateRange = Range(uncheckedBounds: (lower: lowerDate, upper: upperDate))
-            if !dateRange.contains(todaysMorningSurveyTime as Date) {
-                return false
-            }
-            
-            //3 (note: if never taken, automatic true)
-            //if it has been taken, it will be in today's range
-            if let latestSurveyTime = CTFKeychainHelpers.getKeychainObject(kLastMorningSurveyCompleted) as? NSDate {
-                return !dateRange.contains(latestSurveyTime as Date)
-            }
-            else {
-                return true
-            }
+            return CTFStateManager.defaultManager.shouldShowMorningSurvey()
             
         case "pm_survey":
-            
-            //show am survey if the following are true
-            //1) Baseline has been completed at least kDailySurveyDelaySinceBaselineTimeInterval ago
-            //2) we are in the time range that the survey should be shown
-            //3) survey has not yet been completed today
-            
-            //1
-            guard let baselineDate = baselineCompletedDate else {
-                return false
-            }
-            
-            let timeSinceBaseline = NSDate().timeIntervalSince(baselineDate as Date)
-            guard timeSinceBaseline > kDailySurveyDelaySinceBaselineTimeInterval else {
-                    return false
-            }
-            
-            //2
-            guard let eveningSurveyTimeComponents = CTFKeychainHelpers.getKeychainObject(kEveningSurveyTime) as? NSDateComponents,
-                let todaysEveningSurveyTime = self.combineDateWithDateComponents(date: Date(), timeComponents: eveningSurveyTimeComponents)  else {
-                return false
-            }
-            
-            print(Date())
-            
-            let lowerDate = Date(timeIntervalSinceNow: -1.0 * kDailySurveyTimeAfterInterval)
-            let upperDate = Date(timeIntervalSinceNow: kDailySurveyTimeBeforeInterval)
-            let dateRange = Range(uncheckedBounds: (lower: lowerDate, upper: upperDate))
-            if !dateRange.contains(todaysEveningSurveyTime as Date) {
-                return false
-            }
-            
-            //3 (note: if never taken, automatic true)
-            //if it has been taken, it will be in today's range
-            if let latestSurveyTime = CTFKeychainHelpers.getKeychainObject(kLastEveningSurveyCompleted) as? NSDate {
-                return !dateRange.contains(latestSurveyTime as Date)
-            }
-            else {
-                return true
-            }
+            return CTFStateManager.defaultManager.shouldShowEveningSurvey() 
             
         default:
             return false
@@ -582,170 +430,6 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
 //this would be better if we could come up with a way to register results handlers for each identifier
 extension CTFScheduledActivityManager {
     
-    func cancelNotification(withIdentifier identifierToCancel: String) {
-        if let scheduledNotifications = UIApplication.shared.scheduledLocalNotifications {
-            let notificationsToCancel = scheduledNotifications.filter({ (notification) -> Bool in
-                guard let userInfo = notification.userInfo as? [String: AnyObject],
-                    let identifer = userInfo["identifier"] as? String,
-                    identifer == identifierToCancel else {
-                        return false
-                }
-                return true
-            })
-            notificationsToCancel.forEach({ (notification) in
-                UIApplication.shared.cancelLocalNotification(notification)
-            })
-        }
-    }
-    
-    func setNotification(forIdentifier: String, initialFireDate: Date, text: String) {
-        let notification = UILocalNotification()
-        notification.userInfo = ["identifier": forIdentifier]
-        notification.fireDate = initialFireDate
-        notification.repeatInterval = NSCalendar.Unit.day
-        notification.alertBody = text
-        UIApplication.shared.scheduleLocalNotification(notification)
-    }
-    
-    func resetMorningNotification() {
-        //morning notification
-        //cancel notification if exists
-        self.cancelNotification(withIdentifier: kMorningNotificationIdentifer)
-        //Set notification
-        
-        //if we have completed
-        
-        if let dateComponents = CTFKeychainHelpers.getKeychainObject(kMorningSurveyTime) as? NSDateComponents,
-            let lastCompletion = CTFKeychainHelpers.getKeychainObject(kLastMorningSurveyCompleted) as? Date,
-            let fireDate = self.getNotificationFireDate(timeComponents: dateComponents as NSDateComponents, latestCompletion: lastCompletion) {
-            self.setNotification(forIdentifier: kMorningNotificationIdentifer, initialFireDate: fireDate, text: kMorningNotificationText)
-        }
-    }
-    
-    func resetEveningNotification() {
-        //evening notification
-        //cancel notification if exists
-        self.cancelNotification(withIdentifier: kEveningNotificationIdentifer)
-        //Set notification
-        if let dateComponents = CTFKeychainHelpers.getKeychainObject(kEveningSurveyTime) as? NSDateComponents,
-        let lastCompletion = CTFKeychainHelpers.getKeychainObject(kLastEveningSurveyCompleted) as? Date,
-        let fireDate = self.getNotificationFireDate(timeComponents: dateComponents as NSDateComponents, latestCompletion: lastCompletion) {
-            self.setNotification(forIdentifier: kEveningNotificationIdentifer, initialFireDate: fireDate, text: kEveningNotificationText)
-        }
-    }
-    
-    
-    
-    func setNotificationsBasedOnKeychainState() {
-        
-        //note that we may only wannt to do this if the 21 day has not yet been completed
-        
-        self.resetMorningNotification()
-        self.resetEveningNotification()
-        
-        //21 day notification
-        //cancel notification if exists
-        self.cancelNotification(withIdentifier: k21DayNotificationIdentifier)
-        
-        //Set notification
-        if let baselineDate = CTFKeychainHelpers.getKeychainObject(kBaselineSurveyCompleted) as? Date {
-            let fireDate = Date(timeInterval: k21DaySurveyDelayInterval, since: baselineDate)
-            self.setNotification(forIdentifier: k21DayNotificationIdentifier, initialFireDate: fireDate, text: k21DayNotificationText)
-        }
-    }
-    
-    
-    //this should return the next notification date based on:
-    //the latest completion date AND
-    //the time of day that the user has chosen to take their survey
-    func getNotificationFireDate(timeComponents: NSDateComponents, latestCompletion: Date?) -> Date? {
-        
-        guard let baseDate: Date = {
-            if let latestCompletion = latestCompletion,
-                latestCompletion.isToday {
-                let tomorrow = Date().addingNumberOfDays(1)
-                return self.combineDateWithDateComponents(date: tomorrow, timeComponents: timeComponents)
-            }
-            else {
-                return self.combineDateWithDateComponents(date: Date(), timeComponents: timeComponents)
-            }
-        }() else {
-                return nil
-        }
-        
-        //select window around baseDate
-        let fromDate = baseDate.addingTimeInterval(-1.0 * kDailySurveyNotificationWindowBeforeInterval)
-        let toDate = baseDate.addingTimeInterval(kDailySurveyNotificationWindowAfterInterval)
-        
-        return Date.RandomDateBetween(from: fromDate, to: toDate)
-        
-    }
-    
-    func setMorningSurveyTime(_ result: ORKTaskResult) {
-        if let notificationTimeResult = result.result(forIdentifier: "morning_notification_time_picker") as? ORKStepResult,
-            let timeOfDayResult = notificationTimeResult.firstResult as? ORKTimeOfDayQuestionResult,
-            let dateComponents = timeOfDayResult.dateComponentsAnswer {
-            
-            print("morning date components: \(dateComponents)")
-            
-            //save morning survey time - note that we will only display morning survey +- 1 hr from this time
-            CTFKeychainHelpers.setKeychainObject(dateComponents as NSDateComponents, forKey: kMorningSurveyTime)
-            
-            //set notifications
-            //simple case, repeating notification for next 21 days at this time
-            //Talk to Fred about this
-            
-            //cancel notification if exists
-            self.cancelNotification(withIdentifier: kMorningNotificationIdentifer)
-            
-            //Set notification
-            //initial fire date is today's date + time components, provided
-            let lastCompletion: Date? = CTFKeychainHelpers.getKeychainObject(kLastMorningSurveyCompleted) as? Date
-            
-            if let fireDate = self.getNotificationFireDate(timeComponents: dateComponents as NSDateComponents, latestCompletion: lastCompletion) {
-                self.setNotification(forIdentifier: kMorningNotificationIdentifer, initialFireDate: fireDate, text: kMorningNotificationText)
-            }
-            
-        }
-    }
-    
-    func setEveningSurveyTime(_ result: ORKTaskResult) {
-        if let notificationTimeResult = result.result(forIdentifier: "evening_notification_time_picker") as? ORKStepResult,
-            let timeOfDayResult = notificationTimeResult.firstResult as? ORKTimeOfDayQuestionResult,
-            let dateComponents = timeOfDayResult.dateComponentsAnswer {
-            
-            print("evening date components: \(dateComponents)")
-            
-            //save morning survey time - note that we will only display morning survey +- 1 hr from this time
-            CTFKeychainHelpers.setKeychainObject(dateComponents as NSDateComponents, forKey: kEveningSurveyTime)
-            
-            //set notifications
-            //simple case, repeating notification for next 21 days at this time
-            //Talk to Fred about this
-            
-            //cancel notification if exists
-            self.cancelNotification(withIdentifier: kEveningNotificationIdentifer)
-            
-            //Set notification
-            let lastCompletion: Date? = CTFKeychainHelpers.getKeychainObject(kLastEveningSurveyCompleted) as? Date
-            
-            if let fireDate = self.getNotificationFireDate(timeComponents: dateComponents as NSDateComponents, latestCompletion: lastCompletion) {
-                self.setNotification(forIdentifier: kEveningNotificationIdentifer, initialFireDate: fireDate, text: kEveningNotificationText)
-            }
-            
-        }
-    }
-    
-    func set21DaySurveyNotification(_ result: ORKTaskResult) {
-        //cancel notification if exists
-        self.cancelNotification(withIdentifier: k21DayNotificationIdentifier)
-        
-        //Set notification
-        let fireDate = Date(timeIntervalSinceNow: k21DaySurveyDelayInterval)
-        self.setNotification(forIdentifier: k21DayNotificationIdentifier, initialFireDate: fireDate, text: k21DayNotificationText)
-    }
-    
-    
     func handleBaselineBehaviorResults(_ result: ORKTaskResult) {
         guard let stepResult = result.result(forIdentifier: "baseline_behaviors_4") as? ORKStepResult,
             let questionResult = stepResult.firstResult as? ORKChoiceQuestionResult,
@@ -761,20 +445,25 @@ extension CTFScheduledActivityManager {
     
     func handleBaselineSurvey(_ result: ORKTaskResult) {
         //1) set baseline completed date
-        let completedDate: NSDate = result.endDate as NSDate
-        CTFKeychainHelpers.setKeychainObject(completedDate, forKey: kBaselineSurveyCompleted)
+        CTFStateManager.defaultManager.markBaselineSurveyAsCompleted(completedDate: result.endDate) 
         
-        //ask for permissions for notifications
-        let settings = UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil)
-        UIApplication.shared.registerUserNotificationSettings(settings)
+        //extract morning and evening survey times
         
-        //2) set 21 day notification
-        self.set21DaySurveyNotification(result)
+        if let notificationTimeResult = result.result(forIdentifier: "morning_notification_time_picker") as? ORKStepResult,
+            let timeOfDayResult = notificationTimeResult.firstResult as? ORKTimeOfDayQuestionResult,
+            let dateComponents = timeOfDayResult.dateComponentsAnswer {
+            
+            CTFStateManager.defaultManager.setMorningSurveyTime(dateComponents)
+        }
         
-        //3) set am/pm notifications
-//        self.handleAMPMNotificationResults(result)
-        self.setMorningSurveyTime(result)
-        self.setEveningSurveyTime(result)
+        if let notificationTimeResult = result.result(forIdentifier: "evening_notification_time_picker") as? ORKStepResult,
+            let timeOfDayResult = notificationTimeResult.firstResult as? ORKTimeOfDayQuestionResult,
+            let dateComponents = timeOfDayResult.dateComponentsAnswer {
+            
+            CTFStateManager.defaultManager.setEveningSurveyTime(dateComponents)
+        }
+        
+        
         //4) handle survey results
         
         //set Behavior full results
@@ -784,14 +473,10 @@ extension CTFScheduledActivityManager {
     
     func handleAMSurvey(_ result: ORKTaskResult) {
         //1) set latest AM survey completion
-        let completedDate: NSDate = result.endDate as NSDate
-        CTFKeychainHelpers.setKeychainObject(completedDate, forKey: kLastMorningSurveyCompleted)
+        CTFStateManager.defaultManager.markMorningSurveyCompleted(completedDate: result.endDate)
+
         
-        //2) cancel previous notification and set new one
-        self.resetMorningNotification()
-        
-        
-        //3) handle results
+        //2) handle results
     }
     
     func getStepResults(forIdentifiers identifiers: [String], _ result: ORKTaskResult) -> [ORKStepResult] {
@@ -801,12 +486,8 @@ extension CTFScheduledActivityManager {
     }
     
     func handlePMSurvey(_ result: ORKTaskResult, schedule: CTFScheduledActivity) -> [CTFActivityResult]? {
-        //1) set latest PM survey completion
-        let completedDate: NSDate = result.endDate as NSDate
-        CTFKeychainHelpers.setKeychainObject(completedDate, forKey: kLastEveningSurveyCompleted)
         
-        //2) cancel previous notification and set new one
-        self.resetEveningNotification()
+        CTFStateManager.defaultManager.markEveningSurveyCompleted(completedDate: result.endDate)
         
         var surveyResults: [String: AnyObject] = [:]
         //2) handle results
@@ -841,21 +522,16 @@ extension CTFScheduledActivityManager {
         }
         */
         
-        return [pmSurveyActivityResult]
+//        return [pmSurveyActivityResult]
+        
+        return nil
         
         
     }
     
     func handle21DaySurvey(_ result: ORKTaskResult) {
-        let completedDate: NSDate = result.endDate as NSDate
-        CTFKeychainHelpers.setKeychainObject(completedDate, forKey: k21DaySurveyCompleted)
         
-        //cancel 21 day survey notification
-        self.cancelNotification(withIdentifier: k21DayNotificationIdentifier)
-        
-        //cancel other surveys too
-        self.cancelNotification(withIdentifier: kMorningNotificationIdentifer)
-        self.cancelNotification(withIdentifier: kEveningNotificationIdentifer)
+        CTFStateManager.defaultManager.mark21DaySurveyCompleted(completedDate: result.endDate)
         
     }
     
@@ -899,10 +575,6 @@ extension CTFScheduledActivityManager {
         
         return nil
     }
-    
-//    func activityResultsHandler(_ results: [CTFActivityResult]) {
-//        results.forEach(self.handleActivityResult)
-//    }
     
 }
 
