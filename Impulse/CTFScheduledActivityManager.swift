@@ -21,13 +21,7 @@ import BridgeAppSDK
 //    optional func sectionTitle(section: Int) -> String?
 //}
 
-let kMorningSurveyTime: String = "MorningSurveyTime"
-let kEveningSurveyTime: String = "EveningSurveyTime"
-let kLastMorningSurveyCompleted: String = "LastMorningSurveyCompleted"
-let kLastEveningSurveyCompleted: String = "LastEveningSurveycompleted"
-let kBaselineSurveyCompleted: String = "BaselineSurveyCompleted"
-let k21DaySurveyCompleted: String = "21DaySurveyCompleted"
-let kBaselineBehaviorResults: String = "BaselineBehaviorResults"
+
 
 let k1MinuteInterval: TimeInterval = 60.0
 let k1HourInterval: TimeInterval = k1MinuteInterval * 60.0
@@ -107,6 +101,13 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
     var activities: [CTFScheduledActivity]! = []
     var trialActivities: [CTFScheduledActivity]! = []
     
+    var showTrialActivities: Bool {
+        guard let showActivities = CTFKeychainHelpers.getKeychainObject(kTrialActivitiesEnabled) as? Bool else {
+            return true
+        }
+        return showActivities
+    }
+    
     func loadData() {
         //note that we will add filters in the future to only show items that should be shown based on context
         self.activities = self.scheduleItems.filter(self.scheduledItemsFilter).flatMap({$0.generateScheduledActivity()})
@@ -119,7 +120,7 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
     }
     
     func numberOfSections() -> Int {
-        return 2
+        return self.showTrialActivities ? 2 : 1
     }
     
     @objc(titleForSection:)

@@ -9,6 +9,15 @@
 import UIKit
 import ResearchKit
 
+let kMorningSurveyTime: String = "MorningSurveyTime"
+let kEveningSurveyTime: String = "EveningSurveyTime"
+let kLastMorningSurveyCompleted: String = "LastMorningSurveyCompleted"
+let kLastEveningSurveyCompleted: String = "LastEveningSurveycompleted"
+let kBaselineSurveyCompleted: String = "BaselineSurveyCompleted"
+let k21DaySurveyCompleted: String = "21DaySurveyCompleted"
+let kBaselineBehaviorResults: String = "BaselineBehaviorResults"
+let kTrialActivitiesEnabled: String = "TrialActivitiesEnabled"
+
 class CTFKeychainHelpers: NSObject {
     static func setKeychainObject(_ object: NSSecureCoding, forKey key: String) {
         do {

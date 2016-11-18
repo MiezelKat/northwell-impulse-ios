@@ -25,7 +25,7 @@ public protocol CTFScheduledActivityDataSource: SBAScheduledActivityDataSource {
     func ctfScheduledActivityAtIndexPath(_ indexPath: IndexPath) -> CTFScheduledActivity?
 }
 
-class CTFActivityTableViewController: SBAActivityTableViewController {
+class CTFActivityTableViewController: SBAActivityTableViewController, CTFSettingsDelegate {
 
     override var scheduledActivityDataSource: SBAScheduledActivityDataSource {
         return _ctfScheduledActivityManager
@@ -63,4 +63,10 @@ class CTFActivityTableViewController: SBAActivityTableViewController {
         activityCell.subtitleLabel?.text = schedule.timeEstimate
         
     }
+    
+    func showTrialsChanged(_ showTrials: Bool) {
+        self.scheduledActivityDataSource.reloadData()
+    }
+    
+    
 }

@@ -66,6 +66,10 @@
 		E27E29281DA826980050788A /* CTFIntegerRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27E29271DA826980050788A /* CTFIntegerRange.swift */; };
 		E27E292A1DA84A630050788A /* CTFFormStepSurveyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27E29291DA84A630050788A /* CTFFormStepSurveyItem.swift */; };
 		E295FC211DDCC001001B175D /* UIColor+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295FC201DDCC001001B175D /* UIColor+String.swift */; };
+		E295FC271DDD398E001B175D /* go_no_go_practice_active_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E295FC251DDD398E001B175D /* go_no_go_practice_active_task.json */; };
+		E295FC281DDD398E001B175D /* go_no_go_practice_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E295FC261DDD398E001B175D /* go_no_go_practice_full_task.json */; };
+		E295FC2A1DDE36EB001B175D /* CTFSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295FC291DDE36EB001B175D /* CTFSettingsTableViewController.swift */; };
+		E295FC2C1DDE653E001B175D /* CTFTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295FC2B1DDE653E001B175D /* CTFTabBarController.swift */; };
 		E2A5F0CB1DC7EFCA002CA609 /* Day_21.json in Resources */ = {isa = PBXBuildFile; fileRef = E2A5F0C51DC7EFCA002CA609 /* Day_21.json */; };
 		E2A5F0CC1DC7EFCA002CA609 /* self_assessment_5_21.json in Resources */ = {isa = PBXBuildFile; fileRef = E2A5F0C61DC7EFCA002CA609 /* self_assessment_5_21.json */; };
 		E2A5F0CD1DC7EFCA002CA609 /* self_assessment_6_21.json in Resources */ = {isa = PBXBuildFile; fileRef = E2A5F0C71DC7EFCA002CA609 /* self_assessment_6_21.json */; };
@@ -110,7 +114,6 @@
 		E2C20D7E1DC02BBD00382527 /* am_survey_bart_250_dollars.json in Resources */ = {isa = PBXBuildFile; fileRef = E2C20D7A1DC02BBD00382527 /* am_survey_bart_250_dollars.json */; };
 		E2C20D7F1DC02BBD00382527 /* pm_survey_bart_25_cents.json in Resources */ = {isa = PBXBuildFile; fileRef = E2C20D7B1DC02BBD00382527 /* pm_survey_bart_25_cents.json */; };
 		E2C20D801DC02BBD00382527 /* pm_survey_bart_250_dollars.json in Resources */ = {isa = PBXBuildFile; fileRef = E2C20D7C1DC02BBD00382527 /* pm_survey_bart_250_dollars.json */; };
-		E2CA7E621DC81486000B9B7D /* NSDate+Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CA7E611DC81486000B9B7D /* NSDate+Range.swift */; };
 		E2CCB6661DB151F700C801A4 /* pm_likert_1.json in Resources */ = {isa = PBXBuildFile; fileRef = E2CCB6631DB151F700C801A4 /* pm_likert_1.json */; };
 		E2CCB6671DB151F700C801A4 /* pm_survey_go_no_go_stable.json in Resources */ = {isa = PBXBuildFile; fileRef = E2CCB6641DB151F700C801A4 /* pm_survey_go_no_go_stable.json */; };
 		E2CCB6681DB151F700C801A4 /* pm_survey_go_no_go_variable.json in Resources */ = {isa = PBXBuildFile; fileRef = E2CCB6651DB151F700C801A4 /* pm_survey_go_no_go_variable.json */; };
@@ -282,6 +285,10 @@
 		E27E29271DA826980050788A /* CTFIntegerRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFIntegerRange.swift; sourceTree = "<group>"; };
 		E27E29291DA84A630050788A /* CTFFormStepSurveyItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFFormStepSurveyItem.swift; sourceTree = "<group>"; };
 		E295FC201DDCC001001B175D /* UIColor+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+String.swift"; sourceTree = "<group>"; };
+		E295FC251DDD398E001B175D /* go_no_go_practice_active_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = go_no_go_practice_active_task.json; sourceTree = "<group>"; };
+		E295FC261DDD398E001B175D /* go_no_go_practice_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = go_no_go_practice_full_task.json; sourceTree = "<group>"; };
+		E295FC291DDE36EB001B175D /* CTFSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFSettingsTableViewController.swift; sourceTree = "<group>"; };
+		E295FC2B1DDE653E001B175D /* CTFTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFTabBarController.swift; sourceTree = "<group>"; };
 		E2A5F0C51DC7EFCA002CA609 /* Day_21.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Day_21.json; sourceTree = "<group>"; };
 		E2A5F0C61DC7EFCA002CA609 /* self_assessment_5_21.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = self_assessment_5_21.json; sourceTree = "<group>"; };
 		E2A5F0C71DC7EFCA002CA609 /* self_assessment_6_21.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = self_assessment_6_21.json; sourceTree = "<group>"; };
@@ -327,7 +334,6 @@
 		E2C20D7A1DC02BBD00382527 /* am_survey_bart_250_dollars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = am_survey_bart_250_dollars.json; sourceTree = "<group>"; };
 		E2C20D7B1DC02BBD00382527 /* pm_survey_bart_25_cents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pm_survey_bart_25_cents.json; sourceTree = "<group>"; };
 		E2C20D7C1DC02BBD00382527 /* pm_survey_bart_250_dollars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pm_survey_bart_250_dollars.json; sourceTree = "<group>"; };
-		E2CA7E611DC81486000B9B7D /* NSDate+Range.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Range.swift"; sourceTree = "<group>"; };
 		E2CCB6631DB151F700C801A4 /* pm_likert_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pm_likert_1.json; sourceTree = "<group>"; };
 		E2CCB6641DB151F700C801A4 /* pm_survey_go_no_go_stable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pm_survey_go_no_go_stable.json; sourceTree = "<group>"; };
 		E2CCB6651DB151F700C801A4 /* pm_survey_go_no_go_variable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pm_survey_go_no_go_variable.json; sourceTree = "<group>"; };
@@ -491,6 +497,7 @@
 			isa = PBXGroup;
 			children = (
 				E2AA6D041DA43C5C005D5137 /* CTFScheduledActivityManager.swift */,
+				E295FC2B1DDE653E001B175D /* CTFTabBarController.swift */,
 				E2D56E891DC2AB9E00E6A9C4 /* CTFStorageManager.swift */,
 				E2CCB6691DB158AF00C801A4 /* CTFScheduleItem.swift */,
 				E2AA6D061DA43C6B005D5137 /* CTFScheduledActivity.swift */,
@@ -499,6 +506,7 @@
 				E2AA6D091DA43C6B005D5137 /* CTFActivityResult.swift */,
 				E2AA6D0A1DA43C6B005D5137 /* CTFActivityTableViewCell.swift */,
 				E2AA6D021DA43C54005D5137 /* CTFActivityTableViewController.swift */,
+				E295FC291DDE36EB001B175D /* CTFSettingsTableViewController.swift */,
 				E27E29121DA5AB5F0050788A /* CTFTaskFactory.swift */,
 			);
 			name = "Study Management";
@@ -556,6 +564,8 @@
 				E2A5F0C81DC7EFCA002CA609 /* self_assessment_9_21.json */,
 				E256597A1DCC24630067481C /* pm_survey_dd_money_1_month.json */,
 				E256597B1DCC24630067481C /* pm_survey_dd_money_6_month.json */,
+				E295FC251DDD398E001B175D /* go_no_go_practice_active_task.json */,
+				E295FC261DDD398E001B175D /* go_no_go_practice_full_task.json */,
 				E256597C1DCC24630067481C /* pm_survey_dd_time_1_month.json */,
 				E256597D1DCC24630067481C /* pm_survey_dd_time_6_month.json */,
 				E2A5F0C91DC7EFCA002CA609 /* self_assessment_10_21.json */,
@@ -722,7 +732,6 @@
 				E2FE1AB61DB0337200DBB8E7 /* Array+Random.swift */,
 				E23535DB1DB57B6F005BAFE3 /* GenericHelpers.swift */,
 				E22792A71DD3DD010026F8AB /* CTFKeychainHelpers.swift */,
-				E2CA7E611DC81486000B9B7D /* NSDate+Range.swift */,
 				E295FC201DDCC001001B175D /* UIColor+String.swift */,
 			);
 			name = Helpers;
@@ -910,6 +919,7 @@
 				E2AA6D301DA43CEE005D5137 /* self_assessment_11.json in Resources */,
 				0819892C1DCA476E0047ACA6 /* delayDiscounting_Money_1Month_full_task.json in Resources */,
 				E2AA6D321DA43CEE005D5137 /* self_assessment_9.json in Resources */,
+				E295FC281DDD398E001B175D /* go_no_go_practice_full_task.json in Resources */,
 				E2C20D731DC003B000382527 /* bart_25_cents_active_task.json in Resources */,
 				E25659801DCC24630067481C /* pm_survey_dd_time_1_month.json in Resources */,
 				084DA6581DCA978200299DD6 /* delayDiscounting_Time_6Month_active_task.json in Resources */,
@@ -942,6 +952,7 @@
 				E2A5F0D01DC7EFCA002CA609 /* self_assessment_11_21.json in Resources */,
 				E2AA6D221DA43CC1005D5137 /* cornell-mhealth-eval.pem in Resources */,
 				E2AA6D1E1DA43C83005D5137 /* CTFPulsusFormStepViewController.xib in Resources */,
+				E295FC271DDD398E001B175D /* go_no_go_practice_active_task.json in Resources */,
 				E2AA6CF91DA41E19005D5137 /* BridgeInfo.plist in Resources */,
 				E256597F1DCC24630067481C /* pm_survey_dd_money_6_month.json in Resources */,
 				E2FE1AB31DB00D0100DBB8E7 /* am_likert_3.json in Resources */,
@@ -996,7 +1007,6 @@
 				E2D56E8A1DC2AB9E00E6A9C4 /* CTFStorageManager.swift in Sources */,
 				E2CCB66A1DB158AF00C801A4 /* CTFScheduleItem.swift in Sources */,
 				E295FC211DDCC001001B175D /* UIColor+String.swift in Sources */,
-				E2CA7E621DC81486000B9B7D /* NSDate+Range.swift in Sources */,
 				E2AA6D191DA43C83005D5137 /* CTFFormItemCell.swift in Sources */,
 				E2AA6D031DA43C54005D5137 /* CTFActivityTableViewController.swift in Sources */,
 				E2AA6D1C1DA43C83005D5137 /* CTFPulsusFormBridgeTask.swift in Sources */,
@@ -1011,6 +1021,7 @@
 				E2AA6D0B1DA43C6B005D5137 /* CTFScheduledActivity.swift in Sources */,
 				E2AA6CFC1DA41F3D005D5137 /* CTFLogInViaExternalIdViewController.swift in Sources */,
 				E21F23851DA4522600760EA7 /* CTFGoNoGoStep.swift in Sources */,
+				E295FC2A1DDE36EB001B175D /* CTFSettingsTableViewController.swift in Sources */,
 				E21F237E1DA44F2700760EA7 /* CTFGoNoGoActiveStepViewController.swift in Sources */,
 				E2CCB6771DB568CB00C801A4 /* UIView+Explode.m in Sources */,
 				08F6069E1DBF9EF40066760F /* CTFDelayDiscountingStepViewController.swift in Sources */,
@@ -1023,6 +1034,7 @@
 				E27E29261DA826350050788A /* CTFNumberRange.swift in Sources */,
 				E23535DC1DB57B6F005BAFE3 /* GenericHelpers.swift in Sources */,
 				E22792BA1DD5245B0026F8AB /* CTFBehaviorVSRTask.swift in Sources */,
+				E295FC2C1DDE653E001B175D /* CTFTabBarController.swift in Sources */,
 				E2D56E751DC12A2600E6A9C4 /* CTFBARTResult.swift in Sources */,
 				E27E292A1DA84A630050788A /* CTFFormStepSurveyItem.swift in Sources */,
 				E22792BE1DD53A490026F8AB /* CTFAutosizingLabel.swift in Sources */,

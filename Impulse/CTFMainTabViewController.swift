@@ -42,5 +42,37 @@ class CTFMainTabViewController: UITabBarController, SBARootViewControllerProtoco
             self.childViewControllers.first?.view.isHidden = contentHidden
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let activitiesNavController = self.viewControllers?.first(where: { (viewController) -> Bool in
+            guard let navController = viewController as? UINavigationController,
+                navController.viewControllers.first is CTFActivityTableViewController else {
+                    return false
+            }
+            return true
+        }) as? UINavigationController,
+            let activitiesController = activitiesNavController.viewControllers.first as? CTFActivityTableViewController {
+            
+            if let settingsNavController = self.viewControllers?.first(where: { (viewController) -> Bool in
+                guard let navController = viewController as? UINavigationController,
+                    navController.viewControllers.first is CTFSettingsTableViewController else {
+                        return false
+                }
+                return true
+            }) as? UINavigationController,
+                let settingsController = settingsNavController.viewControllers.first as? CTFSettingsTableViewController {
+                
+                settingsController.delegate = activitiesController
+                
+                
+            }
+            
+            
+        }
+        
+        
+    }
 
 }
