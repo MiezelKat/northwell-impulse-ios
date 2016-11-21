@@ -14,15 +14,8 @@ struct CTFPulsusFormItemAnswerStruct {
     var value: Int
 }
 
-
-
-//class CTFPulsusFormStepViewController: ORKStepViewController, UITableViewDataSource, UITableViewDelegate, ORKFormItemCellDelegate, ORKTableContainerViewDelegate {
 class CTFPulsusFormStepViewController: ORKStepViewController, UITableViewDataSource, UITableViewDelegate, CTFFormItemCellDelegate {
 
-//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        <#code#>
-//    }
-    
     @IBOutlet weak var titleTextView: UITextView!
     @IBOutlet weak var titleTextViewHeight: NSLayoutConstraint!
     @IBOutlet weak var nextButton: CTFBorderedButton!
@@ -39,16 +32,7 @@ class CTFPulsusFormStepViewController: ORKStepViewController, UITableViewDataSou
         self.step = step
         self.initializeResults(result)
         self.restorationIdentifier = step!.identifier
-    
-//        print(self.step)
-//        print(self.step?.title)
-//        if let formStep = self.step as? CTFPulsusFormStep {
-//            formStep.formItems?.forEach { formItem in
-//                print(formItem)
-//            }
-//        }
-        
-        
+
     }
     
     override func viewDidLoad() {
@@ -59,7 +43,6 @@ class CTFPulsusFormStepViewController: ORKStepViewController, UITableViewDataSou
         self.formItemTableView.register(nib, forCellReuseIdentifier: "ctf_form_item_cell")
         self.formItemTableView.rowHeight = UITableViewAutomaticDimension
         self.formItemTableView.estimatedRowHeight = 150
-//        self.formItemTableView.cellLayoutMarginsFollowReadableWidth = false
         self.formItemTableView.separatorInset = UIEdgeInsets.zero
         
         
@@ -146,11 +129,6 @@ class CTFPulsusFormStepViewController: ORKStepViewController, UITableViewDataSou
         return parentResult
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        
-//    }
-    
     override func viewWillLayoutSubviews() {
         
         let sizeThatFits = self.titleTextView.sizeThatFits(CGSize(width: self.titleTextView.frame.size.width, height: CGFloat(MAXFLOAT)))
@@ -174,20 +152,13 @@ class CTFPulsusFormStepViewController: ORKStepViewController, UITableViewDataSou
             let formItem = self.formItems?[indexPath.row] else {
                 return cell
         }
-        
-//        print(formItem.text)
-//        print(formItem)
+
         pulsusCell.configure(formItem, value: self.answerDictionary![formItem.identifier]!)
         
         pulsusCell.delegate = self
         
         return pulsusCell
     }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 150
-//    }
-    
     
     func formItemCellAnswerChanged(_ cell: CTFFormItemCell, answer: Int) {
         if let formItem = cell.formItem {

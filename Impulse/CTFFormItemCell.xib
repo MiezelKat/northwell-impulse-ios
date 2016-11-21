@@ -76,11 +76,10 @@
                             <constraint firstAttribute="height" constant="30" id="2dy-4K-ijG"/>
                             <constraint firstItem="TZR-Lg-pu0" firstAttribute="centerX" secondItem="gVg-kK-0UX" secondAttribute="centerX" id="6ER-4B-qla"/>
                             <constraint firstAttribute="trailing" secondItem="iUb-4W-4l7" secondAttribute="trailing" id="EcK-vh-0y2"/>
+                            <constraint firstItem="TZR-Lg-pu0" firstAttribute="width" secondItem="gVg-kK-0UX" secondAttribute="width" id="XJq-5D-aNi"/>
                             <constraint firstItem="iUb-4W-4l7" firstAttribute="top" secondItem="gVg-kK-0UX" secondAttribute="top" id="ciz-WW-6Q3"/>
-                            <constraint firstAttribute="trailing" secondItem="TZR-Lg-pu0" secondAttribute="trailing" id="kSr-dt-ENw"/>
                             <constraint firstItem="iUb-4W-4l7" firstAttribute="leading" secondItem="gVg-kK-0UX" secondAttribute="leading" id="r5T-AM-13V"/>
                             <constraint firstAttribute="bottom" secondItem="iUb-4W-4l7" secondAttribute="bottom" id="rv7-zu-JaQ"/>
-                            <constraint firstItem="TZR-Lg-pu0" firstAttribute="leading" secondItem="gVg-kK-0UX" secondAttribute="leading" id="wLz-6w-Ykh"/>
                         </constraints>
                     </view>
                 </subviews>

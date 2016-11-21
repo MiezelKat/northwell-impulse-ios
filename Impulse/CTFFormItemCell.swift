@@ -61,8 +61,6 @@ class CTFFormItemCell: UITableViewCell {
         }
         
         self.setValue(value)
-        
-        self.configureTrack()
     }
     
     func configureTrack() {
@@ -74,7 +72,6 @@ class CTFFormItemCell: UITableViewCell {
             
             
             let gradient: CAGradientLayer = CAGradientLayer()
-            print("bounds: \(self.trackView.bounds)")
             gradient.frame = self.trackView.bounds
             gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
             gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
@@ -90,6 +87,7 @@ class CTFFormItemCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        self.trackView.layoutIfNeeded()
         self.configureTrack()
     }
 
