@@ -66,6 +66,7 @@
 		E27E29261DA826350050788A /* CTFNumberRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27E29251DA826350050788A /* CTFNumberRange.swift */; };
 		E27E29281DA826980050788A /* CTFIntegerRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27E29271DA826980050788A /* CTFIntegerRange.swift */; };
 		E27E292A1DA84A630050788A /* CTFFormStepSurveyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27E29291DA84A630050788A /* CTFFormStepSurveyItem.swift */; };
+		E2919EB71DE4956F0034AD08 /* FoundryAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2919EB61DE4956F0034AD08 /* FoundryAssets.xcassets */; };
 		E295FC211DDCC001001B175D /* UIColor+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295FC201DDCC001001B175D /* UIColor+String.swift */; };
 		E295FC271DDD398E001B175D /* go_no_go_practice_active_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E295FC251DDD398E001B175D /* go_no_go_practice_active_task.json */; };
 		E295FC281DDD398E001B175D /* go_no_go_practice_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E295FC261DDD398E001B175D /* go_no_go_practice_full_task.json */; };
@@ -286,6 +287,7 @@
 		E27E29251DA826350050788A /* CTFNumberRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFNumberRange.swift; sourceTree = "<group>"; };
 		E27E29271DA826980050788A /* CTFIntegerRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFIntegerRange.swift; sourceTree = "<group>"; };
 		E27E29291DA84A630050788A /* CTFFormStepSurveyItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFFormStepSurveyItem.swift; sourceTree = "<group>"; };
+		E2919EB61DE4956F0034AD08 /* FoundryAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FoundryAssets.xcassets; sourceTree = "<group>"; };
 		E295FC201DDCC001001B175D /* UIColor+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+String.swift"; sourceTree = "<group>"; };
 		E295FC251DDD398E001B175D /* go_no_go_practice_active_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = go_no_go_practice_active_task.json; sourceTree = "<group>"; };
 		E295FC261DDD398E001B175D /* go_no_go_practice_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = go_no_go_practice_full_task.json; sourceTree = "<group>"; };
@@ -682,6 +684,7 @@
 				E2AA6CDF1DA41DDA005D5137 /* Supporting Files */,
 				E2AA6CDC1DA419DB005D5137 /* Storyboards */,
 				E2EF6B251DA2E2970034456A /* Assets.xcassets */,
+				E2919EB61DE4956F0034AD08 /* FoundryAssets.xcassets */,
 				E2EF6B2A1DA2E2970034456A /* Info.plist */,
 			);
 			path = Impulse;
@@ -911,6 +914,7 @@
 				E2C20D771DC0296F00382527 /* bart_250_dollars_active_task.json in Resources */,
 				E25659891DCC3A230067481C /* am_survey_dd_money_6_month.json in Resources */,
 				E256598A1DCC3A230067481C /* am_survey_dd_time_1_month.json in Resources */,
+				E2919EB71DE4956F0034AD08 /* FoundryAssets.xcassets in Resources */,
 				E256598B1DCC3A230067481C /* am_survey_dd_time_6_month.json in Resources */,
 				E2A5F0CC1DC7EFCA002CA609 /* self_assessment_5_21.json in Resources */,
 				084DA64E1DCA754B00299DD6 /* delayDiscounting_Money_6Month_active_task.json in Resources */,
@@ -1211,7 +1215,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = FoundryDevAppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Impulse/Impulse.entitlements;
 				DEVELOPMENT_TEAM = 6B9Y996WW3;
@@ -1234,7 +1238,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = FoundryDevAppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Impulse/Impulse.entitlements;
 				DEVELOPMENT_TEAM = 6B9Y996WW3;
