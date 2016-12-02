@@ -44,6 +44,7 @@ class CTFPulsusFormStepViewController: ORKStepViewController, UITableViewDataSou
         self.formItemTableView.rowHeight = UITableViewAutomaticDimension
         self.formItemTableView.estimatedRowHeight = 150
         self.formItemTableView.separatorInset = UIEdgeInsets.zero
+        self.formItemTableView.allowsSelection = false
         
         
         self.titleTextView.text = self.step?.title
