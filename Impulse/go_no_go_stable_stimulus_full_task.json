@@ -4,11 +4,35 @@
   "schemaIdentifier": "goNoGoSchema",
   "steps": [
      {
-       "identifier"   : "introduction",
-       "type"         : "instruction",
-       "title"        : "Welcome to the Square Task.",
-       "text"         : "Once you start, you will be presented with a rectangle. When the rectangle turns green, tap anywhere on the screen as quickly as possible. When it turns blue, do not respond at all. \n\nThe test will take approximately 3 min.",
-     },
+        "identifier"   : "introduction_1",
+        "type"         : "instruction",
+        "title"        : "Welcome to the Square Task",
+        "text"         : "This game measures how quickly you can make a simple decision, and then either react or withhold your response."
+      },
+      {
+        "identifier"   : "introduction_2",
+        "type"         : "instruction",
+        "title"        : "",
+        "text"         : "You will first be presented with a rectangle."
+      },
+      {
+        "identifier"   : "introduction_3",
+        "type"         : "instruction",
+        "title"        : "",
+        "text"         : "If the rectangle turns GREEN, tap the screen as quickly as possible."
+      },
+       {
+        "identifier"   : "introduction_4",
+        "type"         : "instruction",
+        "title"        : "",
+        "text"         : "If the rectangle turns BLUE, do not tap."
+      },
+      {
+        "identifier"   : "introduction_5",
+        "type"         : "instruction",
+        "title"        : "",
+        "text"         : "Between each rectangle you will see a plus (+) sign."
+      },
      {
        "taskIdentifier": "go_no_go_stable_stimulus_active_task",
        "resourceName": "go_no_go_stable_stimulus_active_task",
@@ -18,7 +42,7 @@
         "identifier"   : "results",
         "type"         : "instruction",
         "title"        : "Thanks!",
-        "text"         : "",
-      },
+        "text"         : ""
+      }
   ]
 }

@@ -4,21 +4,21 @@
       {
         "identifier"       : "Pulsus",
         "resourceName"            : "am_likert_1",
-        "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+        "classType"               : "Impulse.CTFPulsusFormBridgeTask"
       },
       {
         "identifier"       : "Pulsus",
         "resourceName"            : "am_likert_1a",
-        "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+        "classType"               : "Impulse.CTFPulsusFormBridgeTask"
       },
       {
         "identifier":  "am_2",
         "type"       : "multipleChoiceText",
-        "text"       : "Which of the following behaviors did you engage in more than you intended yesterday?",
+        "text"       : "Which of the following behaviors did you engage in more than you intended to yesterday?",
         "items"      : [  {   "prompt" : "Eating unhealthy food",
                           "value" : "junkfood_am"},
                           {   "prompt" : "Gambling",
-                          "value" : "gambling_am"},
+                          "value" : "gamble_am"},
                           {   "prompt" : "Smoking/Vaping",
                           "value" : "smoke_am"},
                           {   "prompt" : "Mobile phone",
@@ -42,31 +42,31 @@
                           {   "prompt" : "Gaming",
                           "value" : "gaming_am"},
 
-                          {   "prompt" : "Marijuana",
-                          "value" : "pot_am"},
+                          {   "prompt" : "Low movement/activity",
+                          "value" : "sitting_am"},
                           {   "prompt" : "Spending/Shopping",
                           "value" : "spend_am"},
                           {   "prompt" : "Temper",
                           "value" : "temper_am"},
                           {   "prompt" : "Other",
                           "value" : "othermore_am"}
-                        ],
+                        ]
       },
       {
         "identifier"       : "Pulsus",
         "resourceName"            : "am_likert_3",
-        "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+        "classType"               : "Impulse.CTFPulsusFormBridgeTask"
       },
       {
         "identifier"   :   "PAM",
         "resourceName"            : "PAM",
-        "classType"               : "Impulse.CTFPAMTask",
+        "classType"               : "Impulse.CTFPAMTask"
       },
       {
         "identifier"   : "introduction",
         "type"         : "instruction",
-        "title"        : "Welcome to the Delay Discounting Task.",
-        "text"         : "You will be asked six questions where you will choose between an amount of money that you would rather have now vs. an amount of money that you can have in 1 month."
+        "title"        : "Welcome to the Now and Later Game",
+        "text"         : "In this game you will choose between receiving different amounts of money either right now, or in one month. While you will not receive the actual money, please make your decisions as if you were really going to receive the money. There are no correct or incorrect choices."
       },
       {
         "taskIdentifier": "delayDiscounting_Money_1Month_active_task",
@@ -76,9 +76,8 @@
       {
          "identifier"   : "results",
          "type"         : "instruction",
-         "title"        : "Thanks!",
-         "text"         : "",
-       },
-
+         "title"        : "Thank you for completing the task!",
+         "text"         : ""
+       }
     ]
 }

@@ -1,10 +1,10 @@
 {
     "taskIdentifier": "am_3",
     "schemaIdentifier": "am_likert_3",
-    "title": "Please select for each, which comes closest to how you feel right now:",
+    "title": "For each of the following, please select which comes closest to how you feel right now:",
     "items" : [
       {
-        "identifier"        : "focus_am",
+        "identifier"        : "focusnow_am",
         "text"              : "",
         "type"              : "semanticDifferential",
         "range"             : {
@@ -17,7 +17,7 @@
         }
       },
       {
-        "identifier"        : "intentional_am",
+        "identifier"        : "intentionalnow_am",
         "text"              : "",
         "type"              : "semanticDifferential",
         "range"             : {
@@ -30,7 +30,7 @@
         }
       },
       {
-        "identifier"        : "bored_am",
+        "identifier"        : "borednow_am",
         "text"              : "",
         "type"              : "semanticDifferential",
         "range"             : {
@@ -43,7 +43,7 @@
         }
       },
       {
-        "identifier"        : "proud_am",
+        "identifier"        : "proudnow_am",
         "text"              : "",
         "type"              : "semanticDifferential",
         "range"             : {
@@ -56,7 +56,7 @@
         }
       },
       {
-        "identifier"        : "energetic_am",
+        "identifier"        : "energeticnow_am",
         "text"              : "",
         "type"              : "semanticDifferential",
         "range"             : {
@@ -69,7 +69,7 @@
         }
       },
       {
-        "identifier"        : "frustrated_am",
+        "identifier"        : "frustratednow_am",
         "text"              : "",
         "type"              : "semanticDifferential",
         "range"             : {
@@ -82,7 +82,7 @@
         }
       },
       {
-        "identifier"        : "cautious_am",
+        "identifier"        : "cautiousnow_am",
         "text"              : "",
         "type"              : "semanticDifferential",
         "range"             : {
@@ -95,7 +95,7 @@
         }
       },
       {
-        "identifier"        : "lonely_am",
+        "identifier"        : "lonelynow_am",
         "text"              : "",
         "type"              : "semanticDifferential",
         "range"             : {
@@ -108,7 +108,7 @@
         }
       },
       {
-        "identifier"        : "optimistic_am",
+        "identifier"        : "optimisticnow_am",
         "text"              : "",
         "type"              : "semanticDifferential",
         "range"             : {
@@ -121,7 +121,7 @@
         }
       },
       {
-        "identifier"        : "determined_am",
+        "identifier"        : "determinednow_am",
         "text"              : "",
         "type"              : "semanticDifferential",
         "range"             : {
@@ -132,6 +132,6 @@
           "minValueText": "determined",
           "maxValueText": "aimless"
         }
-      },
+      }
     ]
 }

@@ -1,10 +1,10 @@
 {
-    "taskIdentifier": "self_assessment_baseline_10",
+    "taskIdentifier": "self_assessment_baseline_10_21",
     "schemaIdentifier": "sdffse",
-    "title": "Overall, which comes closest to how you think, feel and behave between these two opposites.",
+    "title": "I am generally more:",
     "items" : [
                {
-               "identifier"        : "confusion_bl",
+               "identifier"        : "confusion_21",
                "text"              : "",
                "type"              : "semanticDifferential",
                "range"             : {
@@ -17,7 +17,7 @@
                  }
                },
                {
-               "identifier"        : "focus_bl",
+               "identifier"        : "focus_21",
                "text"              : "",
                "type"              : "semanticDifferential",
                "range"             : {
@@ -30,7 +30,7 @@
                  }
                },
                {
-               "identifier"        : "organized_bl",
+               "identifier"        : "organized_21",
                "text"              : "",
                "type"              : "semanticDifferential",
                "range"             : {
@@ -43,7 +43,7 @@
                  }
                },
                {
-               "identifier"        : "intentional_bl",
+               "identifier"        : "intentional_21",
                "text"              : "",
                "type"              : "semanticDifferential",
                "range"             : {
@@ -56,7 +56,7 @@
                  }
                },
                {
-               "identifier"        : "bored_bl",
+               "identifier"        : "bored_21",
                "text"              : "",
                "type"              : "semanticDifferential",
                "range"             : {
@@ -69,7 +69,7 @@
                  }
                },
                {
-               "identifier"        : "proud_bl",
+               "identifier"        : "proud_21",
                "text"              : "",
                "type"              : "semanticDifferential",
                "range"             : {
@@ -82,7 +82,7 @@
                  }
                },
                {
-               "identifier"        : "efficient_bl",
+               "identifier"        : "efficient_21",
                "text"              : "",
                "type"              : "semanticDifferential",
                "range"             : {
@@ -95,7 +95,7 @@
                  }
                },
                {
-               "identifier"        : "energetic_bl",
+               "identifier"        : "energetic_21",
                "text"              : "",
                "type"              : "semanticDifferential",
                "range"             : {
@@ -108,7 +108,7 @@
                  }
                },
                {
-               "identifier"        : "calm_bl",
+               "identifier"        : "calm_21",
                "text"              : "",
                "type"              : "semanticDifferential",
                "range"             : {
@@ -121,7 +121,7 @@
                  }
                },
                {
-               "identifier"        : "conservative_bl",
+               "identifier"        : "conservative_21",
                "text"              : "",
                "type"              : "semanticDifferential",
                "range"             : {
@@ -132,6 +132,6 @@
                    "minValueText": "conservative",
                    "maxValueText": "progressive"
                  }
-               },
+               }
               ]
 }

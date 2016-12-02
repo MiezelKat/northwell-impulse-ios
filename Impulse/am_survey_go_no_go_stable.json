@@ -4,21 +4,21 @@
       {
         "identifier"       : "Pulsus",
         "resourceName"            : "am_likert_1",
-        "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+        "classType"               : "Impulse.CTFPulsusFormBridgeTask"
       },
       {
         "identifier"       : "Pulsus",
         "resourceName"            : "am_likert_1a",
-        "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+        "classType"               : "Impulse.CTFPulsusFormBridgeTask"
       },
       {
         "identifier":  "am_2",
         "type"       : "multipleChoiceText",
-        "text"       : "Which of the following behaviors did you engage in more than you intended yesterday?",
+        "text"       : "Which of the following behaviors did you engage in more than you intended to yesterday?",
         "items"      : [  {   "prompt" : "Eating unhealthy food",
                           "value" : "junkfood_am"},
                           {   "prompt" : "Gambling",
-                          "value" : "gambling_am"},
+                          "value" : "gamble_am"},
                           {   "prompt" : "Smoking/Vaping",
                           "value" : "smoke_am"},
                           {   "prompt" : "Mobile phone",
@@ -42,31 +42,31 @@
                           {   "prompt" : "Gaming",
                           "value" : "gaming_am"},
 
-                          {   "prompt" : "Marijuana",
-                          "value" : "pot_am"},
+                          {   "prompt" : "Low movement/activity",
+                          "value" : "sitting_am"},
                           {   "prompt" : "Spending/Shopping",
                           "value" : "spend_am"},
                           {   "prompt" : "Temper",
                           "value" : "temper_am"},
                           {   "prompt" : "Other",
                           "value" : "othermore_am"}
-                        ],
+                        ]
       },
       {
         "identifier"       : "Pulsus",
         "resourceName"            : "am_likert_3",
-        "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+        "classType"               : "Impulse.CTFPulsusFormBridgeTask"
       },
       {
         "identifier"   :   "PAM",
         "resourceName"            : "PAM",
-        "classType"               : "Impulse.CTFPAMTask",
+        "classType"               : "Impulse.CTFPAMTask"
       },
-      {
+       {
         "identifier"   : "introduction",
         "type"         : "instruction",
-        "title"        : "Welcome to the Square Task.",
-        "text"         : "Once you start, you will be presented with a rectangle. When the rectangle turns green, tap anywhere on the screen as quickly as possible. When it turns blue, do not respond at all. \n\nThe test will take approximately 3 min.",
+        "title"        : "Welcome to the Square Task",
+        "text"         : "This game measures how quickly you can make a simple decision, and then either react or withhold your response. You will first be presented with a rectangle. If the rectangle turns GREEN, tap the screen as quickly as possible. If the rectangle turns BLUE, do not tap. Between each rectangle you will see a plus (+) sign."
       },
       {
         "taskIdentifier": "go_no_go_stable_stimulus_active_task",
@@ -76,9 +76,8 @@
       {
          "identifier"   : "results",
          "type"         : "instruction",
-         "title"        : "Thanks!",
-         "text"         : "",
-       },
-
+         "title"        : "Thank you for completing the task!",
+         "text"         : ""
+       }
     ]
 }
