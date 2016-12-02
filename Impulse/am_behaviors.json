@@ -1,7 +1,7 @@
 {
     "taskIdentifier": "am_behaviors",
     "schemaIdentifier": "behaviors",
-    "text"       : "Which of the following behaviors did you engage in more than you intended yesterday?",
+    "text"       : "Which of the following behaviors did you engage in more than you intended to yesterday?",
     "valueSuffix": "_am",
     "fullAssessmentStorageKey": "BaselineBehaviorResults",
     "options":{
@@ -16,7 +16,7 @@
     "items"      : [  {   "prompt" : "Eating\nunhealthy\nfood",
                       "value" : "junkfood"},
                       {   "prompt" : "Gambling",
-                      "value" : "gambling"},
+                      "value" : "gamble"},
                       {   "prompt" : "Smoking /\nVaping",
                       "value" : "smoke"},
                       {   "prompt" : "Mobile phone",
@@ -40,8 +40,8 @@
                       {   "prompt" : "Gaming",
                       "value" : "gaming"},
 
-                      {   "prompt" : "Marijuana",
-                      "value" : "pot"},
+                      {   "prompt" : "Low movement/\nactivity",
+                      "value" : "sitting"},
                       {   "prompt" : "Spending /\nShopping",
                       "value" : "spend"},
                       {   "prompt" : "Temper",

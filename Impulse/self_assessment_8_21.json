@@ -1,11 +1,11 @@
 {
-    "taskIdentifier": "self_assessment_baseline_11",
+    "taskIdentifier": "self_assessment_baseline_10_21",
     "schemaIdentifier": "sdffse",
-    "title": "Overall, which comes closest to how you think, feel and behave between these two opposites.",
     "gradientColors": ["#1B75BB", "#FFFFFF", "#1B75BB"],
+    "title": "I am generally more:",
     "items" : [
                {
-               "identifier"        : "frustrated_bl",
+               "identifier"        : "confusion_21",
                "text"              : "",
                "type"              : "semanticDifferential",
                "range"             : {
@@ -13,12 +13,12 @@
                    "max"      : 10,
                    "default"   : 5,
                    "step": 1,
-                   "minValueText": "frustrated",
-                   "maxValueText": "content"
+                   "minValueText": "clear headed",
+                   "maxValueText": "confused"
                  }
                },
                {
-               "identifier"        : "cautious_bl",
+               "identifier"        : "focus_21",
                "text"              : "",
                "type"              : "semanticDifferential",
                "range"             : {
@@ -26,12 +26,12 @@
                    "max"      : 10,
                    "default"   : 5,
                    "step": 1,
-                   "minValueText": "cautious",
+                   "minValueText": "focused",
                    "maxValueText": "distracted"
                  }
                },
                {
-               "identifier"        : "sad_sd_bl",
+               "identifier"        : "organized_21",
                "text"              : "",
                "type"              : "semanticDifferential",
                "range"             : {
@@ -39,12 +39,12 @@
                    "max"      : 10,
                    "default"   : 5,
                    "step": 1,
-                   "minValueText": "sad",
-                   "maxValueText": "happy"
+                   "minValueText": "organized",
+                   "maxValueText": "unorganized"
                  }
                },
                {
-               "identifier"        : "lonely_bl",
+               "identifier"        : "intentional_21",
                "text"              : "",
                "type"              : "semanticDifferential",
                "range"             : {
@@ -52,12 +52,12 @@
                    "max"      : 10,
                    "default"   : 5,
                    "step": 1,
-                   "minValueText": "lonely",
-                   "maxValueText": "connected"
+                   "minValueText": "impulsive",
+                   "maxValueText": "intentional"
                  }
                },
                {
-               "identifier"        : "optimistic_bl",
+               "identifier"        : "bored_21",
                "text"              : "",
                "type"              : "semanticDifferential",
                "range"             : {
@@ -65,12 +65,12 @@
                    "max"      : 10,
                    "default"   : 5,
                    "step": 1,
-                   "minValueText": "optimistic",
-                   "maxValueText": "pessimistic"
+                   "minValueText": "bored",
+                   "maxValueText": "engaged"
                  }
                },
                {
-               "identifier"        : "determined_bl",
+               "identifier"        : "proud_21",
                "text"              : "",
                "type"              : "semanticDifferential",
                "range"             : {
@@ -78,12 +78,12 @@
                    "max"      : 10,
                    "default"   : 5,
                    "step": 1,
-                   "minValueText": "determined",
-                   "maxValueText": "aimless"
+                   "minValueText": "proud",
+                   "maxValueText": "ashamed"
                  }
                },
                {
-               "identifier"        : "stressed_bl",
+               "identifier"        : "efficient_21",
                "text"              : "",
                "type"              : "semanticDifferential",
                "range"             : {
@@ -91,12 +91,12 @@
                    "max"      : 10,
                    "default"   : 5,
                    "step": 1,
-                   "minValueText": "stressed",
-                   "maxValueText": "relaxed"
+                   "minValueText": "efficient",
+                   "maxValueText": "inefficient"
                  }
                },
                {
-               "identifier"        : "positive_bl",
+               "identifier"        : "energetic_21",
                "text"              : "",
                "type"              : "semanticDifferential",
                "range"             : {
@@ -104,12 +104,12 @@
                    "max"      : 10,
                    "default"   : 5,
                    "step": 1,
-                   "minValueText": "positive",
-                   "maxValueText": "negative"
+                   "minValueText": "energetic",
+                   "maxValueText": "tired"
                  }
                },
                {
-               "identifier"        : "healthy_bl",
+               "identifier"        : "calm_21",
                "text"              : "",
                "type"              : "semanticDifferential",
                "range"             : {
@@ -117,12 +117,12 @@
                    "max"      : 10,
                    "default"   : 5,
                    "step": 1,
-                   "minValueText": "healthy",
-                   "maxValueText": "unhealthy"
+                   "minValueText": "calm",
+                   "maxValueText": "anxious"
                  }
                },
                {
-               "identifier"        : "productive_bl",
+               "identifier"        : "conservative_21",
                "text"              : "",
                "type"              : "semanticDifferential",
                "range"             : {
@@ -130,9 +130,9 @@
                    "max"      : 10,
                    "default"   : 5,
                    "step": 1,
-                   "minValueText": "productive",
-                   "maxValueText": "unproductive"
+                   "minValueText": "conservative",
+                   "maxValueText": "progressive"
                  }
-               },
+               }
               ]
 }

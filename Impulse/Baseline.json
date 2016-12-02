@@ -6,12 +6,12 @@
       {
      "identifier"   : "introduction",
      "type"         : "instruction",
-     "title"        : "Introduction",
-     "text"         : "In order to help us gain a better understanding of your thoughts, feelings and experiences, please complete the following questions. This will take approximately 10 minutes to complete today and about 4-6 minutes per day for the next 21 days.  ",
+     "title"        : "Baseline Survey",
+     "text"         : "In order to help us gain a better understanding of your thoughts, feelings and experiences, please complete the following questions. It will take approximately 12 minutes to complete today’s portion and about 4-6 minutes per day (2-3 minutes in the morning and 2-3 minutes in the evening) for the next 21 days."
      },
      {
        "identifier"       : "gender",
-       "type"             : "singleChoiceText",
+       "type"             : "textfield",
        "text"             : "What is your gender?",
        "items"            : [{   "prompt" : "Female",
                              "value" : "Female"},
@@ -19,13 +19,13 @@
                              "value" : "Male"},
                              {   "prompt" : "Transgender",
                              "value" : "Transgender"},
-                             {   "prompt" : "Other",
-                             "value" : "Other"}],
+                             {   "prompt" : "Prefer not to disclose",
+                             "value" : "Prefer not to disclose"}]
      },
      {
        "identifier"       : "age",
        "type"             : "numericInteger",
-       "text"             : "How old are you?",
+       "text"             : "What is your age?",
        "range"            : {
                  "min"     : 18,
                  "max"      : 99,
@@ -33,15 +33,15 @@
                }
      },
      {
-       "identifier" : "zipcode",
+       "identifier" : "zip_code",
        "type"       : "textfield",
-       "text"       : "What is your zipcode?"
+       "text"       : "What is your zip code?"
      },
      {
        "identifier" : "education",
        "type"       : "singleChoiceText",
        "text"       : "What is the highest degree or level of school you have completed? (If currently enrolled, mark the highest degree received.)",
-       "items"      : [  {   "prompt" : "0-11 grade (no high school degree)",
+       "items"      : [  {   "prompt" : "0-11 grade completed(no high school degree)",
                          "value" : "0-11 grade (no high school degree)"},
                          {   "prompt" : "High school diploma",
                          "value" : "High school diploma"},
@@ -49,6 +49,8 @@
                          "value" : "GED"},
                          {   "prompt" : "Vocational certificate without high school diploma",
                          "value" : "Vocational certificate without high school diploma"},
+                         {   "prompt" : "Vocational certificate with high school diploma",
+                         "value" : "Vocational certificate with high school diploma"},
                          {   "prompt" : "Some college",
                          "value" : "Some college"},
                          {   "prompt" : "Associate degree",
@@ -62,12 +64,12 @@
                          {   "prompt" : "Graduate degree",
                          "value" : "Graduate degree"},
                          {   "prompt" : "Prefer not to disclose",
-                         "value" : "Prefer not to disclose"}],
+                         "value" : "Prefer not to disclose"}]
     },
     {
-      "identifier" : "employment",
+      "identifier" : "employment_income",
       "type"       : "singleChoiceText",
-      "text"       : "Which best describes your current employment status",
+      "text"       : "Which best describes your current employment status? Check all that apply.",
       "items"      : [  {   "prompt" : "Part-time",
                         "value" : "Part-time"},
                         {   "prompt" : "Full-time",
@@ -89,12 +91,12 @@
                         {   "prompt" : "Public assistance / social security",
                         "value" : "Public assistance"},
                         {   "prompt" : "Other",
-                        "value" : "Other"}],
+                        "value" : "Other"}]
    },
    {
      "identifier" : "ethnicity",
      "type"       : "singleChoiceText",
-     "text"       : "Please specify your ethnicity",
+     "text"       : "Please specify your ethnicity.",
      "items"      : [  {   "prompt" : "American Indian or Alaska Native",
                        "value" : "American Indian or Alaska Native"},
                        {   "prompt" : "Asian",
@@ -110,12 +112,12 @@
                        {   "prompt" : "Unknown",
                        "value" : "Unknown"},
                        {   "prompt" : "Prefer not to disclose",
-                       "value" : "Prefer not to disclose"}],
+                       "value" : "Prefer not to disclose"}]
   },
   {
     "identifier" : "race",
     "type"       : "singleChoiceText",
-    "text"       : "Please specify your race",
+    "text"       : "Please specify your race.",
     "items"      : [  {   "prompt" : "Hispanic or Latino",
                       "value" : "Hispanic or Latino"},
                       {   "prompt" : "Not Hispanic or Latino",
@@ -123,7 +125,7 @@
                       {   "prompt" : "Unknown",
                       "value" : "Unknown"},
                       {   "prompt" : "Prefer not to disclose",
-                      "value" : "Prefer not to disclose"}],
+                      "value" : "Prefer not to disclose"}]
  },
  {
    "identifier" : "religion",
@@ -146,21 +148,19 @@
                      {   "prompt" : "Other",
                      "value" : "Other"},
                      {   "prompt" : "Prefer not to disclose",
-                     "value" : "Prefer not to disclose"}],
+                     "value" : "Prefer not to disclose"}]
     },
 
      {
      "identifier"       : "Pulsus",
-     "resourceName"            : "self_assessment_5",
-     "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+     "resourceName"            : "self_assessment_3",
+     "classType"               : "Impulse.CTFPulsusFormBridgeTask"
      },
      {
      "identifier"       : "Pulsus",
-     "resourceName"            : "self_assessment_6",
-     "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+     "resourceName"            : "self_assessment_4",
+     "classType"               : "Impulse.CTFPulsusFormBridgeTask"
      },
-
-
      {
        "identifier":  "BehaviorVSR",
        "resourceName"            : "baseline_behaviors_4",
@@ -173,39 +173,39 @@
      },
      {
      "identifier"       : "Pulsus",
+     "resourceName"            : "self_assessment_7",
+     "classType"               : "Impulse.CTFPulsusFormBridgeTask"
+     },
+     {
+     "identifier"       : "Pulsus",
+     "resourceName"            : "self_assessment_8",
+     "classType"               : "Impulse.CTFPulsusFormBridgeTask"
+     },
+     {
+     "identifier"       : "Pulsus",
      "resourceName"            : "self_assessment_9",
-     "classType"               : "Impulse.CTFPulsusFormBridgeTask",
-     },
-     {
-     "identifier"       : "Pulsus",
-     "resourceName"            : "self_assessment_10",
-     "classType"               : "Impulse.CTFPulsusFormBridgeTask",
-     },
-     {
-     "identifier"       : "Pulsus",
-     "resourceName"            : "self_assessment_11",
-     "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+     "classType"               : "Impulse.CTFPulsusFormBridgeTask"
      },
      {
        "identifier"   :   "PAMMultipleSelection",
        "resourceName"            : "PAM",
-       "classType"               : "Impulse.CTFPAMMultipleSelectionTask",
+       "classType"               : "Impulse.CTFPAMMultipleSelectionTask"
      },
      {
      "identifier":  "morning_notification_time_picker",
      "type"     :   "timePicker",
-     "text"       : "Please choose a time to be reminded when to perform your morning survey.",
+     "text"       : "Please choose a window of time you would like to be reminded to take your morning surveys. Your alert will come anytime within one hour after the time you choose. "
      },
      {
      "identifier":  "evening_notification_time_picker",
      "type"     :   "timePicker",
-     "text"       : "Please choose a time to be reminded when to perform your evening survey.",
+     "text"       : "Please choose a window of time you would like to be reminded to take your evening surveys. Your alert will come anytime within one hour after the time you choose. "
      },
      {
      "identifier":  "notes",
      "type"     :   "textfield",
-     "text"       : "Is there any additional information you would like to share with us?",
+     "text"       : "Please contact us to finalize your participant in the study. Upon hearing from you, we will schedule your payment and answer any questions.",
      "optional" : true
-     },
+     }
    ]
 }

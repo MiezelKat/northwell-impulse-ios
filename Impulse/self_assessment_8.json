@@ -1,8 +1,9 @@
 {
-    "taskIdentifier": "self_assessment_baseline_10",
+    "taskIdentifier": "self_assessment_baseline_8",
     "schemaIdentifier": "sdffse",
-    "title": "Overall, which comes closest to how you think, feel and behave between these two opposites.",
     "gradientColors": ["#1B75BB", "#FFFFFF", "#1B75BB"],
+    "title": "I am generally more:",
+    "text": "Below is a list of two opposite feelings, thoughts, or behaviors. Use the slider to choose where you generally fall between each pair of opposites. For example, if you are someone who gets distracted or has trouble focusing, you would move the slider closer to the 'distracted' side.",
     "items" : [
                {
                "identifier"        : "confusion_bl",
@@ -133,6 +134,6 @@
                    "minValueText": "conservative",
                    "maxValueText": "progressive"
                  }
-               },
+               }
               ]
 }

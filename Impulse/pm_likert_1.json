@@ -1,11 +1,11 @@
 {
     "taskIdentifier": "pm_1",
     "schemaIdentifier": "pm_likert_1",
-    "title": "Please select for each, which comes closest to how you feel right now:",
     "gradientColors": ["#1B75BB", "#FFFFFF", "#1B75BB"],
+    "title": "For each of the following, please select which comes closest to how you feel right now:",
     "items" : [
       {
-        "identifier"        : "focus_pm",
+        "identifier"        : "focusnow_pm",
         "text"              : "",
         "type"              : "semanticDifferential",
         "range"             : {
@@ -18,7 +18,7 @@
         }
       },
       {
-        "identifier"        : "intentional_pm",
+        "identifier"        : "intentionalnow_pm",
         "text"              : "",
         "type"              : "semanticDifferential",
         "range"             : {
@@ -31,7 +31,7 @@
         }
       },
       {
-        "identifier"        : "bored_pm",
+        "identifier"        : "borednow_pm",
         "text"              : "",
         "type"              : "semanticDifferential",
         "range"             : {
@@ -44,7 +44,7 @@
         }
       },
       {
-        "identifier"        : "proud_pm",
+        "identifier"        : "proudnow_pm",
         "text"              : "",
         "type"              : "semanticDifferential",
         "range"             : {
@@ -57,7 +57,7 @@
         }
       },
       {
-        "identifier"        : "energetic_pm",
+        "identifier"        : "energeticnow_pm",
         "text"              : "",
         "type"              : "semanticDifferential",
         "range"             : {
@@ -70,7 +70,7 @@
         }
       },
       {
-        "identifier"        : "frustrated_pm",
+        "identifier"        : "frustratednow_pm",
         "text"              : "",
         "type"              : "semanticDifferential",
         "range"             : {
@@ -83,7 +83,7 @@
         }
       },
       {
-        "identifier"        : "cautious_pm",
+        "identifier"        : "cautiousnow_pm",
         "text"              : "",
         "type"              : "semanticDifferential",
         "range"             : {
@@ -96,7 +96,7 @@
         }
       },
       {
-        "identifier"        : "lonely_pm",
+        "identifier"        : "lonelynow_pm",
         "text"              : "",
         "type"              : "semanticDifferential",
         "range"             : {
@@ -109,7 +109,7 @@
         }
       },
       {
-        "identifier"        : "optimistic_pm",
+        "identifier"        : "optimisticnow_pm",
         "text"              : "",
         "type"              : "semanticDifferential",
         "range"             : {
@@ -122,7 +122,7 @@
         }
       },
       {
-        "identifier"        : "determined_pm",
+        "identifier"        : "determinednow_pm",
         "text"              : "",
         "type"              : "semanticDifferential",
         "range"             : {
@@ -133,6 +133,6 @@
           "minValueText": "determined",
           "maxValueText": "aimless"
         }
-      },
+      }
     ]
 }

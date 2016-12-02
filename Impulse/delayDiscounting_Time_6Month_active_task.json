@@ -7,6 +7,6 @@
     "nowDescription": "Now",
     "laterDescription": "In 6 Months",
     "formatString":"%.02f hours off",
-    "prompt": "Which would you rather have?"
+    "prompt": "Please choose which amounts of time you would like off either right NOW or in SIX MONTHS."
   }
 }

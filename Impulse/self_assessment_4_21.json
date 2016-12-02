@@ -1,10 +1,10 @@
 {
-    "taskIdentifier": "self_assessment_baseline_6",
+    "taskIdentifier": "self_assessment_baseline_4_21",
     "schemaIdentifier": "sdffsd",
     "title": "For the following questions, please think about your experiences over the past year.",
     "items" : [
                {
-               "identifier"        : "Taskpers_2_bl",
+               "identifier"        : "Taskpers_2_21",
                "text"              : "I have difficulty completing tasks that require me to stay focused for long periods.",
                "type"              : "likert",
                "range"             : {
@@ -18,7 +18,7 @@
                }
                },
                {
-               "identifier"        : "socialtemp_bl",
+               "identifier"        : "socialtemp_21",
                "text"              : "I do things I later regret because I get influenced by other people.",
                "type"              : "likert",
                "range"             : {
@@ -32,7 +32,7 @@
                }
                },
                {
-               "identifier"        : "socialcomp_bl",
+               "identifier"        : "socialcomp_21",
                "text"              : "I feel other people have better lives than I do.",
                "type"              : "likert",
                "range"             : {
@@ -46,8 +46,8 @@
                }
                },
                {
-               "identifier"        : "socialblock_bl",
-               "text"              : "I feel blocked in meeting my goals by other people and situations beyond my control.",
+               "identifier"        : "socialblock_21",
+               "text"              : "When it comes to meeting my goals, I feel blocked by other people and situations beyond my control.",
                "type"              : "likert",
                "range"             : {
                  "min"     : 0,
@@ -60,7 +60,7 @@
                }
                },
                {
-               "identifier"        : "bored_bl",
+               "identifier"        : "bored_21",
                "text"              : "I get bored easily.",
                "type"              : "likert",
                "range"             : {
@@ -74,8 +74,8 @@
                }
                },
                {
-               "identifier"        : "posoutcome_bl",
-               "text"              : "I tend to think things will work out when I jump into new experiences.",
+               "identifier"        : "posoutcome_21",
+               "text"              : "When starting new experiences, I tend to think things will work out.",
                "type"              : "likert",
                "range"             : {
                  "min"     : 0,
@@ -88,7 +88,7 @@
                }
                },
                {
-               "identifier"        : "fomo_bl",
+               "identifier"        : "fomo_21",
                "text"              : "I feel like I am missing out on fun activities going on around me.",
                "type"              : "likert",
                "range"             : {
@@ -102,7 +102,7 @@
                }
                },
                {
-               "identifier"        : "Taskper_3_bl",
+               "identifier"        : "Taskper_3_21",
                "text"              : "I continue towards my goals that I set for myself, even when there are obstacles.",
                "type"              : "likert",
                "range"             : {
@@ -116,7 +116,7 @@
                }
                },
                {
-               "identifier"        : "leisuretime_bl",
+               "identifier"        : "leisuretime_21",
                "text"              : "I have enough time and money for leisure and hobbies that I enjoy.",
                "type"              : "likert",
                "range"             : {
@@ -130,7 +130,7 @@
                }
                },
                {
-               "identifier"        : "Jealous",
+               "identifier"        : "Jealous_21",
                "text"              : "I have never been jealous of a friend’s success.",
                "type"              : "likert",
                "range"             : {
@@ -144,7 +144,21 @@
                }
                },
                {
-               "identifier"        : "grateful_bl",
+               "identifier"        : "hope_21",
+               "text"              : "I believe I will be content and satisfied with my life as I grow older.",
+               "type"              : "likert",
+               "range"             : {
+                 "min"     : 0,
+                 "max"      : 10,
+                 "default"   : 5,
+                 "step": 1,
+                 "minValueText": "0-not at all",
+                 "midValueText": "moderate",
+                 "maxValueText": "10-extremely"
+               }
+               },
+               {
+               "identifier"        : "grateful_21",
                "text"              : "I am grateful and appreciative about my life and circumstances.",
                "type"              : "likert",
                "range"             : {
@@ -158,7 +172,7 @@
                }
                },
                {
-               "identifier"        : "social_bl",
+               "identifier"        : "social_21",
                "text"              : "Most of the people I spend time with are a positive influence on my health and well-being.",
                "type"              : "likert",
                "range"             : {
@@ -172,8 +186,50 @@
                }
                },
                {
-               "identifier"        : "child_bl",
+               "identifier"        : "childsensation_21",
                "text"              : "As I child, I was a sensation seeker who took risks.",
+               "type"              : "likert",
+               "range"             : {
+                 "min"     : 0,
+                 "max"      : 10,
+                 "default"   : 5,
+                 "step": 1,
+                 "minValueText": "0-not at all",
+                 "midValueText": "moderate",
+                 "maxValueText": "10-extremely"
+               }
+               },
+               {
+               "identifier"        : "childadd_21",
+               "text"              : "As a child, I had difficulty staying focused  in school.",
+               "type"              : "likert",
+               "range"             : {
+                 "min"     : 0,
+                 "max"      : 10,
+                 "default"   : 5,
+                 "step": 1,
+                 "minValueText": "0-not at all",
+                 "midValueText": "moderate",
+                 "maxValueText": "10-extremely"
+               }
+               },
+               {
+               "identifier"        : "childpoor_21",
+               "text"              : "As a child, my family was considered poor.",
+               "type"              : "likert",
+               "range"             : {
+                 "min"     : 0,
+                 "max"      : 10,
+                 "default"   : 5,
+                 "step": 1,
+                 "minValueText": "0-not at all",
+                 "midValueText": "moderate",
+                 "maxValueText": "10-extremely"
+               }
+               },
+               {
+               "identifier"        : "poornow_21",
+               "text"              : "I have difficulty making ends meet financially.",
                "type"              : "likert",
                "range"             : {
                  "min"     : 0,

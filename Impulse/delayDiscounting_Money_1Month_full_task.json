@@ -4,11 +4,23 @@
   "schemaIdentifier": "delayDiscountingSchema",
   "steps": [
      {
-       "identifier"   : "introduction",
-       "type"         : "instruction",
-       "title"        : "Welcome to the Delay Discounting Task.",
-       "text"         : ""
-     },
+        "identifier"   : "introduction_1",
+        "type"         : "instruction",
+        "title"        : "Welcome to the Now and Later Game",
+        "text"         : ""
+      },
+      {
+        "identifier"   : "introduction_2",
+        "type"         : "instruction",
+        "title"        : "",
+        "text"         : "In this game you will choose between receiving different amounts of money either right now, or in one month."
+      },
+      {
+        "identifier"   : "introduction_3",
+        "type"         : "instruction",
+        "title"        : "",
+        "text"         : "While you will not receive the actual money, please make your decisions as if you were really going to receive the money. There are no correct or incorrect choices."
+      },
      {
        "taskIdentifier": "delayDiscounting_Money_1Month_active_task",
        "resourceName": "delayDiscounting_Money_1Month_active_task",
@@ -18,7 +30,7 @@
         "identifier"   : "results",
         "type"         : "instruction",
         "title"        : "Thanks!",
-        "text"         : "",
-      },
+        "text"         : ""
+      }
   ]
 }

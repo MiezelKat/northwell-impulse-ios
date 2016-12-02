@@ -3,7 +3,7 @@
     "schemaIdentifier": "PAMSchemaIdentifier",
    "PAM":{
       "identifier":"PAMIdentifier",
-      "prompt":"When you think about yourself and how you generally feel, which do you think comes closest to how you feel most days? Please check all that apply.",
+      "prompt":"When you think about yourself and how you generally feel, which comes closest to how you feel on most days?\nPlease select all that apply.",
       "summary":{
          "identifier":"PAM Summary Identifier",
          "title":"Thanks",

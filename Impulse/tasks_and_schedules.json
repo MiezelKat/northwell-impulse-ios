@@ -12,11 +12,10 @@
       "tasks": [
         {
           "taskTitle": "Baseline",
-          "taskIdentifier": "Baseline",
+          "taskIdentifier": "Baseline"
         }
       ]
     },
-
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
@@ -29,11 +28,10 @@
       "tasks": [
         {
           "taskTitle": "Day_21",
-          "taskIdentifier": "Day_21",
+          "taskIdentifier": "Day_21"
         }
       ]
     },
-
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
@@ -50,7 +48,6 @@
         }
       ]
     },
-
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
@@ -63,7 +60,7 @@
       "tasks": [
         {
           "taskTitle": "Go No Go Stable Stimulus",
-          "taskIdentifier": "Go No Go Stable Stimulus Task",
+          "taskIdentifier": "Go No Go Stable Stimulus Task"
         }
       ]
     },
@@ -79,7 +76,7 @@
       "tasks": [
         {
           "taskTitle": "Go No Go Variable Stimulus",
-          "taskIdentifier": "Go No Go Variable Stimulus Task",
+          "taskIdentifier": "Go No Go Variable Stimulus Task"
         }
       ]
     },
@@ -95,7 +92,7 @@
       "tasks": [
         {
           "taskTitle": "BART $.25",
-          "taskIdentifier": "bart_25_cents_full_task",
+          "taskIdentifier": "bart_25_cents_full_task"
         }
       ]
     },
@@ -111,7 +108,7 @@
       "tasks": [
         {
           "taskTitle": "BART $250",
-          "taskIdentifier": "bart_250_dollars_full_task",
+          "taskIdentifier": "bart_250_dollars_full_task"
         }
       ]
     },
@@ -129,43 +126,43 @@
           "tasks":  [
             {
               "taskTitle": "Morning Survey",
-              "taskIdentifier": "am_survey_go_no_go_stable",
+              "taskIdentifier": "am_survey_go_no_go_stable"
             },
             {
               "taskTitle": "Morning Survey",
-              "taskIdentifier": "am_survey_go_no_go_variable",
-            },
+              "taskIdentifier": "am_survey_go_no_go_variable"
+            }
           ]
         },
         {
           "tasks":  [
             {
               "taskTitle": "Morning Survey",
-              "taskIdentifier": "am_survey_bart_25_cents",
+              "taskIdentifier": "am_survey_bart_25_cents"
             },
             {
               "taskTitle": "Morning Survey",
-              "taskIdentifier": "am_survey_bart_250_dollars",
-            },
+              "taskIdentifier": "am_survey_bart_250_dollars"
+            }
           ]
         },
         {
           "tasks":  [
             {
               "taskTitle": "Morning Survey",
-              "taskIdentifier": "am_survey_dd_time_1_month",
+              "taskIdentifier": "am_survey_dd_time_1_month"
             },
             {
               "taskTitle": "Morning Survey",
-              "taskIdentifier": "am_survey_dd_time_6_month",
+              "taskIdentifier": "am_survey_dd_time_6_month"
             },
             {
               "taskTitle": "Morning Survey",
-              "taskIdentifier": "am_survey_dd_money_1_month",
+              "taskIdentifier": "am_survey_dd_money_1_month"
             },
             {
               "taskTitle": "Morning Survey",
-              "taskIdentifier": "am_survey_dd_money_6_month",
+              "taskIdentifier": "am_survey_dd_money_6_month"
             }
           ]
         }
@@ -185,24 +182,24 @@
           "tasks": [
             {
               "taskTitle": "Evening Survey",
-              "taskIdentifier": "pm_survey_go_no_go_stable",
+              "taskIdentifier": "pm_survey_go_no_go_stable"
             },
             {
               "taskTitle": "Evening Survey",
-              "taskIdentifier": "pm_survey_go_no_go_variable",
-            },
+              "taskIdentifier": "pm_survey_go_no_go_variable"
+            }
           ]
         },
         {
           "tasks": [
             {
               "taskTitle": "Evening Survey",
-              "taskIdentifier": "pm_survey_bart_25_cents",
+              "taskIdentifier": "pm_survey_bart_25_cents"
             },
             {
               "taskTitle": "Evening Survey",
-              "taskIdentifier": "pm_survey_bart_250_dollars",
-            },
+              "taskIdentifier": "pm_survey_bart_250_dollars"
+            }
           ]
         },
         {
@@ -221,8 +218,8 @@
             },
             {
               "taskTitle": "Evening Survey",
-              "taskIdentifier": "pm_survey_dd_money_6_month",
-            },
+              "taskIdentifier": "pm_survey_dd_money_6_month"
+            }
           ]
         },
       ]
@@ -239,7 +236,7 @@
       "tasks": [
         {
           "taskTitle": "Delay Discounting Money 1 Month",
-          "taskIdentifier": "delayDiscounting_Money_1Month_full_task",
+          "taskIdentifier": "delayDiscounting_Money_1Month_full_task"
         }
       ]
     },
@@ -255,7 +252,7 @@
       "tasks": [
         {
           "taskTitle": "Delay Discounting Money 6 Months",
-          "taskIdentifier": "delayDiscounting_Money_6Month_full_task",
+          "taskIdentifier": "delayDiscounting_Money_6Month_full_task"
         }
       ]
     },
@@ -271,7 +268,7 @@
       "tasks": [
         {
           "taskTitle": "Delay Discounting 4",
-          "taskIdentifier": "delayDiscounting_Time_1Month_full_task",
+          "taskIdentifier": "delayDiscounting_Time_1Month_full_task"
         }
       ]
     },
@@ -287,7 +284,7 @@
       "tasks": [
         {
           "taskTitle": "Delay Discounting Time 6 Months",
-          "taskIdentifier": "delayDiscounting_Time_6Month_full_task",
+          "taskIdentifier": "delayDiscounting_Time_6Month_full_task"
         }
       ]
     }

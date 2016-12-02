@@ -1,7 +1,7 @@
 {
     "taskIdentifier": "am_1a",
     "schemaIdentifier": "am_likert_1a",
-    "title": "For the following questions, please think about your experiences over the past day.",
+    "title": "Think about yesterday as whole. Yesterday, I generally felt:",
     "items" : [
       {
         "identifier"        : "regret_am",

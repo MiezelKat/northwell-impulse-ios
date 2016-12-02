@@ -6,69 +6,73 @@
       {
      "identifier"   : "introduction",
      "type"         : "instruction",
-     "title"        : "Introduction",
-     "text"         : "In order to help us gain a better understanding of your thoughts, feelings and experiences, please complete the following questions. This will take approximately 10 minutes to complete today and about 4-6 minutes per day for the next 21 days.  ",
-   },
-
-     {
-     "identifier"       : "Pulsus",
-     "resourceName"            : "self_assessment_5_21",
-     "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+     "title"        : "21-Day Survey",
+     "text"         : "Thank you for your participation in the study over the last 21 days. This survey is similar to your first assessment and  will take approximately 15 minutes to complete."
      },
      {
      "identifier"       : "Pulsus",
-     "resourceName"            : "self_assessment_6_21",
-     "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+     "resourceName"            : "self_assessment_3_21",
+     "classType"               : "Impulse.CTFPulsusFormBridgeTask"
+     },
+     {
+     "identifier"       : "Pulsus",
+     "resourceName"            : "self_assessment_4_21",
+     "classType"               : "Impulse.CTFPulsusFormBridgeTask"
+     },
+     {
+     "identifier"       : "Pulsus",
+     "resourceName"            : "self_assessment_7_21",
+     "classType"               : "Impulse.CTFPulsusFormBridgeTask"
+     },
+     {
+     "identifier"       : "Pulsus",
+     "resourceName"            : "self_assessment_8_21",
+     "classType"               : "Impulse.CTFPulsusFormBridgeTask"
      },
      {
      "identifier"       : "Pulsus",
      "resourceName"            : "self_assessment_9_21",
-     "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+     "classType"               : "Impulse.CTFPulsusFormBridgeTask"
      },
      {
      "identifier"       : "Pulsus",
      "resourceName"            : "self_assessment_10_21",
-     "classType"               : "Impulse.CTFPulsusFormBridgeTask",
-     },
-     {
-     "identifier"       : "Pulsus",
-     "resourceName"            : "self_assessment_11_21",
-     "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+     "classType"               : "Impulse.CTFPulsusFormBridgeTask"
      },
      {
        "identifier"   :   "PAMMultipleSelection",
        "resourceName"            : "PAM",
-       "classType"               : "Impulse.CTFPAMMultipleSelectionTask",
+       "classType"               : "Impulse.CTFPAMMultipleSelectionTask"
      },
      {
      "identifier":  "notes_1",
      "type"     :   "textfield",
-     "text"       : "Is there any additional information you would like to share with us?",
+     "text"       : "What would you change about the game-like tasks you completed?",
      "optional" : true
      },
      {
      "identifier":  "notes_2",
      "type"     :   "textfield",
-     "text"       : "What would you change/edit about the game-like tasks you completed?",
+     "text"       : "What would you change about the questions you completed?",
      "optional" : true
      },
      {
      "identifier":  "notes_3",
      "type"     :   "textfield",
-     "text"       : "What would you change/edit about the questions you completed?",
+     "text"       : "What do you recommend we give people feedback on after they complete the assessment?",
      "optional" : true
      },
      {
      "identifier":  "notes_4",
      "type"     :   "textfield",
-     "text"       : "What do you recommend we give people feedback on after they complete the assessment?",
+     "text"       : "What would you say to someone who was having trouble resisting the temptation to act in an unhealthy way in the moment?",
      "optional" : true
      },
      {
-     "identifier":  "notes_5",
-     "type"     :   "textfield",
-     "text"       : "What would you say to someone who was having trouble resisting temptation to act in an unhealthy way in the moment?",
-     "optional" : true
-     },
+     "identifier"   : "results",
+     "type"         : "instruction",
+     "title"        : "Thank you",
+     "text"         : "Please contact us to finalize your participant in the study. Upon hearing from you, we will schedule your payment and discuss your reactions to the study!",
+    }
    ]
 }

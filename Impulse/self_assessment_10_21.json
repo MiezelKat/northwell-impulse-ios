@@ -1,138 +1,49 @@
 {
-    "taskIdentifier": "self_assessment_baseline_10",
-    "schemaIdentifier": "sdffse",
-    "title": "Overall, which comes closest to how you think, feel and behave between these two opposites.",
-    "gradientColors": ["#1B75BB", "#FFFFFF", "#1B75BB"],
+    "taskIdentifier": "self_assessment_baseline_10_21",
+    "schemaIdentifier": "sdffsd",
+    "title": "Please think about the last three weeks when answering the following questions:",
     "items" : [
                {
-               "identifier"        : "confusion_bl",
-               "text"              : "",
-               "type"              : "semanticDifferential",
+               "identifier"        : "Trackunderstand_21",
+               "text"              : "Tracking my behavior has helped me to understand myself better.",
+               "type"              : "likert",
                "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "clear headed",
-                   "maxValueText": "confused"
-                 }
+                 "min"     : 0,
+                 "max"      : 10,
+                 "default"   : 5,
+                 "step": 1,
+                 "minValueText": "0-not at all",
+                 "midValueText": "moderate",
+                 "maxValueText": "10-extremely"
+               }
                },
                {
-               "identifier"        : "focus_bl",
-               "text"              : "",
-               "type"              : "semanticDifferential",
+               "identifier"        : "Trackmorehealth_21",
+               "text"              : "Tracking my behavior has helped me to reduce the amount that I engage in unhealthy behaviors.",
+               "type"              : "likert",
                "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "focused",
-                   "maxValueText": "distracted"
-                 }
+                 "min"     : 0,
+                 "max"      : 10,
+                 "default"   : 5,
+                 "step": 1,
+                 "minValueText": "0-not at all",
+                 "midValueText": "moderate",
+                 "maxValueText": "10-extremely"
+               }
                },
                {
-               "identifier"        : "organized_bl",
-               "text"              : "",
-               "type"              : "semanticDifferential",
+               "identifier"        : "Tracklesshealth_21",
+               "text"              : "Tracking my behavior has made me engage in unhealthy behaviors more than usual.",
+               "type"              : "likert",
                "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "organized",
-                   "maxValueText": "unorganized"
-                 }
-               },
-               {
-               "identifier"        : "intentional_bl",
-               "text"              : "",
-               "type"              : "semanticDifferential",
-               "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "impulsive",
-                   "maxValueText": "intentional"
-                 }
-               },
-               {
-               "identifier"        : "bored_bl",
-               "text"              : "",
-               "type"              : "semanticDifferential",
-               "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "bored",
-                   "maxValueText": "engaged"
-                 }
-               },
-               {
-               "identifier"        : "proud_bl",
-               "text"              : "",
-               "type"              : "semanticDifferential",
-               "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "proud",
-                   "maxValueText": "ashamed"
-                 }
-               },
-               {
-               "identifier"        : "efficient_bl",
-               "text"              : "",
-               "type"              : "semanticDifferential",
-               "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "efficient",
-                   "maxValueText": "inefficient"
-                 }
-               },
-               {
-               "identifier"        : "energetic_bl",
-               "text"              : "",
-               "type"              : "semanticDifferential",
-               "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "energetic",
-                   "maxValueText": "tired"
-                 }
-               },
-               {
-               "identifier"        : "calm_bl",
-               "text"              : "",
-               "type"              : "semanticDifferential",
-               "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "calm",
-                   "maxValueText": "anxious"
-                 }
-               },
-               {
-               "identifier"        : "conservative_bl",
-               "text"              : "",
-               "type"              : "semanticDifferential",
-               "range"             : {
-                   "min"     : 0,
-                   "max"      : 10,
-                   "default"   : 5,
-                   "step": 1,
-                   "minValueText": "conservative",
-                   "maxValueText": "progressive"
-                 }
-               },
+                 "min"     : 0,
+                 "max"      : 10,
+                 "default"   : 5,
+                 "step": 1,
+                 "minValueText": "0-not at all",
+                 "midValueText": "moderate",
+                 "maxValueText": "10-extremely"
+               }
+               }
               ]
 }

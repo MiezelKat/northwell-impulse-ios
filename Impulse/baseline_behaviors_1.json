@@ -39,8 +39,8 @@
                       {   "prompt" : "Gaming",
                       "value" : "gaming"},
 
-                      {   "prompt" : "Marijuana",
-                      "value" : "pot"},
+                      {   "prompt" : "Low movement/\nactivity",
+                      "value" : "sitting"},
                       {   "prompt" : "Spending /\nShopping",
                       "value" : "spend"},
                       {   "prompt" : "Temper",

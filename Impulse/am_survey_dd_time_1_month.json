@@ -4,12 +4,12 @@
       {
         "identifier"       : "Pulsus",
         "resourceName"            : "am_likert_1",
-        "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+        "classType"               : "Impulse.CTFPulsusFormBridgeTask"
       },
       {
         "identifier"       : "Pulsus",
         "resourceName"            : "am_likert_1a",
-        "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+        "classType"               : "Impulse.CTFPulsusFormBridgeTask"
       },
       {
         "identifier":  "BehaviorVSR",
@@ -19,18 +19,18 @@
       {
         "identifier"       : "Pulsus",
         "resourceName"            : "am_likert_3",
-        "classType"               : "Impulse.CTFPulsusFormBridgeTask",
+        "classType"               : "Impulse.CTFPulsusFormBridgeTask"
       },
       {
         "identifier"   :   "PAM",
         "resourceName"            : "PAM",
-        "classType"               : "Impulse.CTFPAMTask",
+        "classType"               : "Impulse.CTFPAMTask"
       },
       {
         "identifier"   : "introduction",
         "type"         : "instruction",
-        "title"        : "Welcome to the Delay Discounting Task.",
-        "text"         : "You will be asked six questions where you will choose between an amount of time off work that you would rather have now vs. an amount of time off work that you can have in 1 month."
+        "title"        : "Welcome to the Now and Later Game",
+        "text"         : "In this game you will choose between getting different numbers of hours off work/school to do whatever you want  either right now, or in one month. While you will not receive the actual time-off, please make your decisions as if you were really going to receive the time-off for leisure. 8 hours equals about one day off. There are no correct or incorrect choices."
       },
       {
         "taskIdentifier": "delayDiscounting_Time_1Month_active_task",
@@ -40,9 +40,8 @@
       {
          "identifier"   : "results",
          "type"         : "instruction",
-         "title"        : "Thanks!",
-         "text"         : "",
-       },
-
+         "title"        : "Thank you for completing the task!",
+         "text"         : ""
+       }
     ]
 }

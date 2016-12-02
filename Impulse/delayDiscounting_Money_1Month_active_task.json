@@ -7,6 +7,6 @@
     "nowDescription": "Now",
     "laterDescription": "In 1 Month",
     "formatString":"$%.02f",
-    "prompt": "Which would you rather have?"
+    "prompt": "Please choose which amounts of money you would like either right NOW or in ONE MONTH."
   }
 }
