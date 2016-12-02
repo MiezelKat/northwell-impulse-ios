@@ -25,7 +25,7 @@
         "identifier"   : "introduction_4",
         "type"         : "instruction",
         "title"        : "",
-        "text"         : "To keep the money, stop pumping before it pops and press 'Collect'. /n The goal is to earn as much money as possible."
+        "text"         : "To keep the money, stop pumping before it pops and press 'Collect'. \n The goal is to earn as much money as possible."
       },
      {
        "taskIdentifier": "bart_250_dollars_active_task",
