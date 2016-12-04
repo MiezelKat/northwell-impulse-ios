@@ -127,6 +127,7 @@
 		E2CCB6731DB5610F00C801A4 /* CTFBARTStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2CCB6711DB5610F00C801A4 /* CTFBARTStepViewController.xib */; };
 		E2CCB6771DB568CB00C801A4 /* UIView+Explode.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CCB6761DB568CB00C801A4 /* UIView+Explode.m */; };
 		E2D56E751DC12A2600E6A9C4 /* CTFBARTResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D56E741DC12A2600E6A9C4 /* CTFBARTResult.swift */; };
+		E2D9E08F1DF22319007772DA /* Reenrollment.json in Resources */ = {isa = PBXBuildFile; fileRef = E2D9E08E1DF22319007772DA /* Reenrollment.json */; };
 		E2EF6B1F1DA2E2970034456A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF6B1E1DA2E2970034456A /* AppDelegate.swift */; };
 		E2EF6B241DA2E2970034456A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EF6B221DA2E2970034456A /* Main.storyboard */; };
 		E2EF6B261DA2E2970034456A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2EF6B251DA2E2970034456A /* Assets.xcassets */; };
@@ -352,6 +353,7 @@
 		E2CCB6751DB568CB00C801A4 /* UIView+Explode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Explode.h"; path = "../../ios-gonogo/Go-No-Go/Go-No-Go/Categories/UIView+Explode.h"; sourceTree = "<group>"; };
 		E2CCB6761DB568CB00C801A4 /* UIView+Explode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Explode.m"; path = "../../ios-gonogo/Go-No-Go/Go-No-Go/Categories/UIView+Explode.m"; sourceTree = "<group>"; };
 		E2D56E741DC12A2600E6A9C4 /* CTFBARTResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFBARTResult.swift; sourceTree = "<group>"; };
+		E2D9E08E1DF22319007772DA /* Reenrollment.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Reenrollment.json; sourceTree = "<group>"; };
 		E2E7591D1DA2F7AC00D00C55 /* SDLRKX.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDLRKX.xcodeproj; path = "sdl-rkx/SDLRKX/SDLRKX.xcodeproj"; sourceTree = "<group>"; };
 		E2E759231DA2F7D200D00C55 /* BridgeAppSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BridgeAppSDK.xcodeproj; path = BridgeAppSDK/BridgeAppSDK.xcodeproj; sourceTree = "<group>"; };
 		E2EF6B1B1DA2E2970034456A /* Impulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Impulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -599,6 +601,7 @@
 				E2C20D7B1DC02BBD00382527 /* pm_survey_bart_25_cents.json */,
 				E2C20D7C1DC02BBD00382527 /* pm_survey_bart_250_dollars.json */,
 				E2AA6D281DA43CEE005D5137 /* Baseline.json */,
+				E2D9E08E1DF22319007772DA /* Reenrollment.json */,
 				E2FE1AAF1DB00D0100DBB8E7 /* am_likert_1.json */,
 				E2FE1AB01DB00D0100DBB8E7 /* am_likert_3.json */,
 				E2CCB6631DB151F700C801A4 /* pm_likert_1.json */,
@@ -941,6 +944,7 @@
 				E256597E1DCC24630067481C /* pm_survey_dd_money_1_month.json in Resources */,
 				E2A5F0CF1DC7EFCA002CA609 /* self_assessment_10_21.json in Resources */,
 				E2AA6D271DA43CDD005D5137 /* PAM.json in Resources */,
+				E2D9E08F1DF22319007772DA /* Reenrollment.json in Resources */,
 				E2FE1AB41DB00D0100DBB8E7 /* am_survey_go_no_go_stable.json in Resources */,
 				E21F23921DA58D9500760EA7 /* go_no_go_stable_stimulus_active_task.json in Resources */,
 				E26772901DCBF1850049D161 /* pam_pm.json in Resources */,
