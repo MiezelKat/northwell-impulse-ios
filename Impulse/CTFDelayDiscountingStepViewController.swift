@@ -35,8 +35,8 @@ class CTFDelayDiscountingStepViewController: ORKStepViewController {
     static let totalAnimationDuration: TimeInterval = 0.2
     
     //UI Elements
-    @IBOutlet weak var nowLabel: UILabel!
-    @IBOutlet weak var laterLabel:UILabel!
+//    @IBOutlet weak var nowLabel: UILabel!
+//    @IBOutlet weak var laterLabel:UILabel!
     @IBOutlet weak var nowButton:CTFBorderedButton!
     @IBOutlet weak var laterButton:CTFBorderedButton!
     @IBOutlet weak var promptLabel: UILabel!
@@ -62,17 +62,19 @@ class CTFDelayDiscountingStepViewController: ORKStepViewController {
         super.viewDidLoad()
 
         self.nowButton.tintColor = self.view.tintColor
+        self.nowButton.titleLabel?.numberOfLines = 0
+        self.nowButton.titleLabel?.textAlignment = NSTextAlignment.center
         self.laterButton.tintColor = self.view.tintColor
+        self.laterButton.titleLabel?.numberOfLines = 0
+        self.laterButton.titleLabel?.textAlignment = NSTextAlignment.center
         
         if let stepParams = self.stepParams {
             
             let firstTrial = self.firstTrial(stepParams: stepParams, trialId: 0)
-            self.nowLabel.text = stepParams.nowDescription
-            self.laterLabel.text = stepParams.laterDescription
             
             // link UI to Trial params
-            let nowString = String(format: stepParams.formatString, firstTrial.now)
-            let laterString = String(format: stepParams.formatString, firstTrial.later)
+            let nowString = String(format: stepParams.formatString, firstTrial.now) + "\n\(stepParams.nowDescription as String)"
+            let laterString = String(format: stepParams.formatString, firstTrial.later) + "\n\(stepParams.laterDescription as String)"
             self.nowButton.setTitle(nowString, for: .normal)
             self.laterButton.setTitle(laterString, for: .normal)
             self.promptLabel.text = stepParams.prompt
@@ -155,8 +157,8 @@ class CTFDelayDiscountingStepViewController: ORKStepViewController {
             
             if let stepParams = self.stepParams{
                 // link UI to Trial params
-                let nowString = String(format: stepParams.formatString, trial.now)
-                let laterString = String(format: stepParams.formatString, trial.later)
+                let nowString = String(format: stepParams.formatString, trial.now) + "\n\(stepParams.nowDescription as String)"
+                let laterString = String(format: stepParams.formatString, trial.later) + "\n\(stepParams.laterDescription as String)"
                 self.nowButton.setTitle(nowString, for: .normal)
                 self.laterButton.setTitle(laterString, for: .normal)
                 

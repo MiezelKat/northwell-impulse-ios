@@ -11,9 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CTFDelayDiscountingStepViewController" customModule="Impulse" customModuleProvider="target">
             <connections>
                 <outlet property="laterButton" destination="FzL-nk-BAE" id="wJm-5H-qfK"/>
-                <outlet property="laterLabel" destination="UbC-Vn-wJr" id="orN-ge-iw9"/>
                 <outlet property="nowButton" destination="QD0-kb-ja7" id="lS5-jV-8WD"/>
-                <outlet property="nowLabel" destination="hCH-qM-Lj1" id="LMd-PW-KCe"/>
                 <outlet property="promptLabel" destination="KHD-Gq-RFg" id="fqK-bR-laF"/>
                 <outlet property="view" destination="iN0-l3-epB" id="QYb-v4-40J"/>
             </connections>
@@ -54,7 +52,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="187.5" height="167"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QD0-kb-ja7" customClass="CTFBorderedButton" customModule="Impulse" customModuleProvider="target">
-                                                    <rect key="frame" x="34" y="27.5" width="120" height="60"/>
+                                                    <rect key="frame" x="34" y="53.5" width="120" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="IK4-E8-Ndx"/>
                                                         <constraint firstAttribute="height" constant="60" id="mFu-kk-iq1"/>
@@ -64,19 +62,11 @@
                                                         <action selector="nowButtonPress:" destination="-1" eventType="touchUpInside" id="i8q-aH-on4"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCH-qM-Lj1">
-                                                    <rect key="frame" x="73" y="98.5" width="42" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="QD0-kb-ja7" firstAttribute="centerX" secondItem="t4j-VH-je5" secondAttribute="centerX" id="3Ak-yw-y2A"/>
-                                                <constraint firstItem="QD0-kb-ja7" firstAttribute="centerY" secondItem="t4j-VH-je5" secondAttribute="centerY" constant="-26" id="3bh-jy-psZ"/>
-                                                <constraint firstItem="hCH-qM-Lj1" firstAttribute="centerX" secondItem="t4j-VH-je5" secondAttribute="centerX" id="EZa-aT-mP8"/>
-                                                <constraint firstItem="hCH-qM-Lj1" firstAttribute="centerY" secondItem="t4j-VH-je5" secondAttribute="centerY" constant="26" id="u0D-fp-Gdn"/>
+                                                <constraint firstItem="QD0-kb-ja7" firstAttribute="centerY" secondItem="t4j-VH-je5" secondAttribute="centerY" id="3bh-jy-psZ"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tR2-sG-LWN">
@@ -92,7 +82,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="187.5" height="167"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FzL-nk-BAE" customClass="CTFBorderedButton" customModule="Impulse" customModuleProvider="target">
-                                                    <rect key="frame" x="33.5" y="27.5" width="120" height="60"/>
+                                                    <rect key="frame" x="33.5" y="53.5" width="120" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="eZz-11-oT4"/>
                                                         <constraint firstAttribute="height" constant="60" id="rXv-vM-37M"/>
@@ -102,19 +92,11 @@
                                                         <action selector="laterButtonPress:" destination="-1" eventType="touchUpInside" id="o7W-9K-wPt"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbC-Vn-wJr">
-                                                    <rect key="frame" x="72.5" y="98.5" width="42" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="UbC-Vn-wJr" firstAttribute="centerX" secondItem="Lo9-8m-cpl" secondAttribute="centerX" id="Gz9-SR-vtU"/>
-                                                <constraint firstItem="UbC-Vn-wJr" firstAttribute="centerY" secondItem="Lo9-8m-cpl" secondAttribute="centerY" constant="26" id="YFv-gI-RzM"/>
                                                 <constraint firstItem="FzL-nk-BAE" firstAttribute="centerX" secondItem="Lo9-8m-cpl" secondAttribute="centerX" id="cuj-ZC-pVy"/>
-                                                <constraint firstItem="FzL-nk-BAE" firstAttribute="centerY" secondItem="Lo9-8m-cpl" secondAttribute="centerY" constant="-26" id="zIC-UF-mKF"/>
+                                                <constraint firstItem="FzL-nk-BAE" firstAttribute="centerY" secondItem="Lo9-8m-cpl" secondAttribute="centerY" id="zIC-UF-mKF"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZhL-RS-7gA">
