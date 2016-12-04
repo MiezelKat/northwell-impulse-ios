@@ -55,6 +55,8 @@ class CTFPulsusFormBridgeTask: NSObject, SBABridgeTask, SBAStepTransformer {
             }
         }()
         
+        let trackHeight: CGFloat? = dictionary?["trackHeight"] as? CGFloat
+        
 
 //        let scaleAnswerFormat = ORKAnswerFormat.scale(withMaximumValue: maximumValue, minimumValue: minimumValue, defaultValue: defaultValue, step: stepValue, vertical: false, maximumValueDescription: maximumValueDescription, minimumValueDescription: minimumValueDescription)
         let scaleAnswerFormat = CTFScaleAnswerFormat(withMaximumValue: maximumValue,
@@ -65,7 +67,8 @@ class CTFPulsusFormBridgeTask: NSObject, SBABridgeTask, SBAStepTransformer {
                                                      maximumValueDescription: maximumValueDescription,
                                                      intermediateValueDescription: intermediateValueDescription,
                                                      minimumValueDescription: minimumValueDescription,
-                                                     scaleAnswerType: scaleAnswerType)
+                                                     scaleAnswerType: scaleAnswerType,
+                                                     trackHeight: trackHeight)
         
         if scaleAnswerType == CTFScaleAnswerType.semanticDifferential {
             scaleAnswerFormat.gradientColors =

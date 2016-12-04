@@ -109,6 +109,7 @@
                 <outlet property="midTextLabel" destination="phq-cy-UFU" id="SR4-hu-pSE"/>
                 <outlet property="minTextLabel" destination="3d1-mG-WK7" id="6kz-uJ-OWl"/>
                 <outlet property="titleLabel" destination="FFH-UQ-GTR" id="vDC-7c-9H1"/>
+                <outlet property="trackHeightConstraint" destination="XEl-zL-jSW" id="zVU-qO-aPh"/>
                 <outlet property="trackView" destination="TZR-Lg-pu0" id="TMs-A3-fLz"/>
                 <outlet property="valueLabel" destination="KVR-Lr-7YF" id="52O-n0-XeG"/>
                 <outlet property="valueSlider" destination="iUb-4W-4l7" id="w9E-6V-cwF"/>

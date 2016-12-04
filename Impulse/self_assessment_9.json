@@ -8,6 +8,7 @@
                "identifier"        : "frustrated_bl",
                "text"              : "",
                "type"              : "semanticDifferential",
+               "trackHeight"       : 8,
                "range"             : {
                    "min"     : 0,
                    "max"      : 10,
@@ -21,6 +22,7 @@
                "identifier"        : "cautious_bl",
                "text"              : "",
                "type"              : "semanticDifferential",
+               "trackHeight"       : 8,
                "range"             : {
                    "min"     : 0,
                    "max"      : 10,
@@ -34,6 +36,7 @@
                "identifier"        : "sad_bl",
                "text"              : "",
                "type"              : "semanticDifferential",
+               "trackHeight"       : 8,
                "range"             : {
                    "min"     : 0,
                    "max"      : 10,
@@ -47,6 +50,7 @@
                "identifier"        : "lonely_bl",
                "text"              : "",
                "type"              : "semanticDifferential",
+               "trackHeight"       : 8,
                "range"             : {
                    "min"     : 0,
                    "max"      : 10,
@@ -60,6 +64,7 @@
                "identifier"        : "optimistic_bl",
                "text"              : "",
                "type"              : "semanticDifferential",
+               "trackHeight"       : 8,
                "range"             : {
                    "min"     : 0,
                    "max"      : 10,
@@ -73,6 +78,7 @@
                "identifier"        : "determined_bl",
                "text"              : "",
                "type"              : "semanticDifferential",
+               "trackHeight"       : 8,
                "range"             : {
                    "min"     : 0,
                    "max"      : 10,
@@ -86,6 +92,7 @@
                "identifier"        : "stressed_bl",
                "text"              : "",
                "type"              : "semanticDifferential",
+               "trackHeight"       : 8,
                "range"             : {
                    "min"     : 0,
                    "max"      : 10,
@@ -99,6 +106,7 @@
                "identifier"        : "positive_bl",
                "text"              : "",
                "type"              : "semanticDifferential",
+               "trackHeight"       : 8,
                "range"             : {
                    "min"     : 0,
                    "max"      : 10,
@@ -112,6 +120,7 @@
                "identifier"        : "healthy_bl",
                "text"              : "",
                "type"              : "semanticDifferential",
+               "trackHeight"       : 8,
                "range"             : {
                    "min"     : 0,
                    "max"      : 10,
@@ -125,6 +134,7 @@
                "identifier"        : "productive_bl",
                "text"              : "",
                "type"              : "semanticDifferential",
+               "trackHeight"       : 8,
                "range"             : {
                    "min"     : 0,
                    "max"      : 10,

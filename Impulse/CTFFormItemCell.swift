@@ -20,6 +20,8 @@ class CTFFormItemCell: UITableViewCell {
     let kValueLabelWidth: CGFloat = 24
     let kValueLabelHeight: CGFloat = 24
     let kStackViewSpacing: CGFloat = 20
+    
+    let defaultTrackHeight: CGFloat = 4
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
@@ -28,6 +30,7 @@ class CTFFormItemCell: UITableViewCell {
     @IBOutlet weak var midTextLabel: UILabel!
     @IBOutlet weak var maxTextLabel: UILabel!
     @IBOutlet weak var trackView: UIView!
+    @IBOutlet weak var trackHeightConstraint: NSLayoutConstraint!
     
     var delegate: CTFFormItemCellDelegate?
     var answer: AnyObject? {
@@ -58,7 +61,10 @@ class CTFFormItemCell: UITableViewCell {
         
         if let scaleAnswerFormat = formItem.answerFormat as? CTFScaleAnswerFormat {
             self.midTextLabel.text = scaleAnswerFormat.intermediateValueDescription
+            
+            self.trackHeightConstraint.constant = scaleAnswerFormat.trackHeight ?? defaultTrackHeight
         }
+        
         
         self.setValue(value)
     }
@@ -77,6 +83,8 @@ class CTFFormItemCell: UITableViewCell {
             gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
             gradient.colors = gradientColors.map({$0.cgColor})
             self.trackView.layer.insertSublayer(gradient, at: 0)
+            
+            self.trackView.layer.cornerRadius = self.trackHeightConstraint.constant / 2.0
         }
         else {
             self.valueSlider.minimumTrackTintColor = UIColor(red: 0.0021, green: 0.5427, blue: 0.8975, alpha: 1.0)

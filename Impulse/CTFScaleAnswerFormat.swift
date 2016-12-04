@@ -16,8 +16,8 @@ enum CTFScaleAnswerType {
 
 class CTFScaleAnswerFormat: ORKScaleAnswerFormat {
     var intermediateValueDescription: String?
-    
     var scaleType: CTFScaleAnswerType?
+    var trackHeight: CGFloat?
     
     convenience init(withMaximumValue scaleMaximum: Int,
          minimumValue scaleMinimum: Int,
@@ -27,7 +27,8 @@ class CTFScaleAnswerFormat: ORKScaleAnswerFormat {
          maximumValueDescription: String?,
          intermediateValueDescription: String?,
          minimumValueDescription: String?,
-         scaleAnswerType: CTFScaleAnswerType?){
+         scaleAnswerType: CTFScaleAnswerType?,
+         trackHeight: CGFloat?){
         
         self.init(maximumValue: scaleMaximum,
                    minimumValue: scaleMinimum,
@@ -39,6 +40,7 @@ class CTFScaleAnswerFormat: ORKScaleAnswerFormat {
         
         self.intermediateValueDescription = intermediateValueDescription
         self.scaleType = scaleAnswerType
+        self.trackHeight = trackHeight
         
     }
     

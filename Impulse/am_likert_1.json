@@ -8,6 +8,7 @@
         "identifier"        : "positive_am",
         "text"              : "",
         "type"              : "semanticDifferential",
+        "trackHeight"       : 8,
         "range"             : {
           "min"     : 0,
           "max"      : 10,
@@ -21,6 +22,7 @@
         "identifier"        : "intentional_am",
         "text"              : "",
         "type"              : "semanticDifferential",
+        "trackHeight"       : 8,
         "range"             : {
           "min"     : 0,
           "max"      : 10,
@@ -34,6 +36,7 @@
         "identifier"        : "productive_am",
         "text"              : "",
         "type"              : "semanticDifferential",
+        "trackHeight"       : 8,
         "range"             : {
           "min"     : 0,
           "max"      : 10,
@@ -47,6 +50,7 @@
         "identifier"        : "stressed_am",
         "text"              : "",
         "type"              : "semanticDifferential",
+        "trackHeight"       : 8,
         "range"             : {
           "min"     : 0,
           "max"      : 10,
@@ -60,6 +64,7 @@
         "identifier"        : "healthy_am",
         "text"              : "",
         "type"              : "semanticDifferential",
+        "trackHeight"       : 8,
         "range"             : {
           "min"     : 0,
           "max"      : 10,

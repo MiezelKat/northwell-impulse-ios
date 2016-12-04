@@ -8,6 +8,7 @@
         "identifier"        : "focusnow_am",
         "text"              : "",
         "type"              : "semanticDifferential",
+        "trackHeight"       : 8,
         "range"             : {
           "min"     : 0,
           "max"      : 10,
@@ -21,6 +22,7 @@
         "identifier"        : "intentionalnow_am",
         "text"              : "",
         "type"              : "semanticDifferential",
+        "trackHeight"       : 8,
         "range"             : {
           "min"     : 0,
           "max"      : 10,
@@ -34,6 +36,7 @@
         "identifier"        : "borednow_am",
         "text"              : "",
         "type"              : "semanticDifferential",
+        "trackHeight"       : 8,
         "range"             : {
           "min"     : 0,
           "max"      : 10,
@@ -47,6 +50,7 @@
         "identifier"        : "proudnow_am",
         "text"              : "",
         "type"              : "semanticDifferential",
+        "trackHeight"       : 8,
         "range"             : {
           "min"     : 0,
           "max"      : 10,
@@ -60,6 +64,7 @@
         "identifier"        : "energeticnow_am",
         "text"              : "",
         "type"              : "semanticDifferential",
+        "trackHeight"       : 8,
         "range"             : {
           "min"     : 0,
           "max"      : 10,
@@ -73,6 +78,7 @@
         "identifier"        : "frustratednow_am",
         "text"              : "",
         "type"              : "semanticDifferential",
+        "trackHeight"       : 8,
         "range"             : {
           "min"     : 0,
           "max"      : 10,
@@ -86,6 +92,7 @@
         "identifier"        : "cautiousnow_am",
         "text"              : "",
         "type"              : "semanticDifferential",
+        "trackHeight"       : 8,
         "range"             : {
           "min"     : 0,
           "max"      : 10,
@@ -99,6 +106,7 @@
         "identifier"        : "lonelynow_am",
         "text"              : "",
         "type"              : "semanticDifferential",
+        "trackHeight"       : 8,
         "range"             : {
           "min"     : 0,
           "max"      : 10,
@@ -112,6 +120,7 @@
         "identifier"        : "optimisticnow_am",
         "text"              : "",
         "type"              : "semanticDifferential",
+        "trackHeight"       : 8,
         "range"             : {
           "min"     : 0,
           "max"      : 10,
@@ -125,6 +134,7 @@
         "identifier"        : "determinednow_am",
         "text"              : "",
         "type"              : "semanticDifferential",
+        "trackHeight"       : 8,
         "range"             : {
           "min"     : 0,
           "max"      : 10,
