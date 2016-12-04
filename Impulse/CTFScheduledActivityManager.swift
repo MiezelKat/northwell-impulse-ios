@@ -39,7 +39,8 @@ let kDailySurveyTimeAfterInterval: TimeInterval = 6.0 * k1HourInterval
 let kDailySurveyDelaySinceBaselineTimeInterval: TimeInterval = 0.0
 //let kDailySurveyDelaySinceBaselineTimeInterval: TimeInterval = 2.0 * k1MinuteInterval
 
-
+let kThankYouGUID = "Thank-you-GUID"
+let kThankYouText = "Thank you for today's input!"
 
 
 
@@ -83,7 +84,19 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
     func loadData() {
         //note that we will add filters in the future to only show items that should be shown based on context
         self.activities = self.scheduleItems.filter(self.scheduledItemsFilter).flatMap({$0.generateScheduledActivity()})
-        self.trialActivities = self.scheduleItems.filter(self.trialItemsFilter).flatMap({$0.generateScheduledActivity()})
+        if self.activities.isEmpty {
+            
+            let thankYouActivity = CTFScheduledActivity(guid: kThankYouGUID, title: kThankYouText, activity: nil, timeEstimate: nil)!
+            thankYouActivity.completed = true
+            self.activities = [thankYouActivity]
+        }
+        
+        self.trialActivities = self.scheduleItems.filter(self.trialItemsFilter).flatMap({ scheduledItem in
+            let activity = scheduledItem.generateScheduledActivity()
+            activity?.completed = CTFStateManager.defaultManager.isTrialActivityCompleted(guid: scheduledItem.guid)
+            activity?.trial = true
+            return activity
+        })
     }
     
     func reloadData() {
@@ -391,7 +404,7 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
         // If this is a valid schedule then create the task view controller
         guard let taskViewController = self.createTaskViewControllerForSchedule(schedule)
             else {
-                assertionFailure("Failed to create task view controller for \(schedule)")
+//                assertionFailure("Failed to create task view controller for \(schedule)")
                 return
         }
         
@@ -401,11 +414,13 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
     
     func createTask(_ schedule: CTFScheduledActivity) -> (task: ORKTask?, taskRef: SBATaskReference?) {
         
-        let taskRef = bridgeInfo.taskReferenceWithIdentifier(schedule.activity.identifier)
+        guard let activity = schedule.activity else { return (nil, nil) }
+
+        let taskRef = bridgeInfo.taskReferenceWithIdentifier(activity.identifier)
         
         let task = taskRef?.transformToTask(with: CTFTaskFactory(), isLastStep: true)
         if let surveyTask = task as? SBASurveyTask {
-            surveyTask.title = schedule.activity.title
+            surveyTask.title = activity.title
         }
         return (task, taskRef)
     }
@@ -587,6 +602,12 @@ extension CTFScheduledActivityManager {
     
     func handleActivityResult(_ result: ORKTaskResult, schedule: CTFScheduledActivity) -> [CTFActivityResult]? {
         print(result)
+        
+        if schedule.trial {
+            CTFStateManager.defaultManager.markTrialActivity(guid: schedule.guid, completed: true)
+            return nil
+        }
+        
         switch(result.identifier) {
             
         case "Reenrollment":

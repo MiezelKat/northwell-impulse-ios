@@ -58,7 +58,7 @@ class CTFActivityTableViewController: SBAActivityTableViewController, CTFSetting
         
         // The only cell type that is supported in the base implementation is an SBAActivityTableViewCell
         activityCell.titleLabel.text = schedule.title
-        activityCell.complete = false
+        activityCell.complete = schedule.completed
         activityCell.timeLabel?.text = ""
         activityCell.subtitleLabel?.text = schedule.timeEstimate
         

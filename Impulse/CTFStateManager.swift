@@ -23,6 +23,8 @@ class CTFStateManager: NSObject {
     static let k21DayNotificationText: String = "Hey, it's time to take your 21 day survey!"
     
     
+    
+    
     override init() {
         super.init()
         //check for firstRun
@@ -268,6 +270,17 @@ class CTFStateManager: NSObject {
         
     }
     
+    public func markTrialActivity(guid: String, completed: Bool) {
+        
+        //get completed trial activities
+        let completedTrialActivities: [String] = CTFKeychainHelpers.getKeychainObject(kCompletedTrialActivities) as? [String] ?? []
+        let newCompletedTrialActivities: [String] = completedTrialActivities.appending(guid)
+        CTFKeychainHelpers.setKeychainObject(newCompletedTrialActivities as NSArray, forKey: kCompletedTrialActivities)
+        
+    }
+    
+    
+    
 
     //MARK: presentation logic
     
@@ -278,6 +291,14 @@ class CTFStateManager: NSObject {
     
     public func shouldShowBaselineSurvey() -> Bool {
         return !self.isBaselineCompleted
+    }
+    
+    public func isTrialActivityCompleted(guid: String) -> Bool {
+        guard let completedTrialActivities: [String] = CTFKeychainHelpers.getKeychainObject(kCompletedTrialActivities) as? [String] else {
+            return false
+        }
+        
+        return completedTrialActivities.contains(guid)
     }
     
     public func shouldShow21DaySurvey() -> Bool {

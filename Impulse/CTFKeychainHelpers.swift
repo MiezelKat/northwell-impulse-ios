@@ -17,6 +17,7 @@ let kBaselineSurveyCompleted: String = "BaselineSurveyCompleted"
 let k21DaySurveyCompleted: String = "21DaySurveyCompleted"
 let kBaselineBehaviorResults: String = "BaselineBehaviorResults"
 let kTrialActivitiesEnabled: String = "TrialActivitiesEnabled"
+let kCompletedTrialActivities: String = "CompeltedTrialActivities"
 
 class CTFKeychainHelpers: NSObject {
     static func setKeychainObject(_ object: NSSecureCoding, forKey key: String) {
