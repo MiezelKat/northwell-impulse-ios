@@ -144,6 +144,9 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
         case "baseline":
             return CTFStateManager.defaultManager.shouldShowBaselineSurvey()
             
+        case "reenrollment":
+            return CTFStateManager.defaultManager.shouldShowBaselineSurvey()
+            
         case "21-day-assessment":
             return CTFStateManager.defaultManager.shouldShow21DaySurvey()
             
@@ -471,6 +474,35 @@ extension CTFScheduledActivityManager {
         
     }
     
+    func handleReenrollment(_ result: ORKTaskResult) {
+        
+        if let notificationTimeResult = result.result(forIdentifier: "baseline_completed_date_picker") as? ORKStepResult,
+            let dateQuestionResult = notificationTimeResult.firstResult as? ORKDateQuestionResult,
+            let completedDate = dateQuestionResult.dateAnswer {
+            
+            CTFStateManager.defaultManager.markBaselineSurveyAsCompleted(completedDate: completedDate)
+        }
+        
+        //extract morning and evening survey times
+        
+        if let notificationTimeResult = result.result(forIdentifier: "morning_notification_time_picker") as? ORKStepResult,
+            let timeOfDayResult = notificationTimeResult.firstResult as? ORKTimeOfDayQuestionResult,
+            let dateComponents = timeOfDayResult.dateComponentsAnswer {
+            
+            CTFStateManager.defaultManager.setMorningSurveyTime(dateComponents)
+        }
+        
+        if let notificationTimeResult = result.result(forIdentifier: "evening_notification_time_picker") as? ORKStepResult,
+            let timeOfDayResult = notificationTimeResult.firstResult as? ORKTimeOfDayQuestionResult,
+            let dateComponents = timeOfDayResult.dateComponentsAnswer {
+            
+            CTFStateManager.defaultManager.setEveningSurveyTime(dateComponents)
+        }
+        
+        //set Behavior full results
+        self.handleBaselineBehaviorResults(result)
+    }
+    
     func handleAMSurvey(_ result: ORKTaskResult) {
         //1) set latest AM survey completion
         CTFStateManager.defaultManager.markMorningSurveyCompleted(completedDate: result.endDate)
@@ -556,6 +588,10 @@ extension CTFScheduledActivityManager {
     func handleActivityResult(_ result: ORKTaskResult, schedule: CTFScheduledActivity) -> [CTFActivityResult]? {
         print(result)
         switch(result.identifier) {
+            
+        case "Reenrollment":
+            print(result)
+            self.handleReenrollment(result)
             
         case "Baseline":
             print(result)

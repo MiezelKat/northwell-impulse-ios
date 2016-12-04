@@ -20,7 +20,9 @@ class CTFLogInViaExternalIdViewController: UIViewController, ORKTaskViewControll
         
         // Create a task with an external ID and permissions steps and display the view controller
         let externalIDStep = SBAExternalIDStep(identifier: "externalID")
-        let task = ORKOrderedTask(identifier: "registration", steps: [externalIDStep])
+        let passcodeStep = ORKPasscodeStep(identifier: "passcode")
+        passcodeStep.passcodeType = .type4Digit
+        let task = ORKOrderedTask(identifier: "registration", steps: [externalIDStep, passcodeStep])
         let vc = SBATaskViewController(task: task, taskRun: nil)
         vc.delegate = self
         self.present(vc, animated: true, completion: nil)

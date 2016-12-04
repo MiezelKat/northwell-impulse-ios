@@ -147,6 +147,12 @@
         </dict>
         <dict>
             <key>taskIdentifier</key>
+            <string>Reenrollment</string>
+            <key>resourceName</key>
+            <string>Reenrollment</string>
+        </dict>
+        <dict>
+            <key>taskIdentifier</key>
             <string>Day_21</string>
             <key>resourceName</key>
             <string>Day_21</string>

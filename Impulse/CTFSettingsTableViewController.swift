@@ -20,6 +20,7 @@ class CTFSettingsTableViewController: UITableViewController, ORKTaskViewControll
     @IBOutlet weak var showTrialsSwitch: UISwitch!
     @IBOutlet weak var morningSurveyCell: UITableViewCell!
     @IBOutlet weak var eveningSurveyCell: UITableViewCell!
+    @IBOutlet weak var participantSinceCell: UITableViewCell!
     
     private var _taskResultFinishedCompletionHandler: ((ORKTaskResult) -> Void)?
     
@@ -55,6 +56,16 @@ class CTFSettingsTableViewController: UITableViewController, ORKTaskViewControll
         }
         else {
             self.eveningSurveyCell.detailTextLabel?.text = ""
+        }
+        
+        if let date = CTFStateManager.defaultManager.getBaselineCompletionDate() {
+            let formatter = DateFormatter()
+            formatter.dateStyle = DateFormatter.Style.medium
+            let dateString = formatter.string(from: date)
+            self.participantSinceCell.detailTextLabel?.text = dateString
+        }
+        else {
+            self.participantSinceCell.detailTextLabel?.text = ""
         }
         
     }

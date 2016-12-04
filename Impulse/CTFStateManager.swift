@@ -225,6 +225,10 @@ class CTFStateManager: NSObject {
         let fireDate = Date(timeInterval: k21DaySurveyDelayInterval, since: from)
         self.setNotification(forIdentifier: CTFStateManager.k21DayNotificationIdentifier, initialFireDate: fireDate, text: CTFStateManager.k21DayNotificationText)
     }
+    
+    public func getBaselineCompletionDate() -> Date? {
+        return CTFKeychainHelpers.getKeychainObject(kBaselineSurveyCompleted) as? Date
+    }
 
     
     //MARK: survey completion logic

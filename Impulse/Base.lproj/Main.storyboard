@@ -189,22 +189,46 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="set_evening_survey" textLabel="yOJ-Hi-BkV" detailTextLabel="k3Q-et-u0g" rowHeight="61" style="IBUITableViewCellStyleValue1" id="XfG-Wz-sYK">
-                                        <rect key="frame" x="0.0" y="120" width="375" height="61"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="set_evening_survey" textLabel="yOJ-Hi-BkV" detailTextLabel="k3Q-et-u0g" rowHeight="60" style="IBUITableViewCellStyleValue1" id="XfG-Wz-sYK">
+                                        <rect key="frame" x="0.0" y="120" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XfG-Wz-sYK" id="nCh-VN-iha">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Set Evening Survey Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yOJ-Hi-BkV">
-                                                    <rect key="frame" x="15" y="20" width="190" height="21"/>
+                                                    <rect key="frame" x="15" y="19" width="190" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="k3Q-et-u0g">
-                                                    <rect key="frame" x="316" y="20" width="44" height="21"/>
+                                                    <rect key="frame" x="316" y="19" width="44" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="participant_since" textLabel="1PR-Kg-2SH" detailTextLabel="nqa-hr-Jwb" rowHeight="60" style="IBUITableViewCellStyleValue1" id="d8R-Qf-qJd" userLabel="Participant Since Cell">
+                                        <rect key="frame" x="0.0" y="180" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d8R-Qf-qJd" id="r5m-Jo-sxd">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Participant Since" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1PR-Kg-2SH">
+                                                    <rect key="frame" x="15" y="19" width="130" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nqa-hr-Jwb">
+                                                    <rect key="frame" x="316" y="19" width="44" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
@@ -225,6 +249,7 @@
                     <connections>
                         <outlet property="eveningSurveyCell" destination="XfG-Wz-sYK" id="TRa-JI-snp"/>
                         <outlet property="morningSurveyCell" destination="EqE-pA-w2x" id="rsa-Mo-teX"/>
+                        <outlet property="participantSinceCell" destination="d8R-Qf-qJd" id="5Ug-d2-Qyj"/>
                         <outlet property="showTrialsSwitch" destination="h3n-vQ-e8B" id="6am-fd-3Lj"/>
                     </connections>
                 </tableViewController>

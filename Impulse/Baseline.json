@@ -12,15 +12,7 @@
      {
        "identifier"       : "gender",
        "type"             : "textfield",
-       "text"             : "What is your gender?",
-       "items"            : [{   "prompt" : "Female",
-                             "value" : "Female"},
-                             {   "prompt" : "Male",
-                             "value" : "Male"},
-                             {   "prompt" : "Transgender",
-                             "value" : "Transgender"},
-                             {   "prompt" : "Prefer not to disclose",
-                             "value" : "Prefer not to disclose"}]
+       "text"             : "What is your gender?"
      },
      {
        "identifier"       : "age",
@@ -164,12 +156,12 @@
      {
        "identifier":  "BehaviorVSR",
        "resourceName"            : "baseline_behaviors_4",
-       "classType"       : "Impulse.CTFBehaviorVSRTask",
+       "classType"       : "Impulse.CTFBehaviorVSRTask"
      },
      {
        "identifier":  "BehaviorVSR",
        "resourceName"            : "baseline_behaviors_1",
-       "classType"       : "Impulse.CTFBehaviorVSRTask",
+       "classType"       : "Impulse.CTFBehaviorVSRTask"
      },
      {
      "identifier"       : "Pulsus",

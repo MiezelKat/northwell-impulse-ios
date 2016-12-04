@@ -1,6 +1,7 @@
 {
     "taskIdentifier": "self_assessment_baseline_9",
     "schemaIdentifier": "sdffse",
+    "gradientColors": ["#1B75BB", "#FFFFFF", "#1B75BB"],
     "title": "I am generally more:",
     "items" : [
                {

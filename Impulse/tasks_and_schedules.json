@@ -19,6 +19,22 @@
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
+      "scheduleTitle": "Reenrollment",
+      "scheduleIdentifier": "reenrollment",
+      "scheduleGUID": "reenrollment-1",
+      "activityType": "sequential",
+      "timeEstimate": "",
+      "trialActivity": false,
+      "tasks": [
+        {
+          "taskTitle": "Reenrollment",
+          "taskIdentifier": "Reenrollment"
+        }
+      ]
+    },
+    {
+      "scheduleType": "recurring",
+      "scheduleString": "* * * * *",
       "scheduleTitle": "21-Day Assessment",
       "scheduleIdentifier": "21-day-assessment",
       "scheduleGUID": "21-day-assessment-1",
