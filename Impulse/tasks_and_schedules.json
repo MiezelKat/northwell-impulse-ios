@@ -83,6 +83,54 @@
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
+      "scheduleTitle": "Go No Go Stable Stimulus 500",
+      "scheduleIdentifier": "go-no-go-stable-500",
+      "scheduleGUID": "go-no-go-stable-500-1",
+      "activityType": "sequential",
+      "timeEstimate": "",
+      "trialActivity": true,
+      "tasks": [
+        {
+          "taskTitle": "Go No Go Stable Stimulus 500",
+          "taskIdentifier": "Go No Go Stable Stimulus Task 500"
+        }
+      ]
+    },
+    {
+      "scheduleType": "recurring",
+      "scheduleString": "* * * * *",
+      "scheduleTitle": "Go No Go Stable Stimulus 600",
+      "scheduleIdentifier": "go-no-go-stable-600",
+      "scheduleGUID": "go-no-go-stable-600-1",
+      "activityType": "sequential",
+      "timeEstimate": "",
+      "trialActivity": true,
+      "tasks": [
+        {
+          "taskTitle": "Go No Go Stable Stimulus 600",
+          "taskIdentifier": "Go No Go Stable Stimulus Task 600"
+        }
+      ]
+    },
+    {
+      "scheduleType": "recurring",
+      "scheduleString": "* * * * *",
+      "scheduleTitle": "Go No Go Stable Stimulus 700",
+      "scheduleIdentifier": "go-no-go-stable-700",
+      "scheduleGUID": "go-no-go-stable-700-1",
+      "activityType": "sequential",
+      "timeEstimate": "",
+      "trialActivity": true,
+      "tasks": [
+        {
+          "taskTitle": "Go No Go Stable Stimulus 700",
+          "taskIdentifier": "Go No Go Stable Stimulus Task 700"
+        }
+      ]
+    },
+    {
+      "scheduleType": "recurring",
+      "scheduleString": "* * * * *",
       "scheduleTitle": "Go No Go Variable Stimulus",
       "scheduleIdentifier": "go-no-go-variable",
       "scheduleGUID": "go-no-go-variable-1",

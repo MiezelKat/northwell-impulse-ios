@@ -167,15 +167,19 @@ class CTFDelayDiscountingStepViewController: ORKStepViewController {
             self.nowButton.titleLabel?.alpha = 1.0
             self.laterButton.titleLabel?.alpha = 1.0
             
-            
         }, completion: { (completed) in
-
             trialStartTime = Date()
             
+            self.nowButton.isUserInteractionEnabled = true
+            self.laterButton.isUserInteractionEnabled = true
         })
 
         
         func completeTrial(pressAction:CTFDelayDiscountingChoice){
+            
+            self.nowButton.isUserInteractionEnabled = false
+            self.laterButton.isUserInteractionEnabled = false
+            
             let trialEndTime  = Date()
             let amount:Double = (pressAction == .Now) ? trial.now : trial.later
             let result = CTFDelayDiscountingTrialResult(trial: trial,

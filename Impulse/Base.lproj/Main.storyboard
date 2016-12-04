@@ -261,7 +261,7 @@
         <scene sceneID="Qhe-zy-fsw">
             <objects>
                 <navigationController title="Settings" id="y64-Q5-gZv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" id="aZY-rE-KPL"/>
+                    <tabBarItem key="tabBarItem" title="Settings" id="aZY-rE-KPL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wfS-dT-5g6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

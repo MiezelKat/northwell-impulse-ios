@@ -1,0 +1,48 @@
+{
+  "identifier": "Go No Go Stable",
+  "taskIdentifier": "go_no_go_stable_stimulus_task",
+  "schemaIdentifier": "goNoGoSchema",
+  "steps": [
+     {
+        "identifier"   : "introduction_1",
+        "type"         : "instruction",
+        "title"        : "Welcome to the Square Task",
+        "text"         : "This game measures how quickly you can make a simple decision, and then either react or withhold your response."
+      },
+      {
+        "identifier"   : "introduction_2",
+        "type"         : "instruction",
+        "title"        : "",
+        "text"         : "You will first be presented with a rectangle."
+      },
+      {
+        "identifier"   : "introduction_3",
+        "type"         : "instruction",
+        "title"        : "",
+        "text"         : "If the rectangle turns GREEN, tap the screen as quickly as possible."
+      },
+       {
+        "identifier"   : "introduction_4",
+        "type"         : "instruction",
+        "title"        : "",
+        "text"         : "If the rectangle turns BLUE, do not tap."
+      },
+      {
+        "identifier"   : "introduction_5",
+        "type"         : "instruction",
+        "title"        : "",
+        "text"         : "Between each rectangle you will see a plus (+) sign."
+      },
+     {
+       "taskIdentifier": "go_no_go_stable_stimulus_active_task_500",
+       "resourceName": "go_no_go_stable_stimulus_active_task_500",
+       "classType": "Impulse.CTFGoNoGoBridgeTask"
+     },
+     {
+        "identifier"   : "results",
+        "type"         : "instruction",
+        "title"        : "Thanks!",
+        "text"         : ""
+      }
+  ]
+}

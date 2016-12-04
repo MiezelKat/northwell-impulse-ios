@@ -1,0 +1,17 @@
+{
+  "taskIdentifier": "go_no_go_stable_stimulus_task",
+  "schemaIdentifier": "goNoGoSchema",
+  "parameters": {
+    "numberOfTrials": 75,
+    "waitTime": 0.25,
+    "crossTime": 0.25,
+    "blankTime": 0.25,
+    "cueTimes": [
+      0.25
+    ],
+    "fillTime": 0.7,
+    "goCueProbability": 0.5,
+    "goCueTargetProbability": 0.7,
+    "noGoCueTargetProbability": 0.7
+  }
+}

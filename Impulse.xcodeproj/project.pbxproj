@@ -128,6 +128,12 @@
 		E2CCB6771DB568CB00C801A4 /* UIView+Explode.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CCB6761DB568CB00C801A4 /* UIView+Explode.m */; };
 		E2D56E751DC12A2600E6A9C4 /* CTFBARTResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D56E741DC12A2600E6A9C4 /* CTFBARTResult.swift */; };
 		E2D9E08F1DF22319007772DA /* Reenrollment.json in Resources */ = {isa = PBXBuildFile; fileRef = E2D9E08E1DF22319007772DA /* Reenrollment.json */; };
+		E2D9E0941DF4CC49007772DA /* go_no_go_stable_stimulus_active_task_500.json in Resources */ = {isa = PBXBuildFile; fileRef = E2D9E0901DF4CC49007772DA /* go_no_go_stable_stimulus_active_task_500.json */; };
+		E2D9E0951DF4CC49007772DA /* go_no_go_stable_stimulus_active_task_600.json in Resources */ = {isa = PBXBuildFile; fileRef = E2D9E0911DF4CC49007772DA /* go_no_go_stable_stimulus_active_task_600.json */; };
+		E2D9E0961DF4CC49007772DA /* go_no_go_stable_stimulus_active_task_700.json in Resources */ = {isa = PBXBuildFile; fileRef = E2D9E0921DF4CC49007772DA /* go_no_go_stable_stimulus_active_task_700.json */; };
+		E2D9E0971DF4CC49007772DA /* go_no_go_stable_stimulus_full_task_500.json in Resources */ = {isa = PBXBuildFile; fileRef = E2D9E0931DF4CC49007772DA /* go_no_go_stable_stimulus_full_task_500.json */; };
+		E2D9E09A1DF4CC52007772DA /* go_no_go_stable_stimulus_full_task_600.json in Resources */ = {isa = PBXBuildFile; fileRef = E2D9E0981DF4CC52007772DA /* go_no_go_stable_stimulus_full_task_600.json */; };
+		E2D9E09B1DF4CC52007772DA /* go_no_go_stable_stimulus_full_task_700.json in Resources */ = {isa = PBXBuildFile; fileRef = E2D9E0991DF4CC52007772DA /* go_no_go_stable_stimulus_full_task_700.json */; };
 		E2EF6B1F1DA2E2970034456A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF6B1E1DA2E2970034456A /* AppDelegate.swift */; };
 		E2EF6B241DA2E2970034456A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EF6B221DA2E2970034456A /* Main.storyboard */; };
 		E2EF6B261DA2E2970034456A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2EF6B251DA2E2970034456A /* Assets.xcassets */; };
@@ -354,6 +360,12 @@
 		E2CCB6761DB568CB00C801A4 /* UIView+Explode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Explode.m"; path = "../../ios-gonogo/Go-No-Go/Go-No-Go/Categories/UIView+Explode.m"; sourceTree = "<group>"; };
 		E2D56E741DC12A2600E6A9C4 /* CTFBARTResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFBARTResult.swift; sourceTree = "<group>"; };
 		E2D9E08E1DF22319007772DA /* Reenrollment.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Reenrollment.json; sourceTree = "<group>"; };
+		E2D9E0901DF4CC49007772DA /* go_no_go_stable_stimulus_active_task_500.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = go_no_go_stable_stimulus_active_task_500.json; sourceTree = "<group>"; };
+		E2D9E0911DF4CC49007772DA /* go_no_go_stable_stimulus_active_task_600.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = go_no_go_stable_stimulus_active_task_600.json; sourceTree = "<group>"; };
+		E2D9E0921DF4CC49007772DA /* go_no_go_stable_stimulus_active_task_700.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = go_no_go_stable_stimulus_active_task_700.json; sourceTree = "<group>"; };
+		E2D9E0931DF4CC49007772DA /* go_no_go_stable_stimulus_full_task_500.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = go_no_go_stable_stimulus_full_task_500.json; sourceTree = "<group>"; };
+		E2D9E0981DF4CC52007772DA /* go_no_go_stable_stimulus_full_task_600.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = go_no_go_stable_stimulus_full_task_600.json; sourceTree = "<group>"; };
+		E2D9E0991DF4CC52007772DA /* go_no_go_stable_stimulus_full_task_700.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = go_no_go_stable_stimulus_full_task_700.json; sourceTree = "<group>"; };
 		E2E7591D1DA2F7AC00D00C55 /* SDLRKX.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDLRKX.xcodeproj; path = "sdl-rkx/SDLRKX/SDLRKX.xcodeproj"; sourceTree = "<group>"; };
 		E2E759231DA2F7D200D00C55 /* BridgeAppSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BridgeAppSDK.xcodeproj; path = BridgeAppSDK/BridgeAppSDK.xcodeproj; sourceTree = "<group>"; };
 		E2EF6B1B1DA2E2970034456A /* Impulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Impulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -612,6 +624,12 @@
 				E21F23911DA58D9500760EA7 /* go_no_go_variable_stimulus_active_task.json */,
 				E2FE1AA71DAEF56F00DBB8E7 /* go_no_go_stable_stimulus_full_task.json */,
 				E2FE1AAB1DAFED4A00DBB8E7 /* go_no_go_variable_stimulus_full_task.json */,
+				E2D9E0981DF4CC52007772DA /* go_no_go_stable_stimulus_full_task_600.json */,
+				E2D9E0991DF4CC52007772DA /* go_no_go_stable_stimulus_full_task_700.json */,
+				E2D9E0901DF4CC49007772DA /* go_no_go_stable_stimulus_active_task_500.json */,
+				E2D9E0911DF4CC49007772DA /* go_no_go_stable_stimulus_active_task_600.json */,
+				E2D9E0921DF4CC49007772DA /* go_no_go_stable_stimulus_active_task_700.json */,
+				E2D9E0931DF4CC49007772DA /* go_no_go_stable_stimulus_full_task_500.json */,
 			);
 			name = JSON;
 			sourceTree = "<group>";
@@ -915,11 +933,13 @@
 				0819892B1DCA476E0047ACA6 /* delayDiscounting_Money_1Month_active_task.json in Resources */,
 				E2AA6D2E1DA43CEE005D5137 /* Baseline.json in Resources */,
 				E211DB381DF2088800A360AF /* self_assessment_4.json in Resources */,
+				E2D9E0961DF4CC49007772DA /* go_no_go_stable_stimulus_active_task_700.json in Resources */,
 				084DA6591DCA978200299DD6 /* delayDiscounting_Time_6Month_full_task.json in Resources */,
 				E2CCB6731DB5610F00C801A4 /* CTFBARTStepViewController.xib in Resources */,
 				E211DB3C1DF2088800A360AF /* self_assessment_8.json in Resources */,
 				E2C20D771DC0296F00382527 /* bart_250_dollars_active_task.json in Resources */,
 				E25659891DCC3A230067481C /* am_survey_dd_money_6_month.json in Resources */,
+				E2D9E09B1DF4CC52007772DA /* go_no_go_stable_stimulus_full_task_700.json in Resources */,
 				E256598A1DCC3A230067481C /* am_survey_dd_time_1_month.json in Resources */,
 				E2919EB71DE4956F0034AD08 /* FoundryAssets.xcassets in Resources */,
 				E256598B1DCC3A230067481C /* am_survey_dd_time_6_month.json in Resources */,
@@ -941,8 +961,10 @@
 				E2C20D781DC0296F00382527 /* bart_250_dollars_full_task.json in Resources */,
 				E211DB361DF2088800A360AF /* self_assessment_3.json in Resources */,
 				E2FE1AA81DAEF56F00DBB8E7 /* go_no_go_stable_stimulus_full_task.json in Resources */,
+				E2D9E0951DF4CC49007772DA /* go_no_go_stable_stimulus_active_task_600.json in Resources */,
 				E256597E1DCC24630067481C /* pm_survey_dd_money_1_month.json in Resources */,
 				E2A5F0CF1DC7EFCA002CA609 /* self_assessment_10_21.json in Resources */,
+				E2D9E0971DF4CC49007772DA /* go_no_go_stable_stimulus_full_task_500.json in Resources */,
 				E2AA6D271DA43CDD005D5137 /* PAM.json in Resources */,
 				E2D9E08F1DF22319007772DA /* Reenrollment.json in Resources */,
 				E2FE1AB41DB00D0100DBB8E7 /* am_survey_go_no_go_stable.json in Resources */,
@@ -966,6 +988,7 @@
 				E22792BC1DD5288F0026F8AB /* am_behaviors.json in Resources */,
 				E21F237D1DA44F2700760EA7 /* CTFGoNoGoStepViewController.xib in Resources */,
 				E2C20D7F1DC02BBD00382527 /* pm_survey_bart_25_cents.json in Resources */,
+				E2D9E09A1DF4CC52007772DA /* go_no_go_stable_stimulus_full_task_600.json in Resources */,
 				E2AA6D221DA43CC1005D5137 /* cornell-mhealth-eval.pem in Resources */,
 				E2AA6D1E1DA43C83005D5137 /* CTFPulsusFormStepViewController.xib in Resources */,
 				E295FC271DDD398E001B175D /* go_no_go_practice_active_task.json in Resources */,
@@ -975,6 +998,7 @@
 				E2FE1AAC1DAFED4A00DBB8E7 /* go_no_go_variable_stimulus_full_task.json in Resources */,
 				E2CCB6661DB151F700C801A4 /* pm_likert_1.json in Resources */,
 				E2AA6D1A1DA43C83005D5137 /* CTFFormItemCell.xib in Resources */,
+				E2D9E0941DF4CC49007772DA /* go_no_go_stable_stimulus_active_task_500.json in Resources */,
 				E22E434B1DC67FA700F024D4 /* NotificationTest.json in Resources */,
 				E211DB3A1DF2088800A360AF /* self_assessment_7.json in Resources */,
 				E2C20D7D1DC02BBD00382527 /* am_survey_bart_25_cents.json in Resources */,
