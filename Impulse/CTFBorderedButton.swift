@@ -30,15 +30,7 @@ class CTFBorderedButton: UIButton {
         self.layer.cornerRadius = 5.0
     }
     
-//    func setBorderAndTitleColor(_ color: UIColor, for state: UIControlState) {
-//        
-//        self.setTitleColor(color, for: state)
-//        self.setTitleColor(UIColor.gray, for: UIControlState.disabled)
-////        self.layer.borderColor = color.cgColor
-//        
-//    }
-    
-    func setTitleColor(_ color: UIColor?) {
+    private func setTitleColor(_ color: UIColor?) {
         self.setTitleColor(color, for: UIControlState.normal)
         self.setTitleColor(UIColor.white, for: UIControlState.highlighted)
         self.setTitleColor(UIColor.white, for: UIControlState.selected)

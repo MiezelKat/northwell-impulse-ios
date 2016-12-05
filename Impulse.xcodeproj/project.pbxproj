@@ -134,6 +134,7 @@
 		E2D9E0971DF4CC49007772DA /* go_no_go_stable_stimulus_full_task_500.json in Resources */ = {isa = PBXBuildFile; fileRef = E2D9E0931DF4CC49007772DA /* go_no_go_stable_stimulus_full_task_500.json */; };
 		E2D9E09A1DF4CC52007772DA /* go_no_go_stable_stimulus_full_task_600.json in Resources */ = {isa = PBXBuildFile; fileRef = E2D9E0981DF4CC52007772DA /* go_no_go_stable_stimulus_full_task_600.json */; };
 		E2D9E09B1DF4CC52007772DA /* go_no_go_stable_stimulus_full_task_700.json in Resources */ = {isa = PBXBuildFile; fileRef = E2D9E0991DF4CC52007772DA /* go_no_go_stable_stimulus_full_task_700.json */; };
+		E2D9E09D1DF4DAB1007772DA /* CTFSolidButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D9E09C1DF4DAB1007772DA /* CTFSolidButton.swift */; };
 		E2EF6B1F1DA2E2970034456A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF6B1E1DA2E2970034456A /* AppDelegate.swift */; };
 		E2EF6B241DA2E2970034456A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EF6B221DA2E2970034456A /* Main.storyboard */; };
 		E2EF6B261DA2E2970034456A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2EF6B251DA2E2970034456A /* Assets.xcassets */; };
@@ -366,6 +367,7 @@
 		E2D9E0931DF4CC49007772DA /* go_no_go_stable_stimulus_full_task_500.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = go_no_go_stable_stimulus_full_task_500.json; sourceTree = "<group>"; };
 		E2D9E0981DF4CC52007772DA /* go_no_go_stable_stimulus_full_task_600.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = go_no_go_stable_stimulus_full_task_600.json; sourceTree = "<group>"; };
 		E2D9E0991DF4CC52007772DA /* go_no_go_stable_stimulus_full_task_700.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = go_no_go_stable_stimulus_full_task_700.json; sourceTree = "<group>"; };
+		E2D9E09C1DF4DAB1007772DA /* CTFSolidButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFSolidButton.swift; sourceTree = "<group>"; };
 		E2E7591D1DA2F7AC00D00C55 /* SDLRKX.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDLRKX.xcodeproj; path = "sdl-rkx/SDLRKX/SDLRKX.xcodeproj"; sourceTree = "<group>"; };
 		E2E759231DA2F7D200D00C55 /* BridgeAppSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BridgeAppSDK.xcodeproj; path = BridgeAppSDK/BridgeAppSDK.xcodeproj; sourceTree = "<group>"; };
 		E2EF6B1B1DA2E2970034456A /* Impulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Impulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -464,6 +466,7 @@
 			isa = PBXGroup;
 			children = (
 				E2AA6D111DA43C83005D5137 /* CTFBorderedButton.swift */,
+				E2D9E09C1DF4DAB1007772DA /* CTFSolidButton.swift */,
 				E22792BD1DD53A490026F8AB /* CTFAutosizingLabel.swift */,
 			);
 			name = UI;
@@ -1037,6 +1040,7 @@
 				E2AA6D351DA43D07005D5137 /* CTFMainTabViewController.swift in Sources */,
 				E2AA6D0F1DA43C6B005D5137 /* CTFActivityTableViewCell.swift in Sources */,
 				E2FE1AA61DAEEA1B00DBB8E7 /* ORKStepViewController+Helpers.swift in Sources */,
+				E2D9E09D1DF4DAB1007772DA /* CTFSolidButton.swift in Sources */,
 				E23535E01DB593C2005BAFE3 /* CTFBARTBridgeTask.swift in Sources */,
 				08F6069C1DBF9BB70066760F /* CTFDelayDiscountingStep.swift in Sources */,
 				E22792A81DD3DD010026F8AB /* CTFKeychainHelpers.swift in Sources */,

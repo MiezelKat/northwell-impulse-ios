@@ -51,7 +51,7 @@
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
-      "scheduleTitle": "Go No Go Practice",
+      "scheduleTitle": "Square Task Practice",
       "scheduleIdentifier": "go-no-go-practice",
       "scheduleGUID": "go-no-go-practice-1",
       "activityType": "sequential",
@@ -67,7 +67,7 @@
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
-      "scheduleTitle": "Go No Go Stable Stimulus",
+      "scheduleTitle": "Square Task #1",
       "scheduleIdentifier": "go-no-go-stable",
       "scheduleGUID": "go-no-go-stable-1",
       "activityType": "sequential",
@@ -83,7 +83,7 @@
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
-      "scheduleTitle": "Go No Go Stable Stimulus 500",
+      "scheduleTitle": "Square Task #1 500",
       "scheduleIdentifier": "go-no-go-stable-500",
       "scheduleGUID": "go-no-go-stable-500-1",
       "activityType": "sequential",
@@ -99,7 +99,7 @@
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
-      "scheduleTitle": "Go No Go Stable Stimulus 600",
+      "scheduleTitle": "Square Task #1 600",
       "scheduleIdentifier": "go-no-go-stable-600",
       "scheduleGUID": "go-no-go-stable-600-1",
       "activityType": "sequential",
@@ -115,7 +115,7 @@
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
-      "scheduleTitle": "Go No Go Stable Stimulus 700",
+      "scheduleTitle": "Square Task #1 700",
       "scheduleIdentifier": "go-no-go-stable-700",
       "scheduleGUID": "go-no-go-stable-700-1",
       "activityType": "sequential",
@@ -131,7 +131,7 @@
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
-      "scheduleTitle": "Go No Go Variable Stimulus",
+      "scheduleTitle": "Square Task #2",
       "scheduleIdentifier": "go-no-go-variable",
       "scheduleGUID": "go-no-go-variable-1",
       "activityType": "sequential",
@@ -184,7 +184,7 @@
       "scheduleTitle": "Morning Survey",
       "activityType": "selectOneByDate",
       "timeEstimate": "",
-      "trialActivity": false,
+      "trialActivity": true,
       "tasks": [
         {
           "tasks":  [
@@ -291,7 +291,7 @@
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
-      "scheduleTitle": "Delay Discounting 1",
+      "scheduleTitle": "Now and Later #1",
       "scheduleIdentifier": "DD_Money_1Month",
       "scheduleGUID": "DD_Money_1Month-1",
       "activityType": "sequential",
@@ -307,7 +307,7 @@
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
-      "scheduleTitle": "Delay Discounting 2",
+      "scheduleTitle": "Now and Later #2",
       "scheduleIdentifier": "DD_Money_6Months",
       "scheduleGUID": "DD_Money_6Months-1",
       "activityType": "sequential",
@@ -323,7 +323,7 @@
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
-      "scheduleTitle": "Delay Discounting 3",
+      "scheduleTitle": "Now and Later #3",
       "scheduleIdentifier": "DD_Time_1Month",
       "scheduleGUID": "DD_Time_1Month-1",
       "activityType": "sequential",
@@ -339,7 +339,7 @@
     {
       "scheduleType": "recurring",
       "scheduleString": "* * * * *",
-      "scheduleTitle": "Delay Discounting 4",
+      "scheduleTitle": "Now and Later #4",
       "scheduleIdentifier": "DD_Time_6Months",
       "scheduleGUID": "DD_Time_6Months-1",
       "activityType": "sequential",

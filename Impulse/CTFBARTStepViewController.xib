@@ -67,7 +67,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ob8-Aa-yjN">
                                             <rect key="frame" x="187.5" y="0.0" width="187.5" height="111"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yin-BE-J2y" customClass="CTFBorderedButton" customModule="Impulse" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yin-BE-J2y" customClass="CTFSolidButton" customModule="Impulse" customModuleProvider="target">
                                                     <rect key="frame" x="34.5" y="25" width="120" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="120" id="3WA-Mn-ptO"/>
@@ -119,7 +119,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82X-vb-NFj">
                                             <rect key="frame" x="187.5" y="0.0" width="187.5" height="111"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBj-SA-WtN" customClass="CTFBorderedButton" customModule="Impulse" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBj-SA-WtN" customClass="CTFSolidButton" customModule="Impulse" customModuleProvider="target">
                                                     <rect key="frame" x="34" y="25" width="120" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="120" id="Jw6-PO-2rN"/>

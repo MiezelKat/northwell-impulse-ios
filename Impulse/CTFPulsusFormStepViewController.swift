@@ -147,7 +147,7 @@ class CTFPulsusFormStepViewController: ORKStepViewController, UITableViewDataSou
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         cell.separatorInset = UIEdgeInsets.zero
         cell.preservesSuperviewLayoutMargins = false
-        cell.layoutMargins = UIEdgeInsetsMake(0, 0, 0, 8)
+        cell.layoutMargins = UIEdgeInsetsMake(0, 0, 0, 0)
         
         guard let pulsusCell = cell as? CTFFormItemCell,
             let formItem = self.formItems?[indexPath.row] else {
@@ -157,6 +157,8 @@ class CTFPulsusFormStepViewController: ORKStepViewController, UITableViewDataSou
         pulsusCell.configure(formItem, value: self.answerDictionary![formItem.identifier]!)
         
         pulsusCell.delegate = self
+        
+        pulsusCell.backgroundColor = indexPath.row % 2 == 0 ? UIColor.white : UIColor.lightGray.withAlphaComponent(0.5)
         
         return pulsusCell
     }

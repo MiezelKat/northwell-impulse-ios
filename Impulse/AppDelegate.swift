@@ -25,7 +25,8 @@ class AppDelegate: SBAAppDelegate {
             do {
                 try ORKKeychainWrapper.resetKeychain()
             } catch let error {
-                assertionFailure("Got error \(error) when resetting keychain")
+//                assertionFailure("Got error \(error) when resetting keychain")
+                print("Got error \(error) when resetting keychain")
             }
         }
         
@@ -69,6 +70,14 @@ class AppDelegate: SBAAppDelegate {
     }
     
     override func showOnboardingViewController(animated: Bool) {
+        
+        //clear user keychain
+        do {
+            try ORKKeychainWrapper.resetKeychain()
+        } catch let error {
+//            assertionFailure("Got error \(error) when resetting keychain")
+        }
+        
         guard let storyboard = openStoryboard("Onboarding"),
             let vc = storyboard.instantiateInitialViewController()
             else {
