@@ -184,7 +184,7 @@
       "scheduleTitle": "Morning Survey",
       "activityType": "selectOneByDate",
       "timeEstimate": "",
-      "trialActivity": true,
+      "trialActivity": false,
       "tasks": [
         {
           "tasks":  [
