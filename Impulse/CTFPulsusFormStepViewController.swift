@@ -158,7 +158,7 @@ class CTFPulsusFormStepViewController: ORKStepViewController, UITableViewDataSou
         
         pulsusCell.delegate = self
         
-        pulsusCell.backgroundColor = indexPath.row % 2 == 0 ? UIColor.white : UIColor.lightGray.withAlphaComponent(0.5)
+        pulsusCell.backgroundColor = indexPath.row % 2 == 0 ? UIColor.white : UIColor(hexString: "#f2f2f2")
         
         return pulsusCell
     }

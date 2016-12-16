@@ -8,7 +8,7 @@
       "scheduleGUID": "baseline-1",
       "activityType": "sequential",
       "timeEstimate": "",
-      "trialActivity": false,
+      "trialActivity": true,
       "tasks": [
         {
           "taskTitle": "Baseline",
