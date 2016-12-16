@@ -31,6 +31,7 @@ class CTFFormItemCell: UITableViewCell {
     @IBOutlet weak var maxTextLabel: UILabel!
     @IBOutlet weak var trackView: UIView!
     @IBOutlet weak var trackHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var trackContainerView: UIView!
     
     var delegate: CTFFormItemCellDelegate?
     var answer: AnyObject? {
@@ -65,6 +66,8 @@ class CTFFormItemCell: UITableViewCell {
             self.trackHeightConstraint.constant = scaleAnswerFormat.trackHeight ?? defaultTrackHeight
         }
         
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(sliderTapped(_:)))
+        self.trackContainerView.addGestureRecognizer(tapGestureRecognizer)
         
         self.setValue(value)
     }
@@ -104,15 +107,25 @@ class CTFFormItemCell: UITableViewCell {
         self.updateValueLabel(value)
     }
     
-    @IBAction func sliderChanged(_ sender: AnyObject) {
-        let sliderValue = self.valueSlider.value
-        let intValue = lroundf(sliderValue)
+    func sliderSet(_ floatValue: Float) {
+        let intValue = lroundf(floatValue)
         self.setValue(intValue)
         
         if let delegate = self.delegate {
             delegate.formItemCellAnswerChanged(self, answer: intValue)
         }
-        
+    }
+    
+    @IBAction func sliderChanged(_ sender: AnyObject) {
+        let sliderValue = self.valueSlider.value
+        self.sliderSet(sliderValue)
+    }
+    
+    func sliderTapped(_ tapRecognizer: UITapGestureRecognizer) {
+        let touchPoint = tapRecognizer.location(in: tapRecognizer.view)
+        let sliderPercentage = Float(touchPoint.x) / Float(tapRecognizer.view!.bounds.size.width)
+        let sliderValue: Float = self.valueSlider.minimumValue + (self.valueSlider.maximumValue - self.valueSlider.minimumValue)*sliderPercentage
+        self.sliderSet(sliderValue)
     }
     
     func updateValueLabel(_ value: Int) {

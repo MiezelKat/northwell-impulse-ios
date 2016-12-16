@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="427" height="160"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ysw-Rr-weX" id="Km6-ck-dnl">
-                <rect key="frame" x="0.0" y="0.0" width="427" height="159"/>
+                <rect key="frame" x="0.0" y="0.0" width="427" height="160"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFH-UQ-GTR">
@@ -108,6 +108,7 @@
                 <outlet property="midTextLabel" destination="phq-cy-UFU" id="SR4-hu-pSE"/>
                 <outlet property="minTextLabel" destination="3d1-mG-WK7" id="6kz-uJ-OWl"/>
                 <outlet property="titleLabel" destination="FFH-UQ-GTR" id="vDC-7c-9H1"/>
+                <outlet property="trackContainerView" destination="gVg-kK-0UX" id="Yms-5d-A5a"/>
                 <outlet property="trackHeightConstraint" destination="XEl-zL-jSW" id="zVU-qO-aPh"/>
                 <outlet property="trackView" destination="TZR-Lg-pu0" id="TMs-A3-fLz"/>
                 <outlet property="valueLabel" destination="KVR-Lr-7YF" id="52O-n0-XeG"/>
