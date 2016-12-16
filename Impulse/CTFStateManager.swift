@@ -13,10 +13,15 @@ import UIKit
 class CTFStateManager: NSObject {
     
     static let kMorningNotificationIdentifer: String = "MorningNotification"
+    static let kMorningNotificationIdentifer2nd: String = "MorningNotification2nd"
     static let kEveningNotificationIdentifer: String = "EveningNotification"
+    static let kEveningNotificationIdentifer2nd: String = "EveningNotification2nd"
     static let k21DayNotificationIdentifier: String = "21DayNotification"
+    static let k21DayNotificationIdentifier2nd: String = "21DayNotification2nd"
     
-    static let NotificationIdentifiers = [kMorningNotificationIdentifer, kEveningNotificationIdentifer, k21DayNotificationIdentifier]
+    static let NotificationIdentifiers = [kMorningNotificationIdentifer, kMorningNotificationIdentifer2nd,
+                                          kEveningNotificationIdentifer, kEveningNotificationIdentifer2nd,
+                                          k21DayNotificationIdentifier, k21DayNotificationIdentifier2nd]
     
     static let kMorningNotificationText: String = "Hey, it's time to take your morning survey!"
     static let kEveningNotificationText: String = "Hey, it's time to take your evening survey!"
@@ -96,6 +101,7 @@ class CTFStateManager: NSObject {
         //morning notification
         //cancel notification if exists
         self.cancelNotification(withIdentifier: CTFStateManager.kMorningNotificationIdentifer)
+        self.cancelNotification(withIdentifier: CTFStateManager.kMorningNotificationIdentifer2nd)
         //Set notification
         
         //if we have completed
@@ -103,6 +109,8 @@ class CTFStateManager: NSObject {
             let lastCompletion = CTFKeychainHelpers.getKeychainObject(kLastMorningSurveyCompleted) as? Date,
             let fireDate = self.getNotificationFireDate(timeComponents: dateComponents as NSDateComponents, latestCompletion: lastCompletion) {
             self.setNotification(forIdentifier: CTFStateManager.kMorningNotificationIdentifer, initialFireDate: fireDate, text: CTFStateManager.kMorningNotificationText)
+            //set second notification
+            self.setNotification(forIdentifier: CTFStateManager.kMorningNotificationIdentifer2nd, initialFireDate: fireDate.addingTimeInterval(kSecondaryNotificationDelay), text: CTFStateManager.kMorningNotificationText)
         }
     }
     
@@ -110,11 +118,14 @@ class CTFStateManager: NSObject {
         //evening notification
         //cancel notification if exists
         self.cancelNotification(withIdentifier: CTFStateManager.kEveningNotificationIdentifer)
+        self.cancelNotification(withIdentifier: CTFStateManager.kEveningNotificationIdentifer2nd)
         //Set notification
         if let dateComponents = CTFKeychainHelpers.getKeychainObject(kEveningSurveyTime) as? NSDateComponents,
             let lastCompletion = CTFKeychainHelpers.getKeychainObject(kLastEveningSurveyCompleted) as? Date,
             let fireDate = self.getNotificationFireDate(timeComponents: dateComponents as NSDateComponents, latestCompletion: lastCompletion) {
             self.setNotification(forIdentifier: CTFStateManager.kEveningNotificationIdentifer, initialFireDate: fireDate, text: CTFStateManager.kEveningNotificationText)
+            //set second notification
+            self.setNotification(forIdentifier: CTFStateManager.kEveningNotificationIdentifer2nd, initialFireDate: fireDate.addingTimeInterval(kSecondaryNotificationDelay), text: CTFStateManager.kEveningNotificationText)
         }
     }
     
@@ -122,6 +133,7 @@ class CTFStateManager: NSObject {
         //21 day notification
         //cancel notification if exists
         self.cancelNotification(withIdentifier: CTFStateManager.k21DayNotificationIdentifier)
+        self.cancelNotification(withIdentifier: CTFStateManager.k21DayNotificationIdentifier2nd)
         
         //Set notification
         if let baselineDate = CTFKeychainHelpers.getKeychainObject(kBaselineSurveyCompleted) as? Date {
@@ -176,6 +188,7 @@ class CTFStateManager: NSObject {
         
         //cancel notification if exists
         self.cancelNotification(withIdentifier: CTFStateManager.kMorningNotificationIdentifer)
+        self.cancelNotification(withIdentifier: CTFStateManager.kMorningNotificationIdentifer2nd)
         
         //Set notification
         //initial fire date is today's date + time components, provided
@@ -183,6 +196,8 @@ class CTFStateManager: NSObject {
         
         if let fireDate = self.getNotificationFireDate(timeComponents: dateComponents as NSDateComponents, latestCompletion: lastCompletion) {
             self.setNotification(forIdentifier: CTFStateManager.kMorningNotificationIdentifer, initialFireDate: fireDate, text: CTFStateManager.kMorningNotificationText)
+            //set second notification
+            self.setNotification(forIdentifier: CTFStateManager.kMorningNotificationIdentifer2nd, initialFireDate: fireDate.addingTimeInterval(kSecondaryNotificationDelay), text: CTFStateManager.kMorningNotificationText)
         }
     }
     
@@ -205,12 +220,15 @@ class CTFStateManager: NSObject {
         
         //cancel notification if exists
         self.cancelNotification(withIdentifier: CTFStateManager.kEveningNotificationIdentifer)
+        self.cancelNotification(withIdentifier: CTFStateManager.kEveningNotificationIdentifer2nd)
         
         //Set notification
         let lastCompletion: Date? = CTFKeychainHelpers.getKeychainObject(kLastEveningSurveyCompleted) as? Date
         
         if let fireDate = self.getNotificationFireDate(timeComponents: dateComponents as NSDateComponents, latestCompletion: lastCompletion) {
             self.setNotification(forIdentifier: CTFStateManager.kEveningNotificationIdentifer, initialFireDate: fireDate, text: CTFStateManager.kEveningNotificationText)
+            //set second notification
+            self.setNotification(forIdentifier: CTFStateManager.kEveningNotificationIdentifer2nd, initialFireDate: fireDate.addingTimeInterval(kSecondaryNotificationDelay), text: CTFStateManager.kEveningNotificationText)
         }
 
     }
@@ -222,10 +240,13 @@ class CTFStateManager: NSObject {
     public func schedule21DayNotification(_ from: Date) {
         //cancel notification if exists
         self.cancelNotification(withIdentifier: CTFStateManager.k21DayNotificationIdentifier)
+        self.cancelNotification(withIdentifier: CTFStateManager.k21DayNotificationIdentifier2nd)
         
         //Set notification
         let fireDate = Date(timeInterval: k21DaySurveyDelayInterval, since: from)
         self.setNotification(forIdentifier: CTFStateManager.k21DayNotificationIdentifier, initialFireDate: fireDate, text: CTFStateManager.k21DayNotificationText)
+        //set second notification
+        self.setNotification(forIdentifier: CTFStateManager.k21DayNotificationIdentifier2nd, initialFireDate: fireDate.addingTimeInterval(kSecondaryNotificationDelay), text: CTFStateManager.k21DayNotificationText)
     }
     
     public func getBaselineCompletionDate() -> Date? {

@@ -37,6 +37,7 @@ let kDailySurveyNotificationWindowAfterInterval: TimeInterval = 30.0 * k1MinuteI
 let kDailySurveyTimeBeforeInterval: TimeInterval = 2.0 * k1HourInterval
 let kDailySurveyTimeAfterInterval: TimeInterval = 6.0 * k1HourInterval
 let kDailySurveyDelaySinceBaselineTimeInterval: TimeInterval = 0.0
+let kSecondaryNotificationDelay: TimeInterval = 2.0 * k1HourInterval
 //let kDailySurveyDelaySinceBaselineTimeInterval: TimeInterval = 2.0 * k1MinuteInterval
 
 let kThankYouGUID = "Thank-you-GUID"
