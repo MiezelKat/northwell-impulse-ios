@@ -168,6 +168,38 @@ class CTFSettingsTableViewController: UITableViewController, ORKTaskViewControll
                 
                 present(taskViewController, animated: true, completion: nil)
                 
+            case .some("comments"):
+                
+                let answerFormat = ORKAnswerFormat.textAnswerFormat()
+                answerFormat.multipleLines = true
+                let questionStep = ORKQuestionStep(identifier: "comments_step", title: "Feedback", answer: answerFormat)
+                
+                questionStep.text = "We're constantly trying to improve and your feedback is greatly appreciated!"
+                
+                let task = ORKOrderedTask(identifier: "comments_task", steps: [questionStep])
+                
+                let taskViewController = ORKTaskViewController(task: task, taskRun: nil)
+                
+                // Make sure we receive events from `taskViewController`.
+                taskViewController.delegate = self
+                
+                //set result handler
+                self._taskResultFinishedCompletionHandler = { result in
+                    
+                    if let stepResult = result.stepResult(forStepIdentifier: "comments_step"),
+                        let commentText = stepResult.results?.first as? ORKTextQuestionResult {
+                        
+                        print(commentText)
+                    }
+                    
+                    self.delegate?.settingsUpdated()
+                }
+                
+                // Assign a directory to store `taskViewController` output.
+                taskViewController.outputDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+                
+                present(taskViewController, animated: true, completion: nil)
+                
             default:
                 print("do nothing")
             }
