@@ -41,7 +41,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wjD-RX-rGa" id="PYz-NW-i7N">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pVI-IV-aZh">
@@ -113,7 +113,7 @@
         <scene sceneID="hXK-QI-vW0">
             <objects>
                 <navigationController id="9Es-jF-CGP" userLabel="Activities" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Activities" id="3vE-Op-VsT" userLabel="Activities"/>
+                    <tabBarItem key="tabBarItem" title="Activities" image="activities" selectedImage="activities" id="3vE-Op-VsT" userLabel="Activities"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PkN-gg-iL6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -141,7 +141,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4tF-kX-3BT" id="GV1-Bi-hI3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="h3n-vQ-e8B">
@@ -278,7 +278,7 @@
         <scene sceneID="Qhe-zy-fsw">
             <objects>
                 <navigationController title="Settings" id="y64-Q5-gZv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="aZY-rE-KPL"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" selectedImage="settings" id="aZY-rE-KPL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wfS-dT-5g6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -293,6 +293,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="activities" width="37" height="37"/>
         <image name="completion-check" width="88" height="88"/>
+        <image name="settings" width="37" height="37"/>
     </resources>
 </document>
