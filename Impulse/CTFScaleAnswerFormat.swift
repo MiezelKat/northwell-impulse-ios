@@ -62,8 +62,36 @@ class CTFLikertScaleAnswerFormat: CTFScaleAnswerFormat {
                      vertical: Bool,
                      maximumValueDescription: String?,
                      intermediateValueDescription: String?,
+                     minimumValueDescription: String?){
+        
+        self.init(maximumValue: scaleMaximum,
+                  minimumValue: scaleMinimum,
+                  defaultValue: defaultValue,
+                  step: step,
+                  vertical: vertical,
+                  maximumValueDescription: maximumValueDescription,
+                  minimumValueDescription: minimumValueDescription)
+        
+        self.intermediateValueDescription = intermediateValueDescription
+        self.trackHeight = 4.0
+        
+    }
+}
+
+class CTFSemanticDifferentialScaleAnswerFormat: CTFScaleAnswerFormat {
+    override var scaleType: CTFScaleAnswerType? {
+        return CTFScaleAnswerType.semanticDifferential
+    }
+    
+    convenience init(withMaximumValue scaleMaximum: Int,
+                     minimumValue scaleMinimum: Int,
+                     defaultValue: Int,
+                     step: Int,
+                     vertical: Bool,
+                     maximumValueDescription: String?,
                      minimumValueDescription: String?,
-                     trackHeight: CGFloat?){
+                     trackHeight: CGFloat?,
+                     gradientColors: [UIColor]?){
         
         self.init(maximumValue: scaleMaximum,
                   minimumValue: scaleMinimum,
@@ -75,35 +103,7 @@ class CTFLikertScaleAnswerFormat: CTFScaleAnswerFormat {
         
         self.intermediateValueDescription = intermediateValueDescription
         self.trackHeight = trackHeight
+        self.gradientColors = gradientColors
         
     }
 }
-
-//class CTFSemanticDifferentialScaleAnswerFormat: CTFScaleAnswerFormat {
-//    override var scaleType: CTFScaleAnswerType? {
-//        return CTFScaleAnswerType.likert
-//    }
-//    
-//    convenience init(withMaximumValue scaleMaximum: Int,
-//                     minimumValue scaleMinimum: Int,
-//                     defaultValue: Int,
-//                     step: Int,
-//                     vertical: Bool,
-//                     maximumValueDescription: String?,
-//                     intermediateValueDescription: String?,
-//                     minimumValueDescription: String?,
-//                     trackHeight: CGFloat?){
-//        
-//        self.init(maximumValue: scaleMaximum,
-//                  minimumValue: scaleMinimum,
-//                  defaultValue: defaultValue,
-//                  step: step,
-//                  vertical: vertical,
-//                  maximumValueDescription: maximumValueDescription,
-//                  minimumValueDescription: minimumValueDescription)
-//        
-//        self.intermediateValueDescription = intermediateValueDescription
-//        self.trackHeight = trackHeight
-//        
-//    }
-//}

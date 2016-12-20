@@ -104,6 +104,9 @@
 		E2B70A871E08AF5F00C93093 /* CTFLikertFormStepGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B70A861E08AF5F00C93093 /* CTFLikertFormStepGenerator.swift */; };
 		E2B70A8A1E08B43600C93093 /* CTFLikertFormItemDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B70A891E08B43600C93093 /* CTFLikertFormItemDescriptor.swift */; };
 		E2B70A8E1E08BD8E00C93093 /* CTFLikertScaleFormParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B70A8D1E08BD8E00C93093 /* CTFLikertScaleFormParameters.swift */; };
+		E2B70A901E08C3BB00C93093 /* CTFSemanticDifferentialScaleFormParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B70A8F1E08C3BB00C93093 /* CTFSemanticDifferentialScaleFormParameters.swift */; };
+		E2B70A921E08C3F100C93093 /* CTFSemanticDifferentialScaleFormItemDecriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B70A911E08C3F000C93093 /* CTFSemanticDifferentialScaleFormItemDecriptor.swift */; };
+		E2B70A941E08C55300C93093 /* CTFSemanticDifferentialFormStepGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B70A931E08C55300C93093 /* CTFSemanticDifferentialFormStepGenerator.swift */; };
 		E2C18EAD1DD147C1005E0324 /* CTFScaleAnswerFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C18EAC1DD147C1005E0324 /* CTFScaleAnswerFormat.swift */; };
 		E2CCB66A1DB158AF00C801A4 /* CTFScheduleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CCB6691DB158AF00C801A4 /* CTFScheduleItem.swift */; };
 		E2CCB66D1DB55DB500C801A4 /* CTFBARTStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CCB66C1DB55DB500C801A4 /* CTFBARTStep.swift */; };
@@ -327,6 +330,9 @@
 		E2B70A861E08AF5F00C93093 /* CTFLikertFormStepGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFLikertFormStepGenerator.swift; sourceTree = "<group>"; };
 		E2B70A891E08B43600C93093 /* CTFLikertFormItemDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFLikertFormItemDescriptor.swift; sourceTree = "<group>"; };
 		E2B70A8D1E08BD8E00C93093 /* CTFLikertScaleFormParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFLikertScaleFormParameters.swift; sourceTree = "<group>"; };
+		E2B70A8F1E08C3BB00C93093 /* CTFSemanticDifferentialScaleFormParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFSemanticDifferentialScaleFormParameters.swift; sourceTree = "<group>"; };
+		E2B70A911E08C3F000C93093 /* CTFSemanticDifferentialScaleFormItemDecriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFSemanticDifferentialScaleFormItemDecriptor.swift; sourceTree = "<group>"; };
+		E2B70A931E08C55300C93093 /* CTFSemanticDifferentialFormStepGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFSemanticDifferentialFormStepGenerator.swift; sourceTree = "<group>"; };
 		E2C18EAC1DD147C1005E0324 /* CTFScaleAnswerFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFScaleAnswerFormat.swift; sourceTree = "<group>"; };
 		E2CCB6691DB158AF00C801A4 /* CTFScheduleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFScheduleItem.swift; sourceTree = "<group>"; };
 		E2CCB66C1DB55DB500C801A4 /* CTFBARTStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFBARTStep.swift; sourceTree = "<group>"; };
@@ -589,6 +595,9 @@
 				E2B70A861E08AF5F00C93093 /* CTFLikertFormStepGenerator.swift */,
 				E2B70A891E08B43600C93093 /* CTFLikertFormItemDescriptor.swift */,
 				E2B70A8D1E08BD8E00C93093 /* CTFLikertScaleFormParameters.swift */,
+				E2B70A931E08C55300C93093 /* CTFSemanticDifferentialFormStepGenerator.swift */,
+				E2B70A8F1E08C3BB00C93093 /* CTFSemanticDifferentialScaleFormParameters.swift */,
+				E2B70A911E08C3F000C93093 /* CTFSemanticDifferentialScaleFormItemDecriptor.swift */,
 			);
 			name = "Bricoleur Support";
 			sourceTree = "<group>";
@@ -983,6 +992,7 @@
 				E21F23821DA44F2F00760EA7 /* ORKOrderedTask+GoNoGo.swift in Sources */,
 				E2AA6D0E1DA43C6B005D5137 /* CTFActivityResult.swift in Sources */,
 				E2CCB66A1DB158AF00C801A4 /* CTFScheduleItem.swift in Sources */,
+				E2B70A941E08C55300C93093 /* CTFSemanticDifferentialFormStepGenerator.swift in Sources */,
 				E295FC211DDCC001001B175D /* UIColor+String.swift in Sources */,
 				E2AA6D191DA43C83005D5137 /* CTFFormItemCell.swift in Sources */,
 				E2AA6D031DA43C54005D5137 /* CTFActivityTableViewController.swift in Sources */,
@@ -992,6 +1002,7 @@
 				E2CCB6721DB5610F00C801A4 /* CTFBARTStepViewController.swift in Sources */,
 				E2EF6B1F1DA2E2970034456A /* AppDelegate.swift in Sources */,
 				081989261DCA3D0D0047ACA6 /* CTFDelayDiscountingBridgeTask.swift in Sources */,
+				E2B70A901E08C3BB00C93093 /* CTFSemanticDifferentialScaleFormParameters.swift in Sources */,
 				E2AA6D0C1DA43C6B005D5137 /* CTFActivity.swift in Sources */,
 				E2C18EAD1DD147C1005E0324 /* CTFScaleAnswerFormat.swift in Sources */,
 				E2FE1AB71DB0337200DBB8E7 /* Array+Random.swift in Sources */,
@@ -1011,6 +1022,7 @@
 				E27E29281DA826980050788A /* CTFIntegerRange.swift in Sources */,
 				E27E29261DA826350050788A /* CTFNumberRange.swift in Sources */,
 				E23535DC1DB57B6F005BAFE3 /* GenericHelpers.swift in Sources */,
+				E2B70A921E08C3F100C93093 /* CTFSemanticDifferentialScaleFormItemDecriptor.swift in Sources */,
 				E2B70A871E08AF5F00C93093 /* CTFLikertFormStepGenerator.swift in Sources */,
 				E22792BA1DD5245B0026F8AB /* CTFBehaviorVSRTask.swift in Sources */,
 				E295FC2C1DDE653E001B175D /* CTFTabBarController.swift in Sources */,

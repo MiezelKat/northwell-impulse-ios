@@ -1,5 +1,5 @@
 //
-//  CTFLikertFormStepGenerator.swift
+//  CTFSemanticDifferentialFormStepGenerator.swift
 //  Impulse
 //
 //  Created by James Kizer on 12/19/16.
@@ -7,16 +7,16 @@
 //
 
 import UIKit
-import Bricoleur
 import ResearchKit
+import Bricoleur
 import Gloss
 
-class CTFLikertFormStepGenerator: BCLBaseStepGenerator {
+class CTFSemanticDifferentialFormStepGenerator: BCLBaseStepGenerator {
     
     public init(){}
     
     let _supportedTypes = [
-        "CTFLikertForm"
+        "CTFSemanticDifferentialForm"
     ]
     
     public var supportedTypes: [String]! {
@@ -27,18 +27,18 @@ class CTFLikertFormStepGenerator: BCLBaseStepGenerator {
         
         guard let customStepDescriptor = helper.getCustomStepDescriptor(forJsonObject: jsonObject),
             let parameters = customStepDescriptor.parameters,
-            let likertFormParametersDescriptor = CTFLikertScaleFormParameters(json: parameters ) else {
-            return nil
+            let semanticDifferentialFormParameters = CTFSemanticDifferentialScaleFormParameters(json: parameters ) else {
+                return nil
         }
         
         //generate form items from question step descriptors
-        let formItems = likertFormParametersDescriptor.items.flatMap { (formItemDescriptor) -> ORKFormItem? in
+        let formItems = semanticDifferentialFormParameters.items.flatMap { (formItemDescriptor) -> ORKFormItem? in
             
-            let answerFormat = CTFLikertScaleAnswerFormat(withMaximumValue: formItemDescriptor.maximum, minimumValue: formItemDescriptor.minimum, defaultValue: formItemDescriptor.defaultValue, step: formItemDescriptor.step, vertical: false, maximumValueDescription: formItemDescriptor.maxValueText, intermediateValueDescription: formItemDescriptor.midValueText, minimumValueDescription: formItemDescriptor.minValueText)
+            let answerFormat = CTFSemanticDifferentialScaleAnswerFormat(withMaximumValue: formItemDescriptor.maximum, minimumValue: formItemDescriptor.minimum, defaultValue: formItemDescriptor.defaultValue, step: formItemDescriptor.step, vertical: false, maximumValueDescription: formItemDescriptor.maxValueText, minimumValueDescription: formItemDescriptor.minValueText, trackHeight: formItemDescriptor.trackHeight, gradientColors: formItemDescriptor.gradientColors)
             return ORKFormItem(identifier: formItemDescriptor.identifier, text: formItemDescriptor.text, answerFormat: answerFormat, optional: formItemDescriptor.optional)
             
         }
-        let formStep = CTFPulsusFormStep(identifier: customStepDescriptor.identifier, title: likertFormParametersDescriptor.title, text: likertFormParametersDescriptor.text)
+        let formStep = CTFPulsusFormStep(identifier: customStepDescriptor.identifier, title: semanticDifferentialFormParameters.title, text: semanticDifferentialFormParameters.text)
         formStep.formItems = formItems
         return formStep
     }

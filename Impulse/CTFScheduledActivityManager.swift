@@ -77,6 +77,7 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
             BCLTimePickerStepGenerator(),
             BCLFormStepGenerator(),
             CTFLikertFormStepGenerator(),
+            CTFSemanticDifferentialFormStepGenerator(),
             BCLDefaultStepGenerator()
         ]
         
