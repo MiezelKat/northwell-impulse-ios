@@ -141,6 +141,9 @@
 		E2B70AE51E09BD9D00C93093 /* go_no_go_stable_stimulus_full_task_500.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AE11E09BD9D00C93093 /* go_no_go_stable_stimulus_full_task_500.json */; };
 		E2B70AE61E09BD9D00C93093 /* go_no_go_stable_stimulus_full_task_600.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AE21E09BD9D00C93093 /* go_no_go_stable_stimulus_full_task_600.json */; };
 		E2B70AE71E09BD9D00C93093 /* go_no_go_stable_stimulus_full_task_700.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AE31E09BD9D00C93093 /* go_no_go_stable_stimulus_full_task_700.json */; };
+		E2B70AEA1E09C58800C93093 /* CTFGoNoGoStepGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B70AE91E09C58800C93093 /* CTFGoNoGoStepGenerator.swift */; };
+		E2B70AEC1E09C80900C93093 /* CTFGoNoGoStepParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B70AEB1E09C80900C93093 /* CTFGoNoGoStepParameters.swift */; };
+		E2B70AF01E09C97E00C93093 /* CTFGoNoGoStepParamsDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B70AEF1E09C97E00C93093 /* CTFGoNoGoStepParamsDescriptor.swift */; };
 		E2C18EAD1DD147C1005E0324 /* CTFScaleAnswerFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C18EAC1DD147C1005E0324 /* CTFScaleAnswerFormat.swift */; };
 		E2CCB66A1DB158AF00C801A4 /* CTFScheduleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CCB6691DB158AF00C801A4 /* CTFScheduleItem.swift */; };
 		E2CCB66D1DB55DB500C801A4 /* CTFBARTStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CCB66C1DB55DB500C801A4 /* CTFBARTStep.swift */; };
@@ -401,6 +404,9 @@
 		E2B70AE11E09BD9D00C93093 /* go_no_go_stable_stimulus_full_task_500.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = go_no_go_stable_stimulus_full_task_500.json; path = "northwell-impulse-common/assets/json/survey/go_no_go_stable_stimulus_full_task_500.json"; sourceTree = SOURCE_ROOT; };
 		E2B70AE21E09BD9D00C93093 /* go_no_go_stable_stimulus_full_task_600.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = go_no_go_stable_stimulus_full_task_600.json; path = "northwell-impulse-common/assets/json/survey/go_no_go_stable_stimulus_full_task_600.json"; sourceTree = SOURCE_ROOT; };
 		E2B70AE31E09BD9D00C93093 /* go_no_go_stable_stimulus_full_task_700.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = go_no_go_stable_stimulus_full_task_700.json; path = "northwell-impulse-common/assets/json/survey/go_no_go_stable_stimulus_full_task_700.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AE91E09C58800C93093 /* CTFGoNoGoStepGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFGoNoGoStepGenerator.swift; sourceTree = "<group>"; };
+		E2B70AEB1E09C80900C93093 /* CTFGoNoGoStepParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFGoNoGoStepParameters.swift; sourceTree = "<group>"; };
+		E2B70AEF1E09C97E00C93093 /* CTFGoNoGoStepParamsDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFGoNoGoStepParamsDescriptor.swift; sourceTree = "<group>"; };
 		E2C18EAC1DD147C1005E0324 /* CTFScaleAnswerFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFScaleAnswerFormat.swift; sourceTree = "<group>"; };
 		E2CCB6691DB158AF00C801A4 /* CTFScheduleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFScheduleItem.swift; sourceTree = "<group>"; };
 		E2CCB66C1DB55DB500C801A4 /* CTFBARTStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFBARTStep.swift; sourceTree = "<group>"; };
@@ -491,7 +497,9 @@
 		E21F23771DA44EFA00760EA7 /* Go No Go */ = {
 			isa = PBXGroup;
 			children = (
+				E2B70AE81E09C56300C93093 /* Bricoleur Support */,
 				E21F23841DA4522600760EA7 /* CTFGoNoGoStep.swift */,
+				E2B70AEB1E09C80900C93093 /* CTFGoNoGoStepParameters.swift */,
 				E21F23801DA44F2F00760EA7 /* ORKOrderedTask+GoNoGo.swift */,
 				E21F23811DA44F2F00760EA7 /* CTFGoNoGoTask.swift */,
 				E21F23781DA44F2700760EA7 /* CTFGoNoGoStepViewController.swift */,
@@ -700,6 +708,15 @@
 				E2B70A931E08C55300C93093 /* CTFSemanticDifferentialFormStepGenerator.swift */,
 				E2B70A8F1E08C3BB00C93093 /* CTFSemanticDifferentialScaleFormParameters.swift */,
 				E2B70A911E08C3F000C93093 /* CTFSemanticDifferentialScaleFormItemDecriptor.swift */,
+			);
+			name = "Bricoleur Support";
+			sourceTree = "<group>";
+		};
+		E2B70AE81E09C56300C93093 /* Bricoleur Support */ = {
+			isa = PBXGroup;
+			children = (
+				E2B70AE91E09C58800C93093 /* CTFGoNoGoStepGenerator.swift */,
+				E2B70AEF1E09C97E00C93093 /* CTFGoNoGoStepParamsDescriptor.swift */,
 			);
 			name = "Bricoleur Support";
 			sourceTree = "<group>";
@@ -1114,6 +1131,7 @@
 			files = (
 				E2AA6D181DA43C83005D5137 /* CTFBorderedButton.swift in Sources */,
 				E21F237C1DA44F2700760EA7 /* CTFGoNoGoStepViewController.swift in Sources */,
+				E2B70AEC1E09C80900C93093 /* CTFGoNoGoStepParameters.swift in Sources */,
 				E2AA6D351DA43D07005D5137 /* CTFMainTabViewController.swift in Sources */,
 				E2AA6D0F1DA43C6B005D5137 /* CTFActivityTableViewCell.swift in Sources */,
 				E2FE1AA61DAEEA1B00DBB8E7 /* ORKStepViewController+Helpers.swift in Sources */,
@@ -1144,6 +1162,7 @@
 				E2AA6D0B1DA43C6B005D5137 /* CTFScheduledActivity.swift in Sources */,
 				E2AA6CFC1DA41F3D005D5137 /* CTFLogInViaExternalIdViewController.swift in Sources */,
 				E21F23851DA4522600760EA7 /* CTFGoNoGoStep.swift in Sources */,
+				E2B70AEA1E09C58800C93093 /* CTFGoNoGoStepGenerator.swift in Sources */,
 				E295FC2A1DDE36EB001B175D /* CTFSettingsTableViewController.swift in Sources */,
 				E2B70A8A1E08B43600C93093 /* CTFLikertFormItemDescriptor.swift in Sources */,
 				E21F237E1DA44F2700760EA7 /* CTFGoNoGoActiveStepViewController.swift in Sources */,
@@ -1158,6 +1177,7 @@
 				E27E29261DA826350050788A /* CTFNumberRange.swift in Sources */,
 				E23535DC1DB57B6F005BAFE3 /* GenericHelpers.swift in Sources */,
 				E2B70A971E08C8BE00C93093 /* PAMMultipleStepGenerator.swift in Sources */,
+				E2B70AF01E09C97E00C93093 /* CTFGoNoGoStepParamsDescriptor.swift in Sources */,
 				E2B70A921E08C3F100C93093 /* CTFSemanticDifferentialScaleFormItemDecriptor.swift in Sources */,
 				E2B70A871E08AF5F00C93093 /* CTFLikertFormStepGenerator.swift in Sources */,
 				E22792BA1DD5245B0026F8AB /* CTFBehaviorVSRTask.swift in Sources */,

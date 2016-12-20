@@ -14,7 +14,7 @@ class CTFGoNoGoTask: ORKOrderedTask {
     static let CTFGoNoGoStepIdentifier: String = "goNoGoStep"
     
     init(identifier:String,
-         params:CTFGoNoGoStepParams?) {
+         params:CTFGoNoGoStepParameters?) {
         
         let goNoGo = CTFGoNoGoStep(identifier: CTFGoNoGoTask.CTFGoNoGoStepIdentifier)
         

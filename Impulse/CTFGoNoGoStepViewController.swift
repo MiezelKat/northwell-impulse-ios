@@ -142,7 +142,7 @@ class CTFGoNoGoStepViewController: ORKStepViewController, CTFGoNoGoViewDelegate 
     
     
     
-    func generateTrials(_ goNoGoParams:CTFGoNoGoStepParams) -> [CTFGoNoGoTrial]? {
+    func generateTrials(_ goNoGoParams:CTFGoNoGoStepParameters) -> [CTFGoNoGoTrial]? {
         if let numTrials = goNoGoParams.numTrials {
             return (0..<numTrials).map { index in
                 let cueTime: TimeInterval = (goNoGoParams.cueTimeOptions?.random())!

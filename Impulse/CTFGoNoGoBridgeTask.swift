@@ -15,9 +15,9 @@ class CTFGoNoGoBridgeTask: NSObject, SBABridgeTask, SBAStepTransformer {
     
     var _taskIdentifier: String!
     var _schemaIdentifier: String?
-    var stepParams: CTFGoNoGoStepParams!
+    var stepParams: CTFGoNoGoStepParameters!
     
-    static func stepParamsFromDictionary(_ dictionary: AnyObject?) -> CTFGoNoGoStepParams? {
+    static func stepParamsFromDictionary(_ dictionary: AnyObject?) -> CTFGoNoGoStepParameters? {
 //        print(dictionary)
         guard let paramsDict = dictionary,
             let numTrials = paramsDict["numberOfTrials"] as? Int,
@@ -32,7 +32,7 @@ class CTFGoNoGoBridgeTask: NSObject, SBABridgeTask, SBAStepTransformer {
             return nil
         }
         
-        return CTFGoNoGoStepParams(
+        return CTFGoNoGoStepParameters(
             waitTime: waitTime,
             crossTime: crossTime,
             blankTime: blankTime,

@@ -80,6 +80,7 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
             CTFSemanticDifferentialFormStepGenerator(),
             PAMMultipleStepGenerator(),
             PAMStepGenerator(),
+            CTFGoNoGoStepGenerator(),
             BCLDefaultStepGenerator()
         ]
         
