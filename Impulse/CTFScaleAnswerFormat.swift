@@ -16,7 +16,11 @@ enum CTFScaleAnswerType {
 
 class CTFScaleAnswerFormat: ORKScaleAnswerFormat {
     var intermediateValueDescription: String?
-    var scaleType: CTFScaleAnswerType?
+    
+    var _scaleType: CTFScaleAnswerType?
+    var scaleType: CTFScaleAnswerType? {
+        return self._scaleType
+    }
     var trackHeight: CGFloat?
     
     convenience init(withMaximumValue scaleMaximum: Int,
@@ -39,9 +43,67 @@ class CTFScaleAnswerFormat: ORKScaleAnswerFormat {
                    minimumValueDescription: minimumValueDescription)
         
         self.intermediateValueDescription = intermediateValueDescription
-        self.scaleType = scaleAnswerType
+        self._scaleType = scaleAnswerType
         self.trackHeight = trackHeight
         
     }
     
 }
+
+class CTFLikertScaleAnswerFormat: CTFScaleAnswerFormat {
+    override var scaleType: CTFScaleAnswerType? {
+        return CTFScaleAnswerType.likert
+    }
+    
+    convenience init(withMaximumValue scaleMaximum: Int,
+                     minimumValue scaleMinimum: Int,
+                     defaultValue: Int,
+                     step: Int,
+                     vertical: Bool,
+                     maximumValueDescription: String?,
+                     intermediateValueDescription: String?,
+                     minimumValueDescription: String?,
+                     trackHeight: CGFloat?){
+        
+        self.init(maximumValue: scaleMaximum,
+                  minimumValue: scaleMinimum,
+                  defaultValue: defaultValue,
+                  step: step,
+                  vertical: vertical,
+                  maximumValueDescription: maximumValueDescription,
+                  minimumValueDescription: minimumValueDescription)
+        
+        self.intermediateValueDescription = intermediateValueDescription
+        self.trackHeight = trackHeight
+        
+    }
+}
+
+//class CTFSemanticDifferentialScaleAnswerFormat: CTFScaleAnswerFormat {
+//    override var scaleType: CTFScaleAnswerType? {
+//        return CTFScaleAnswerType.likert
+//    }
+//    
+//    convenience init(withMaximumValue scaleMaximum: Int,
+//                     minimumValue scaleMinimum: Int,
+//                     defaultValue: Int,
+//                     step: Int,
+//                     vertical: Bool,
+//                     maximumValueDescription: String?,
+//                     intermediateValueDescription: String?,
+//                     minimumValueDescription: String?,
+//                     trackHeight: CGFloat?){
+//        
+//        self.init(maximumValue: scaleMaximum,
+//                  minimumValue: scaleMinimum,
+//                  defaultValue: defaultValue,
+//                  step: step,
+//                  vertical: vertical,
+//                  maximumValueDescription: maximumValueDescription,
+//                  minimumValueDescription: minimumValueDescription)
+//        
+//        self.intermediateValueDescription = intermediateValueDescription
+//        self.trackHeight = trackHeight
+//        
+//    }
+//}
