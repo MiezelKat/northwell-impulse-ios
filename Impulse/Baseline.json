@@ -11,7 +11,7 @@
      },
      {
        "identifier"       : "gender",
-       "type"             : "textfield",
+       "type"             : "singleChoiceText",
        "text"             : "What is your gender?",
        "items"            : [{   "prompt" : "Female",
                              "value" : "Female"},
@@ -39,7 +39,7 @@
      },
      {
        "identifier" : "education",
-       "type"       : "singleChoiceText",
+       "type"       : "multipleChoiceText",
        "text"       : "What is the highest degree or level of school you have completed? (If currently enrolled, mark the highest degree received.)",
        "items"      : [  {   "prompt" : "0-11 grade completed(no high school degree)",
                          "value" : "0-11 grade (no high school degree)"},
@@ -277,7 +277,7 @@
      {
      "identifier":  "notes",
      "type"     :   "textfield",
-     "text"       : "Please contact us to finalize your participant in the study. Upon hearing from you, we will schedule your payment and answer any questions.",
+     "text"       : "Please contact us to finalize your participation in the study. Upon hearing from you, we will schedule your payment and answer any questions.",
      "optional" : true
      }
    ]
