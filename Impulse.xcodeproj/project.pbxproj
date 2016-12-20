@@ -107,6 +107,8 @@
 		E2B70A901E08C3BB00C93093 /* CTFSemanticDifferentialScaleFormParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B70A8F1E08C3BB00C93093 /* CTFSemanticDifferentialScaleFormParameters.swift */; };
 		E2B70A921E08C3F100C93093 /* CTFSemanticDifferentialScaleFormItemDecriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B70A911E08C3F000C93093 /* CTFSemanticDifferentialScaleFormItemDecriptor.swift */; };
 		E2B70A941E08C55300C93093 /* CTFSemanticDifferentialFormStepGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B70A931E08C55300C93093 /* CTFSemanticDifferentialFormStepGenerator.swift */; };
+		E2B70A971E08C8BE00C93093 /* PAMMultipleStepGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B70A961E08C8BE00C93093 /* PAMMultipleStepGenerator.swift */; };
+		E2B70A991E08CD2400C93093 /* PAMStepGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B70A981E08CD2400C93093 /* PAMStepGenerator.swift */; };
 		E2C18EAD1DD147C1005E0324 /* CTFScaleAnswerFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C18EAC1DD147C1005E0324 /* CTFScaleAnswerFormat.swift */; };
 		E2CCB66A1DB158AF00C801A4 /* CTFScheduleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CCB6691DB158AF00C801A4 /* CTFScheduleItem.swift */; };
 		E2CCB66D1DB55DB500C801A4 /* CTFBARTStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CCB66C1DB55DB500C801A4 /* CTFBARTStep.swift */; };
@@ -333,6 +335,8 @@
 		E2B70A8F1E08C3BB00C93093 /* CTFSemanticDifferentialScaleFormParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFSemanticDifferentialScaleFormParameters.swift; sourceTree = "<group>"; };
 		E2B70A911E08C3F000C93093 /* CTFSemanticDifferentialScaleFormItemDecriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFSemanticDifferentialScaleFormItemDecriptor.swift; sourceTree = "<group>"; };
 		E2B70A931E08C55300C93093 /* CTFSemanticDifferentialFormStepGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFSemanticDifferentialFormStepGenerator.swift; sourceTree = "<group>"; };
+		E2B70A961E08C8BE00C93093 /* PAMMultipleStepGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PAMMultipleStepGenerator.swift; sourceTree = "<group>"; };
+		E2B70A981E08CD2400C93093 /* PAMStepGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PAMStepGenerator.swift; sourceTree = "<group>"; };
 		E2C18EAC1DD147C1005E0324 /* CTFScaleAnswerFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFScaleAnswerFormat.swift; sourceTree = "<group>"; };
 		E2CCB6691DB158AF00C801A4 /* CTFScheduleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFScheduleItem.swift; sourceTree = "<group>"; };
 		E2CCB66C1DB55DB500C801A4 /* CTFBARTStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFBARTStep.swift; sourceTree = "<group>"; };
@@ -516,6 +520,8 @@
 				E2CCB66B1DB547CF00C801A4 /* BART */,
 				E21F23771DA44EFA00760EA7 /* Go No Go */,
 				E21F23741DA44EE300760EA7 /* Likert */,
+				E2B70A961E08C8BE00C93093 /* PAMMultipleStepGenerator.swift */,
+				E2B70A981E08CD2400C93093 /* PAMStepGenerator.swift */,
 			);
 			name = "RK Extensions";
 			sourceTree = "<group>";
@@ -998,6 +1004,7 @@
 				E2AA6D031DA43C54005D5137 /* CTFActivityTableViewController.swift in Sources */,
 				E2AA6D1C1DA43C83005D5137 /* CTFPulsusFormBridgeTask.swift in Sources */,
 				E2FE1AAE1DB00CF900DBB8E7 /* CTFPAMMultipleSelectionTask.swift in Sources */,
+				E2B70A991E08CD2400C93093 /* PAMStepGenerator.swift in Sources */,
 				E2AA6D381DA43F57005D5137 /* CTFPAMTask.swift in Sources */,
 				E2CCB6721DB5610F00C801A4 /* CTFBARTStepViewController.swift in Sources */,
 				E2EF6B1F1DA2E2970034456A /* AppDelegate.swift in Sources */,
@@ -1022,6 +1029,7 @@
 				E27E29281DA826980050788A /* CTFIntegerRange.swift in Sources */,
 				E27E29261DA826350050788A /* CTFNumberRange.swift in Sources */,
 				E23535DC1DB57B6F005BAFE3 /* GenericHelpers.swift in Sources */,
+				E2B70A971E08C8BE00C93093 /* PAMMultipleStepGenerator.swift in Sources */,
 				E2B70A921E08C3F100C93093 /* CTFSemanticDifferentialScaleFormItemDecriptor.swift in Sources */,
 				E2B70A871E08AF5F00C93093 /* CTFLikertFormStepGenerator.swift in Sources */,
 				E22792BA1DD5245B0026F8AB /* CTFBehaviorVSRTask.swift in Sources */,
