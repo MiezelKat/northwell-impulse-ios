@@ -73,18 +73,13 @@
 		E2B70A361E0895BD00C93093 /* am_likert_1.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A1A1E0895BD00C93093 /* am_likert_1.json */; };
 		E2B70A371E0895BD00C93093 /* am_likert_1a.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A1B1E0895BD00C93093 /* am_likert_1a.json */; };
 		E2B70A381E0895BD00C93093 /* am_likert_3.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A1C1E0895BD00C93093 /* am_likert_3.json */; };
-		E2B70A391E0895BD00C93093 /* am_survey_go_no_go_variable_copy.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A1D1E0895BD00C93093 /* am_survey_go_no_go_variable_copy.json */; };
 		E2B70A3A1E0895BD00C93093 /* am_survey_go_no_go_variable.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A1E1E0895BD00C93093 /* am_survey_go_no_go_variable.json */; };
 		E2B70A3B1E0895BD00C93093 /* bart_25_cents_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A1F1E0895BD00C93093 /* bart_25_cents_full_task.json */; };
 		E2B70A3C1E0895BD00C93093 /* baseline_behaviors_1.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A201E0895BD00C93093 /* baseline_behaviors_1.json */; };
 		E2B70A3D1E0895BD00C93093 /* baseline_behaviors_4.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A211E0895BD00C93093 /* baseline_behaviors_4.json */; };
-		E2B70A3E1E0895BD00C93093 /* Baseline_copy.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A221E0895BD00C93093 /* Baseline_copy.json */; };
-		E2B70A3F1E0895BD00C93093 /* baseline_self_report.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A231E0895BD00C93093 /* baseline_self_report.json */; };
 		E2B70A401E0895BD00C93093 /* Baseline.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A241E0895BD00C93093 /* Baseline.json */; };
 		E2B70A411E0895BD00C93093 /* behavior_only.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A251E0895BD00C93093 /* behavior_only.json */; };
 		E2B70A421E0895BD00C93093 /* demographics.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A261E0895BD00C93093 /* demographics.json */; };
-		E2B70A431E0895BD00C93093 /* go_no_go_variable_stimulus_active_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A271E0895BD00C93093 /* go_no_go_variable_stimulus_active_task.json */; };
-		E2B70A441E0895BD00C93093 /* go_no_go_variable_stimulus_full_task_copy.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A281E0895BD00C93093 /* go_no_go_variable_stimulus_full_task_copy.json */; };
 		E2B70A451E0895BD00C93093 /* go_no_go_variable_stimulus_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A291E0895BD00C93093 /* go_no_go_variable_stimulus_full_task.json */; };
 		E2B70A461E0895BD00C93093 /* LikertSemDifTest.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A2A1E0895BD00C93093 /* LikertSemDifTest.json */; };
 		E2B70A471E0895BD00C93093 /* medical_history.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A2B1E0895BD00C93093 /* medical_history.json */; };
@@ -109,6 +104,43 @@
 		E2B70A941E08C55300C93093 /* CTFSemanticDifferentialFormStepGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B70A931E08C55300C93093 /* CTFSemanticDifferentialFormStepGenerator.swift */; };
 		E2B70A971E08C8BE00C93093 /* PAMMultipleStepGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B70A961E08C8BE00C93093 /* PAMMultipleStepGenerator.swift */; };
 		E2B70A991E08CD2400C93093 /* PAMStepGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B70A981E08CD2400C93093 /* PAMStepGenerator.swift */; };
+		E2B70A9D1E098EA700C93093 /* Reenrollment.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A9C1E098EA700C93093 /* Reenrollment.json */; };
+		E2B70AA01E09913000C93093 /* Day_21.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A9E1E09913000C93093 /* Day_21.json */; };
+		E2B70AA11E09913000C93093 /* self_assessment_10_21.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A9F1E09913000C93093 /* self_assessment_10_21.json */; };
+		E2B70AA31E09945700C93093 /* go_no_go_variable_stimulus_short_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AA21E09945700C93093 /* go_no_go_variable_stimulus_short_task.json */; };
+		E2B70AA71E09973500C93093 /* am_survey_go_no_go_stable.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AA41E09973500C93093 /* am_survey_go_no_go_stable.json */; };
+		E2B70AA81E09973500C93093 /* go_no_go_stable_stimulus_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AA51E09973500C93093 /* go_no_go_stable_stimulus_full_task.json */; };
+		E2B70AA91E09973500C93093 /* go_no_go_stable_stimulus_short_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AA61E09973500C93093 /* go_no_go_stable_stimulus_short_task.json */; };
+		E2B70AAC1E0999BA00C93093 /* am_survey_bart_25_cents.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AAA1E0999BA00C93093 /* am_survey_bart_25_cents.json */; };
+		E2B70AB11E099B3B00C93093 /* am_survey_bart_250_dollars.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AAE1E099B3B00C93093 /* am_survey_bart_250_dollars.json */; };
+		E2B70AB21E099B3B00C93093 /* bart_250_dollars_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AAF1E099B3B00C93093 /* bart_250_dollars_full_task.json */; };
+		E2B70AB31E099B3B00C93093 /* bart_250_dollars_short_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AB01E099B3B00C93093 /* bart_250_dollars_short_task.json */; };
+		E2B70AB51E099B9000C93093 /* bart_25_cents_short_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AB41E099B9000C93093 /* bart_25_cents_short_task.json */; };
+		E2B70AB81E09A04200C93093 /* am_survey_dd_money_1_month.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AB61E09A04200C93093 /* am_survey_dd_money_1_month.json */; };
+		E2B70AB91E09A04200C93093 /* dd_money_1_month_short_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AB71E09A04200C93093 /* dd_money_1_month_short_task.json */; };
+		E2B70ABB1E09A08000C93093 /* dd_money_1_month_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70ABA1E09A08000C93093 /* dd_money_1_month_full_task.json */; };
+		E2B70ABE1E09A19400C93093 /* am_survey_dd_money_6_month.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70ABC1E09A19400C93093 /* am_survey_dd_money_6_month.json */; };
+		E2B70ABF1E09A19400C93093 /* dd_money_6_month_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70ABD1E09A19400C93093 /* dd_money_6_month_full_task.json */; };
+		E2B70AC11E09A1A300C93093 /* dd_money_6_month_short_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AC01E09A1A300C93093 /* dd_money_6_month_short_task.json */; };
+		E2B70AC51E09A3BA00C93093 /* am_survey_dd_time_1_month.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AC21E09A3BA00C93093 /* am_survey_dd_time_1_month.json */; };
+		E2B70AC61E09A3BA00C93093 /* dd_time_1_month_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AC31E09A3BA00C93093 /* dd_time_1_month_full_task.json */; };
+		E2B70AC71E09A3BA00C93093 /* dd_time_1_month_short_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AC41E09A3BA00C93093 /* dd_time_1_month_short_task.json */; };
+		E2B70ACB1E09A4AC00C93093 /* am_survey_dd_time_6_month.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AC81E09A4AC00C93093 /* am_survey_dd_time_6_month.json */; };
+		E2B70ACC1E09A4AC00C93093 /* dd_time_6_month_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AC91E09A4AC00C93093 /* dd_time_6_month_full_task.json */; };
+		E2B70ACD1E09A4AC00C93093 /* dd_time_6_month_short_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70ACA1E09A4AC00C93093 /* dd_time_6_month_short_task.json */; };
+		E2B70AD71E09B76B00C93093 /* pm_likert_1.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70ACE1E09B76B00C93093 /* pm_likert_1.json */; };
+		E2B70AD81E09B76B00C93093 /* pm_survey_bart_25_cents.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70ACF1E09B76B00C93093 /* pm_survey_bart_25_cents.json */; };
+		E2B70AD91E09B76B00C93093 /* pm_survey_bart_250_dollars.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AD01E09B76B00C93093 /* pm_survey_bart_250_dollars.json */; };
+		E2B70ADA1E09B76B00C93093 /* pm_survey_dd_money_1_month.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AD11E09B76B00C93093 /* pm_survey_dd_money_1_month.json */; };
+		E2B70ADB1E09B76B00C93093 /* pm_survey_dd_money_6_month.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AD21E09B76B00C93093 /* pm_survey_dd_money_6_month.json */; };
+		E2B70ADC1E09B76B00C93093 /* pm_survey_dd_time_1_month.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AD31E09B76B00C93093 /* pm_survey_dd_time_1_month.json */; };
+		E2B70ADD1E09B76B00C93093 /* pm_survey_dd_time_6_month.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AD41E09B76B00C93093 /* pm_survey_dd_time_6_month.json */; };
+		E2B70ADE1E09B76B00C93093 /* pm_survey_go_no_go_stable.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AD51E09B76B00C93093 /* pm_survey_go_no_go_stable.json */; };
+		E2B70ADF1E09B76B00C93093 /* pm_survey_go_no_go_variable.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AD61E09B76B00C93093 /* pm_survey_go_no_go_variable.json */; };
+		E2B70AE41E09BD9D00C93093 /* go_no_go_practice_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AE01E09BD9D00C93093 /* go_no_go_practice_full_task.json */; };
+		E2B70AE51E09BD9D00C93093 /* go_no_go_stable_stimulus_full_task_500.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AE11E09BD9D00C93093 /* go_no_go_stable_stimulus_full_task_500.json */; };
+		E2B70AE61E09BD9D00C93093 /* go_no_go_stable_stimulus_full_task_600.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AE21E09BD9D00C93093 /* go_no_go_stable_stimulus_full_task_600.json */; };
+		E2B70AE71E09BD9D00C93093 /* go_no_go_stable_stimulus_full_task_700.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AE31E09BD9D00C93093 /* go_no_go_stable_stimulus_full_task_700.json */; };
 		E2C18EAD1DD147C1005E0324 /* CTFScaleAnswerFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C18EAC1DD147C1005E0324 /* CTFScaleAnswerFormat.swift */; };
 		E2CCB66A1DB158AF00C801A4 /* CTFScheduleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CCB6691DB158AF00C801A4 /* CTFScheduleItem.swift */; };
 		E2CCB66D1DB55DB500C801A4 /* CTFBARTStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CCB66C1DB55DB500C801A4 /* CTFBARTStep.swift */; };
@@ -303,18 +335,13 @@
 		E2B70A1A1E0895BD00C93093 /* am_likert_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = am_likert_1.json; path = "northwell-impulse-common/assets/json/survey/am_likert_1.json"; sourceTree = SOURCE_ROOT; };
 		E2B70A1B1E0895BD00C93093 /* am_likert_1a.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = am_likert_1a.json; path = "northwell-impulse-common/assets/json/survey/am_likert_1a.json"; sourceTree = SOURCE_ROOT; };
 		E2B70A1C1E0895BD00C93093 /* am_likert_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = am_likert_3.json; path = "northwell-impulse-common/assets/json/survey/am_likert_3.json"; sourceTree = SOURCE_ROOT; };
-		E2B70A1D1E0895BD00C93093 /* am_survey_go_no_go_variable_copy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = am_survey_go_no_go_variable_copy.json; path = "northwell-impulse-common/assets/json/survey/am_survey_go_no_go_variable_copy.json"; sourceTree = SOURCE_ROOT; };
 		E2B70A1E1E0895BD00C93093 /* am_survey_go_no_go_variable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = am_survey_go_no_go_variable.json; path = "northwell-impulse-common/assets/json/survey/am_survey_go_no_go_variable.json"; sourceTree = SOURCE_ROOT; };
 		E2B70A1F1E0895BD00C93093 /* bart_25_cents_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = bart_25_cents_full_task.json; path = "northwell-impulse-common/assets/json/survey/bart_25_cents_full_task.json"; sourceTree = SOURCE_ROOT; };
 		E2B70A201E0895BD00C93093 /* baseline_behaviors_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = baseline_behaviors_1.json; path = "northwell-impulse-common/assets/json/survey/baseline_behaviors_1.json"; sourceTree = SOURCE_ROOT; };
 		E2B70A211E0895BD00C93093 /* baseline_behaviors_4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = baseline_behaviors_4.json; path = "northwell-impulse-common/assets/json/survey/baseline_behaviors_4.json"; sourceTree = SOURCE_ROOT; };
-		E2B70A221E0895BD00C93093 /* Baseline_copy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Baseline_copy.json; path = "northwell-impulse-common/assets/json/survey/Baseline_copy.json"; sourceTree = SOURCE_ROOT; };
-		E2B70A231E0895BD00C93093 /* baseline_self_report.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = baseline_self_report.json; path = "northwell-impulse-common/assets/json/survey/baseline_self_report.json"; sourceTree = SOURCE_ROOT; };
 		E2B70A241E0895BD00C93093 /* Baseline.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Baseline.json; path = "northwell-impulse-common/assets/json/survey/Baseline.json"; sourceTree = SOURCE_ROOT; };
 		E2B70A251E0895BD00C93093 /* behavior_only.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = behavior_only.json; path = "northwell-impulse-common/assets/json/survey/behavior_only.json"; sourceTree = SOURCE_ROOT; };
 		E2B70A261E0895BD00C93093 /* demographics.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = demographics.json; path = "northwell-impulse-common/assets/json/survey/demographics.json"; sourceTree = SOURCE_ROOT; };
-		E2B70A271E0895BD00C93093 /* go_no_go_variable_stimulus_active_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = go_no_go_variable_stimulus_active_task.json; path = "northwell-impulse-common/assets/json/survey/go_no_go_variable_stimulus_active_task.json"; sourceTree = SOURCE_ROOT; };
-		E2B70A281E0895BD00C93093 /* go_no_go_variable_stimulus_full_task_copy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = go_no_go_variable_stimulus_full_task_copy.json; path = "northwell-impulse-common/assets/json/survey/go_no_go_variable_stimulus_full_task_copy.json"; sourceTree = SOURCE_ROOT; };
 		E2B70A291E0895BD00C93093 /* go_no_go_variable_stimulus_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = go_no_go_variable_stimulus_full_task.json; path = "northwell-impulse-common/assets/json/survey/go_no_go_variable_stimulus_full_task.json"; sourceTree = SOURCE_ROOT; };
 		E2B70A2A1E0895BD00C93093 /* LikertSemDifTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LikertSemDifTest.json; path = "northwell-impulse-common/assets/json/survey/LikertSemDifTest.json"; sourceTree = SOURCE_ROOT; };
 		E2B70A2B1E0895BD00C93093 /* medical_history.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = medical_history.json; path = "northwell-impulse-common/assets/json/survey/medical_history.json"; sourceTree = SOURCE_ROOT; };
@@ -337,6 +364,43 @@
 		E2B70A931E08C55300C93093 /* CTFSemanticDifferentialFormStepGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFSemanticDifferentialFormStepGenerator.swift; sourceTree = "<group>"; };
 		E2B70A961E08C8BE00C93093 /* PAMMultipleStepGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PAMMultipleStepGenerator.swift; sourceTree = "<group>"; };
 		E2B70A981E08CD2400C93093 /* PAMStepGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PAMStepGenerator.swift; sourceTree = "<group>"; };
+		E2B70A9C1E098EA700C93093 /* Reenrollment.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Reenrollment.json; path = "northwell-impulse-common/assets/json/survey/Reenrollment.json"; sourceTree = SOURCE_ROOT; };
+		E2B70A9E1E09913000C93093 /* Day_21.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Day_21.json; path = "northwell-impulse-common/assets/json/survey/Day_21.json"; sourceTree = SOURCE_ROOT; };
+		E2B70A9F1E09913000C93093 /* self_assessment_10_21.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = self_assessment_10_21.json; path = "northwell-impulse-common/assets/json/survey/self_assessment_10_21.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AA21E09945700C93093 /* go_no_go_variable_stimulus_short_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = go_no_go_variable_stimulus_short_task.json; path = "northwell-impulse-common/assets/json/survey/go_no_go_variable_stimulus_short_task.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AA41E09973500C93093 /* am_survey_go_no_go_stable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = am_survey_go_no_go_stable.json; path = "northwell-impulse-common/assets/json/survey/am_survey_go_no_go_stable.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AA51E09973500C93093 /* go_no_go_stable_stimulus_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = go_no_go_stable_stimulus_full_task.json; path = "northwell-impulse-common/assets/json/survey/go_no_go_stable_stimulus_full_task.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AA61E09973500C93093 /* go_no_go_stable_stimulus_short_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = go_no_go_stable_stimulus_short_task.json; path = "northwell-impulse-common/assets/json/survey/go_no_go_stable_stimulus_short_task.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AAA1E0999BA00C93093 /* am_survey_bart_25_cents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = am_survey_bart_25_cents.json; path = "northwell-impulse-common/assets/json/survey/am_survey_bart_25_cents.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AAE1E099B3B00C93093 /* am_survey_bart_250_dollars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = am_survey_bart_250_dollars.json; path = "northwell-impulse-common/assets/json/survey/am_survey_bart_250_dollars.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AAF1E099B3B00C93093 /* bart_250_dollars_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = bart_250_dollars_full_task.json; path = "northwell-impulse-common/assets/json/survey/bart_250_dollars_full_task.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AB01E099B3B00C93093 /* bart_250_dollars_short_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = bart_250_dollars_short_task.json; path = "northwell-impulse-common/assets/json/survey/bart_250_dollars_short_task.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AB41E099B9000C93093 /* bart_25_cents_short_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = bart_25_cents_short_task.json; path = "northwell-impulse-common/assets/json/survey/bart_25_cents_short_task.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AB61E09A04200C93093 /* am_survey_dd_money_1_month.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = am_survey_dd_money_1_month.json; path = "northwell-impulse-common/assets/json/survey/am_survey_dd_money_1_month.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AB71E09A04200C93093 /* dd_money_1_month_short_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dd_money_1_month_short_task.json; path = "northwell-impulse-common/assets/json/survey/dd_money_1_month_short_task.json"; sourceTree = SOURCE_ROOT; };
+		E2B70ABA1E09A08000C93093 /* dd_money_1_month_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dd_money_1_month_full_task.json; path = "northwell-impulse-common/assets/json/survey/dd_money_1_month_full_task.json"; sourceTree = SOURCE_ROOT; };
+		E2B70ABC1E09A19400C93093 /* am_survey_dd_money_6_month.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = am_survey_dd_money_6_month.json; path = "northwell-impulse-common/assets/json/survey/am_survey_dd_money_6_month.json"; sourceTree = SOURCE_ROOT; };
+		E2B70ABD1E09A19400C93093 /* dd_money_6_month_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dd_money_6_month_full_task.json; path = "northwell-impulse-common/assets/json/survey/dd_money_6_month_full_task.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AC01E09A1A300C93093 /* dd_money_6_month_short_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dd_money_6_month_short_task.json; path = "northwell-impulse-common/assets/json/survey/dd_money_6_month_short_task.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AC21E09A3BA00C93093 /* am_survey_dd_time_1_month.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = am_survey_dd_time_1_month.json; path = "northwell-impulse-common/assets/json/survey/am_survey_dd_time_1_month.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AC31E09A3BA00C93093 /* dd_time_1_month_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dd_time_1_month_full_task.json; path = "northwell-impulse-common/assets/json/survey/dd_time_1_month_full_task.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AC41E09A3BA00C93093 /* dd_time_1_month_short_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dd_time_1_month_short_task.json; path = "northwell-impulse-common/assets/json/survey/dd_time_1_month_short_task.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AC81E09A4AC00C93093 /* am_survey_dd_time_6_month.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = am_survey_dd_time_6_month.json; path = "northwell-impulse-common/assets/json/survey/am_survey_dd_time_6_month.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AC91E09A4AC00C93093 /* dd_time_6_month_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dd_time_6_month_full_task.json; path = "northwell-impulse-common/assets/json/survey/dd_time_6_month_full_task.json"; sourceTree = SOURCE_ROOT; };
+		E2B70ACA1E09A4AC00C93093 /* dd_time_6_month_short_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dd_time_6_month_short_task.json; path = "northwell-impulse-common/assets/json/survey/dd_time_6_month_short_task.json"; sourceTree = SOURCE_ROOT; };
+		E2B70ACE1E09B76B00C93093 /* pm_likert_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pm_likert_1.json; path = "northwell-impulse-common/assets/json/survey/pm_likert_1.json"; sourceTree = SOURCE_ROOT; };
+		E2B70ACF1E09B76B00C93093 /* pm_survey_bart_25_cents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pm_survey_bart_25_cents.json; path = "northwell-impulse-common/assets/json/survey/pm_survey_bart_25_cents.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AD01E09B76B00C93093 /* pm_survey_bart_250_dollars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pm_survey_bart_250_dollars.json; path = "northwell-impulse-common/assets/json/survey/pm_survey_bart_250_dollars.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AD11E09B76B00C93093 /* pm_survey_dd_money_1_month.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pm_survey_dd_money_1_month.json; path = "northwell-impulse-common/assets/json/survey/pm_survey_dd_money_1_month.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AD21E09B76B00C93093 /* pm_survey_dd_money_6_month.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pm_survey_dd_money_6_month.json; path = "northwell-impulse-common/assets/json/survey/pm_survey_dd_money_6_month.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AD31E09B76B00C93093 /* pm_survey_dd_time_1_month.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pm_survey_dd_time_1_month.json; path = "northwell-impulse-common/assets/json/survey/pm_survey_dd_time_1_month.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AD41E09B76B00C93093 /* pm_survey_dd_time_6_month.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pm_survey_dd_time_6_month.json; path = "northwell-impulse-common/assets/json/survey/pm_survey_dd_time_6_month.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AD51E09B76B00C93093 /* pm_survey_go_no_go_stable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pm_survey_go_no_go_stable.json; path = "northwell-impulse-common/assets/json/survey/pm_survey_go_no_go_stable.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AD61E09B76B00C93093 /* pm_survey_go_no_go_variable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pm_survey_go_no_go_variable.json; path = "northwell-impulse-common/assets/json/survey/pm_survey_go_no_go_variable.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AE01E09BD9D00C93093 /* go_no_go_practice_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = go_no_go_practice_full_task.json; path = "northwell-impulse-common/assets/json/survey/go_no_go_practice_full_task.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AE11E09BD9D00C93093 /* go_no_go_stable_stimulus_full_task_500.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = go_no_go_stable_stimulus_full_task_500.json; path = "northwell-impulse-common/assets/json/survey/go_no_go_stable_stimulus_full_task_500.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AE21E09BD9D00C93093 /* go_no_go_stable_stimulus_full_task_600.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = go_no_go_stable_stimulus_full_task_600.json; path = "northwell-impulse-common/assets/json/survey/go_no_go_stable_stimulus_full_task_600.json"; sourceTree = SOURCE_ROOT; };
+		E2B70AE31E09BD9D00C93093 /* go_no_go_stable_stimulus_full_task_700.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = go_no_go_stable_stimulus_full_task_700.json; path = "northwell-impulse-common/assets/json/survey/go_no_go_stable_stimulus_full_task_700.json"; sourceTree = SOURCE_ROOT; };
 		E2C18EAC1DD147C1005E0324 /* CTFScaleAnswerFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFScaleAnswerFormat.swift; sourceTree = "<group>"; };
 		E2CCB6691DB158AF00C801A4 /* CTFScheduleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFScheduleItem.swift; sourceTree = "<group>"; };
 		E2CCB66C1DB55DB500C801A4 /* CTFBARTStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFBARTStep.swift; sourceTree = "<group>"; };
@@ -546,22 +610,39 @@
 		E2AA6D231DA43CCC005D5137 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				E2B70AA21E09945700C93093 /* go_no_go_variable_stimulus_short_task.json */,
+				E2B70A9C1E098EA700C93093 /* Reenrollment.json */,
 				E2B70A191E0895BD00C93093 /* am_behaviors.json */,
 				E2B70A1A1E0895BD00C93093 /* am_likert_1.json */,
 				E2B70A1B1E0895BD00C93093 /* am_likert_1a.json */,
 				E2B70A1C1E0895BD00C93093 /* am_likert_3.json */,
-				E2B70A1D1E0895BD00C93093 /* am_survey_go_no_go_variable_copy.json */,
 				E2B70A1E1E0895BD00C93093 /* am_survey_go_no_go_variable.json */,
+				E2B70AA41E09973500C93093 /* am_survey_go_no_go_stable.json */,
+				E2B70AA51E09973500C93093 /* go_no_go_stable_stimulus_full_task.json */,
+				E2B70AA61E09973500C93093 /* go_no_go_stable_stimulus_short_task.json */,
 				E2B70A1F1E0895BD00C93093 /* bart_25_cents_full_task.json */,
+				E2B70AB41E099B9000C93093 /* bart_25_cents_short_task.json */,
+				E2B70AAE1E099B3B00C93093 /* am_survey_bart_250_dollars.json */,
+				E2B70AAF1E099B3B00C93093 /* bart_250_dollars_full_task.json */,
+				E2B70AB01E099B3B00C93093 /* bart_250_dollars_short_task.json */,
+				E2B70AB61E09A04200C93093 /* am_survey_dd_money_1_month.json */,
+				E2B70AB71E09A04200C93093 /* dd_money_1_month_short_task.json */,
+				E2B70ABA1E09A08000C93093 /* dd_money_1_month_full_task.json */,
+				E2B70ABC1E09A19400C93093 /* am_survey_dd_money_6_month.json */,
+				E2B70ABD1E09A19400C93093 /* dd_money_6_month_full_task.json */,
+				E2B70AC01E09A1A300C93093 /* dd_money_6_month_short_task.json */,
+				E2B70AC21E09A3BA00C93093 /* am_survey_dd_time_1_month.json */,
+				E2B70AC31E09A3BA00C93093 /* dd_time_1_month_full_task.json */,
+				E2B70AC41E09A3BA00C93093 /* dd_time_1_month_short_task.json */,
+				E2B70AC81E09A4AC00C93093 /* am_survey_dd_time_6_month.json */,
+				E2B70AC91E09A4AC00C93093 /* dd_time_6_month_full_task.json */,
+				E2B70ACA1E09A4AC00C93093 /* dd_time_6_month_short_task.json */,
+				E2B70AAA1E0999BA00C93093 /* am_survey_bart_25_cents.json */,
 				E2B70A201E0895BD00C93093 /* baseline_behaviors_1.json */,
 				E2B70A211E0895BD00C93093 /* baseline_behaviors_4.json */,
-				E2B70A221E0895BD00C93093 /* Baseline_copy.json */,
-				E2B70A231E0895BD00C93093 /* baseline_self_report.json */,
 				E2B70A241E0895BD00C93093 /* Baseline.json */,
 				E2B70A251E0895BD00C93093 /* behavior_only.json */,
 				E2B70A261E0895BD00C93093 /* demographics.json */,
-				E2B70A271E0895BD00C93093 /* go_no_go_variable_stimulus_active_task.json */,
-				E2B70A281E0895BD00C93093 /* go_no_go_variable_stimulus_full_task_copy.json */,
 				E2B70A291E0895BD00C93093 /* go_no_go_variable_stimulus_full_task.json */,
 				E2B70A2A1E0895BD00C93093 /* LikertSemDifTest.json */,
 				E2B70A2B1E0895BD00C93093 /* medical_history.json */,
@@ -575,6 +656,21 @@
 				E2B70A331E0895BD00C93093 /* task_schema.json */,
 				E2B70A341E0895BD00C93093 /* yadl.json */,
 				E2B70A171E0895A800C93093 /* tasks_and_schedules.json */,
+				E2B70A9E1E09913000C93093 /* Day_21.json */,
+				E2B70A9F1E09913000C93093 /* self_assessment_10_21.json */,
+				E2B70ACE1E09B76B00C93093 /* pm_likert_1.json */,
+				E2B70ACF1E09B76B00C93093 /* pm_survey_bart_25_cents.json */,
+				E2B70AD01E09B76B00C93093 /* pm_survey_bart_250_dollars.json */,
+				E2B70AD11E09B76B00C93093 /* pm_survey_dd_money_1_month.json */,
+				E2B70AD21E09B76B00C93093 /* pm_survey_dd_money_6_month.json */,
+				E2B70AD31E09B76B00C93093 /* pm_survey_dd_time_1_month.json */,
+				E2B70AD41E09B76B00C93093 /* pm_survey_dd_time_6_month.json */,
+				E2B70AD51E09B76B00C93093 /* pm_survey_go_no_go_stable.json */,
+				E2B70AD61E09B76B00C93093 /* pm_survey_go_no_go_variable.json */,
+				E2B70AE01E09BD9D00C93093 /* go_no_go_practice_full_task.json */,
+				E2B70AE11E09BD9D00C93093 /* go_no_go_stable_stimulus_full_task_500.json */,
+				E2B70AE21E09BD9D00C93093 /* go_no_go_stable_stimulus_full_task_600.json */,
+				E2B70AE31E09BD9D00C93093 /* go_no_go_stable_stimulus_full_task_700.json */,
 			);
 			name = JSON;
 			sourceTree = "<group>";
@@ -920,46 +1016,78 @@
 			files = (
 				E2B70A461E0895BD00C93093 /* LikertSemDifTest.json in Resources */,
 				E2B70A361E0895BD00C93093 /* am_likert_1.json in Resources */,
+				E2B70A9D1E098EA700C93093 /* Reenrollment.json in Resources */,
+				E2B70AD91E09B76B00C93093 /* pm_survey_bart_250_dollars.json in Resources */,
 				E2CCB6731DB5610F00C801A4 /* CTFBARTStepViewController.xib in Resources */,
+				E2B70AC11E09A1A300C93093 /* dd_money_6_month_short_task.json in Resources */,
+				E2B70ABF1E09A19400C93093 /* dd_money_6_month_full_task.json in Resources */,
+				E2B70ADE1E09B76B00C93093 /* pm_survey_go_no_go_stable.json in Resources */,
 				E2919EB71DE4956F0034AD08 /* FoundryAssets.xcassets in Resources */,
+				E2B70AA91E09973500C93093 /* go_no_go_stable_stimulus_short_task.json in Resources */,
+				E2B70AA71E09973500C93093 /* am_survey_go_no_go_stable.json in Resources */,
 				E2B70A4F1E0895BD00C93093 /* task_schema.json in Resources */,
 				E2EF6B291DA2E2970034456A /* LaunchScreen.storyboard in Resources */,
 				E2B70A4E1E0895BD00C93093 /* self_assessment_9.json in Resources */,
+				E2B70ADB1E09B76B00C93093 /* pm_survey_dd_money_6_month.json in Resources */,
 				E2B70A4D1E0895BD00C93093 /* self_assessment_8.json in Resources */,
 				E2EF6B261DA2E2970034456A /* Assets.xcassets in Resources */,
-				E2B70A441E0895BD00C93093 /* go_no_go_variable_stimulus_full_task_copy.json in Resources */,
-				E2B70A3F1E0895BD00C93093 /* baseline_self_report.json in Resources */,
+				E2B70AD71E09B76B00C93093 /* pm_likert_1.json in Resources */,
+				E2B70ACB1E09A4AC00C93093 /* am_survey_dd_time_6_month.json in Resources */,
 				E2EF6B241DA2E2970034456A /* Main.storyboard in Resources */,
 				E2B70A471E0895BD00C93093 /* medical_history.json in Resources */,
 				E2B70A451E0895BD00C93093 /* go_no_go_variable_stimulus_full_task.json in Resources */,
-				E2B70A391E0895BD00C93093 /* am_survey_go_no_go_variable_copy.json in Resources */,
+				E2B70AB11E099B3B00C93093 /* am_survey_bart_250_dollars.json in Resources */,
+				E2B70AE61E09BD9D00C93093 /* go_no_go_stable_stimulus_full_task_600.json in Resources */,
 				E2B70A501E0895BD00C93093 /* yadl.json in Resources */,
 				E2B70A351E0895BD00C93093 /* am_behaviors.json in Resources */,
+				E2B70AA81E09973500C93093 /* go_no_go_stable_stimulus_full_task.json in Resources */,
+				E2B70AA31E09945700C93093 /* go_no_go_variable_stimulus_short_task.json in Resources */,
+				E2B70AAC1E0999BA00C93093 /* am_survey_bart_25_cents.json in Resources */,
 				E2B70A491E0895BD00C93093 /* PAMMultipleSelection.json in Resources */,
 				E2B70A3A1E0895BD00C93093 /* am_survey_go_no_go_variable.json in Resources */,
+				E2B70AB21E099B3B00C93093 /* bart_250_dollars_full_task.json in Resources */,
 				E2B70A4C1E0895BD00C93093 /* self_assessment_7.json in Resources */,
+				E2B70AB91E09A04200C93093 /* dd_money_1_month_short_task.json in Resources */,
 				E2AA6CDE1DA41A60005D5137 /* Onboarding.storyboard in Resources */,
 				E2B70A421E0895BD00C93093 /* demographics.json in Resources */,
+				E2B70AC61E09A3BA00C93093 /* dd_time_1_month_full_task.json in Resources */,
 				08D2028A1DC279DA00F43C07 /* CTFDelayDiscountingStepViewController.xib in Resources */,
+				E2B70AB81E09A04200C93093 /* am_survey_dd_money_1_month.json in Resources */,
+				E2B70AE41E09BD9D00C93093 /* go_no_go_practice_full_task.json in Resources */,
 				E2B70A481E0895BD00C93093 /* medl.json in Resources */,
 				E21F237D1DA44F2700760EA7 /* CTFGoNoGoStepViewController.xib in Resources */,
 				E2B70A3C1E0895BD00C93093 /* baseline_behaviors_1.json in Resources */,
+				E2B70AA01E09913000C93093 /* Day_21.json in Resources */,
 				E2B70A411E0895BD00C93093 /* behavior_only.json in Resources */,
 				E2AA6D221DA43CC1005D5137 /* cornell-mhealth-eval.pem in Resources */,
 				E2AA6D1E1DA43C83005D5137 /* CTFPulsusFormStepViewController.xib in Resources */,
+				E2B70ACC1E09A4AC00C93093 /* dd_time_6_month_full_task.json in Resources */,
+				E2B70AB51E099B9000C93093 /* bart_25_cents_short_task.json in Resources */,
+				E2B70AD81E09B76B00C93093 /* pm_survey_bart_25_cents.json in Resources */,
+				E2B70ABB1E09A08000C93093 /* dd_money_1_month_full_task.json in Resources */,
+				E2B70ABE1E09A19400C93093 /* am_survey_dd_money_6_month.json in Resources */,
 				E2B70A3D1E0895BD00C93093 /* baseline_behaviors_4.json in Resources */,
 				E2B70A381E0895BD00C93093 /* am_likert_3.json in Resources */,
 				E2B70A371E0895BD00C93093 /* am_likert_1a.json in Resources */,
-				E2B70A431E0895BD00C93093 /* go_no_go_variable_stimulus_active_task.json in Resources */,
+				E2B70AC71E09A3BA00C93093 /* dd_time_1_month_short_task.json in Resources */,
+				E2B70ADC1E09B76B00C93093 /* pm_survey_dd_time_1_month.json in Resources */,
+				E2B70AE71E09BD9D00C93093 /* go_no_go_stable_stimulus_full_task_700.json in Resources */,
 				E2AA6CF91DA41E19005D5137 /* BridgeInfo.plist in Resources */,
+				E2B70AE51E09BD9D00C93093 /* go_no_go_stable_stimulus_full_task_500.json in Resources */,
+				E2B70AC51E09A3BA00C93093 /* am_survey_dd_time_1_month.json in Resources */,
+				E2B70ACD1E09A4AC00C93093 /* dd_time_6_month_short_task.json in Resources */,
 				E2B70A181E0895A800C93093 /* tasks_and_schedules.json in Resources */,
 				E2AA6D1A1DA43C83005D5137 /* CTFFormItemCell.xib in Resources */,
 				E2AA6CFA1DA41E19005D5137 /* BridgeInfo-private.plist in Resources */,
 				E2B70A3B1E0895BD00C93093 /* bart_25_cents_full_task.json in Resources */,
 				E2B70A401E0895BD00C93093 /* Baseline.json in Resources */,
-				E2B70A3E1E0895BD00C93093 /* Baseline_copy.json in Resources */,
 				E2B70A4B1E0895BD00C93093 /* self_assessment_4.json in Resources */,
+				E2B70ADF1E09B76B00C93093 /* pm_survey_go_no_go_variable.json in Resources */,
+				E2B70AA11E09913000C93093 /* self_assessment_10_21.json in Resources */,
+				E2B70AB31E099B3B00C93093 /* bart_250_dollars_short_task.json in Resources */,
+				E2B70ADA1E09B76B00C93093 /* pm_survey_dd_money_1_month.json in Resources */,
 				E2B70A4A1E0895BD00C93093 /* self_assessment_3.json in Resources */,
+				E2B70ADD1E09B76B00C93093 /* pm_survey_dd_time_6_month.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
