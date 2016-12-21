@@ -148,6 +148,8 @@
 		E2B70AF51E09CD8E00C93093 /* CTFBARTStepParamsDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B70AF41E09CD8E00C93093 /* CTFBARTStepParamsDescriptor.swift */; };
 		E2B70AF81E09CEB900C93093 /* CTFDelayDiscountingStepGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B70AF71E09CEB900C93093 /* CTFDelayDiscountingStepGenerator.swift */; };
 		E2B70AFA1E09CEEC00C93093 /* CTFDelayDiscountingParamsDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B70AF91E09CEEC00C93093 /* CTFDelayDiscountingParamsDescriptor.swift */; };
+		E2B70AFC1E0A08C600C93093 /* CTFExtendedMultipleChoiceStepGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B70AFB1E0A08C600C93093 /* CTFExtendedMultipleChoiceStepGenerator.swift */; };
+		E2B70AFE1E0A190900C93093 /* CTFTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B70AFD1E0A190900C93093 /* CTFTaskViewController.swift */; };
 		E2C18EAD1DD147C1005E0324 /* CTFScaleAnswerFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C18EAC1DD147C1005E0324 /* CTFScaleAnswerFormat.swift */; };
 		E2CCB66A1DB158AF00C801A4 /* CTFScheduleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CCB6691DB158AF00C801A4 /* CTFScheduleItem.swift */; };
 		E2CCB66D1DB55DB500C801A4 /* CTFBARTStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CCB66C1DB55DB500C801A4 /* CTFBARTStep.swift */; };
@@ -415,6 +417,8 @@
 		E2B70AF41E09CD8E00C93093 /* CTFBARTStepParamsDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFBARTStepParamsDescriptor.swift; sourceTree = "<group>"; };
 		E2B70AF71E09CEB900C93093 /* CTFDelayDiscountingStepGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFDelayDiscountingStepGenerator.swift; sourceTree = "<group>"; };
 		E2B70AF91E09CEEC00C93093 /* CTFDelayDiscountingParamsDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFDelayDiscountingParamsDescriptor.swift; sourceTree = "<group>"; };
+		E2B70AFB1E0A08C600C93093 /* CTFExtendedMultipleChoiceStepGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFExtendedMultipleChoiceStepGenerator.swift; sourceTree = "<group>"; };
+		E2B70AFD1E0A190900C93093 /* CTFTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFTaskViewController.swift; sourceTree = "<group>"; };
 		E2C18EAC1DD147C1005E0324 /* CTFScaleAnswerFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFScaleAnswerFormat.swift; sourceTree = "<group>"; };
 		E2CCB6691DB158AF00C801A4 /* CTFScheduleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFScheduleItem.swift; sourceTree = "<group>"; };
 		E2CCB66C1DB55DB500C801A4 /* CTFBARTStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFBARTStep.swift; sourceTree = "<group>"; };
@@ -578,6 +582,7 @@
 			isa = PBXGroup;
 			children = (
 				E2AA6D041DA43C5C005D5137 /* CTFScheduledActivityManager.swift */,
+				E2B70AFD1E0A190900C93093 /* CTFTaskViewController.swift */,
 				E295FC2B1DDE653E001B175D /* CTFTabBarController.swift */,
 				E2CCB6691DB158AF00C801A4 /* CTFScheduleItem.swift */,
 				E2AA6D061DA43C6B005D5137 /* CTFScheduledActivity.swift */,
@@ -603,6 +608,7 @@
 				E21F23741DA44EE300760EA7 /* Likert */,
 				E2B70A961E08C8BE00C93093 /* PAMMultipleStepGenerator.swift */,
 				E2B70A981E08CD2400C93093 /* PAMStepGenerator.swift */,
+				E2B70AFB1E0A08C600C93093 /* CTFExtendedMultipleChoiceStepGenerator.swift */,
 			);
 			name = "RK Extensions";
 			sourceTree = "<group>";
@@ -1168,6 +1174,7 @@
 				E23535E01DB593C2005BAFE3 /* CTFBARTBridgeTask.swift in Sources */,
 				E2B70AF51E09CD8E00C93093 /* CTFBARTStepParamsDescriptor.swift in Sources */,
 				08F6069C1DBF9BB70066760F /* CTFDelayDiscountingStep.swift in Sources */,
+				E2B70AFC1E0A08C600C93093 /* CTFExtendedMultipleChoiceStepGenerator.swift in Sources */,
 				E22792A81DD3DD010026F8AB /* CTFKeychainHelpers.swift in Sources */,
 				E2AA6D051DA43C5C005D5137 /* CTFScheduledActivityManager.swift in Sources */,
 				E2AA6D1B1DA43C83005D5137 /* CTFPulsusFormStep.swift in Sources */,
@@ -1203,6 +1210,7 @@
 				E2CCB66D1DB55DB500C801A4 /* CTFBARTStep.swift in Sources */,
 				E2AA6D1D1DA43C83005D5137 /* CTFPulsusFormStepViewController.swift in Sources */,
 				E27E29221DA823F40050788A /* NSDictionary+SBAFormStepSurveyItem.swift in Sources */,
+				E2B70AFE1E0A190900C93093 /* CTFTaskViewController.swift in Sources */,
 				E21F238F1DA5684500760EA7 /* CTFGoNoGoBridgeTask.swift in Sources */,
 				E21F23831DA44F2F00760EA7 /* CTFGoNoGoTask.swift in Sources */,
 				E27E29281DA826980050788A /* CTFIntegerRange.swift in Sources */,

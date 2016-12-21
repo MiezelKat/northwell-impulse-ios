@@ -73,7 +73,6 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
             BCLTextFieldStepGenerator(),
             BCLIntegerStepGenerator(),
             BCLSingleChoiceStepGenerator(),
-            BCLMultipleChoiceStepGenerator(),
             BCLTimePickerStepGenerator(),
             BCLFormStepGenerator(),
             CTFLikertFormStepGenerator(),
@@ -83,6 +82,8 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
             CTFGoNoGoStepGenerator(),
             CTFBARTStepGenerator(),
             CTFDelayDiscountingStepGenerator(),
+            BCLDatePickerStepGenerator(),
+            CTFExtendedMultipleChoiceStepGenerator(),
             BCLDefaultStepGenerator()
         ]
         
@@ -91,12 +92,13 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
             BCLIntegerStepGenerator(),
             BCLTimePickerStepGenerator(),
             BCLSingleChoiceStepGenerator(),
-            BCLMultipleChoiceStepGenerator()
+            CTFExtendedMultipleChoiceStepGenerator(),
+            BCLDatePickerStepGenerator()
         ]
         
         // Do any additional setup after loading the view, typically from a nib.
         self.stepBuilder = BCLStepBuilder(
-            helper: nil,
+            stateHelper: CTFStateManager.defaultManager,
             stepGeneratorServices: stepGeneratorServices,
             answerFormatGeneratorServices: answerFormatGeneratorServices)
  
@@ -238,13 +240,13 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
     }
     
     func scheduledActivityForTaskViewController(_ taskViewController: ORKTaskViewController) -> CTFScheduledActivity? {
-        guard let task = taskViewController.task
+        guard let vc = taskViewController as? CTFTaskViewController
             else {
                 return nil
         }
         
-        return activities.first(where: { $0.guid == task.identifier }) ??
-            self.trialActivities.first(where: { $0.guid == task.identifier })
+        return activities.first(where: { $0.guid == vc.scheduleGUID }) ??
+            self.trialActivities.first(where: { $0.guid == vc.scheduleGUID })
     }
     
     func scheduledActivityForTaskIdentifier(_ taskIdentifier: String) -> CTFScheduledActivity? {
@@ -455,8 +457,9 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
                 return nil
         }
         
-        let task = ORKOrderedTask(identifier: schedule.guid, steps: steps)
-        let taskViewController = ORKTaskViewController(task: task, taskRun: nil)
+        let task = ORKOrderedTask(identifier: activity.identifier, steps: steps)
+        let taskViewController = CTFTaskViewController(task: task, taskRun: nil)
+        taskViewController.scheduleGUID = schedule.guid
         taskViewController.delegate = self
         
         return taskViewController
