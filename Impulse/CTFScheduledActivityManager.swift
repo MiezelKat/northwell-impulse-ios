@@ -8,6 +8,7 @@
 
 import UIKit
 import BridgeAppSDK
+import Bricoleur
 
 //public protocol SBAScheduledActivityDataSource: class {
 //    
@@ -49,11 +50,13 @@ let kThankYouText = "Thank you for today's input!"
 class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskViewControllerDelegate, SBAScheduledActivityDataSource, CTFScheduledActivityDataSource {
 
     weak var delegate: SBAScheduledActivityManagerDelegate?
+    var stepBuilder: BCLStepBuilder!
     
     override init() {
         super.init()
     }
 
+    
     
     init(delegate: SBAScheduledActivityManagerDelegate?, json: AnyObject) {
         super.init()
@@ -64,6 +67,40 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
         guard let scheduleArray = json["schedules"] as? [AnyObject] else {
             return
         }
+        
+        let stepGeneratorServices: [BCLStepGenerator] = [
+            BCLInstructionStepGenerator(),
+            BCLTextFieldStepGenerator(),
+            BCLIntegerStepGenerator(),
+            CTFExtendedSingleChoiceStepGenerator(),
+            BCLTimePickerStepGenerator(),
+            BCLFormStepGenerator(),
+            CTFLikertFormStepGenerator(),
+            CTFSemanticDifferentialFormStepGenerator(),
+            PAMMultipleStepGenerator(),
+            PAMStepGenerator(),
+            CTFGoNoGoStepGenerator(),
+            CTFBARTStepGenerator(),
+            CTFDelayDiscountingStepGenerator(),
+            BCLDatePickerStepGenerator(),
+            CTFExtendedMultipleChoiceStepGenerator(),
+            BCLDefaultStepGenerator()
+        ]
+        
+        let answerFormatGeneratorServices: [BCLAnswerFormatGenerator] = [
+            BCLTextFieldStepGenerator(),
+            BCLIntegerStepGenerator(),
+            BCLTimePickerStepGenerator(),
+            CTFExtendedSingleChoiceStepGenerator(),
+            CTFExtendedMultipleChoiceStepGenerator(),
+            BCLDatePickerStepGenerator()
+        ]
+        
+        // Do any additional setup after loading the view, typically from a nib.
+        self.stepBuilder = BCLStepBuilder(
+            stateHelper: CTFStateManager.defaultManager,
+            stepGeneratorServices: stepGeneratorServices,
+            answerFormatGeneratorServices: answerFormatGeneratorServices)
  
         self.scheduleItems = scheduleArray.flatMap( {CTFScheduleItem(json: $0)})
         self.loadData()
@@ -203,13 +240,13 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
     }
     
     func scheduledActivityForTaskViewController(_ taskViewController: ORKTaskViewController) -> CTFScheduledActivity? {
-        guard let vc = taskViewController as? SBATaskViewController,
-            let guid = vc.scheduledActivityGUID
+        guard let vc = taskViewController as? CTFTaskViewController
             else {
                 return nil
         }
-        return activities.first(where: { $0.guid == guid }) ??
-            self.trialActivities.first(where: { $0.guid == guid })
+        
+        return activities.first(where: { $0.guid == vc.scheduleGUID }) ??
+            self.trialActivities.first(where: { $0.guid == vc.scheduleGUID })
     }
     
     func scheduledActivityForTaskIdentifier(_ taskIdentifier: String) -> CTFScheduledActivity? {
@@ -250,7 +287,7 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
 //        }
         
         if reason == ORKTaskViewControllerFinishReason.completed,
-            let schedule = scheduledActivityForTaskViewController(taskViewController) {
+            let schedule = self.scheduledActivityForTaskViewController(taskViewController) {
 //            let results = activityResultsForSchedule(schedule, taskViewController: taskViewController)
             
             let taskResult = taskViewController.result
@@ -413,36 +450,22 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
         
     }
     
-    func createTask(_ schedule: CTFScheduledActivity) -> (task: ORKTask?, taskRef: SBATaskReference?) {
+    func createTaskViewControllerForSchedule(_ schedule: CTFScheduledActivity) -> ORKTaskViewController? {
         
-        guard let activity = schedule.activity else { return (nil, nil) }
-
-        let taskRef = bridgeInfo.taskReferenceWithIdentifier(activity.identifier)
-        
-        let task = taskRef?.transformToTask(with: CTFTaskFactory(), isLastStep: true)
-        if let surveyTask = task as? SBASurveyTask {
-            surveyTask.title = activity.title
+        guard let activity = schedule.activity,
+            let steps = self.stepBuilder.steps(forElementFilename: activity.fileName) else {
+                return nil
         }
-        return (task, taskRef)
-    }
-    
-    func createTaskViewControllerForSchedule(_ schedule: CTFScheduledActivity) -> SBATaskViewController? {
-
-        let (inTask, inTaskRef) = self.createTask(schedule)
-        guard let task = inTask, let taskRef = inTaskRef else { return nil }
-        let taskViewController = self.instantiateTaskViewController(task)
-        self.setupTaskViewController(taskViewController, schedule: schedule, taskRef: taskRef)
-        return taskViewController
-    }
-    
-    func setupTaskViewController(_ taskViewController: SBATaskViewController, schedule: CTFScheduledActivity, taskRef: SBATaskReference) {
-        taskViewController.scheduledActivityGUID = schedule.guid
+        
+        let task = ORKOrderedTask(identifier: activity.identifier, steps: steps)
+        let taskViewController = CTFTaskViewController(task: task, taskRun: nil)
+        taskViewController.scheduleGUID = schedule.guid
         taskViewController.delegate = self
+        
+        return taskViewController
+        
     }
-    
-    func instantiateTaskViewController(_ task: ORKTask) -> SBATaskViewController {
-        return SBATaskViewController(task: task, taskRun: nil)
-    }
+
 }
 
 //Results Handling Extensions

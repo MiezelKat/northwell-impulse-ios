@@ -2,17 +2,16 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "tab-setting-impulsivity-3x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "tab-setting-impulsivity-3x-1.png",
+      "filename" : "setting-tab-unselected-50px.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "tab-setting-impulsivity-3x-2.png",
+      "filename" : "setting-tab-unselected-75px.png",
       "scale" : "3x"
     }
   ],

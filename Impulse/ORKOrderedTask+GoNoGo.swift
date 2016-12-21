@@ -12,7 +12,7 @@ import ResearchKit
 extension ORKOrderedTask{
 
     
-    class func goNoGo(_ identifier:String,params:CTFGoNoGoStepParams?) -> ORKOrderedTask {
+    class func goNoGo(_ identifier:String,params:CTFGoNoGoStepParameters?) -> ORKOrderedTask {
         
         return CTFGoNoGoTask(identifier: identifier, params: params)
         

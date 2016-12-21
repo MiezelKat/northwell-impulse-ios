@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import Bricoleur
 
+class CTFStateManager: NSObject, BCLStateHelper {
+    
 
-
-class CTFStateManager: NSObject {
     
     static let kMorningNotificationIdentifer: String = "MorningNotification"
     static let kMorningNotificationIdentifer2nd: String = "MorningNotification2nd"
@@ -449,6 +450,17 @@ class CTFStateManager: NSObject {
         //set keychain value
         CTFKeychainHelpers.setKeychainObject(showTrials as NSSecureCoding, forKey: kTrialActivitiesEnabled)
         
+    }
+    
+    
+    public func setValueInState(value: NSSecureCoding?, forKey: String) {
+        if let val = value {
+            CTFKeychainHelpers.setKeychainObject(val, forKey: forKey)
+        }
+    }
+    
+    public func valueInState(forKey: String) -> NSSecureCoding? {
+        return CTFKeychainHelpers.getKeychainObject(forKey)
     }
     
     

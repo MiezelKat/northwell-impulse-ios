@@ -18,11 +18,32 @@ class CTFLogInViaExternalIdViewController: UIViewController, ORKTaskViewControll
         let appDelegate = UIApplication.shared.delegate as! SBAAppInfoDelegate
         appDelegate.currentUser.consentSignature = SBAConsentSignature(identifier: "signature")
         
+        let consentQuestionStep = ORKQuestionStep(identifier: "consent", title: "Have you provided consent?", text: "Please select \"Yes\" if you have completed the consent form for the study with a researcher.", answer: ORKAnswerFormat.booleanAnswerFormat())
+        
+        consentQuestionStep.isOptional = false
+        
+        let notConsentedStep = ORKInstructionStep(identifier: "not_consented")
+        notConsentedStep.text = "You must complete the consent form with a researcher before continuing."
+        
         // Create a task with an external ID and permissions steps and display the view controller
         let externalIDStep = SBAExternalIDStep(identifier: "externalID")
         let passcodeStep = ORKPasscodeStep(identifier: "passcode")
         passcodeStep.passcodeType = .type4Digit
-        let task = ORKOrderedTask(identifier: "registration", steps: [externalIDStep, passcodeStep])
+        
+        
+        let task = ORKNavigableOrderedTask(identifier: "registration", steps: [consentQuestionStep, externalIDStep, passcodeStep, notConsentedStep])
+        
+        let consentResultSelector = ORKResultSelector(resultIdentifier: "consent")
+        let notConsentResultPredicate = ORKResultPredicate.predicateForBooleanQuestionResult(with: consentResultSelector, expectedAnswer: false)
+        let consentNavigationRule = ORKPredicateStepNavigationRule(resultPredicatesAndDestinationStepIdentifiers: [(notConsentResultPredicate, "not_consented")], defaultStepIdentifierOrNil: "externalID")
+        
+        task.setNavigationRule(consentNavigationRule, forTriggerStepIdentifier: "consent")
+        
+        let skipNotConsentRule = ORKDirectStepNavigationRule(destinationStepIdentifier: "")
+        
+        task.setNavigationRule(skipNotConsentRule, forTriggerStepIdentifier: "passcode")
+        
+        
         let vc = SBATaskViewController(task: task, taskRun: nil)
         vc.delegate = self
         self.present(vc, animated: true, completion: nil)

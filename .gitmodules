@@ -7,3 +7,6 @@
 [submodule "sdl-rkx"]
 	path = sdl-rkx
 	url = https://github.com/cornelltech/sdl-rkx.git
+[submodule "Bricoleur-ios"]
+	path = Bricoleur-ios
+	url = https://github.com/cornelltech/Bricoleur-ios.git
