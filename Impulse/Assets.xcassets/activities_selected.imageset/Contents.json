@@ -6,12 +6,12 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "activities-tab-unselected-50px.png",
+      "filename" : "activities-tab-selected-50px.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "activities-tab-unselected-75px.png",
+      "filename" : "activities-tab-selected-75px.png",
       "scale" : "3x"
     }
   ],

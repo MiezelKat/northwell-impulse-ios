@@ -20,6 +20,8 @@ class CTFLogInViaExternalIdViewController: UIViewController, ORKTaskViewControll
         
         let consentQuestionStep = ORKQuestionStep(identifier: "consent", title: "Have you provided consent?", text: "Please select \"Yes\" if you have completed the consent form for the study with a researcher.", answer: ORKAnswerFormat.booleanAnswerFormat())
         
+        consentQuestionStep.isOptional = false
+        
         let notConsentedStep = ORKInstructionStep(identifier: "not_consented")
         notConsentedStep.text = "You must complete the consent form with a researcher before continuing."
         
