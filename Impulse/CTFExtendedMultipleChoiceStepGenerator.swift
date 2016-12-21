@@ -6,11 +6,16 @@
 //  Copyright © 2016 James Kizer. All rights reserved.
 //
 
-import UIKit
 import Bricoleur
 import Gloss
+import ResearchKit
 
 class CTFExtendedMultipleChoiceStepGenerator: BCLMultipleChoiceStepGenerator {
+    
+    open override func generateChoices(items: [BCLChoiceStepDescriptor.ChoiceItem], valueSuffix: String?, shouldShuffle: Bool?) -> [ORKTextChoice] {
+        
+        return super.generateChoices(items: items, valueSuffix: valueSuffix, shouldShuffle: false)
+    }
     
     open override func generateFilter(type: String, jsonObject: JSON, helper: BCLStepBuilderHelper) -> ChoiceItemFilter? {
         

@@ -150,6 +150,7 @@
 		E2B70AFA1E09CEEC00C93093 /* CTFDelayDiscountingParamsDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B70AF91E09CEEC00C93093 /* CTFDelayDiscountingParamsDescriptor.swift */; };
 		E2B70AFC1E0A08C600C93093 /* CTFExtendedMultipleChoiceStepGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B70AFB1E0A08C600C93093 /* CTFExtendedMultipleChoiceStepGenerator.swift */; };
 		E2B70AFE1E0A190900C93093 /* CTFTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B70AFD1E0A190900C93093 /* CTFTaskViewController.swift */; };
+		E2B70B031E0A3F8200C93093 /* CTFExtendedSingleChoiceStepGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B70B021E0A3F8200C93093 /* CTFExtendedSingleChoiceStepGenerator.swift */; };
 		E2C18EAD1DD147C1005E0324 /* CTFScaleAnswerFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C18EAC1DD147C1005E0324 /* CTFScaleAnswerFormat.swift */; };
 		E2CCB66A1DB158AF00C801A4 /* CTFScheduleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CCB6691DB158AF00C801A4 /* CTFScheduleItem.swift */; };
 		E2CCB66D1DB55DB500C801A4 /* CTFBARTStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CCB66C1DB55DB500C801A4 /* CTFBARTStep.swift */; };
@@ -419,6 +420,7 @@
 		E2B70AF91E09CEEC00C93093 /* CTFDelayDiscountingParamsDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFDelayDiscountingParamsDescriptor.swift; sourceTree = "<group>"; };
 		E2B70AFB1E0A08C600C93093 /* CTFExtendedMultipleChoiceStepGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFExtendedMultipleChoiceStepGenerator.swift; sourceTree = "<group>"; };
 		E2B70AFD1E0A190900C93093 /* CTFTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFTaskViewController.swift; sourceTree = "<group>"; };
+		E2B70B021E0A3F8200C93093 /* CTFExtendedSingleChoiceStepGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFExtendedSingleChoiceStepGenerator.swift; sourceTree = "<group>"; };
 		E2C18EAC1DD147C1005E0324 /* CTFScaleAnswerFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFScaleAnswerFormat.swift; sourceTree = "<group>"; };
 		E2CCB6691DB158AF00C801A4 /* CTFScheduleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFScheduleItem.swift; sourceTree = "<group>"; };
 		E2CCB66C1DB55DB500C801A4 /* CTFBARTStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFBARTStep.swift; sourceTree = "<group>"; };
@@ -609,6 +611,7 @@
 				E2B70A961E08C8BE00C93093 /* PAMMultipleStepGenerator.swift */,
 				E2B70A981E08CD2400C93093 /* PAMStepGenerator.swift */,
 				E2B70AFB1E0A08C600C93093 /* CTFExtendedMultipleChoiceStepGenerator.swift */,
+				E2B70B021E0A3F8200C93093 /* CTFExtendedSingleChoiceStepGenerator.swift */,
 			);
 			name = "RK Extensions";
 			sourceTree = "<group>";
@@ -1164,6 +1167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2AA6D181DA43C83005D5137 /* CTFBorderedButton.swift in Sources */,
+				E2B70B031E0A3F8200C93093 /* CTFExtendedSingleChoiceStepGenerator.swift in Sources */,
 				E21F237C1DA44F2700760EA7 /* CTFGoNoGoStepViewController.swift in Sources */,
 				E2B70AEC1E09C80900C93093 /* CTFGoNoGoStepParameters.swift in Sources */,
 				E2AA6D351DA43D07005D5137 /* CTFMainTabViewController.swift in Sources */,
