@@ -83,8 +83,7 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
             CTFBARTStepGenerator(),
             CTFDelayDiscountingStepGenerator(),
             BCLDatePickerStepGenerator(),
-            CTFExtendedMultipleChoiceStepGenerator(),
-            BCLDefaultStepGenerator()
+            CTFExtendedMultipleChoiceStepGenerator()
         ]
         
         let answerFormatGeneratorServices: [BCLAnswerFormatGenerator] = [
@@ -96,11 +95,18 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
             BCLDatePickerStepGenerator()
         ]
         
+        let elementGeneratorServices: [BCLElementGenerator] = [
+            BCLElementListGenerator(),
+            BCLElementFileGenerator(),
+            BCLElementSelectorGenerator()
+        ]
+        
         // Do any additional setup after loading the view, typically from a nib.
         self.stepBuilder = BCLStepBuilder(
             stateHelper: CTFStateManager.defaultManager,
             stepGeneratorServices: stepGeneratorServices,
-            answerFormatGeneratorServices: answerFormatGeneratorServices)
+            answerFormatGeneratorServices: answerFormatGeneratorServices,
+            elementGeneratorServices: elementGeneratorServices)
  
         self.scheduleItems = scheduleArray.flatMap( {CTFScheduleItem(json: $0)})
         self.loadData()
@@ -475,7 +481,8 @@ extension CTFScheduledActivityManager {
     func handleBaselineBehaviorResults(_ result: ORKTaskResult) {
         guard let stepResult = result.result(forIdentifier: "baseline_behaviors_4") as? ORKStepResult,
             let questionResult = stepResult.firstResult as? ORKChoiceQuestionResult,
-            let answers = questionResult.choiceAnswers as? [String] else {
+            let answers = questionResult.choiceAnswers as? [String],
+            answers.count > 0 else {
                 return
         }
         

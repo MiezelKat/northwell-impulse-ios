@@ -28,6 +28,10 @@ class CTFExtendedMultipleChoiceStepGenerator: BCLMultipleChoiceStepGenerator {
         
         let includedValues = includedValuesString.components(separatedBy: ",")
         
+        guard includedValues.count > 0 else {
+            return super.generateFilter(type: type, jsonObject: jsonObject, helper: helper)
+        }
+        
         return { (item: BCLChoiceStepDescriptor.ChoiceItem) in
             if let value = item.value as? String {
                 return includedValues.contains(where: { (includedValue) -> Bool in
