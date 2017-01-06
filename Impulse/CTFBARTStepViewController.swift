@@ -67,6 +67,11 @@ class CTFBARTStepViewController: ORKStepViewController {
     }
     var trialResults: [CTFBARTTrialResult]?
     
+    
+    //pending trials and results
+    var pendingTrials: [CTFBARTTrial]?
+    var pendingResults: [CTFBARTTrialResult]?
+    
     var canceled = false
     
     override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: Bundle!) {
@@ -234,11 +239,19 @@ class CTFBARTStepViewController: ORKStepViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        //if there are pending trials, don't reset
+        if let _ = self.pendingTrials,
+            let _ = self.pendingResults {
+            return
+        }
+        
         //clear results
         if let trials = self.trials {
             self.performTrials(trials, results: [], completion: { (results) in
 //                print(results)
                 
+                self.pendingTrials = nil
+                self.pendingResults = nil
                 
                 if !self.canceled {
                     //set results
@@ -267,6 +280,14 @@ class CTFBARTStepViewController: ORKStepViewController {
             NSLayoutConstraint.deactivate(oldConstraints)
         }
         
+        if let imageView = self.balloonImageView,
+            let _ = imageView.superview {
+            
+            imageView.removeFromSuperview()
+            
+        }
+        
+        
         self.balloonImageView = UIImageView(image: UIImage(named: "balloon"))
         
         self.balloonImageView.alpha = 0.0
@@ -283,6 +304,9 @@ class CTFBARTStepViewController: ORKStepViewController {
     
     
     func performTrials(_ trials: [CTFBARTTrial], results: [CTFBARTTrialResult], completion: @escaping ([CTFBARTTrialResult]) -> ()) {
+        
+        self.pendingTrials = trials
+        self.pendingResults = results
         
         //set the task progress label and total payout label
         self.taskProgressLabel.text = "Ballon \(results.count + 1) out of \(self.trialsCount)."
@@ -302,6 +326,7 @@ class CTFBARTStepViewController: ORKStepViewController {
             self.doTrial(head, results.count, completion: { (result) in
                 var newResults = Array(results)
                 newResults.append(result)
+                
                 self.performTrials(tail, results: newResults, completion: completion)
             })
         }

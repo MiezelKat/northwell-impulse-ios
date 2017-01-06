@@ -117,6 +117,12 @@ class CTFGoNoGoStepViewController: ORKStepViewController, CTFGoNoGoViewDelegate 
 //    var trialTimer: NSTimer?
 //    var trialCompletion: ((NSDate?) -> ())?
     
+    var paused = false
+    var pendingTrials: [CTFGoNoGoTrial]?
+    var pendingTrialResults: [CTFGoNoGoTrialResult]?
+    var backgroundObserver: NSObjectProtocol!
+    var foregroundObserver: NSObjectProtocol!
+    
     var tapTime: Date? = nil
     
     var canceled = false
@@ -138,7 +144,30 @@ class CTFGoNoGoStepViewController: ORKStepViewController, CTFGoNoGoViewDelegate 
             return
         }
         self.trials = self.generateTrials(params)
+        
+//        NotificationCenter.default.addObserver(self, selector: Selector("handleDidEnterBackground"), N
+        
+        let backgroundNotification: Notification.Name = NSNotification.Name.UIApplicationDidEnterBackground
+        self.backgroundObserver = NotificationCenter.default.addObserver(forName: backgroundNotification, object: nil, queue: nil) { [weak self] (notification) in
+            
+            self?.paused = true
+            
+        }
+        
+        let foregroudNotification: Notification.Name = NSNotification.Name.UIApplicationDidBecomeActive
+        self.foregroundObserver = NotificationCenter.default.addObserver(forName: foregroudNotification, object: nil, queue: nil) { [weak self] (notification) in
+            
+            self?.paused = false
+            
+        }
+        
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self.backgroundObserver)
+        NotificationCenter.default.removeObserver(self.foregroundObserver)
+    }
+    
     
     
     
@@ -177,6 +206,7 @@ class CTFGoNoGoStepViewController: ORKStepViewController, CTFGoNoGoViewDelegate 
     }
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -188,30 +218,52 @@ class CTFGoNoGoStepViewController: ORKStepViewController, CTFGoNoGoViewDelegate 
 
         // Do any additional setup after loading the view.
         
-        //clear results
-        if let trials = self.trials {
-            self.performTrials(trials, results: [], completion: { (results) in
-//                print(results)
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //note that this probably only works because of the passcode being displayed over when bringing back from background
+        //maybe add a ui element if we are paused and allow us to continue?
+        if let trials = self.pendingTrials,
+            let trialResults = self.pendingTrialResults {
+            self.performTrials(trials, results: trialResults, completion: { (results) in
+                //                print(results)
                 
-            
+                
                 if !self.canceled {
-                    //set results
-                    // results is a list that contains all the trial results - Francesco
-                    //aggregateResults is a dictionary of 4 CTFGoNoGoResults structs - Francesco
-//                    let aggregateResults = self.calculateAllAggregateResults(results)
-//                    print(aggregateResults)
                     self.trialResults = results
                     self.goForward()
                 }
             })
         }
         
+        
+        //clear results
+        if let trials = self.trials {
+            self.performTrials(trials, results: [], completion: { (results) in
+                //                print(results)
+                
+                
+                if !self.canceled {
+                    //set results
+                    // results is a list that contains all the trial results - Francesco
+                    //aggregateResults is a dictionary of 4 CTFGoNoGoResults structs - Francesco
+                    //                    let aggregateResults = self.calculateAllAggregateResults(results)
+                    //                    print(aggregateResults)
+                    self.trialResults = results
+                    self.goForward()
+                }
+            })
+        }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.canceled = true
-    }
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        self.canceled = true
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -237,6 +289,13 @@ class CTFGoNoGoStepViewController: ORKStepViewController, CTFGoNoGoViewDelegate 
     }
     
     func performTrials(_ trials: [CTFGoNoGoTrial], results: [CTFGoNoGoTrialResult], completion: @escaping ([CTFGoNoGoTrialResult]) -> ()) {
+        
+        if self.paused {
+            self.pendingTrials = trials
+            self.pendingTrialResults = results
+            return
+        }
+        
         if self.canceled {
             completion([])
             return
