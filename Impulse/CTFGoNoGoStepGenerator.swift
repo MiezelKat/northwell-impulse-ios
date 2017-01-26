@@ -36,6 +36,7 @@ class CTFGoNoGoStepGenerator: BCLBaseStepGenerator {
         
         let step = CTFGoNoGoStep(identifier: customStepDescriptor.identifier)
         step.goNoGoParams = stepParams
+        step.isOptional = customStepDescriptor.optional
         return step
     }
     

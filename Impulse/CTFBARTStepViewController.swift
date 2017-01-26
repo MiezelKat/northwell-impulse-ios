@@ -59,6 +59,7 @@ class CTFBARTStepViewController: ORKStepViewController {
     @IBOutlet weak var collectButton: CTFBorderedButton!
     var _collectButtonHandler:(() -> ())?
     
+    @IBOutlet weak var skipButton: UIButton!
     
     
     var trials: [CTFBARTTrial]?
@@ -219,6 +220,11 @@ class CTFBARTStepViewController: ORKStepViewController {
         
 //        self.pumpButton.configuredColor = self.view.tintColor
 //        self.collectButton.configuredColor = self.view.tintColor
+        
+        if let step = self.step,
+            step.isOptional == false {
+            self.skipButton.isHidden = true
+        }
         
         self.pumpButton.tintColor = self.view.tintColor
         self.collectButton.tintColor = self.view.tintColor
@@ -468,5 +474,10 @@ class CTFBARTStepViewController: ORKStepViewController {
         self.view.isUserInteractionEnabled = false
         
         self._collectButtonHandler?()
+    }
+    @IBAction func skipButtonPressed(_ sender: Any) {
+        
+        self.goForward()
+        
     }
 }

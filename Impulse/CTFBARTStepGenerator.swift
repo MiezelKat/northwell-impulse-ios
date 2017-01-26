@@ -35,6 +35,8 @@ class CTFBARTStepGenerator: BCLBaseStepGenerator {
         
         let step = CTFBARTStep(identifier: customStepDescriptor.identifier)
         step.params = stepParams
+        step.isOptional = customStepDescriptor.optional
+        
         return step
     }
     

@@ -19,6 +19,7 @@
 		E21F23831DA44F2F00760EA7 /* CTFGoNoGoTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21F23811DA44F2F00760EA7 /* CTFGoNoGoTask.swift */; };
 		E21F23851DA4522600760EA7 /* CTFGoNoGoStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21F23841DA4522600760EA7 /* CTFGoNoGoStep.swift */; };
 		E21F238F1DA5684500760EA7 /* CTFGoNoGoBridgeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21F238E1DA5684500760EA7 /* CTFGoNoGoBridgeTask.swift */; };
+		E2257A9F1E3A9C9100B9A2FC /* CTFDelayDiscountingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2257A9E1E3A9C9100B9A2FC /* CTFDelayDiscountingResult.swift */; };
 		E22792901DD238BC0026F8AB /* SDLRKX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E759221DA2F7AC00D00C55 /* SDLRKX.framework */; };
 		E22792911DD238BC0026F8AB /* SDLRKX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E2E759221DA2F7AC00D00C55 /* SDLRKX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E22792941DD238D00026F8AB /* BridgeAppSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E759311DA2F7D200D00C55 /* BridgeAppSDK.framework */; };
@@ -298,6 +299,7 @@
 		E21F23811DA44F2F00760EA7 /* CTFGoNoGoTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFGoNoGoTask.swift; sourceTree = "<group>"; };
 		E21F23841DA4522600760EA7 /* CTFGoNoGoStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFGoNoGoStep.swift; sourceTree = "<group>"; };
 		E21F238E1DA5684500760EA7 /* CTFGoNoGoBridgeTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFGoNoGoBridgeTask.swift; sourceTree = "<group>"; };
+		E2257A9E1E3A9C9100B9A2FC /* CTFDelayDiscountingResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFDelayDiscountingResult.swift; sourceTree = "<group>"; };
 		E22792981DD23E150026F8AB /* ResearchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E227929B1DD23E4E0026F8AB /* openssl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = openssl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E227929E1DD23E830026F8AB /* ZipZap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZipZap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -488,6 +490,7 @@
 			children = (
 				E2B70AF61E09CE9900C93093 /* Bricoleur Support */,
 				08F6069B1DBF9BB70066760F /* CTFDelayDiscountingStep.swift */,
+				E2257A9E1E3A9C9100B9A2FC /* CTFDelayDiscountingResult.swift */,
 				08F6069D1DBF9EF40066760F /* CTFDelayDiscountingStepViewController.swift */,
 				08D202891DC279DA00F43C07 /* CTFDelayDiscountingStepViewController.xib */,
 			);
@@ -1231,6 +1234,7 @@
 				E22792BE1DD53A490026F8AB /* CTFAutosizingLabel.swift in Sources */,
 				E21F237F1DA44F2700760EA7 /* CTFGoNoGoView.swift in Sources */,
 				E295FC341DDF9E8F001B175D /* CTFStateManager.swift in Sources */,
+				E2257A9F1E3A9C9100B9A2FC /* CTFDelayDiscountingResult.swift in Sources */,
 				E2AA6D0D1DA43C6B005D5137 /* CTFActivityArchive.swift in Sources */,
 				E2B70A8E1E08BD8E00C93093 /* CTFLikertScaleFormParameters.swift in Sources */,
 				E27E29131DA5AB5F0050788A /* CTFTaskFactory.swift in Sources */,
