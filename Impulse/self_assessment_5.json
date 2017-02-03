@@ -1,0 +1,77 @@
+{
+    "taskIdentifier":"self_assessment_baseline_5",
+    "schemaIdentifier":"sdffsd",
+    "title":"As a child (before age 12)...",
+    "items":[
+        {
+            "identifier":"childsensation",
+            "text":"As a child, I was a sensation seeker who took risks.",
+            "type":"likert",
+            "range":{
+                "min":0,
+                "max":10,
+                "default":5,
+                "step":1,
+                "minValueText":"0-not at all",
+                "midValueText":"moderately",
+                "maxValueText":"10-extremely"
+            }
+        },
+        {
+            "identifier":"childadd",
+            "text":"As a child, I had difficulty staying focused  in school.",
+            "type":"likert",
+            "range":{
+                "min":0,
+                "max":10,
+                "default":5,
+                "step":1,
+                "minValueText":"0-not at all",
+                "midValueText":"moderately",
+                "maxValueText":"10-extremely"
+            }
+        },
+        {
+            "identifier":"childpoor",
+            "text":"As a child, my family was considered poor.",
+            "type":"likert",
+            "range":{
+                "min":0,
+                "max":10,
+                "default":5,
+                "step":1,
+                "minValueText":"0-not at all",
+                "midValueText":"moderately",
+                "maxValueText":"10-extremely"
+            }
+        },
+        {
+            "identifier":"childhappy",
+            "text":"As a child, I was happy.",
+            "type":"likert",
+            "range":{
+                "min":0,
+                "max":10,
+                "default":5,
+                "step":1,
+                "minValueText":"0-not at all",
+                "midValueText":"moderately",
+                "maxValueText":"10-extremely"
+            }
+        },
+        {
+            "identifier":"childrules",
+            "text":"As a child, my parents set clear boundaries and guidelines.",
+            "type":"likert",
+            "range":{
+                "min":0,
+                "max":10,
+                "default":5,
+                "step":1,
+                "minValueText":"0-not at all",
+                "midValueText":"moderately",
+                "maxValueText":"10-extremely"
+            }
+        }
+    ]
+}

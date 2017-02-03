@@ -1,0 +1,31 @@
+{
+  "type"      : "elementList",
+  "identifier": "dd_time_1_year_short_intro",
+  "elements"   : [
+
+    {
+      "identifier"   : "introduction",
+      "type"         : "instruction",
+      "title"        : "Welcome to the Now and Later Game",
+      "text"         : "In this game you will choose between getting different numbers of hours off work/school to do whatever you want either RIGHT NOW, or in ONE YEAR. While you will not receive the actual time-off, please make your decisions as if you were really going to receive the time-off for leisure. 8 hours equals about one day off. There are no correct or incorrect choices."
+    },
+      {
+        "type"        : "CTFDelayedDiscountingActiveStep",
+        "identifier"       : "dd_time_1_year",
+        "parameters": {
+          "maxAmount": 100.0,
+          "numQuestions": 6,
+          "nowDescription": "Now",
+          "laterDescription": "In 1 Year",
+          "formatString":"%.02f hours off",
+          "prompt": "Please choose which amounts of time you would like off either RIGHT NOW or in ONE YEAR."
+        }
+      },
+      {
+        "identifier"   : "results",
+        "type"         : "instruction",
+        "title"        : "Thank you for completing the task!",
+        "text"         : ""
+      }
+  ]
+}
