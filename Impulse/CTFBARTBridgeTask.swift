@@ -26,7 +26,8 @@ class CTFBARTBridgeTask: NSObject, SBABridgeTask, SBAStepTransformer {
         return CTFBARTStepParams(
             numTrials: numTrials,
             earningsPerPump: earningsPerPump,
-            maxPayingPumpsPerTrial: maxPayingPumpsPerTrial
+            maxPayingPumpsPerTrial: maxPayingPumpsPerTrial,
+            canExplodeOnFirstPump: false
         )
     }
     

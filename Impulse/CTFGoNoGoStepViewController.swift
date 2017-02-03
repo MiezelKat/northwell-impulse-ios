@@ -51,10 +51,10 @@ struct CTFGoNoGoTrial {
 
 struct CTFGoNoGoTrialResult {
     
-    var trial: CTFGoNoGoTrial?
+    var trial: CTFGoNoGoTrial!
     
-    var responseTime: TimeInterval?
-    var tapped: Bool?
+    var responseTime: TimeInterval!
+    var tapped: Bool!
     
 }
 
@@ -447,7 +447,7 @@ class CTFGoNoGoStepViewController: ORKStepViewController, CTFGoNoGoViewDelegate 
 //        resultsDict[CTFGoNoGoResult.lastThird] = self.getResults(responseList:trialResponseCodeAndTimeLastThird)
 //        return resultsDict
 //    }
-    
+//    
 //    func checkResponse(_ trial:CTFGoNoGoTrial?,tapped:Bool?) -> CTFGoNoGoResponseCode{
 //        /**
 //         checkResponses uses the trial.target and compares to the bool tapped and returns a response code.
@@ -477,6 +477,7 @@ class CTFGoNoGoStepViewController: ORKStepViewController, CTFGoNoGoViewDelegate 
 //    }
 //    
 //    func getResults(responseList:[(CTFGoNoGoResponseCode,TimeInterval)]) -> CTFGoNoGoResults {
+//        
 //        return CTFGoNoGoResults(
 //            numTrials:self.calculateNumTrials(responseAndTime: responseList),
 //            numCorrectResponses:self.calculateCorrectResponse(responseAndTime: responseList),

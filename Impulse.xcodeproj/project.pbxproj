@@ -11,6 +11,11 @@
 		08D2028A1DC279DA00F43C07 /* CTFDelayDiscountingStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08D202891DC279DA00F43C07 /* CTFDelayDiscountingStepViewController.xib */; };
 		08F6069C1DBF9BB70066760F /* CTFDelayDiscountingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F6069B1DBF9BB70066760F /* CTFDelayDiscountingStep.swift */; };
 		08F6069E1DBF9EF40066760F /* CTFDelayDiscountingStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F6069D1DBF9EF40066760F /* CTFDelayDiscountingStepViewController.swift */; };
+		E212889D1E44B94B000EC176 /* am_survey_dd_time_1_year.json in Resources */ = {isa = PBXBuildFile; fileRef = E21288981E44B94B000EC176 /* am_survey_dd_time_1_year.json */; };
+		E212889E1E44B94B000EC176 /* dd_time_1_year_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E21288991E44B94B000EC176 /* dd_time_1_year_full_task.json */; };
+		E212889F1E44B94B000EC176 /* dd_time_1_year_short_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E212889A1E44B94B000EC176 /* dd_time_1_year_short_task.json */; };
+		E21288A01E44B94B000EC176 /* pm_survey_dd_time_1_year.json in Resources */ = {isa = PBXBuildFile; fileRef = E212889B1E44B94B000EC176 /* pm_survey_dd_time_1_year.json */; };
+		E21288A11E44B94B000EC176 /* self_assessment_5.json in Resources */ = {isa = PBXBuildFile; fileRef = E212889C1E44B94B000EC176 /* self_assessment_5.json */; };
 		E21F237C1DA44F2700760EA7 /* CTFGoNoGoStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21F23781DA44F2700760EA7 /* CTFGoNoGoStepViewController.swift */; };
 		E21F237D1DA44F2700760EA7 /* CTFGoNoGoStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E21F23791DA44F2700760EA7 /* CTFGoNoGoStepViewController.xib */; };
 		E21F237E1DA44F2700760EA7 /* CTFGoNoGoActiveStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21F237A1DA44F2700760EA7 /* CTFGoNoGoActiveStepViewController.swift */; };
@@ -124,9 +129,6 @@
 		E2B70ABE1E09A19400C93093 /* am_survey_dd_money_6_month.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70ABC1E09A19400C93093 /* am_survey_dd_money_6_month.json */; };
 		E2B70ABF1E09A19400C93093 /* dd_money_6_month_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70ABD1E09A19400C93093 /* dd_money_6_month_full_task.json */; };
 		E2B70AC11E09A1A300C93093 /* dd_money_6_month_short_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AC01E09A1A300C93093 /* dd_money_6_month_short_task.json */; };
-		E2B70AC51E09A3BA00C93093 /* am_survey_dd_time_1_month.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AC21E09A3BA00C93093 /* am_survey_dd_time_1_month.json */; };
-		E2B70AC61E09A3BA00C93093 /* dd_time_1_month_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AC31E09A3BA00C93093 /* dd_time_1_month_full_task.json */; };
-		E2B70AC71E09A3BA00C93093 /* dd_time_1_month_short_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AC41E09A3BA00C93093 /* dd_time_1_month_short_task.json */; };
 		E2B70ACB1E09A4AC00C93093 /* am_survey_dd_time_6_month.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AC81E09A4AC00C93093 /* am_survey_dd_time_6_month.json */; };
 		E2B70ACC1E09A4AC00C93093 /* dd_time_6_month_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AC91E09A4AC00C93093 /* dd_time_6_month_full_task.json */; };
 		E2B70ACD1E09A4AC00C93093 /* dd_time_6_month_short_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70ACA1E09A4AC00C93093 /* dd_time_6_month_short_task.json */; };
@@ -135,7 +137,6 @@
 		E2B70AD91E09B76B00C93093 /* pm_survey_bart_250_dollars.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AD01E09B76B00C93093 /* pm_survey_bart_250_dollars.json */; };
 		E2B70ADA1E09B76B00C93093 /* pm_survey_dd_money_1_month.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AD11E09B76B00C93093 /* pm_survey_dd_money_1_month.json */; };
 		E2B70ADB1E09B76B00C93093 /* pm_survey_dd_money_6_month.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AD21E09B76B00C93093 /* pm_survey_dd_money_6_month.json */; };
-		E2B70ADC1E09B76B00C93093 /* pm_survey_dd_time_1_month.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AD31E09B76B00C93093 /* pm_survey_dd_time_1_month.json */; };
 		E2B70ADD1E09B76B00C93093 /* pm_survey_dd_time_6_month.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AD41E09B76B00C93093 /* pm_survey_dd_time_6_month.json */; };
 		E2B70ADE1E09B76B00C93093 /* pm_survey_go_no_go_stable.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AD51E09B76B00C93093 /* pm_survey_go_no_go_stable.json */; };
 		E2B70ADF1E09B76B00C93093 /* pm_survey_go_no_go_variable.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AD61E09B76B00C93093 /* pm_survey_go_no_go_variable.json */; };
@@ -291,6 +292,11 @@
 		08D202891DC279DA00F43C07 /* CTFDelayDiscountingStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CTFDelayDiscountingStepViewController.xib; sourceTree = "<group>"; };
 		08F6069B1DBF9BB70066760F /* CTFDelayDiscountingStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CTFDelayDiscountingStep.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		08F6069D1DBF9EF40066760F /* CTFDelayDiscountingStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CTFDelayDiscountingStepViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		E21288981E44B94B000EC176 /* am_survey_dd_time_1_year.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = am_survey_dd_time_1_year.json; sourceTree = "<group>"; };
+		E21288991E44B94B000EC176 /* dd_time_1_year_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dd_time_1_year_full_task.json; sourceTree = "<group>"; };
+		E212889A1E44B94B000EC176 /* dd_time_1_year_short_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dd_time_1_year_short_task.json; sourceTree = "<group>"; };
+		E212889B1E44B94B000EC176 /* pm_survey_dd_time_1_year.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pm_survey_dd_time_1_year.json; sourceTree = "<group>"; };
+		E212889C1E44B94B000EC176 /* self_assessment_5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = self_assessment_5.json; sourceTree = "<group>"; };
 		E21F23781DA44F2700760EA7 /* CTFGoNoGoStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFGoNoGoStepViewController.swift; sourceTree = "<group>"; };
 		E21F23791DA44F2700760EA7 /* CTFGoNoGoStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CTFGoNoGoStepViewController.xib; sourceTree = "<group>"; };
 		E21F237A1DA44F2700760EA7 /* CTFGoNoGoActiveStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFGoNoGoActiveStepViewController.swift; sourceTree = "<group>"; };
@@ -395,9 +401,6 @@
 		E2B70ABC1E09A19400C93093 /* am_survey_dd_money_6_month.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = am_survey_dd_money_6_month.json; path = "northwell-impulse-common/assets/json/survey/am_survey_dd_money_6_month.json"; sourceTree = SOURCE_ROOT; };
 		E2B70ABD1E09A19400C93093 /* dd_money_6_month_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dd_money_6_month_full_task.json; path = "northwell-impulse-common/assets/json/survey/dd_money_6_month_full_task.json"; sourceTree = SOURCE_ROOT; };
 		E2B70AC01E09A1A300C93093 /* dd_money_6_month_short_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dd_money_6_month_short_task.json; path = "northwell-impulse-common/assets/json/survey/dd_money_6_month_short_task.json"; sourceTree = SOURCE_ROOT; };
-		E2B70AC21E09A3BA00C93093 /* am_survey_dd_time_1_month.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = am_survey_dd_time_1_month.json; path = "northwell-impulse-common/assets/json/survey/am_survey_dd_time_1_month.json"; sourceTree = SOURCE_ROOT; };
-		E2B70AC31E09A3BA00C93093 /* dd_time_1_month_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dd_time_1_month_full_task.json; path = "northwell-impulse-common/assets/json/survey/dd_time_1_month_full_task.json"; sourceTree = SOURCE_ROOT; };
-		E2B70AC41E09A3BA00C93093 /* dd_time_1_month_short_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dd_time_1_month_short_task.json; path = "northwell-impulse-common/assets/json/survey/dd_time_1_month_short_task.json"; sourceTree = SOURCE_ROOT; };
 		E2B70AC81E09A4AC00C93093 /* am_survey_dd_time_6_month.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = am_survey_dd_time_6_month.json; path = "northwell-impulse-common/assets/json/survey/am_survey_dd_time_6_month.json"; sourceTree = SOURCE_ROOT; };
 		E2B70AC91E09A4AC00C93093 /* dd_time_6_month_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dd_time_6_month_full_task.json; path = "northwell-impulse-common/assets/json/survey/dd_time_6_month_full_task.json"; sourceTree = SOURCE_ROOT; };
 		E2B70ACA1E09A4AC00C93093 /* dd_time_6_month_short_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dd_time_6_month_short_task.json; path = "northwell-impulse-common/assets/json/survey/dd_time_6_month_short_task.json"; sourceTree = SOURCE_ROOT; };
@@ -406,7 +409,6 @@
 		E2B70AD01E09B76B00C93093 /* pm_survey_bart_250_dollars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pm_survey_bart_250_dollars.json; path = "northwell-impulse-common/assets/json/survey/pm_survey_bart_250_dollars.json"; sourceTree = SOURCE_ROOT; };
 		E2B70AD11E09B76B00C93093 /* pm_survey_dd_money_1_month.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pm_survey_dd_money_1_month.json; path = "northwell-impulse-common/assets/json/survey/pm_survey_dd_money_1_month.json"; sourceTree = SOURCE_ROOT; };
 		E2B70AD21E09B76B00C93093 /* pm_survey_dd_money_6_month.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pm_survey_dd_money_6_month.json; path = "northwell-impulse-common/assets/json/survey/pm_survey_dd_money_6_month.json"; sourceTree = SOURCE_ROOT; };
-		E2B70AD31E09B76B00C93093 /* pm_survey_dd_time_1_month.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pm_survey_dd_time_1_month.json; path = "northwell-impulse-common/assets/json/survey/pm_survey_dd_time_1_month.json"; sourceTree = SOURCE_ROOT; };
 		E2B70AD41E09B76B00C93093 /* pm_survey_dd_time_6_month.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pm_survey_dd_time_6_month.json; path = "northwell-impulse-common/assets/json/survey/pm_survey_dd_time_6_month.json"; sourceTree = SOURCE_ROOT; };
 		E2B70AD51E09B76B00C93093 /* pm_survey_go_no_go_stable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pm_survey_go_no_go_stable.json; path = "northwell-impulse-common/assets/json/survey/pm_survey_go_no_go_stable.json"; sourceTree = SOURCE_ROOT; };
 		E2B70AD61E09B76B00C93093 /* pm_survey_go_no_go_variable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pm_survey_go_no_go_variable.json; path = "northwell-impulse-common/assets/json/survey/pm_survey_go_no_go_variable.json"; sourceTree = SOURCE_ROOT; };
@@ -638,6 +640,11 @@
 		E2AA6D231DA43CCC005D5137 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				E21288981E44B94B000EC176 /* am_survey_dd_time_1_year.json */,
+				E21288991E44B94B000EC176 /* dd_time_1_year_full_task.json */,
+				E212889A1E44B94B000EC176 /* dd_time_1_year_short_task.json */,
+				E212889B1E44B94B000EC176 /* pm_survey_dd_time_1_year.json */,
+				E212889C1E44B94B000EC176 /* self_assessment_5.json */,
 				E243393D1E0DC4C4009FF385 /* daily_active_tasks.json */,
 				E243393E1E0DC4C4009FF385 /* shuffled_active_tasks.json */,
 				E2B70AA21E09945700C93093 /* go_no_go_variable_stimulus_short_task.json */,
@@ -662,9 +669,6 @@
 				E2B70ABC1E09A19400C93093 /* am_survey_dd_money_6_month.json */,
 				E2B70ABD1E09A19400C93093 /* dd_money_6_month_full_task.json */,
 				E2B70AC01E09A1A300C93093 /* dd_money_6_month_short_task.json */,
-				E2B70AC21E09A3BA00C93093 /* am_survey_dd_time_1_month.json */,
-				E2B70AC31E09A3BA00C93093 /* dd_time_1_month_full_task.json */,
-				E2B70AC41E09A3BA00C93093 /* dd_time_1_month_short_task.json */,
 				E2B70AC81E09A4AC00C93093 /* am_survey_dd_time_6_month.json */,
 				E2B70AC91E09A4AC00C93093 /* dd_time_6_month_full_task.json */,
 				E2B70ACA1E09A4AC00C93093 /* dd_time_6_month_short_task.json */,
@@ -695,7 +699,6 @@
 				E2B70AD01E09B76B00C93093 /* pm_survey_bart_250_dollars.json */,
 				E2B70AD11E09B76B00C93093 /* pm_survey_dd_money_1_month.json */,
 				E2B70AD21E09B76B00C93093 /* pm_survey_dd_money_6_month.json */,
-				E2B70AD31E09B76B00C93093 /* pm_survey_dd_time_1_month.json */,
 				E2B70AD41E09B76B00C93093 /* pm_survey_dd_time_6_month.json */,
 				E2B70AD51E09B76B00C93093 /* pm_survey_go_no_go_stable.json */,
 				E2B70AD61E09B76B00C93093 /* pm_survey_go_no_go_variable.json */,
@@ -1075,6 +1078,7 @@
 				E2B70A9D1E098EA700C93093 /* Reenrollment.json in Resources */,
 				E2B70AD91E09B76B00C93093 /* pm_survey_bart_250_dollars.json in Resources */,
 				E2CCB6731DB5610F00C801A4 /* CTFBARTStepViewController.xib in Resources */,
+				E212889F1E44B94B000EC176 /* dd_time_1_year_short_task.json in Resources */,
 				E2B70AC11E09A1A300C93093 /* dd_money_6_month_short_task.json in Resources */,
 				E2B70ABF1E09A19400C93093 /* dd_money_6_month_full_task.json in Resources */,
 				E2B70ADE1E09B76B00C93093 /* pm_survey_go_no_go_stable.json in Resources */,
@@ -1083,6 +1087,7 @@
 				E2B70AA71E09973500C93093 /* am_survey_go_no_go_stable.json in Resources */,
 				E2B70A4F1E0895BD00C93093 /* task_schema.json in Resources */,
 				E2EF6B291DA2E2970034456A /* LaunchScreen.storyboard in Resources */,
+				E212889D1E44B94B000EC176 /* am_survey_dd_time_1_year.json in Resources */,
 				E2B70A4E1E0895BD00C93093 /* self_assessment_9.json in Resources */,
 				E2B70ADB1E09B76B00C93093 /* pm_survey_dd_money_6_month.json in Resources */,
 				E2B70A4D1E0895BD00C93093 /* self_assessment_8.json in Resources */,
@@ -1101,12 +1106,13 @@
 				E2B70AAC1E0999BA00C93093 /* am_survey_bart_25_cents.json in Resources */,
 				E2B70A491E0895BD00C93093 /* PAMMultipleSelection.json in Resources */,
 				E2B70A3A1E0895BD00C93093 /* am_survey_go_no_go_variable.json in Resources */,
+				E212889E1E44B94B000EC176 /* dd_time_1_year_full_task.json in Resources */,
 				E2B70AB21E099B3B00C93093 /* bart_250_dollars_full_task.json in Resources */,
 				E2B70A4C1E0895BD00C93093 /* self_assessment_7.json in Resources */,
 				E2B70AB91E09A04200C93093 /* dd_money_1_month_short_task.json in Resources */,
 				E2AA6CDE1DA41A60005D5137 /* Onboarding.storyboard in Resources */,
 				E2B70A421E0895BD00C93093 /* demographics.json in Resources */,
-				E2B70AC61E09A3BA00C93093 /* dd_time_1_month_full_task.json in Resources */,
+				E21288A01E44B94B000EC176 /* pm_survey_dd_time_1_year.json in Resources */,
 				08D2028A1DC279DA00F43C07 /* CTFDelayDiscountingStepViewController.xib in Resources */,
 				E2B70AB81E09A04200C93093 /* am_survey_dd_money_1_month.json in Resources */,
 				E2B70AE41E09BD9D00C93093 /* go_no_go_practice_full_task.json in Resources */,
@@ -1127,14 +1133,12 @@
 				E24339401E0DC4C4009FF385 /* shuffled_active_tasks.json in Resources */,
 				E2B70A381E0895BD00C93093 /* am_likert_3.json in Resources */,
 				E2B70A371E0895BD00C93093 /* am_likert_1a.json in Resources */,
-				E2B70AC71E09A3BA00C93093 /* dd_time_1_month_short_task.json in Resources */,
-				E2B70ADC1E09B76B00C93093 /* pm_survey_dd_time_1_month.json in Resources */,
 				E2AA6CF91DA41E19005D5137 /* BridgeInfo.plist in Resources */,
-				E2B70AC51E09A3BA00C93093 /* am_survey_dd_time_1_month.json in Resources */,
 				E2B70ACD1E09A4AC00C93093 /* dd_time_6_month_short_task.json in Resources */,
 				E2B70A181E0895A800C93093 /* tasks_and_schedules.json in Resources */,
 				E2AA6D1A1DA43C83005D5137 /* CTFFormItemCell.xib in Resources */,
 				E2AA6CFA1DA41E19005D5137 /* BridgeInfo-private.plist in Resources */,
+				E21288A11E44B94B000EC176 /* self_assessment_5.json in Resources */,
 				E2B70A3B1E0895BD00C93093 /* bart_25_cents_full_task.json in Resources */,
 				E2B70A401E0895BD00C93093 /* Baseline.json in Resources */,
 				E243393F1E0DC4C4009FF385 /* daily_active_tasks.json in Resources */,

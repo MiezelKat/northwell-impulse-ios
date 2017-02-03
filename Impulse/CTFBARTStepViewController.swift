@@ -24,9 +24,10 @@ extension Collection where Iterator.Element == Int, Index == Int {
 
 
 struct CTFBARTTrial {
-    var earningsPerPump: Float!
-    var maxPayingPumps: Int!
-    var trialIndex: Int!
+    var earningsPerPump: Float
+    var maxPayingPumps: Int
+    var trialIndex: Int
+    var canExplodeOnFirstPump: Bool
 }
 
 struct CTFBARTTrialResult {
@@ -204,7 +205,8 @@ class CTFBARTStepViewController: ORKStepViewController {
                 return CTFBARTTrial(
                     earningsPerPump: params.earningsPerPump,
                     maxPayingPumps: params.maxPayingPumpsPerTrial,
-                    trialIndex: index
+                    trialIndex: index,
+                    canExplodeOnFirstPump: params.canExplodeOnFirstPump
                 )
                 
             }
@@ -364,7 +366,17 @@ class CTFBARTStepViewController: ORKStepViewController {
                 
 //                print(popProb)
                 //note for coinFlip, p1 = bias = popProb, p2 = (1.0-bias) = !popProb
-                let popped: Bool = coinFlip(true, obj2: false, bias: popProb)
+                let popped: Bool = {
+                    
+                    if !trial.canExplodeOnFirstPump && pumpCount == 0 {
+                        return false
+                    }
+                    else {
+                        return coinFlip(true, obj2: false, bias: popProb)
+                    }
+                    
+                    
+                }()
                 
                 if popped {
 //                    print("should pop here")
