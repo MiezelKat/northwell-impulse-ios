@@ -6,7 +6,7 @@
 //  Copyright © 2016 James Kizer. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension UIColor {
     // Assumes input like "#00FF00" (#RRGGBB).

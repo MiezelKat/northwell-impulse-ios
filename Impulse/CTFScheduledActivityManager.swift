@@ -8,7 +8,8 @@
 
 import UIKit
 import BridgeAppSDK
-import Bricoleur
+import ResearchSuiteTaskBuilder
+import sdlrkx
 
 //public protocol SBAScheduledActivityDataSource: class {
 //    
@@ -50,7 +51,7 @@ let kThankYouText = "Thank you for today's input!"
 class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskViewControllerDelegate, SBAScheduledActivityDataSource, CTFScheduledActivityDataSource {
 
     weak var delegate: SBAScheduledActivityManagerDelegate?
-    var stepBuilder: BCLStepBuilder!
+    var stepBuilder: RSTBTaskBuilder!
     
     override init() {
         super.init()
@@ -68,13 +69,13 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
             return
         }
         
-        let stepGeneratorServices: [BCLStepGenerator] = [
-            BCLInstructionStepGenerator(),
-            BCLTextFieldStepGenerator(),
-            BCLIntegerStepGenerator(),
+        let stepGeneratorServices: [RSTBStepGenerator] = [
+            RSTBInstructionStepGenerator(),
+            RSTBTextFieldStepGenerator(),
+            RSTBIntegerStepGenerator(),
             CTFExtendedSingleChoiceStepGenerator(),
-            BCLTimePickerStepGenerator(),
-            BCLFormStepGenerator(),
+            RSTBTimePickerStepGenerator(),
+            RSTBFormStepGenerator(),
             CTFLikertFormStepGenerator(),
             CTFSemanticDifferentialFormStepGenerator(),
             PAMMultipleStepGenerator(),
@@ -82,31 +83,31 @@ class CTFScheduledActivityManager: NSObject, SBASharedInfoController, ORKTaskVie
             CTFGoNoGoStepGenerator(),
             CTFBARTStepGenerator(),
             CTFDelayDiscountingStepGenerator(),
-            BCLDatePickerStepGenerator(),
+            RSTBDatePickerStepGenerator(),
             CTFExtendedMultipleChoiceStepGenerator()
         ]
         
-        let answerFormatGeneratorServices: [BCLAnswerFormatGenerator] = [
-            BCLTextFieldStepGenerator(),
-            BCLIntegerStepGenerator(),
-            BCLTimePickerStepGenerator(),
+        let answerFormatGeneratorServices: [RSTBAnswerFormatGenerator] = [
+            RSTBTextFieldStepGenerator(),
+            RSTBIntegerStepGenerator(),
+            RSTBTimePickerStepGenerator(),
             CTFExtendedSingleChoiceStepGenerator(),
             CTFExtendedMultipleChoiceStepGenerator(),
-            BCLDatePickerStepGenerator()
+            RSTBDatePickerStepGenerator()
         ]
         
-        let elementGeneratorServices: [BCLElementGenerator] = [
-            BCLElementListGenerator(),
-            BCLElementFileGenerator(),
-            BCLElementSelectorGenerator()
+        let elementGeneratorServices: [RSTBElementGenerator] = [
+            RSTBElementListGenerator(),
+            RSTBElementFileGenerator(),
+            RSTBElementSelectorGenerator()
         ]
         
         // Do any additional setup after loading the view, typically from a nib.
-        self.stepBuilder = BCLStepBuilder(
+        self.stepBuilder = RSTBTaskBuilder(
             stateHelper: CTFStateManager.defaultManager,
+            elementGeneratorServices: stepGeneratorServices,
             stepGeneratorServices: stepGeneratorServices,
-            answerFormatGeneratorServices: answerFormatGeneratorServices,
-            elementGeneratorServices: elementGeneratorServices)
+            answerFormatGeneratorServices: answerFormatGeneratorServices)
  
         self.scheduleItems = scheduleArray.flatMap( {CTFScheduleItem(json: $0)})
         self.loadData()

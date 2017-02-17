@@ -8,10 +8,10 @@
 
 import UIKit
 import ResearchKit
-import Bricoleur
+import ResearchSuiteTaskBuilder
 import Gloss
 
-class CTFSemanticDifferentialFormStepGenerator: BCLBaseStepGenerator {
+class CTFSemanticDifferentialFormStepGenerator: RSTBBaseStepGenerator {
     
     public init(){}
     
@@ -23,7 +23,7 @@ class CTFSemanticDifferentialFormStepGenerator: BCLBaseStepGenerator {
         return self._supportedTypes
     }
     
-    open func generateStep(type: String, jsonObject: JSON, helper: BCLStepBuilderHelper) -> ORKStep? {
+    open func generateStep(type: String, jsonObject: JSON, helper: RSTBTaskBuilderHelper) -> ORKStep? {
         
         guard let customStepDescriptor = helper.getCustomStepDescriptor(forJsonObject: jsonObject),
             let parameters = customStepDescriptor.parameters,
@@ -46,7 +46,7 @@ class CTFSemanticDifferentialFormStepGenerator: BCLBaseStepGenerator {
     open func processStepResult(type: String,
                                 jsonObject: JsonObject,
                                 result: ORKStepResult,
-                                helper: BCLStepBuilderHelper) -> JSON? {
+                                helper: RSTBTaskBuilderHelper) -> JSON? {
         return nil
     }
 

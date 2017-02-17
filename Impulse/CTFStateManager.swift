@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import Bricoleur
+import ResearchSuiteTaskBuilder
 
-class CTFStateManager: NSObject, BCLStateHelper {
+class CTFStateManager: NSObject, RSTBStateHelper {
     
 
     
