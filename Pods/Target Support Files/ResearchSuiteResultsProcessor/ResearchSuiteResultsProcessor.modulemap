@@ -1,6 +1,0 @@
-framework module ResearchSuiteResultsProcessor {
-  umbrella header "ResearchSuiteResultsProcessor-umbrella.h"
-
-  export *
-  module * { export * }
-}
