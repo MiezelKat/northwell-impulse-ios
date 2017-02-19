@@ -34,7 +34,7 @@
 import UIKit
 //import BridgeAppSDK
 
-class CTFMainTabViewController: UITabBarController {
+class CTFMainTabViewController: UITabBarController, CTFRootViewControllerProtocol {
     
     var contentHidden = false {
         didSet {

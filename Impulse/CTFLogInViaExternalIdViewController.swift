@@ -11,6 +11,8 @@ import ResearchKit
 
 class CTFLogInViaExternalIdViewController: UIViewController, ORKTaskViewControllerDelegate {
     
+    static let LoginStepdentifier = "login step identifier"
+    
     @IBAction func externalIDTapped(_ sender: AnyObject) {
         
         // TODO: syoung 06/09/2016 Implement consent and use onboarding manager for external ID
@@ -26,7 +28,7 @@ class CTFLogInViaExternalIdViewController: UIViewController, ORKTaskViewControll
         notConsentedStep.text = "You must complete the consent form with a researcher before continuing."
         
         // Create a task with an external ID and permissions steps and display the view controller
-        let logInStep = CTFBridgeExternalIDStep(identifier: "participantID")
+        let logInStep = CTFBridgeExternalIDStep(identifier: CTFLogInViaExternalIdViewController.LoginStepdentifier)
         let passcodeStep = ORKPasscodeStep(identifier: "passcode")
         passcodeStep.passcodeType = .type4Digit
         
@@ -51,10 +53,29 @@ class CTFLogInViaExternalIdViewController: UIViewController, ORKTaskViewControll
         self.present(vc, animated: true, completion: nil)
     }
     
+    //TODO: Test case where user logs in but cancels when adding passcode
     func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
         taskViewController.dismiss(animated: true) {
             if (reason == .completed), let appDelegate = UIApplication.shared.delegate as? CTFAppDelegate {
+                
+                let taskResult = taskViewController.result
+                guard let loginStepResult = taskResult.stepResult(forStepIdentifier: CTFLogInViaExternalIdViewController.LoginStepdentifier),
+                    let loggedInResult = loginStepResult.result(forIdentifier: CTFLoginStepViewController.LoggedInResultIdentifier) as? ORKBooleanQuestionResult,
+                    let booleanAnswer = loggedInResult.booleanAnswer else {
+                        return
+                }
+                
+                var appState: CTFAppStateProtocol = CTFStateManager.defaultManager
+                appState.isLoggedIn = booleanAnswer.boolValue
+                
+                
+                
                 appDelegate.showViewController()
+            }
+            else {
+                if let appDelegate = UIApplication.shared.delegate as? CTFAppDelegate {
+                    appDelegate.signOut()
+                }
             }
         }
     }

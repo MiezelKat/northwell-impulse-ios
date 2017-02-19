@@ -20,86 +20,86 @@ class CTFBridgeExternalIDStepViewController: CTFLoginStepViewController {
         self.loggedIn = false
         
         if (username != password) {
-            let alertController = UIAlertController(title: "Log in failed", message: "Participant IDs do not match", preferredStyle: UIAlertControllerStyle.alert)
             
-            // Replace UIAlertActionStyle.Default by UIAlertActionStyle.default
-            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
-                (result : UIAlertAction) -> Void in
-                print("OK")
+            DispatchQueue.main.async {
+                let alertController = UIAlertController(title: "Log in failed", message: "Participant IDs do not match", preferredStyle: UIAlertControllerStyle.alert)
+                
+                // Replace UIAlertActionStyle.Default by UIAlertActionStyle.default
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                    (result : UIAlertAction) -> Void in
+                    print("OK")
+                }
+                
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+                completion(false)
+                return
             }
             
-            alertController.addAction(okAction)
-            self.present(alertController, animated: true, completion: nil)
-            completion(false)
-            return
         }
-        if let authManager: SBBAuthManagerProtocol = SBBComponentManager.component(SBBAuthManager.self) as? SBBAuthManagerProtocol {
-            
-            let email = String(format: "jdk288+%@@cornell.edu", username)
-            let password = password
-            authManager.signIn(withEmail: email, password: password, completion: { (task, responseObject, error) in
-                
-                debugPrint(task)
-                debugPrint(responseObject)
-                debugPrint(error)
-                
-                guard let responseDict = responseObject as? [String: Any],
-                    responseDict["sessionToken"] as? String != nil else {
-                    let alertController = UIAlertController(title: "Log in failed", message: "Please check the participant ID", preferredStyle: UIAlertControllerStyle.alert)
+        
+        do {
+            try CTFBridgeManager.sharedManager.signIn(externalID: username) { (error) in
+                if error != nil {
                     
-                    // Replace UIAlertActionStyle.Default by UIAlertActionStyle.default
-                    let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
-                        (result : UIAlertAction) -> Void in
-                        print("OK")
+                    DispatchQueue.main.async {
+                        let errorMessage: String = {
+                            if let sageError = error as? NSError {
+                                return sageError.localizedDescription
+                            }
+                            else {
+                                return "Please check the participant ID"
+                            }
+                        }()
+                        
+                        
+                        let alertController = UIAlertController(title: "Log in failed", message: errorMessage, preferredStyle: UIAlertControllerStyle.alert)
+                        
+                        // Replace UIAlertActionStyle.Default by UIAlertActionStyle.default
+                        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                            (result : UIAlertAction) -> Void in
+                            print("OK")
+                        }
+                        
+                        alertController.addAction(okAction)
+                        self.present(alertController, animated: true, completion: nil)
+                        completion(false)
+                        return
                     }
                     
-                    alertController.addAction(okAction)
-                    self.present(alertController, animated: true, completion: nil)
-                    completion(false)
+                    
+                }
+                else {
+                    DispatchQueue.main.async {
+                        self.loggedIn = true
+                        completion(true)
+                        return
+                    }
                     return
                 }
                 
-                self.loggedIn = true
-                completion(true)
-                return
+            }
+        }
+        catch {
+            
+            DispatchQueue.main.async {
+                let alertController = UIAlertController(title: "An internal error occurred", message: "If this problem continues, please contact the research coordinator", preferredStyle: UIAlertControllerStyle.alert)
                 
-            })
+                // Replace UIAlertActionStyle.Default by UIAlertActionStyle.default
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                    (result : UIAlertAction) -> Void in
+                    print("OK")
+                }
+                
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+                completion(false)
+                return
+            }
+            return
+            
             
         }
-        else {
-            fatalError("A programming error occurred")
-        }
-            
-//        else {
-//            completion(true)
-//        }
-        
-//        OhmageOMHManager.shared.signIn(username: username, password: password) { (error) in
-//            
-//            debugPrint(error)
-//            if error == nil {
-//                self.loggedIn = true
-//                completion(true)
-//            }
-//            else {
-//                self.loggedIn = false
-//                DispatchQueue.main.async {
-//                    let alertController = UIAlertController(title: "Log in failed", message: "Username / Password are not valid", preferredStyle: UIAlertControllerStyle.alert)
-//                    
-//                    // Replace UIAlertActionStyle.Default by UIAlertActionStyle.default
-//                    let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
-//                        (result : UIAlertAction) -> Void in
-//                        print("OK")
-//                    }
-//                    
-//                    alertController.addAction(okAction)
-//                    self.present(alertController, animated: true, completion: nil)
-//                    completion(false)
-//                }
-//                
-//            }
-//            
-//        }
         
     }
     

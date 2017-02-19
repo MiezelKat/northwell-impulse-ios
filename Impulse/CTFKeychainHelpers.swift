@@ -28,11 +28,19 @@ class CTFKeychainHelpers: NSObject {
         }
     }
     
+    static func removeKeychainObject(forKey key: String) {
+        do {
+            try ORKKeychainWrapper.removeObject(forKey: key)
+        } catch let error {
+            assertionFailure("Got error \(error) when setting \(key)")
+        }
+    }
+    
     static func clearKeychain() {
         do {
             try ORKKeychainWrapper.resetKeychain()
-        } catch let error {
-            assertionFailure("Got error \(error) when resetting keychain")
+        } catch let error as NSError {
+            print(error.localizedDescription)
         }
     }
     

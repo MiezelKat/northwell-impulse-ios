@@ -98,12 +98,37 @@ class CTFSettingsTableViewController: UITableViewController, ORKTaskViewControll
         if let cell = tableView.cellForRow(at: indexPath) {
             cell.isSelected = false
             
+            //add logout here
+            guard let reuseIdentifier = cell.reuseIdentifier else {
+                return
+            }
+            
+            if reuseIdentifier == "signOut" {
+                
+                let title = "Sign Out"
+                let message = "In order to reset your passcode, you'll need to log out of the app completely and log back in using your email and password."
+                let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                alert.addAction(cancelAction)
+                
+                let logoutAction = UIAlertAction(title: "Log Out", style: .destructive, handler: { _ in
+                    if let appDelegate = UIApplication.shared.delegate as? CTFAppDelegate {
+                        appDelegate.signOut()
+                    }
+                })
+                alert.addAction(logoutAction)
+                
+                self.present(alert, animated: true, completion: nil)
+                
+            }
+            
             guard CTFStateManager.defaultManager.isBaselineCompleted else {
                 return 
             }
             
-            switch cell.reuseIdentifier {
-            case .some("set_morning_survey"):
+            switch reuseIdentifier {
+            case "set_morning_survey":
                 
                 let answerFormat = ORKAnswerFormat.timeOfDayAnswerFormat(withDefaultComponents: CTFStateManager.defaultManager.getMorningSurveyTime())
                 let questionStep = ORKQuestionStep(identifier: "morning_notification_time_picker_step", title: nil, answer: answerFormat)
@@ -136,7 +161,7 @@ class CTFSettingsTableViewController: UITableViewController, ORKTaskViewControll
                 present(taskViewController, animated: true, completion: nil)
                 
                 
-            case .some("set_evening_survey"):
+            case "set_evening_survey":
                 
                 let answerFormat = ORKAnswerFormat.timeOfDayAnswerFormat(withDefaultComponents: CTFStateManager.defaultManager.getEveningSurveyTime())
                 let questionStep = ORKQuestionStep(identifier: "evening_notification_time_picker_step", title: nil, answer: answerFormat)
@@ -168,7 +193,7 @@ class CTFSettingsTableViewController: UITableViewController, ORKTaskViewControll
                 
                 present(taskViewController, animated: true, completion: nil)
                 
-            case .some("comments"):
+            case "comments":
                 
                 let answerFormat = ORKAnswerFormat.textAnswerFormat()
                 answerFormat.multipleLines = true
@@ -199,6 +224,7 @@ class CTFSettingsTableViewController: UITableViewController, ORKTaskViewControll
                 taskViewController.outputDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
                 
                 present(taskViewController, animated: true, completion: nil)
+ 
                 
             default:
                 print("do nothing")

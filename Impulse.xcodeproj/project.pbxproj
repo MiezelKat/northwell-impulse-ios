@@ -21,6 +21,11 @@
 		E234C9101E59463100E24E86 /* CTFAppStateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234C90F1E59463100E24E86 /* CTFAppStateProtocol.swift */; };
 		E234C9141E594B0600E24E86 /* CTFBridgeExternalIDStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234C9131E594B0600E24E86 /* CTFBridgeExternalIDStep.swift */; };
 		E234C9161E594BAF00E24E86 /* CTFBridgeExternalIDStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234C9151E594BAF00E24E86 /* CTFBridgeExternalIDStepViewController.swift */; };
+		E234C9181E5A0D6700E24E86 /* CTFBridgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234C9171E5A0D6700E24E86 /* CTFBridgeManager.swift */; };
+		E234C91A1E5A0F8800E24E86 /* CTFBridgeManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234C9191E5A0F8800E24E86 /* CTFBridgeManagerError.swift */; };
+		E234C91C1E5A22B300E24E86 /* CTFRootViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234C91B1E5A22B300E24E86 /* CTFRootViewControllerProtocol.swift */; };
+		E234C91D1E5A5D7500E24E86 /* BridgeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E234C8D71E58E1E300E24E86 /* BridgeSDK.framework */; };
+		E234C91E1E5A5D7500E24E86 /* BridgeSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E234C8D71E58E1E300E24E86 /* BridgeSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E23535DC1DB57B6F005BAFE3 /* GenericHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23535DB1DB57B6F005BAFE3 /* GenericHelpers.swift */; };
 		E243393F1E0DC4C4009FF385 /* daily_active_tasks.json in Resources */ = {isa = PBXBuildFile; fileRef = E243393D1E0DC4C4009FF385 /* daily_active_tasks.json */; };
 		E24339401E0DC4C4009FF385 /* shuffled_active_tasks.json in Resources */ = {isa = PBXBuildFile; fileRef = E243393E1E0DC4C4009FF385 /* shuffled_active_tasks.json */; };
@@ -156,6 +161,13 @@
 			remoteGlobalIDString = 807AE29F1B60330C002588BB;
 			remoteInfo = BridgeSDKIntegrationTests;
 		};
+		E234C91F1E5A5D7500E24E86 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E234C8C41E58E1E200E24E86 /* BridgeSDK.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 80855F4F19BE258C006601C7;
+			remoteInfo = BridgeSDK;
+		};
 		E2EF6B301DA2E2980034456A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E2EF6B131DA2E2970034456A /* Project object */;
@@ -171,6 +183,20 @@
 			remoteInfo = Impulse;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E234C9211E5A5D7500E24E86 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E234C91E1E5A5D7500E24E86 /* BridgeSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		168BD37D0B0D7692E775DC8F /* Pods-ImpulseUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImpulseUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ImpulseUITests/Pods-ImpulseUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -195,6 +221,9 @@
 		E234C90F1E59463100E24E86 /* CTFAppStateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFAppStateProtocol.swift; sourceTree = "<group>"; };
 		E234C9131E594B0600E24E86 /* CTFBridgeExternalIDStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFBridgeExternalIDStep.swift; sourceTree = "<group>"; };
 		E234C9151E594BAF00E24E86 /* CTFBridgeExternalIDStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFBridgeExternalIDStepViewController.swift; sourceTree = "<group>"; };
+		E234C9171E5A0D6700E24E86 /* CTFBridgeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFBridgeManager.swift; sourceTree = "<group>"; };
+		E234C9191E5A0F8800E24E86 /* CTFBridgeManagerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFBridgeManagerError.swift; sourceTree = "<group>"; };
+		E234C91B1E5A22B300E24E86 /* CTFRootViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFRootViewControllerProtocol.swift; sourceTree = "<group>"; };
 		E23535DB1DB57B6F005BAFE3 /* GenericHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericHelpers.swift; sourceTree = "<group>"; };
 		E243393D1E0DC4C4009FF385 /* daily_active_tasks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = daily_active_tasks.json; path = "northwell-impulse-common/assets/json/survey/daily_active_tasks.json"; sourceTree = SOURCE_ROOT; };
 		E243393E1E0DC4C4009FF385 /* shuffled_active_tasks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = shuffled_active_tasks.json; path = "northwell-impulse-common/assets/json/survey/shuffled_active_tasks.json"; sourceTree = SOURCE_ROOT; };
@@ -312,6 +341,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E234C91D1E5A5D7500E24E86 /* BridgeSDK.framework in Frameworks */,
 				04F7EC8CEE61F851E78A313D /* Pods_Impulse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,6 +420,9 @@
 				E234C8F31E58EA9300E24E86 /* NSDate+Utilities.swift */,
 				E234C8F51E58EC3800E24E86 /* ORKResult+SBBExtension.swift */,
 				E234C8FE1E59364B00E24E86 /* CTFBridgeInfo.swift */,
+				E234C9171E5A0D6700E24E86 /* CTFBridgeManager.swift */,
+				E234C9191E5A0F8800E24E86 /* CTFBridgeManagerError.swift */,
+				E234C91B1E5A22B300E24E86 /* CTFRootViewControllerProtocol.swift */,
 			);
 			name = "Sage Glue";
 			sourceTree = "<group>";
@@ -657,10 +690,12 @@
 				E2EF6B191DA2E2970034456A /* Resources */,
 				7E20F0A347576D6475135989 /* [CP] Embed Pods Frameworks */,
 				C2D24B33D9A23DDB382A36B3 /* [CP] Copy Pods Resources */,
+				E234C9211E5A5D7500E24E86 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E234C9201E5A5D7500E24E86 /* PBXTargetDependency */,
 			);
 			name = Impulse;
 			productName = Impulse;
@@ -1052,6 +1087,7 @@
 				E234C9031E59382500E24E86 /* Dictionary+Utilities.swift in Sources */,
 				E2CCB66A1DB158AF00C801A4 /* CTFScheduleItem.swift in Sources */,
 				E2B70A941E08C55300C93093 /* CTFSemanticDifferentialFormStepGenerator.swift in Sources */,
+				E234C91C1E5A22B300E24E86 /* CTFRootViewControllerProtocol.swift in Sources */,
 				E295FC211DDCC001001B175D /* UIColor+String.swift in Sources */,
 				E2AA6D191DA43C83005D5137 /* CTFFormItemCell.swift in Sources */,
 				E2AA6D031DA43C54005D5137 /* CTFActivityTableViewController.swift in Sources */,
@@ -1066,11 +1102,13 @@
 				E2AA6CFC1DA41F3D005D5137 /* CTFLogInViaExternalIdViewController.swift in Sources */,
 				E234C90E1E593EBC00E24E86 /* CTFStateManager+SBBAuthManagerDelegateProtocol.swift in Sources */,
 				E295FC2A1DDE36EB001B175D /* CTFSettingsTableViewController.swift in Sources */,
+				E234C9181E5A0D6700E24E86 /* CTFBridgeManager.swift in Sources */,
 				E2B70A8A1E08B43600C93093 /* CTFLikertFormItemDescriptor.swift in Sources */,
 				E2AA6D1D1DA43C83005D5137 /* CTFPulsusFormStepViewController.swift in Sources */,
 				E2B70AFE1E0A190900C93093 /* CTFTaskViewController.swift in Sources */,
 				E23535DC1DB57B6F005BAFE3 /* GenericHelpers.swift in Sources */,
 				E2B70A921E08C3F100C93093 /* CTFSemanticDifferentialScaleFormItemDecriptor.swift in Sources */,
+				E234C91A1E5A0F8800E24E86 /* CTFBridgeManagerError.swift in Sources */,
 				E2B70A871E08AF5F00C93093 /* CTFLikertFormStepGenerator.swift in Sources */,
 				E234C9101E59463100E24E86 /* CTFAppStateProtocol.swift in Sources */,
 				E295FC2C1DDE653E001B175D /* CTFTabBarController.swift in Sources */,
@@ -1103,6 +1141,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		E234C9201E5A5D7500E24E86 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BridgeSDK;
+			targetProxy = E234C91F1E5A5D7500E24E86 /* PBXContainerItemProxy */;
+		};
 		E2EF6B311DA2E2980034456A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E2EF6B1A1DA2E2970034456A /* Impulse */;

@@ -1,9 +1,42 @@
 //
 //  AppDelegate.swift
 //  Impulse
+//  Inspiration from SBAAppDelegate.swift in BridgeAppSDK (see below)
 //
 //  Created by James Kizer on 10/3/16.
 //  Copyright © 2016 James Kizer. All rights reserved.
+//
+//
+//  SBAAppDelegate.swift
+//  BridgeAppSDK
+//
+//  Copyright © 2016 Sage Bionetworks. All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without modification,
+// are permitted provided that the following conditions are met:
+//
+// 1.  Redistributions of source code must retain the above copyright notice, this
+// list of conditions and the following disclaimer.
+//
+// 2.  Redistributions in binary form must reproduce the above copyright notice,
+// this list of conditions and the following disclaimer in the documentation and/or
+// other materials provided with the distribution.
+//
+// 3.  Neither the name of the copyright holder(s) nor the names of any contributors
+// may be used to endorse or promote products derived from this software without
+// specific prior written permission. No license is granted to the trademarks of
+// the copyright holders even if such marks are included in this software.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE
+// FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+// DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+// CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
 import UIKit
@@ -11,13 +44,15 @@ import ResearchKit
 import BridgeSDK
 
 @UIApplicationMain
-class CTFAppDelegate: UIResponder, UIApplicationDelegate {
+class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
 
     var window: UIWindow?
-
-
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    open var containerRootViewController: CTFRootViewControllerProtocol? {
+        return window?.rootViewController as? CTFRootViewControllerProtocol
+    }
+    
+    open func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         if UserDefaults.standard.object(forKey: "FirstRun") == nil {
@@ -30,28 +65,23 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        BridgeSDK.setup()
-        BridgeSDK.setAuthDelegate(CTFStateManager.defaultManager)
-        
         var appState: CTFAppStateProtocol = CTFStateManager.defaultManager
         
-        if let authManager: SBBAuthManagerProtocol = SBBComponentManager.component(SBBAuthManager.self) as? SBBAuthManagerProtocol {
-            authManager.ensureSignedIn(completion: { (sessionTask, responseObject, err) in
-
-                if let error = err as? NSError,
-                    (error.code == SBBErrorCode.noCredentialsAvailable.rawValue) {
-                    appState.isLoggedIn = false
-                }
-                else {
-                    appState.isLoggedIn = true
-                }
-                
+        do {
+            try CTFBridgeManager.sharedManager.isLoggedIn { (loggedIn) in
+                appState.isLoggedIn = loggedIn
                 appState.isLoaded = true
                 self.showViewController()
-            })
+            }
+        } catch let error {
+            debugPrint(error)
         }
         
-        
+        return true
+    }
+    
+    open func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        lockScreen()
         return true
     }
     
@@ -65,32 +95,9 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate {
         
         if appState.isLoggedIn {
             
-//            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//            let vc = mainStoryboard.instantiateInitialViewController() as! CTFTabBarController
-//            vc.appConfig = self.appConfig
-//            
-//            window.rootViewController = vc
-            
-            //            //if signed in and not skipped, check to see if we have consented
-            //            if CTFAppState.sharedInstance.isSignedIn &&
-            //                !CTFAppState.sharedInstance.skipped &&
-            //                !CTFAppState.sharedInstance.consented {
-            //
-            //
-            //
-            //            }
-//                        else {
-//                            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//                            let vc = mainStoryboard.instantiateInitialViewController() as! CTFTabBarController
-//                            vc.appConfig = self.appConfig
-//            
-//                            window.rootViewController = vc
-//                        }
-            
             let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = mainStoryboard.instantiateInitialViewController() as! CTFMainTabViewController
-//            vc.appConfig = self.appConfig
-            
+
             window.rootViewController = vc
         }
         else {
@@ -102,6 +109,36 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate {
         return true
         
     }
+    
+    open func applicationWillResignActive(_ application: UIApplication) {
+        if shouldShowPasscode() {
+            // Hide content so it doesn't appear in the app switcher.
+            if var vc = containerRootViewController {
+                vc.contentHidden = true
+            }
+            
+        }
+    }
+    
+    open func applicationDidBecomeActive(_ application: UIApplication) {
+        // Make sure that the content view controller is not hiding content
+        if var vc = containerRootViewController {
+            vc.contentHidden = false
+        }
+        
+    }
+    
+    open func applicationWillEnterForeground(_ application: UIApplication) {
+        lockScreen()
+    }
+    
+    open func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
+        if identifier == kBackgroundSessionIdentifier {
+            CTFBridgeManager.sharedManager.restoreBackgroundSession(identifier: identifier, completionHandler: completionHandler)
+        }
+    }
+    
+    
 //
 //    func applicationWillResignActive(_ application: UIApplication) {
 //        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -161,6 +198,136 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate {
 //        return UIStoryboard(name: name, bundle: nil)
 //    }
 
+    /**
+     Convenience method for presenting a modal view controller.
+     */
+    open func presentViewController(_ viewController: UIViewController, animated: Bool, completion: (() -> Void)?) {
+        guard let rootVC = self.window?.rootViewController else { return }
+        var topViewController: UIViewController = rootVC
+        while (topViewController.presentedViewController != nil) {
+            topViewController = topViewController.presentedViewController!
+        }
+        topViewController.present(viewController, animated: animated, completion: completion)
+    }
+    
+    /**
+     Convenience method for transitioning to the given view controller as the main window
+     rootViewController.
+     */
+    open func transition(toRootViewController: UIViewController, animated: Bool) {
+        guard let window = self.window else { return }
+        if (animated) {
+            UIView.transition(with: window,
+                              duration: 0.6,
+                              options: UIViewAnimationOptions.transitionCrossDissolve,
+                              animations: {
+                                window.rootViewController = toRootViewController
+            },
+                              completion: nil)
+        }
+        else {
+            window.rootViewController = toRootViewController
+        }
+    }
+    
+    // ------------------------------------------------
+    // MARK: Passcode Display Handling
+    // ------------------------------------------------
+    
+    private weak var passcodeViewController: UIViewController?
+    
+    /**
+     Should the passcode be displayed. By default, if there isn't a catasrophic error,
+     the user is registered and there is a passcode in the keychain, then show it.
+     */
+    open func shouldShowPasscode() -> Bool {
+        return (self.passcodeViewController == nil) &&
+            ORKPasscodeViewController.isPasscodeStoredInKeychain()
+    }
+    
+    private func instantiateViewControllerForPasscode() -> UIViewController? {
+        return ORKPasscodeViewController.passcodeAuthenticationViewController(withText: nil, delegate: self)
+    }
+    
+    public func lockScreen() {
+        
+        guard self.shouldShowPasscode(), let vc = instantiateViewControllerForPasscode() else {
+            return
+        }
+        
+        window?.makeKeyAndVisible()
+        
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .coverVertical
+        
+        passcodeViewController = vc
+        presentViewController(vc, animated: false, completion: nil)
+    }
+    
+    private func dismissPasscodeViewController(_ animated: Bool) {
+        self.passcodeViewController?.presentingViewController?.dismiss(animated: animated, completion: nil)
+    }
+    
+    private func resetPasscode() {
+        
+        // Dismiss the view controller unanimated
+        dismissPasscodeViewController(false)
+        
+        self.signOut()
+    }
+    
+    // MARK: ORKPasscodeDelegate
+    
+    open func passcodeViewControllerDidFinish(withSuccess viewController: UIViewController) {
+        dismissPasscodeViewController(true)
+    }
+    
+    open func passcodeViewControllerDidFailAuthentication(_ viewController: UIViewController) {
+        // Do nothing in default implementation
+    }
+    
+    open func passcodeViewControllerForgotPasscodeTapped(_ viewController: UIViewController) {
+        
+        let title = "Reset Passcode"
+        let message = "In order to reset your passcode, you'll need to log out of the app completely and log back in using your email and password."
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        
+        let logoutAction = UIAlertAction(title: "Log Out", style: .destructive, handler: { _ in
+            self.resetPasscode()
+        })
+        alert.addAction(logoutAction)
+        
+        viewController.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    public func signOut() {
+        
+        // Show a plain white view controller while logging out
+        let vc = UIViewController()
+        vc.view.backgroundColor = UIColor.white
+        transition(toRootViewController: vc, animated: false)
+        
+        var appState: CTFAppStateProtocol = CTFStateManager.defaultManager
+        CTFBridgeManager.sharedManager.isLoggedIn(completion: { (loggedIn) in
+            if loggedIn, let appDelegate = UIApplication.shared.delegate as? CTFAppDelegate {
+                CTFBridgeManager.sharedManager.signOut(completion: { (error) in
+                    
+                    DispatchQueue.main.async {
+                        //clear keychain (passcode stored in keychain
+                        appState.isLoggedIn = false
+                        CTFStateManager.defaultManager.clearState()
+                        appDelegate.showViewController()
+                    }
+                    
+                })
+            }
+        })
+        
+    }
 
 }
 

@@ -47,6 +47,10 @@ class CTFStateManager: NSObject, RSTBStateHelper, CTFAppStateProtocol {
     
     static let defaultManager = CTFStateManager()
     
+    public func clearState() {
+        CTFKeychainHelpers.clearKeychain()
+    }
+    
     func dateComponents(forDate date: Date) -> DateComponents {
         let unitFlags = Set<Calendar.Component>([.year, .month, .day])
         let calendar = Locale.current.calendar
@@ -458,6 +462,9 @@ class CTFStateManager: NSObject, RSTBStateHelper, CTFAppStateProtocol {
     public func setValueInState(value: NSSecureCoding?, forKey: String) {
         if let val = value {
             CTFKeychainHelpers.setKeychainObject(val, forKey: forKey)
+        }
+        else {
+            CTFKeychainHelpers.removeKeychainObject(forKey: forKey)
         }
     }
     
