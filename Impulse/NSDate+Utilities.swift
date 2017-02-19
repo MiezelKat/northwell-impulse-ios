@@ -1,5 +1,5 @@
 //
-//  MainTabViewController.swift
+//  NSDate+Utilities.swift
 //  BridgeAppSDK
 //
 //  Copyright © 2016 Sage Bionetworks. All rights reserved.
@@ -32,47 +32,27 @@
 //
 
 import UIKit
-//import BridgeAppSDK
 
-class CTFMainTabViewController: UITabBarController {
+extension Date {
     
-    var contentHidden = false {
-        didSet {
-            guard contentHidden != oldValue && isViewLoaded else { return }
-            self.childViewControllers.first?.view.isHidden = contentHidden
-        }
+    public func startOfDay() -> Date {
+        let calendar = Calendar.current
+        let unitFlags: NSCalendar.Unit = [.day, .month, .year]
+        let components = (calendar as NSCalendar).components(unitFlags, from: self)
+        return calendar.date(from: components) ?? self
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-//        if let activitiesNavController = self.viewControllers?.first(where: { (viewController) -> Bool in
-//            guard let navController = viewController as? UINavigationController,
-//                navController.viewControllers.first is CTFActivityTableViewController else {
-//                    return false
-//            }
-//            return true
-//        }) as? UINavigationController,
-//            let activitiesController = activitiesNavController.viewControllers.first as? CTFActivityTableViewController {
-//            
-//            if let settingsNavController = self.viewControllers?.first(where: { (viewController) -> Bool in
-//                guard let navController = viewController as? UINavigationController,
-//                    navController.viewControllers.first is CTFSettingsTableViewController else {
-//                        return false
-//                }
-//                return true
-//            }) as? UINavigationController,
-//                let settingsController = settingsNavController.viewControllers.first as? CTFSettingsTableViewController {
-//                
-//                settingsController.delegate = activitiesController
-//                
-//                
-//            }
-//            
-//            
-//        }
-        
-        
+    public var isToday: Bool {
+        return self.startOfDay() == Date().startOfDay()
     }
-
+    
+    public var isTomorrow: Bool {
+        return self.startOfDay() == Date().startOfDay().addingNumberOfDays(1)
+    }
+    
+    public func addingNumberOfDays(_ days: Int) -> Date {
+        let calendar = Calendar.current
+        return calendar.date(byAdding: .day, value: days, to: self, wrappingComponents: false)!
+    }
+    
 }

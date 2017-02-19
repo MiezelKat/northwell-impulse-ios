@@ -1,3 +1,6 @@
 [submodule "northwell-impulse-common"]
 	path = northwell-impulse-common
 	url = https://github.com/smalldatalab/northwell-impulse-common.git
+[submodule "Bridge-iOS-SDK"]
+	path = Bridge-iOS-SDK
+	url = https://github.com/cornelltech/Bridge-iOS-SDK.git

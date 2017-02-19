@@ -12,6 +12,7 @@ target 'Impulse' do
   pod "ResearchSuiteResultsProcessor"
   pod "sdlrkx"
   pod "ResearchKit", "~> 1.3"
+  pod "ReSwift"
 
   target 'ImpulseTests' do
     inherit! :search_paths

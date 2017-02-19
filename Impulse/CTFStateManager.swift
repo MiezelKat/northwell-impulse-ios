@@ -8,11 +8,10 @@
 
 import UIKit
 import ResearchSuiteTaskBuilder
+import BridgeSDK
 
-class CTFStateManager: NSObject, RSTBStateHelper {
-    
+class CTFStateManager: NSObject, RSTBStateHelper, CTFAppStateProtocol {
 
-    
     static let kMorningNotificationIdentifer: String = "MorningNotification"
     static let kMorningNotificationIdentifer2nd: String = "MorningNotification2nd"
     static let kEveningNotificationIdentifer: String = "EveningNotification"
@@ -28,6 +27,9 @@ class CTFStateManager: NSObject, RSTBStateHelper {
     static let kEveningNotificationText: String = "Hey, it's time to take your evening survey!"
     static let k21DayNotificationText: String = "Hey, it's time to take your 21 day survey!"
     
+    
+    public var isLoggedIn: Bool = false
+    public var isLoaded: Bool = false
     
     
     
@@ -296,7 +298,7 @@ class CTFStateManager: NSObject, RSTBStateHelper {
         
         //get completed trial activities
         let completedTrialActivities: [String] = CTFKeychainHelpers.getKeychainObject(kCompletedTrialActivities) as? [String] ?? []
-        let newCompletedTrialActivities: [String] = completedTrialActivities.appending(guid)
+        let newCompletedTrialActivities: [String] = completedTrialActivities + [guid]
         CTFKeychainHelpers.setKeychainObject(newCompletedTrialActivities as NSArray, forKey: kCompletedTrialActivities)
         
     }
@@ -462,8 +464,5 @@ class CTFStateManager: NSObject, RSTBStateHelper {
     public func valueInState(forKey: String) -> NSSecureCoding? {
         return CTFKeychainHelpers.getKeychainObject(forKey)
     }
-    
-    
-    
 
 }

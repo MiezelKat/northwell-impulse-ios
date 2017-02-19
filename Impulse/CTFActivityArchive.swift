@@ -7,7 +7,8 @@
 //
 
 import Foundation
-import BridgeAppSDK
+import ResearchKit
+import BridgeSDK
 
 private let kSurveyCreatedOnKey               = "surveyCreatedOn"
 private let kSurveyGuidKey                    = "surveyGuid"
@@ -19,7 +20,7 @@ private let kStartDate                        = "startDate"
 private let kEndDate                          = "endDate"
 private let kMetadataFilename                 = "metadata.json"
 
-class CTFActivityArchive: SBADataArchive {
+class CTFActivityArchive: SBBDataArchive {
     
     fileprivate var metadata = [String: AnyObject]()
     
@@ -71,9 +72,9 @@ class CTFActivityArchive: SBADataArchive {
         for stepResult in activityResultResults {
             if let stepResultResults = stepResult.results {
                 for result in stepResultResults {
-                    if !insertResult(result, stepResult: stepResult, activityResult: activityResult) {
-                        return false
-                    }
+//                    if !insertResult(result, stepResult: stepResult, activityResult: activityResult) {
+//                        return false
+//                    }
                 }
             }
         }
@@ -90,27 +91,27 @@ class CTFActivityArchive: SBADataArchive {
     /**
      * Method for inserting a result into an archive. Allows for override by subclasses
      */
-    func insertResult(_ result: ORKResult, stepResult: ORKStepResult, activityResult: CTFActivityResult) -> Bool {
-        
-        guard let archiveableResult = result.bridgeData(stepResult.identifier) else {
-            assertionFailure("Something went wrong getting result to archive from result \(result.identifier) of step \(stepResult.identifier) of activity result \(activityResult.identifier)")
-            return false
-        }
-        
-        if let urlResult = archiveableResult.result as? NSURL {
-            self.insertURL(intoArchive: urlResult as URL, fileName: archiveableResult.filename)
-        } else if let dictResult = archiveableResult.result as? [AnyHashable: Any] {
-            self.insertDictionary(intoArchive: dictResult, filename: archiveableResult.filename)
-        } else if let dataResult = archiveableResult.result as? NSData {
-            self.insertData(intoArchive: dataResult as Data, filename: archiveableResult.filename)
-        } else {
-            let className = NSStringFromClass(archiveableResult.result.classForCoder)
-            assertionFailure("Unsupported archiveable result type: \(className)")
-            return false
-        }
-        
-        return true
-    }
+//    func insertResult(_ result: ORKResult, stepResult: ORKStepResult, activityResult: CTFActivityResult) -> Bool {
+//        
+//        guard let archiveableResult = result.bridgeData(stepResult.identifier) else {
+//            assertionFailure("Something went wrong getting result to archive from result \(result.identifier) of step \(stepResult.identifier) of activity result \(activityResult.identifier)")
+//            return false
+//        }
+//        
+//        if let urlResult = archiveableResult.result as? NSURL {
+//            self.insertURL(intoArchive: urlResult as URL, fileName: archiveableResult.filename)
+//        } else if let dictResult = archiveableResult.result as? [AnyHashable: Any] {
+//            self.insertDictionary(intoArchive: dictResult, filename: archiveableResult.filename)
+//        } else if let dataResult = archiveableResult.result as? NSData {
+//            self.insertData(intoArchive: dataResult as Data, filename: archiveableResult.filename)
+//        } else {
+//            let className = NSStringFromClass(archiveableResult.result.classForCoder)
+//            assertionFailure("Unsupported archiveable result type: \(className)")
+//            return false
+//        }
+//        
+//        return true
+//    }
     
 
 }

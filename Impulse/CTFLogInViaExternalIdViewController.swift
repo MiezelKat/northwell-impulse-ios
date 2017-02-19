@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import BridgeAppSDK
+import ResearchKit
 
 class CTFLogInViaExternalIdViewController: UIViewController, ORKTaskViewControllerDelegate {
     
@@ -15,8 +15,8 @@ class CTFLogInViaExternalIdViewController: UIViewController, ORKTaskViewControll
         
         // TODO: syoung 06/09/2016 Implement consent and use onboarding manager for external ID
         // Add consent signature.
-        let appDelegate = UIApplication.shared.delegate as! SBAAppInfoDelegate
-        appDelegate.currentUser.consentSignature = SBAConsentSignature(identifier: "signature")
+//        let appDelegate = UIApplication.shared.delegate as! SBAAppInfoDelegate
+//        appDelegate.currentUser.consentSignature = SBAConsentSignature(identifier: "signature")
         
         let consentQuestionStep = ORKQuestionStep(identifier: "consent", title: "Have you provided consent?", text: "Please select \"Yes\" if you have completed the consent form for the study with a researcher.", answer: ORKAnswerFormat.booleanAnswerFormat())
         
@@ -26,46 +26,38 @@ class CTFLogInViaExternalIdViewController: UIViewController, ORKTaskViewControll
         notConsentedStep.text = "You must complete the consent form with a researcher before continuing."
         
         // Create a task with an external ID and permissions steps and display the view controller
-        let externalIDStep = SBAExternalIDStep(identifier: "externalID")
+        let logInStep = CTFBridgeExternalIDStep(identifier: "participantID")
         let passcodeStep = ORKPasscodeStep(identifier: "passcode")
         passcodeStep.passcodeType = .type4Digit
         
         
-        let task = ORKNavigableOrderedTask(identifier: "registration", steps: [consentQuestionStep, externalIDStep, passcodeStep, notConsentedStep])
+//        let task = ORKNavigableOrderedTask(identifier: "registration", steps: [consentQuestionStep, externalIDStep, passcodeStep, notConsentedStep])
+        
+        let task = ORKNavigableOrderedTask(identifier: "registration", steps: [consentQuestionStep, logInStep, passcodeStep, notConsentedStep])
         
         let consentResultSelector = ORKResultSelector(resultIdentifier: "consent")
         let notConsentResultPredicate = ORKResultPredicate.predicateForBooleanQuestionResult(with: consentResultSelector, expectedAnswer: false)
-        let consentNavigationRule = ORKPredicateStepNavigationRule(resultPredicatesAndDestinationStepIdentifiers: [(notConsentResultPredicate, "not_consented")], defaultStepIdentifierOrNil: "externalID")
+//        let consentNavigationRule = ORKPredicateStepNavigationRule(resultPredicates: [(notConsentResultPredicate, "not_consented")], destinationStepIdentifiers: "externalID")
+//        
+//        task.setNavigationRule(consentNavigationRule, forTriggerStepIdentifier: "consent")
+//        
+//        let skipNotConsentRule = ORKDirectStepNavigationRule(destinationStepIdentifier: "")
         
-        task.setNavigationRule(consentNavigationRule, forTriggerStepIdentifier: "consent")
-        
-        let skipNotConsentRule = ORKDirectStepNavigationRule(destinationStepIdentifier: "")
-        
-        task.setNavigationRule(skipNotConsentRule, forTriggerStepIdentifier: "passcode")
+//        task.setNavigationRule(skipNotConsentRule, forTriggerStepIdentifier: "passcode")
         
         
-        let vc = SBATaskViewController(task: task, taskRun: nil)
+        let vc = ORKTaskViewController(task: task, taskRun: nil)
         vc.delegate = self
         self.present(vc, animated: true, completion: nil)
     }
     
     func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
         taskViewController.dismiss(animated: true) {
-            if (reason == .completed), let appDelegate = UIApplication.shared.delegate as? SBABridgeAppSDKDelegate {
-                appDelegate.showAppropriateViewController(false)
+            if (reason == .completed), let appDelegate = UIApplication.shared.delegate as? CTFAppDelegate {
+                appDelegate.showViewController()
             }
         }
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

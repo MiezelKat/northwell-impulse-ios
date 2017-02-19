@@ -1,5 +1,5 @@
 //
-//  MainTabViewController.swift
+//  Dictionary+Utilities.swift
 //  BridgeAppSDK
 //
 //  Copyright © 2016 Sage Bionetworks. All rights reserved.
@@ -31,48 +31,37 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-import UIKit
-//import BridgeAppSDK
 
-class CTFMainTabViewController: UITabBarController {
-    
-    var contentHidden = false {
-        didSet {
-            guard contentHidden != oldValue && isViewLoaded else { return }
-            self.childViewControllers.first?.view.isHidden = contentHidden
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-//        if let activitiesNavController = self.viewControllers?.first(where: { (viewController) -> Bool in
-//            guard let navController = viewController as? UINavigationController,
-//                navController.viewControllers.first is CTFActivityTableViewController else {
-//                    return false
-//            }
-//            return true
-//        }) as? UINavigationController,
-//            let activitiesController = activitiesNavController.viewControllers.first as? CTFActivityTableViewController {
-//            
-//            if let settingsNavController = self.viewControllers?.first(where: { (viewController) -> Bool in
-//                guard let navController = viewController as? UINavigationController,
-//                    navController.viewControllers.first is CTFSettingsTableViewController else {
-//                        return false
-//                }
-//                return true
-//            }) as? UINavigationController,
-//                let settingsController = settingsNavController.viewControllers.first as? CTFSettingsTableViewController {
-//                
-//                settingsController.delegate = activitiesController
-//                
-//                
-//            }
-//            
-//            
-//        }
-        
-        
-    }
+import Foundation
 
+extension Dictionary where Value : Equatable {
+    
+    public func key(for value: Value) -> Key? {
+        return self.filter { $1 == value }.map { $0.0 }.first
+    }
 }
+
+extension Dictionary {
+    
+    /**
+     All the keys in the dictionary
+     */
+    public var allKeys: [Any]? {
+        return self.map({ (key, _) -> Any in
+            return key
+        })
+    }
+    
+    /**
+     Return a `Dictionary` that adds or replaces each entry in this instance with the value from the input `Dictionary`
+     */
+    public func merge(from: Dictionary<Key,Value>) -> Dictionary<Key,Value> {
+        var mutableCopy = self
+        for (key, value) in from {
+            // If both dictionaries have a value for same key, the value of the other dictionary is used.
+            mutableCopy[key] = value
+        }
+        return mutableCopy
+    }
+}
+

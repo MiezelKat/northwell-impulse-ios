@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import BridgeAppSDK
+//import BridgeAppSDK
 
 //public protocol SBAScheduledActivityDataSource: class {
 //
@@ -21,52 +21,52 @@ import BridgeAppSDK
 //    optional func sectionTitle(section: Int) -> String?
 //}
 
-public protocol CTFScheduledActivityDataSource: SBAScheduledActivityDataSource {
-    func ctfScheduledActivityAtIndexPath(_ indexPath: IndexPath) -> CTFScheduledActivity?
-}
+//public protocol CTFScheduledActivityDataSource: SBAScheduledActivityDataSource {
+//    func ctfScheduledActivityAtIndexPath(_ indexPath: IndexPath) -> CTFScheduledActivity?
+//}
 
-class CTFActivityTableViewController: SBAActivityTableViewController, CTFSettingsDelegate {
+//class CTFActivityTableViewController: CTFSettingsDelegate {
 
-    override var scheduledActivityDataSource: SBAScheduledActivityDataSource {
-        return _ctfScheduledActivityManager
-    }
+//    override var scheduledActivityDataSource: SBAScheduledActivityDataSource {
+//        return _ctfScheduledActivityManager
+//    }
     
-    lazy fileprivate var _ctfScheduledActivityManager : CTFScheduledActivityManager = {
-        guard let filePath = Bundle.main.path(forResource: "tasks_and_schedules", ofType: "json")
-            else {
-                fatalError("Unable to locate file tasks_and_schedules")
-        }
-        
-        guard let fileContent = try? Data(contentsOf: URL(fileURLWithPath: filePath))
-            else {
-                fatalError("Unable to create NSData with file content (PAM data)")
-        }
-        
-        let tasksAndSchedules = try! JSONSerialization.jsonObject(with: fileContent, options: JSONSerialization.ReadingOptions.mutableContainers)
-        
-        return CTFScheduledActivityManager(delegate: self, json: tasksAndSchedules as AnyObject)
-    }()
+//    lazy fileprivate var _ctfScheduledActivityManager : CTFScheduledActivityManager = {
+//        guard let filePath = Bundle.main.path(forResource: "tasks_and_schedules", ofType: "json")
+//            else {
+//                fatalError("Unable to locate file tasks_and_schedules")
+//        }
+//        
+//        guard let fileContent = try? Data(contentsOf: URL(fileURLWithPath: filePath))
+//            else {
+//                fatalError("Unable to create NSData with file content (PAM data)")
+//        }
+//        
+//        let tasksAndSchedules = try! JSONSerialization.jsonObject(with: fileContent, options: JSONSerialization.ReadingOptions.mutableContainers)
+//        
+//        return CTFScheduledActivityManager(delegate: self, json: tasksAndSchedules as AnyObject)
+//    }()
+//    
+//    
+//    
+//    override func configure(cell: UITableViewCell, in tableView: UITableView, at indexPath: IndexPath) {
+//        guard let activityCell = cell as? CTFActivityTableViewCell,
+//            let scheduledActivityDataSource = self.scheduledActivityDataSource as? CTFScheduledActivityDataSource,
+//            let schedule = scheduledActivityDataSource.ctfScheduledActivityAtIndexPath(indexPath) else {
+//                return
+//        }
+//        
+//        // The only cell type that is supported in the base implementation is an SBAActivityTableViewCell
+//        activityCell.titleLabel.text = schedule.title
+//        activityCell.complete = schedule.completed
+//        activityCell.timeLabel?.text = ""
+//        activityCell.subtitleLabel?.text = schedule.timeEstimate
+//        
+//    }
+//    
+//    func settingsUpdated() {
+//        self.scheduledActivityDataSource.reloadData()
+//    }
     
     
-    
-    override func configure(cell: UITableViewCell, in tableView: UITableView, at indexPath: IndexPath) {
-        guard let activityCell = cell as? CTFActivityTableViewCell,
-            let scheduledActivityDataSource = self.scheduledActivityDataSource as? CTFScheduledActivityDataSource,
-            let schedule = scheduledActivityDataSource.ctfScheduledActivityAtIndexPath(indexPath) else {
-                return
-        }
-        
-        // The only cell type that is supported in the base implementation is an SBAActivityTableViewCell
-        activityCell.titleLabel.text = schedule.title
-        activityCell.complete = schedule.completed
-        activityCell.timeLabel?.text = ""
-        activityCell.subtitleLabel?.text = schedule.timeEstimate
-        
-    }
-    
-    func settingsUpdated() {
-        self.scheduledActivityDataSource.reloadData()
-    }
-    
-    
-}
+//}pod 'ReSwift'
