@@ -8,8 +8,13 @@
 
 import UIKit
 import BridgeSDK
+import ResearchSuiteResultsProcessor
 
-public class CTFBridgeManager: NSObject {
+
+
+
+
+public class CTFBridgeManager: NSObject, RSRPBackEnd {
     
     static public let sharedManager: CTFBridgeManager = CTFBridgeManager()
     
@@ -125,6 +130,16 @@ public class CTFBridgeManager: NSObject {
         }
         else {
             completionHandler()
+        }
+        
+    }
+    
+    public func add(intermediateResult: RSRPIntermediateResult) {
+        
+        debugPrint(intermediateResult)
+        if let convertable = intermediateResult as? SBBDataArchiveConvertable,
+            let dataArchive = convertable.toArchive() {
+            dataArchive.encryptAndUploadArchive()
         }
         
     }

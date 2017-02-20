@@ -33,8 +33,12 @@
 
 import UIKit
 //import BridgeAppSDK
+import ReSwift
+import ResearchKit
 
-class CTFMainTabViewController: UITabBarController, CTFRootViewControllerProtocol {
+class CTFMainTabViewController: UITabBarController, CTFRootViewControllerProtocol, StoreSubscriber {
+    
+    var presentedActivity: UUID?
     
     var contentHidden = false {
         didSet {
@@ -42,6 +46,62 @@ class CTFMainTabViewController: UITabBarController, CTFRootViewControllerProtoco
             self.childViewControllers.first?.view.isHidden = contentHidden
         }
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        CTFReduxStoreManager.mainStore.subscribe(self)
+        
+        //force results processor init
+        _ = CTFResultsProcessorManager.sharedInstance
+    }
+    
+    deinit {
+        CTFReduxStoreManager.mainStore.unsubscribe(self)
+    }
+    
+    func newState(state: CTFReduxStore) {
+        
+        if self.presentedActivity == nil,
+            let (uuid, activityRun) = state.activityQueue.first {
+            
+            self.runActivity(uuid: uuid, activityRun: activityRun)
+            
+        }
+        
+    }
+    
+    func runActivity(uuid: UUID, activityRun: CTFActivityRun) {
+        
+        guard let steps = CTFTaskBuilderManager.sharedBuilder.steps(forElement: activityRun.activity) else {
+            return
+        }
+        
+        
+        
+        let task = ORKOrderedTask(identifier: activityRun.identifier, steps: steps)
+        
+        let taskFinishedHandler: ((ORKTaskViewController, ORKTaskViewControllerFinishReason, Error?) -> ()) = { [weak self] (taskViewController, reason, error) in
+            
+            self?.dismiss(animated: true, completion: {
+                self?.presentedActivity = nil
+                
+                let taskResult: ORKTaskResult? = (reason == ORKTaskViewControllerFinishReason.completed) ?
+                    taskViewController.result : nil
+                
+                let action = CompleteActivityAction(uuid: uuid, activityRun: activityRun, taskResult: taskResult)
+                CTFReduxStoreManager.mainStore.dispatch(action)
+            })
+            
+        }
+        
+        let taskViewController = CTFTaskViewController(task: task, taskFinishedHandler: taskFinishedHandler)
+        
+        
+        present(taskViewController, animated: true, completion: nil)
+        
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -74,5 +134,7 @@ class CTFMainTabViewController: UITabBarController, CTFRootViewControllerProtoco
         
         
     }
+    
+    
 
 }

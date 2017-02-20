@@ -1,143 +1,67 @@
 //
 //  CTFScheduleItem.swift
-//  Impulse
+//  ImpulsivityOhmage
 //
-//  Created by James Kizer on 10/14/16.
-//  Copyright © 2016 James Kizer. All rights reserved.
+//  Created by James Kizer on 1/29/17.
+//  Copyright © 2017 Foundry @ Cornell Tech. All rights reserved.
 //
 
-import UIKit
+import Gloss
+import ResearchSuiteTaskBuilder
+import ResearchSuiteResultsProcessor
 
-public enum CTFScheduleItemType {
+class CTFScheduleItem: Decodable {
     
-    case sequential // only supports first task
-    case random //randomly selects a task to run
-    case selectOneByDate
+    public let type: String!
+    public let identifier: String!
+    public let title: String!
+    public let guid: String!
     
-    init?(name: String?) {
-        guard let type = name else { self = .sequential; return }
-        switch(type) {
-        case "sequential"      : self = .sequential
-        case "random"       : self = .random
-        case "selectOneByDate" : self = .selectOneByDate
-        default             : self = .sequential
-        }
-    }
-}
-
-let kSelectionUUID: String = "selectionUUID"
-
-class CTFScheduleItem: NSObject {
+    public let activity: JSON!
+    public let resultTransforms: [RSRPResultTransform]
+    public let onCompletionActions: [CTFActionDescriptor]
     
-//    private var activities: [CTFActivity]!
-    var identifier: String!
-    var guid: String!
-    var title: String!
-    var type: CTFScheduleItemType!
-    var trial: Bool! = false
-    var timeEstimate: String!
-    var taskList: [AnyObject]!
+    // MARK: - Deserialization
     
-    override init() {
-        super.init()
-    }
-    
-    init?(json: AnyObject) {
-        super.init()
+    required public init?(json: JSON) {
         
-        print(json)
-        
-        guard let tasks = json["tasks"] as? [AnyObject],
-            let title = json["scheduleTitle"] as? String,
-            let scheduleIdentifier = json["scheduleIdentifier"] as? String,
-            let scheduleGUID = json["scheduleGUID"] as? String,
-            let type = CTFScheduleItemType(name: json["activityType"] as? String),
-            let trial = json["trialActivity"] as? Bool,
-            let timeEstimate = json["timeEstimate"] as? String else {
+        guard let type: String = "type" <~~ json,
+            let identifier: String = "identifier" <~~ json,
+            let title: String = "title" <~~ json,
+            let guid: String = "guid" <~~ json,
+            let activity: JSON = "activity" <~~ json else {
                 return nil
         }
-        
-        self.taskList = tasks
-        
-        self.title = title
-        self.identifier = scheduleIdentifier
-        self.guid = scheduleGUID
         self.type = type
-        self.trial = trial
-        self.timeEstimate = timeEstimate
-    }
-    
-    func recursivelySelectByHash(hash: Int, tasks: [AnyObject]) -> CTFActivity? {
-        //randomly select one
-        if tasks.count > 0 {
-            let index = abs(hash) % tasks.count
-            let selectedObject = tasks[index]
-            if let tasks = selectedObject["tasks"] as? [AnyObject] {
-                return self.recursivelySelectByHash(hash: hash, tasks: tasks)
-            }
-            else {
-                return CTFActivity(json: selectedObject)
-            }
-        }
-        else {
-            return nil
-        }
-    }
-    
-    static var myUUID: String {
-        if let uuid = CTFKeychainHelpers.getKeychainObject(kSelectionUUID) as? String {
-            return uuid
-        }
-        else {
-            let uuid: String = UUID().uuidString
-            CTFKeychainHelpers.setKeychainObject(uuid as NSString, forKey: kSelectionUUID)
-            return uuid
-        }
-    }
-    
-    private func selectActivity() -> CTFActivity? {
-        switch(self.type) {
-        case .some(.sequential):
-            let activities = self.taskList.flatMap { task in
-                return CTFActivity(json: task)
-            }
-            
-            return activities.first
-            
-        case .some(.random):
-            let activities = self.taskList.flatMap { task in
-                return CTFActivity(json: task)
-            }
-            
-            return activities.random()
-            
-        case .some(.selectOneByDate):
-            let dateFormatter = DateFormatter()
-            dateFormatter.locale = Locale.current
-            dateFormatter.dateStyle = DateFormatter.Style.full
-            let dateString = dateFormatter.string(from: Date())
-            
-//            dateFormatter.dateStyle = NSDateFormatterStyle.FullStyle
-//            var convertedDate = dateFormatter.stringFromDate(currentDate)
-            let hash = (dateString + CTFScheduleItem.myUUID).hashValue
-            return self.recursivelySelectByHash(hash: hash, tasks: self.taskList)
-            
-            
-        default:
-            return nil
-        }
-    }
-    
-    func generateScheduledActivity() -> CTFScheduledActivity? {
-        guard let activity = self.selectActivity()
-            else {
-            return nil
-        }
+        self.identifier = identifier
+        self.title = title
+        self.guid = guid
         
-        return CTFScheduledActivity(guid: self.guid, title: self.title, activity: activity, timeEstimate: self.timeEstimate)
+        self.activity = activity
+        self.resultTransforms = {
+            guard let resultTransforms: [JSON] = "resultTransforms" <~~ json else {
+                return []
+            }
+            
+            return resultTransforms.flatMap({ (transform) -> RSRPResultTransform? in
+                return RSRPResultTransform(json: transform)
+            })
+        }()
+        
+        
+        self.onCompletionActions = {
+            guard let actions: [JSON] = "onCompletionActions" <~~ json else {
+                return []
+            }
+            
+            return actions.flatMap({ (json) -> CTFActionDescriptor? in
+                return CTFActionDescriptor(json: json)
+            })
+        }()
+        
+        
+        
+        
     }
-    
-    
-    
 
 }

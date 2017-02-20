@@ -10,6 +10,7 @@ PODS:
   - ResearchSuiteTaskBuilder (0.2.0):
     - Gloss (~> 1.1)
     - ResearchKit (~> 1.3)
+  - ReSwift (3.0.0)
   - sdlrkx (0.6.0):
     - sdlrkx/Behavioral (= 0.6.0)
     - sdlrkx/Behavioral-RSRPOhmageBackend (= 0.6.0)
@@ -45,6 +46,7 @@ DEPENDENCIES:
   - ResearchKit (~> 1.3)
   - ResearchSuiteResultsProcessor
   - ResearchSuiteTaskBuilder
+  - ReSwift
   - sdlrkx
 
 SPEC CHECKSUMS:
@@ -54,8 +56,9 @@ SPEC CHECKSUMS:
   ResearchKit: badba0340dd71d1cbab4789a0bf01b26022b8f94
   ResearchSuiteResultsProcessor: 5178abc3bf6801ad58f62b5c77ccb1b28705b272
   ResearchSuiteTaskBuilder: ab01cf3f618d369eeb63507da82a36ba54f04e5e
+  ReSwift: f0255f4b4f2dacd12c5d97d34d13fc5dad6d6371
   sdlrkx: 84b5b93425f8612bab57fca9444810b3d721f573
 
-PODFILE CHECKSUM: 66e71ee14a5968ddfcb3a65af81687d995666774
+PODFILE CHECKSUM: c7fbaa39404ebf3264a75d425f69ac6629da798c
 
 COCOAPODS: 1.1.1

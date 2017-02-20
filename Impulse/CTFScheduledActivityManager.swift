@@ -102,7 +102,7 @@ let kThankYouText = "Thank you for today's input!"
 //            RSTBElementFileGenerator(),
 //            RSTBElementSelectorGenerator()
 //        ]
-//        
+//
 //        // Do any additional setup after loading the view, typically from a nib.
 //        self.stepBuilder = RSTBTaskBuilder(
 //            stateHelper: CTFStateManager.defaultManager,
@@ -114,7 +114,7 @@ let kThankYouText = "Thank you for today's input!"
 //        self.loadData()
 //
 //    }
-//    
+//
 //    lazy var sharedAppDelegate: SBAAppInfoDelegate = {
 //        return UIApplication.shared.delegate as! SBAAppInfoDelegate
 //    }()
@@ -126,7 +126,7 @@ let kThankYouText = "Thank you for today's input!"
 //    var scheduleItems: [CTFScheduleItem]! = []
 //    var activities: [CTFScheduledActivity]! = []
 //    var trialActivities: [CTFScheduledActivity]! = []
-//    
+////
 //    func loadData() {
 //        //note that we will add filters in the future to only show items that should be shown based on context
 //        self.activities = self.scheduleItems.filter(self.scheduledItemsFilter).flatMap({$0.generateScheduledActivity()})
@@ -144,7 +144,7 @@ let kThankYouText = "Thank you for today's input!"
 //            return activity
 //        })
 //    }
-//    
+//
 //    func reloadData() {
 //        self.loadData()
 //        self.delegate?.reloadFinished(self)
@@ -171,7 +171,7 @@ let kThankYouText = "Thank you for today's input!"
 //    /**
 //     Number of rows in the data source.
 //     */
-//    @objc(numberOfRowsInSection:) public func numberOfRows(for section: Int) -> Int {
+//    func numberOfRows(for section: Int) -> Int {
 //        if section == 0 {
 //            return self.activities.count
 //        }
@@ -179,10 +179,10 @@ let kThankYouText = "Thank you for today's input!"
 //            return self.trialActivities.count
 //        }
 //    }
-//    
-////    func scheduledActivityAtIndexPath(_ indexPath: NSIndexPath) -> SBBScheduledActivity? {
-////        return nil
-////    }
+//
+//    func scheduledActivityAtIndexPath(_ indexPath: NSIndexPath) -> SBBScheduledActivity? {
+//        return nil
+//    }
 //    
 //    func ctfScheduledActivityAtIndexPath(_ indexPath: IndexPath) -> CTFScheduledActivity? {
 //        if (indexPath as NSIndexPath).section == 0 {
@@ -193,7 +193,7 @@ let kThankYouText = "Thank you for today's input!"
 //        }
 //        
 //    }
-//    
+//
 //    func scheduledItemsFilter(scheduleItem: CTFScheduleItem) -> Bool {
 //        if scheduleItem.trial == true {
 //            return false
@@ -223,7 +223,7 @@ let kThankYouText = "Thank you for today's input!"
 //    func trialItemsFilter(scheduleItem: CTFScheduleItem) -> Bool {
 //        return scheduleItem.trial
 //    }
-//    
+//
 //    /**
 //     Should the task associated with the given index path be disabled.
 //     */

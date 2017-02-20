@@ -31,7 +31,7 @@
         <!--Activities-->
         <scene sceneID="Evy-eZ-zfe">
             <objects>
-                <tableViewController id="UDn-Qy-rRU" sceneMemberID="viewController">
+                <tableViewController id="UDn-Qy-rRU" customClass="CTFActivityTableViewController" customModule="Impulse" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="nxA-oM-QPu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
