@@ -60,7 +60,7 @@ class CTFMainTabViewController: UITabBarController, CTFRootViewControllerProtoco
         CTFReduxStoreManager.mainStore.unsubscribe(self)
     }
     
-    func newState(state: CTFReduxStore) {
+    func newState(state: CTFReduxState) {
         
         if self.presentedActivity == nil,
             let (uuid, activityRun) = state.activityQueue.first {
@@ -68,6 +68,8 @@ class CTFMainTabViewController: UITabBarController, CTFRootViewControllerProtoco
             self.runActivity(uuid: uuid, activityRun: activityRun)
             
         }
+        
+        debugPrint(CTFSelectors.getValueInExtensibleStorage(state: state, key: "BaselineBehaviorResults"))
         
     }
     

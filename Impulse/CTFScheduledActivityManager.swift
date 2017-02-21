@@ -493,7 +493,7 @@ let kThankYouText = "Thank you for today's input!"
 //            .joined(separator: ",") as NSString
 //        CTFKeychainHelpers.setKeychainObject(joinedAnswers, forKey: kBaselineBehaviorResults)
 //    }
-//    
+//
 //    func handleBaselineSurvey(_ result: ORKTaskResult) {
 //        //1) set baseline completed date
 //        CTFStateManager.defaultManager.markBaselineSurveyAsCompleted(completedDate: result.endDate) 
@@ -506,7 +506,7 @@ let kThankYouText = "Thank you for today's input!"
 //            
 //            CTFStateManager.defaultManager.setMorningSurveyTime(dateComponents)
 //        }
-//        
+//
 //        if let notificationTimeResult = result.result(forIdentifier: "evening_notification_time_picker") as? ORKStepResult,
 //            let timeOfDayResult = notificationTimeResult.firstResult as? ORKTimeOfDayQuestionResult,
 //            let dateComponents = timeOfDayResult.dateComponentsAnswer {

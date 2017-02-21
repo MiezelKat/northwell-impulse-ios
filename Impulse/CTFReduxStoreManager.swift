@@ -1,5 +1,5 @@
 //
-//  CTFReduxStore.swift
+//  CTFReduxState.swift
 //  ImpulsivityOhmage
 //
 //  Created by James Kizer on 2/12/17.
@@ -15,7 +15,7 @@ class CTFReduxStoreManager: NSObject {
     static let sharedInstance = CTFReduxStoreManager()
     static let mainStore = sharedInstance.store
     
-    let store: Store<CTFReduxStore>
+    let store: Store<CTFReduxState>
     
     private override init() {
         
@@ -23,9 +23,9 @@ class CTFReduxStoreManager: NSObject {
             return { next in
                 return { action in
                     // perform middleware logic
-                    let oldState: CTFReduxStore? = getState() as? CTFReduxStore
+                    let oldState: CTFReduxState? = getState() as? CTFReduxState
                     let retVal = next(action)
-                    let newState: CTFReduxStore? = getState() as? CTFReduxStore
+                    let newState: CTFReduxState? = getState() as? CTFReduxState
                     
                     print("\n")
                     print("*******************************************************")
@@ -46,10 +46,10 @@ class CTFReduxStoreManager: NSObject {
         
         
         
-        let state: CTFReduxStore = CTFReduxPersistentStorageSubscriber.sharedInstance.loadState()
+        let state: CTFReduxState = CTFReduxPersistentStorageSubscriber.sharedInstance.loadState()
         debugPrint(state)
         
-        self.store = Store<CTFReduxStore>(
+        self.store = Store<CTFReduxState>(
             reducer: CTFReducers.reducer,
             state: state,
             middleware: [loggingMiddleware]

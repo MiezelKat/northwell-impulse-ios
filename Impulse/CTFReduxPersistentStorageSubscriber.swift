@@ -39,7 +39,10 @@ class ObservableValue<T: Equatable>: NSObject {
 
 class PersistedValue<T: Equatable>: ObservableValue<T> {
     
+    let key: String
+    
     init(key: String) {
+        self.key = key
         
         let observationClosure: ObservationClosure = { value in
             CTFStateManager.defaultManager.setValueInState(value: value as? NSSecureCoding, forKey: key)
@@ -51,6 +54,118 @@ class PersistedValue<T: Equatable>: ObservableValue<T> {
         )
 
     }
+    
+    func delete() {
+        CTFStateManager.defaultManager.setValueInState(value: nil, forKey: self.key)
+    }
+}
+
+class PersistedValueMap: NSObject {
+    
+    let keyArrayKey: String
+    let valueKeyComputeFunction: (String) -> (String)
+    var map: [String: PersistedValue<NSObject>]
+    var keys: PersistedValue<NSArray>
+    
+    init(key: String) {
+        self.keyArrayKey = [key, "arrayKey"].joined(separator: ".")
+        
+        self.valueKeyComputeFunction = { valueKey in
+            return [key, valueKey].joined(separator: ".")
+        }
+        self.keys = PersistedValue<NSArray>(key: self.keyArrayKey)
+        
+        if self.keys.get() == nil {
+            self.keys.set(value: [String]() as NSArray)
+        }
+        
+        self.map = [:]
+        
+        super.init()
+        
+        if let keys = self.keys.get() as? [String] {
+            keys.forEach({ (key) in
+                self.map[key] = PersistedValue<NSObject>(key: key)
+            })
+        }
+        
+    }
+    
+    subscript(key: String) -> NSObject? {
+        
+        get {
+            
+            if let persistedValue = self.map[key] {
+                return persistedValue.get()
+            }
+            else {
+                return nil
+            }
+        }
+        
+        set(newValue) {
+            
+            //check to see if key exists
+            if let persistedValue = self.map[key] {
+                
+                assert(self.keys.get()!.contains(key), "PersistedValueMapError: Keys and Map Inconsistent")
+                
+                persistedValue.set(value: newValue)
+                
+                if newValue == nil {
+                    persistedValue.delete()
+                    self.map.removeValue(forKey: key)
+                    let newKeys = (self.keys.get() as! [String]).filter({ (k) -> Bool in
+                        return k != key
+                    })
+                    
+                    self.keys.set(value: newKeys as NSArray)
+                }
+                
+            }
+            else {
+                //key does not exist,
+                
+                if newValue != nil {
+                    //add value to map
+                    let newValueKey = self.valueKeyComputeFunction(key)
+                    let newPersistedValue = PersistedValue<NSObject>(key: newValueKey)
+                    newPersistedValue.set(value: newValue)
+                    self.map[key] = newPersistedValue
+                    let newKeys = (self.keys.get() as! [String]) + [key]
+                    self.keys.set(value: newKeys as NSArray)
+                }
+            }
+            
+        }
+    }
+
+    func get() -> [String: NSObject] {
+        
+        
+        let keys = self.keys.get() as! [String]
+        var dict = [String: NSObject]()
+        keys.forEach({ (key) in
+            dict[key] = self.map[key]?.get()
+        })
+        
+        return dict
+    }
+    
+    func set(map: [String: NSObject]) {
+    
+        map.keys.forEach { (key) in
+            self[key] = map[key]
+        }
+        
+        //do set subtraction to potentially remove values
+        let extraKeys: Set<String> = Set(self.map.keys).subtracting(Set(map.keys))
+        extraKeys.forEach { (key) in
+            self[key] = nil
+        }
+        
+    }
+    
 }
 
 class CTFReduxPersistentStorageSubscriber: NSObject, StoreSubscriber {
@@ -67,9 +182,6 @@ class CTFReduxPersistentStorageSubscriber: NSObject, StoreSubscriber {
     static let kEvening2ndNotificationFireDate: String = "evening2ndNotificationFireDate"
     static let kEnable2ndReminderNotifications: String = "enable2ndReminderNotifications"
     
-    
-    
-    
     static let kMorningSurveyTime: String = "MorningSurveyTime"
     static let kEveningSurveyTime: String = "EveningSurveyTime"
     static let kLastMorningSurveyCompleted: String = "LastMorningSurveyCompleted"
@@ -79,9 +191,17 @@ class CTFReduxPersistentStorageSubscriber: NSObject, StoreSubscriber {
     static let kTrialActivitiesEnabled: String = "TrialActivitiesEnabled"
     static let kCompletedTrialActivities: String = "CompeltedTrialActivities"
     
+    static let kExtensibleStorage: String = "ExtensibleStorage"
+    
     let lastCompletedTaskIdentifier = PersistedValue<String>(key: CTFReduxPersistentStorageSubscriber.kLastCompletedTaskIdentifier)
     
     let baselineCompletedDate = PersistedValue<Date>(key: CTFReduxPersistentStorageSubscriber.kBaselineSurveyCompleted)
+    let lastMorningCompletionDate = PersistedValue<Date>(key: CTFReduxPersistentStorageSubscriber.kLastMorningSurveyCompleted)
+    let lastEveningCompletionDate = PersistedValue<Date>(key: CTFReduxPersistentStorageSubscriber.kLastEveningSurveyCompleted)
+    let day21CompletionDate = PersistedValue<Date>(key: CTFReduxPersistentStorageSubscriber.k21DaySurveyCompleted)
+    
+    let morningSurveyTimeComponents = PersistedValue<DateComponents>(key: CTFReduxPersistentStorageSubscriber.kMorningSurveyTime)
+    let eveningSurveyTimeComponents = PersistedValue<DateComponents>(key: CTFReduxPersistentStorageSubscriber.kEveningSurveyTime)
     
     let day21NotificationFireDate = PersistedValue<Date>(key: CTFReduxPersistentStorageSubscriber.kDay21NotificationFireDate)
     let day212ndNotificationFireDate = PersistedValue<Date>(key: CTFReduxPersistentStorageSubscriber.kDay212ndNotificationFireDate)
@@ -94,22 +214,28 @@ class CTFReduxPersistentStorageSubscriber: NSObject, StoreSubscriber {
     
     let enable2ndReminderNotifications = PersistedValue<Bool>(key: CTFReduxPersistentStorageSubscriber.kEnable2ndReminderNotifications)
     
+    let extensibleStorage = PersistedValueMap(key: CTFReduxPersistentStorageSubscriber.kExtensibleStorage)
     
-    func loadState() -> CTFReduxStore {
-        return CTFReduxStore(
+    
+    func loadState() -> CTFReduxState {
+        return CTFReduxState(
             activityQueue: [],
             resultsQueue: [],
             lastCompletedTaskIdentifier: self.lastCompletedTaskIdentifier.get(),
             baselineCompletedDate: self.baselineCompletedDate.get(),
+            lastMorningCompletionDate: self.lastMorningCompletionDate.get(),
+            lastEveningCompletionDate: self.lastEveningCompletionDate.get(),
+            day21CompletionDate: self.day21CompletionDate.get(),
+            morningSurveyTimeComponents: self.morningSurveyTimeComponents.get(),
+            eveningSurveyTimeComponents: self.eveningSurveyTimeComponents.get(),
             day21NotificationFireDate: self.day21NotificationFireDate.get(),
             day212ndNotificationFireDate: self.day212ndNotificationFireDate.get(),
-            
             morningNotificationFireDate: self.morningNotificationFireDate.get(),
             morning2ndNotificationFireDate: self.morning2ndNotificationFireDate.get(),
             eveningNotificationFireDate: self.eveningNotificationFireDate.get(),
             evening2ndNotificationFireDate: self.evening2ndNotificationFireDate.get(),
-            
-            enable2ndReminderNotifications: self.enable2ndReminderNotifications.get() ?? true
+            enable2ndReminderNotifications: self.enable2ndReminderNotifications.get() ?? true,
+            extensibleStorage: self.extensibleStorage.get()
         )
     }
     
@@ -120,7 +246,7 @@ class CTFReduxPersistentStorageSubscriber: NSObject, StoreSubscriber {
         
     }
     
-    func newState(state: CTFReduxStore) {
+    func newState(state: CTFReduxState) {
         
         self.lastCompletedTaskIdentifier.set(value: state.lastCompletedTaskIdentifier)
         self.baselineCompletedDate.set(value: state.baselineCompletedDate)
@@ -135,6 +261,8 @@ class CTFReduxPersistentStorageSubscriber: NSObject, StoreSubscriber {
         self.evening2ndNotificationFireDate.set(value: state.evening2ndNotificationFireDate)
         
         self.enable2ndReminderNotifications.set(value: state.enable2ndReminderNotifications)
+        
+        self.extensibleStorage.set(map: state.extensibleStorage)
         
     }
     

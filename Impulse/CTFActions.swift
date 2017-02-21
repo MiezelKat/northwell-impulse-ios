@@ -29,6 +29,18 @@ struct MarkBaselineSurveyCompletedAction: Action {
     let completedDate: Date
 }
 
+struct MarkMorningSurveyCompletedAction: Action {
+    let completedDate: Date
+}
+
+struct MarkEveningSurveyCompletedAction: Action {
+    let completedDate: Date
+}
+
+struct MarkDay21SurveyCompletedAction: Action {
+    let completedDate: Date
+}
+
 struct Set21DayNotificationAction: Action {
     let initialFireDate: Date
     let secondaryFireDate: Date
@@ -46,5 +58,18 @@ struct SetEveningNotificationAction: Action {
 
 struct Enable2ndNotificationAction: Action {
     let enable: Bool
+}
+
+struct SetMorningSurveyTimeAction: Action {
+    let components: DateComponents
+}
+
+struct SetEveningSurveyTimeAction: Action {
+    let components: DateComponents
+}
+
+struct SetValueInExtensibleStorage: Action {
+    let key: String
+    let value: NSObject?
 }
 

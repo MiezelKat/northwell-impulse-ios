@@ -9,30 +9,38 @@
 import UIKit
 
 class CTFSelectors: NSObject {
-
-    static func shouldShowBaselineSurvey(state: CTFReduxStore) -> Bool {
+    
+    static func shouldShowBaselineSurvey(state: CTFReduxState) -> Bool {
         return state.baselineCompletedDate == nil
     }
     
-//    switch(scheduleItem.identifier) {
-//    case "baseline":
-//    return CTFStateManager.defaultManager.shouldShowBaselineSurvey()
-//    
-//    case "reenrollment":
-//    return CTFStateManager.defaultManager.shouldShowBaselineSurvey()
-//    
-//    case "21-day-assessment":
-//    return CTFStateManager.defaultManager.shouldShow21DaySurvey()
-//    
-//    case "am_survey":
-//    return CTFStateManager.defaultManager.shouldShowMorningSurvey()
-//    
-//    case "pm_survey":
-//    return CTFStateManager.defaultManager.shouldShowEveningSurvey()
-//    
-//    default:
-//    return false
-//    }
-
-
+    
+    
+    
+    //    switch(scheduleItem.identifier) {
+    //    case "baseline":
+    //    return CTFStateManager.defaultManager.shouldShowBaselineSurvey()
+    //
+    //    case "reenrollment":
+    //    return CTFStateManager.defaultManager.shouldShowBaselineSurvey()
+    //
+    //    case "21-day-assessment":
+    //    return CTFStateManager.defaultManager.shouldShow21DaySurvey()
+    //
+    //    case "am_survey":
+    //    return CTFStateManager.defaultManager.shouldShowMorningSurvey()
+    //
+    //    case "pm_survey":
+    //    return CTFStateManager.defaultManager.shouldShowEveningSurvey()
+    //
+    //    default:
+    //    return false
+    //    }
+    
+    
+    static func getValueInExtensibleStorage(state: CTFReduxState, key: String) -> NSSecureCoding? {
+        return state.extensibleStorage[key] as? NSSecureCoding
+    }
 }
+
+

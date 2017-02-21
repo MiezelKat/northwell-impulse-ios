@@ -42,16 +42,16 @@ class CTFNotificationSubscriber: NSObject, StoreSubscriber {
     
     static private var _sharedInstance: CTFNotificationSubscriber?
     
-    public static var sharedInstance: CTFNotificationSubscriber! {
-        return _sharedInstance
+    public static var sharedInstance: CTFNotificationSubscriber {
+        return _sharedInstance!
     }
     
-    public static func config(state: CTFReduxStore) -> CTFNotificationSubscriber {
+    public static func config(state: CTFReduxState) -> CTFNotificationSubscriber {
         _sharedInstance = CTFNotificationSubscriber(state: state)
         return _sharedInstance!
     }
     
-    private init(state: CTFReduxStore) {
+    private init(state: CTFReduxState) {
         
         self.day21NotificationFireDate = ObservableValue(initialValue: state.day21NotificationFireDate, observationClosure: { (date) in
             if let fireDate = date {
@@ -135,7 +135,7 @@ class CTFNotificationSubscriber: NSObject, StoreSubscriber {
         
     }
     
-    func newState(state: CTFReduxStore) {
+    func newState(state: CTFReduxState) {
         
         self.day21NotificationFireDate.set(value: state.day21NotificationFireDate)
         self.day212ndNotificationFireDate.set(value: state.day212ndNotificationFireDate)
@@ -161,4 +161,23 @@ class CTFNotificationSubscriber: NSObject, StoreSubscriber {
         UIApplication.shared.scheduleLocalNotification(notification)
     }
 
+    static private func cancelNotification(withIdentifier identifierToCancel: String) {
+        if let scheduledNotifications = UIApplication.shared.scheduledLocalNotifications {
+            let notificationsToCancel = scheduledNotifications.filter({ (notification) -> Bool in
+                guard let userInfo = notification.userInfo as? [String: AnyObject],
+                    let identifer = userInfo["identifier"] as? String,
+                    identifer == identifierToCancel else {
+                        return false
+                }
+                return true
+            })
+            notificationsToCancel.forEach({ (notification) in
+                UIApplication.shared.cancelLocalNotification(notification)
+            })
+        }
+    }
+    
+    static private func cancelAllNotifications() {
+        CTFNotificationSubscriber.NotificationIdentifiers.forEach({CTFNotificationSubscriber.cancelNotification(withIdentifier: $0)})
+    }
 }

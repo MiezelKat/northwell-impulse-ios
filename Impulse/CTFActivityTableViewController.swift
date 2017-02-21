@@ -41,11 +41,11 @@ class CTFActivityTableViewController: UITableViewController, CTFSettingsDelegate
         CTFReduxStoreManager.sharedInstance.store.unsubscribe(self)
     }
     
-    func shouldReloadData(state: CTFReduxStore) -> Bool {
+    func shouldReloadData(state: CTFReduxState) -> Bool {
         return false
     }
     
-    func newState(state: CTFReduxStore) {
+    func newState(state: CTFReduxState) {
         
         //possibly reload data
         if self.shouldReloadData(state: state) {
@@ -63,7 +63,7 @@ class CTFActivityTableViewController: UITableViewController, CTFSettingsDelegate
         return CTFSchedule(json: json)
     }
 
-    func loadData(state: CTFReduxStore) {
+    func loadData(state: CTFReduxState) {
         
         self.activities = self.activitiesSchedule?.items.filter(self.scheduledItemsFilter(state: state)) ?? []
         self.trialActivities = self.activitiesSchedule?.items.filter(self.trialItemsFilter(state: state)) ?? []
@@ -84,7 +84,7 @@ class CTFActivityTableViewController: UITableViewController, CTFSettingsDelegate
 //        })
     }
     
-    func reloadData(state: CTFReduxStore) {
+    func reloadData(state: CTFReduxState) {
         self.loadData(state: state)
         self.reloadFinished()
     }
@@ -168,7 +168,7 @@ class CTFActivityTableViewController: UITableViewController, CTFSettingsDelegate
         
     }
     
-    func scheduledItemsFilter(state: CTFReduxStore) -> (CTFScheduleItem) -> Bool {
+    func scheduledItemsFilter(state: CTFReduxState) -> (CTFScheduleItem) -> Bool {
         return { scheduleItem in
             switch(scheduleItem.identifier) {
             case "baseline":
@@ -201,7 +201,7 @@ class CTFActivityTableViewController: UITableViewController, CTFSettingsDelegate
 //        }
     }
     
-    func trialItemsFilter(state: CTFReduxStore) -> (CTFScheduleItem) -> Bool {
+    func trialItemsFilter(state: CTFReduxState) -> (CTFScheduleItem) -> Bool {
         return { scheduleItem in
             return true
         }

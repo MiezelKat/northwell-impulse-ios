@@ -17,13 +17,15 @@ class CTFReducers: NSObject {
         ResultsQueueReducer(),
         LastCompletedTaskIdentifier(),
         CompletionDateReducer(),
-        NotificationReducer()
+        NotificationReducer(),
+        SurveyTimeReducer(),
+        ExtensibleStorageReducer()
     ])
     
     struct ActivityQueueReducer: Reducer {
         
-        func handleAction(action: Action, state: CTFReduxStore?) -> CTFReduxStore {
-            let state = state ?? CTFReduxStore.empty()
+        func handleAction(action: Action, state: CTFReduxState?) -> CTFReduxState {
+            let state = state ?? CTFReduxState.empty()
             
             var newActivityQueue = state.activityQueue
             switch action {
@@ -38,27 +40,16 @@ class CTFReducers: NSObject {
                 break
             }
             
-            return CTFReduxStore(
-                activityQueue: newActivityQueue,
-                resultsQueue: state.resultsQueue,
-                lastCompletedTaskIdentifier: state.lastCompletedTaskIdentifier,
-                baselineCompletedDate: state.baselineCompletedDate,
-                day21NotificationFireDate: state.day21NotificationFireDate,
-                day212ndNotificationFireDate: state.day212ndNotificationFireDate,
-                morningNotificationFireDate: state.morningNotificationFireDate,
-                morning2ndNotificationFireDate: state.morning2ndNotificationFireDate,
-                eveningNotificationFireDate: state.eveningNotificationFireDate,
-                evening2ndNotificationFireDate: state.evening2ndNotificationFireDate,
-                enable2ndReminderNotifications: state.enable2ndReminderNotifications
-            )
+            return CTFReduxState.newState(fromState: state, activityQueue: newActivityQueue)
+
         }
         
     }
     
     struct ResultsQueueReducer: Reducer {
         
-        func handleAction(action: Action, state: CTFReduxStore?) -> CTFReduxStore {
-            let state = state ?? CTFReduxStore.empty()
+        func handleAction(action: Action, state: CTFReduxState?) -> CTFReduxState {
+            let state = state ?? CTFReduxState.empty()
             
             var newResultsQueue = state.resultsQueue
             
@@ -78,88 +69,83 @@ class CTFReducers: NSObject {
                 break
             }
             
-            return CTFReduxStore(
-                activityQueue: state.activityQueue,
-                resultsQueue: newResultsQueue,
-                lastCompletedTaskIdentifier: state.lastCompletedTaskIdentifier,
-                baselineCompletedDate: state.baselineCompletedDate,
-                day21NotificationFireDate: state.day21NotificationFireDate,
-                day212ndNotificationFireDate: state.day212ndNotificationFireDate,
-                morningNotificationFireDate: state.morningNotificationFireDate,
-                morning2ndNotificationFireDate: state.morning2ndNotificationFireDate,
-                eveningNotificationFireDate: state.eveningNotificationFireDate,
-                evening2ndNotificationFireDate: state.evening2ndNotificationFireDate,
-                enable2ndReminderNotifications: state.enable2ndReminderNotifications
+            return CTFReduxState.newState(
+                fromState: state,
+                resultsQueue: newResultsQueue
             )
         }
         
     }
     
     struct LastCompletedTaskIdentifier: Reducer {
-        func handleAction(action: Action, state: CTFReduxStore?) -> CTFReduxStore {
-            let state = state ?? CTFReduxStore.empty()
+        func handleAction(action: Action, state: CTFReduxState?) -> CTFReduxState {
+            let state = state ?? CTFReduxState.empty()
             
             var taskIdentifier: String? = state.lastCompletedTaskIdentifier
             
             switch action {
                 
             case let completeActivityAction as CompleteActivityAction:
-                taskIdentifier = completeActivityAction.activityRun.identifier
+                if completeActivityAction.taskResult  != nil {
+                    
+                    taskIdentifier = completeActivityAction.activityRun.identifier
+                    
+                }
+                else {
+                    taskIdentifier = nil
+                }
+                
                 
             default:
                 break
             }
             
-            return CTFReduxStore(
-                activityQueue: state.activityQueue,
-                resultsQueue: state.resultsQueue,
-                lastCompletedTaskIdentifier: taskIdentifier,
-                baselineCompletedDate: state.baselineCompletedDate,
-                day21NotificationFireDate: state.day21NotificationFireDate,
-                day212ndNotificationFireDate: state.day212ndNotificationFireDate,
-                morningNotificationFireDate: state.morningNotificationFireDate,
-                morning2ndNotificationFireDate: state.morning2ndNotificationFireDate,
-                eveningNotificationFireDate: state.eveningNotificationFireDate,
-                evening2ndNotificationFireDate: state.evening2ndNotificationFireDate,
-                enable2ndReminderNotifications: state.enable2ndReminderNotifications
+            return CTFReduxState.newState(
+                fromState: state,
+                lastCompletedTaskIdentifier: taskIdentifier
             )
         }
     }
     
     struct CompletionDateReducer: Reducer {
-        func handleAction(action: Action, state: CTFReduxStore?) -> CTFReduxStore {
-            let state = state ?? CTFReduxStore.empty()
+        func handleAction(action: Action, state: CTFReduxState?) -> CTFReduxState {
+            let state = state ?? CTFReduxState.empty()
             
             var baselineCompletedDate: Date? = state.baselineCompletedDate
+            var morningCompletionDate: Date? = state.lastMorningCompletionDate
+            var eveningCompletionDate: Date? = state.lastEveningCompletionDate
+            var day21CompletionDate: Date? = state.day21CompletionDate
             
             switch action {
                 
             case let baselineCompletedDateAction as MarkBaselineSurveyCompletedAction:
                 baselineCompletedDate = baselineCompletedDateAction.completedDate
                 
+            case let completedDateAction as MarkMorningSurveyCompletedAction:
+                morningCompletionDate = completedDateAction.completedDate
+                
+            case let completedDateAction as MarkEveningSurveyCompletedAction:
+                eveningCompletionDate = completedDateAction.completedDate
+                
+            case let completedDateAction as MarkDay21SurveyCompletedAction:
+                day21CompletionDate = completedDateAction.completedDate
             default:
                 break
             }
             
-            return CTFReduxStore(
-                activityQueue: state.activityQueue,
-                resultsQueue: state.resultsQueue,
-                lastCompletedTaskIdentifier: state.lastCompletedTaskIdentifier,
+            return CTFReduxState.newState(
+                fromState: state,
                 baselineCompletedDate: baselineCompletedDate,
-                day21NotificationFireDate: state.day21NotificationFireDate,
-                day212ndNotificationFireDate: state.day212ndNotificationFireDate,
-                morningNotificationFireDate: state.morningNotificationFireDate,
-                morning2ndNotificationFireDate: state.morning2ndNotificationFireDate,
-                eveningNotificationFireDate: state.eveningNotificationFireDate,
-                evening2ndNotificationFireDate: state.evening2ndNotificationFireDate,
-                enable2ndReminderNotifications: state.enable2ndReminderNotifications
+                lastMorningCompletionDate: morningCompletionDate,
+                lastEveningCompletionDate: eveningCompletionDate,
+                day21CompletionDate: day21CompletionDate
             )
         }
     }
     
     struct NotificationReducer: Reducer {
-        func handleAction(action: Action, state: CTFReduxStore?) -> CTFReduxStore {
-            let state = state ?? CTFReduxStore.empty()
+        func handleAction(action: Action, state: CTFReduxState?) -> CTFReduxState {
+            let state = state ?? CTFReduxState.empty()
             
             var day21NotificationFireDate: Date? = state.day21NotificationFireDate
             var day212ndNotificationFireDate: Date? = state.day212ndNotificationFireDate
@@ -188,21 +174,73 @@ class CTFReducers: NSObject {
                 break
             }
             
-            return CTFReduxStore(
-                activityQueue: state.activityQueue,
-                resultsQueue: state.resultsQueue,
-                lastCompletedTaskIdentifier: state.lastCompletedTaskIdentifier,
-                baselineCompletedDate: state.baselineCompletedDate,
+            return CTFReduxState.newState(
+                fromState: state,
                 day21NotificationFireDate: day21NotificationFireDate,
                 day212ndNotificationFireDate: day212ndNotificationFireDate,
                 morningNotificationFireDate: morningNotificationFireDate,
                 morning2ndNotificationFireDate: morning2ndNotificationFireDate,
                 eveningNotificationFireDate: eveningNotificationFireDate,
-                evening2ndNotificationFireDate: evening2ndNotificationFireDate,
-                enable2ndReminderNotifications: state.enable2ndReminderNotifications
+                evening2ndNotificationFireDate: evening2ndNotificationFireDate
             )
         }
     }
+    
+    struct SurveyTimeReducer: Reducer {
+        func handleAction(action: Action, state: CTFReduxState?) -> CTFReduxState {
+            let state = state ?? CTFReduxState.empty()
+            
+            var morningSurveyTimeComponents: DateComponents? = state.morningSurveyTimeComponents
+            var eveningSurveyTimeComponents: DateComponents? = state.eveningSurveyTimeComponents
+
+            switch action {
+                
+            case let setTimeAction as SetMorningSurveyTimeAction:
+                morningSurveyTimeComponents = setTimeAction.components
+                
+            case let setTimeAction as SetMorningSurveyTimeAction:
+                eveningSurveyTimeComponents = setTimeAction.components
+                
+            default:
+                break
+            }
+            
+            return CTFReduxState.newState(
+                fromState: state,
+                morningSurveyTimeComponents: morningSurveyTimeComponents,
+                eveningSurveyTimeComponents: eveningSurveyTimeComponents
+            )
+        }
+    }
+    
+    struct ExtensibleStorageReducer: Reducer {
+        func handleAction(action: Action, state: CTFReduxState?) -> CTFReduxState {
+            let state = state ?? CTFReduxState.empty()
+            
+            var extensibleStorageDict: [String: NSObject] = state.extensibleStorage
+            
+            switch action {
+                
+            case let setTimeAction as SetValueInExtensibleStorage:
+                let key = setTimeAction.key
+                if let value = setTimeAction.value {
+                    extensibleStorageDict[key] = value
+                }
+                else {
+                    extensibleStorageDict.removeValue(forKey: key)
+                }
+                
+            default:
+                break
+            }
+            
+            return CTFReduxState.newState(
+                fromState: state,
+                extensibleStorage: extensibleStorageDict
+            )
+        }
+    }
+    
     
 }
 

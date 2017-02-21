@@ -62,7 +62,9 @@ class CTFResultsProcessorManager: NSObject, StoreSubscriber {
     func processResult(uuid: UUID, activityRun: CTFActivityRun, taskResult: ORKTaskResult) {
         
         if activityRun.identifier == "baseline" {
-            CTFActionCreators.handleBaselineSurvey(taskResult)
+            
+            CTFReduxStoreManager.mainStore.dispatch(CTFActionCreators.handleBaselineSurvey(taskResult))
+            
         }
         
         //process result
@@ -77,7 +79,7 @@ class CTFResultsProcessorManager: NSObject, StoreSubscriber {
         
     }
     
-    func newState(state: CTFReduxStore) {
+    func newState(state: CTFReduxState) {
         
         self.pendingResult = state.resultsQueue.first
         
