@@ -16,7 +16,26 @@ class CTFResultsProcessorManager: NSObject, StoreSubscriber {
     
     static let sharedInstance = CTFResultsProcessorManager()
     
-    var pendingResult: UUID?
+    
+    var _pendingResult: (UUID, CTFActivityRun, ORKTaskResult)? = nil
+    
+    var pendingResult: (UUID, CTFActivityRun, ORKTaskResult)? {
+        get {
+            return _pendingResult
+        }
+        set(newPendingResult) {
+            if newPendingResult?.0 != _pendingResult?.0 {
+                _pendingResult = newPendingResult
+                if let result = _pendingResult {
+                    self.processResult(
+                        uuid: result.0,
+                        activityRun: result.1,
+                        taskResult: result.2)
+                }
+                
+            }
+        }
+    }
     
     let resultsProcessorQueue: DispatchQueue
     let rsrp: RSRPResultsProcessor
@@ -56,18 +75,23 @@ class CTFResultsProcessorManager: NSObject, StoreSubscriber {
     
     func newState(state: CTFReduxStore) {
         
-        let pendingResult = self.resultsProcessorQueue.sync {
-            return self.pendingResult
-        }
+        //it looks like this is deadlocking sometimes
+//        let pendingResult = self.resultsProcessorQueue.sync {
+//            return self.pendingResult
+//        }
         
-        if pendingResult == nil,
-            let (uuid, activityRun, taskResult) = state.resultsQueue.first {
-            
-            self.resultsProcessorQueue.async {
-                self.processResult(uuid: uuid, activityRun: activityRun, taskResult: taskResult)
-            }
-            
-        }
+//        if self.pendingResult == nil,
+//            let (uuid, activityRun, taskResult) = state.resultsQueue.first {
+//            
+////            self.resultsProcessorQueue.async {
+////                self.processResult(uuid: uuid, activityRun: activityRun, taskResult: taskResult)
+////            }
+//            
+//            self.processResult(uuid: uuid, activityRun: activityRun, taskResult: taskResult)
+//            
+//        }
+        
+        self.pendingResult = state.resultsQueue.first
         
     }
     

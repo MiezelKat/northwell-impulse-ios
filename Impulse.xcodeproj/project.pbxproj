@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		04F7EC8CEE61F851E78A313D /* Pods_Impulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB75BCA7E2C22330845D9559 /* Pods_Impulse.framework */; };
 		075AE88FCA8C52598239A2DD /* Pods_ImpulseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3484284089C47E1EE63FD2BC /* Pods_ImpulseTests.framework */; };
+		E2058FF61E5BE7E900D978B7 /* CTFReduxStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2058FF51E5BE7E900D978B7 /* CTFReduxStore.swift */; };
+		E20590031E5BE80C00D978B7 /* CTFActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20590021E5BE80C00D978B7 /* CTFActions.swift */; };
+		E20590051E5BE82F00D978B7 /* CTFReducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20590041E5BE82F00D978B7 /* CTFReducers.swift */; };
+		E20590071E5BE87C00D978B7 /* CTFReduxPersistentStorageSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20590061E5BE87C00D978B7 /* CTFReduxPersistentStorageSubscriber.swift */; };
 		E22792A81DD3DD010026F8AB /* CTFKeychainHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22792A71DD3DD010026F8AB /* CTFKeychainHelpers.swift */; };
 		E22792BE1DD53A490026F8AB /* CTFAutosizingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22792BD1DD53A490026F8AB /* CTFAutosizingLabel.swift */; };
 		E234C8F41E58EA9300E24E86 /* NSDate+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234C8F31E58EA9300E24E86 /* NSDate+Utilities.swift */; };
@@ -222,6 +226,10 @@
 		8F4F885C88EF8C8BA7E9462E /* Pods_ImpulseUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImpulseUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AC36FFFAED90411E70DA952 /* Pods-ImpulseUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImpulseUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImpulseUITests/Pods-ImpulseUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AB75BCA7E2C22330845D9559 /* Pods_Impulse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Impulse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2058FF51E5BE7E900D978B7 /* CTFReduxStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFReduxStore.swift; sourceTree = "<group>"; };
+		E20590021E5BE80C00D978B7 /* CTFActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFActions.swift; sourceTree = "<group>"; };
+		E20590041E5BE82F00D978B7 /* CTFReducers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFReducers.swift; sourceTree = "<group>"; };
+		E20590061E5BE87C00D978B7 /* CTFReduxPersistentStorageSubscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFReduxPersistentStorageSubscriber.swift; sourceTree = "<group>"; };
 		E22792A71DD3DD010026F8AB /* CTFKeychainHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFKeychainHelpers.swift; sourceTree = "<group>"; };
 		E22792BD1DD53A490026F8AB /* CTFAutosizingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFAutosizingLabel.swift; sourceTree = "<group>"; };
 		E234C8C41E58E1E200E24E86 /* BridgeSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BridgeSDK.xcodeproj; path = "Bridge-iOS-SDK/BridgeSDK.xcodeproj"; sourceTree = "<group>"; };
@@ -473,6 +481,10 @@
 				E2831A961E5B9D3F00E3D727 /* CTFActionDescriptor.swift */,
 				E2831A971E5B9D3F00E3D727 /* CTFActivityRun.swift */,
 				E2831A981E5B9D3F00E3D727 /* CTFReduxStoreManager.swift */,
+				E20590061E5BE87C00D978B7 /* CTFReduxPersistentStorageSubscriber.swift */,
+				E2058FF51E5BE7E900D978B7 /* CTFReduxStore.swift */,
+				E20590021E5BE80C00D978B7 /* CTFActions.swift */,
+				E20590041E5BE82F00D978B7 /* CTFReducers.swift */,
 			);
 			name = Redux;
 			sourceTree = "<group>";
@@ -1142,9 +1154,11 @@
 				E2831A991E5B9D3F00E3D727 /* CTFActionDescriptor.swift in Sources */,
 				E2831A911E5B9C3C00E3D727 /* DemographicsResult.swift in Sources */,
 				E2831AA71E5BA4B100E3D727 /* PAMMultipleStepGenerator.swift in Sources */,
+				E20590071E5BE87C00D978B7 /* CTFReduxPersistentStorageSubscriber.swift in Sources */,
 				E2831A921E5B9C3C00E3D727 /* DemographicsResult+OMHDatapoint.swift in Sources */,
 				E2AA6D181DA43C83005D5137 /* CTFBorderedButton.swift in Sources */,
 				E2B70B031E0A3F8200C93093 /* CTFExtendedSingleChoiceStepGenerator.swift in Sources */,
+				E20590051E5BE82F00D978B7 /* CTFReducers.swift in Sources */,
 				E2AA6D351DA43D07005D5137 /* CTFMainTabViewController.swift in Sources */,
 				E234C8F41E58EA9300E24E86 /* NSDate+Utilities.swift in Sources */,
 				E2AA6D0F1DA43C6B005D5137 /* CTFActivityTableViewCell.swift in Sources */,
@@ -1190,11 +1204,13 @@
 				E234C91A1E5A0F8800E24E86 /* CTFBridgeManagerError.swift in Sources */,
 				E2B70A871E08AF5F00C93093 /* CTFLikertFormStepGenerator.swift in Sources */,
 				E234C9101E59463100E24E86 /* CTFAppStateProtocol.swift in Sources */,
+				E2058FF61E5BE7E900D978B7 /* CTFReduxStore.swift in Sources */,
 				E22792BE1DD53A490026F8AB /* CTFAutosizingLabel.swift in Sources */,
 				E295FC341DDF9E8F001B175D /* CTFStateManager.swift in Sources */,
 				E234C9481E5A87CC00E24E86 /* SBBDataArchiveConvertable.swift in Sources */,
 				E234C8FF1E59364B00E24E86 /* CTFBridgeInfo.swift in Sources */,
 				E234C9161E594BAF00E24E86 /* CTFBridgeExternalIDStepViewController.swift in Sources */,
+				E20590031E5BE80C00D978B7 /* CTFActions.swift in Sources */,
 				E2831AA01E5B9DD800E3D727 /* CTFLoginStep.swift in Sources */,
 				E2AA6D0D1DA43C6B005D5137 /* CTFActivityArchive.swift in Sources */,
 				E2B70A8E1E08BD8E00C93093 /* CTFLikertScaleFormParameters.swift in Sources */,

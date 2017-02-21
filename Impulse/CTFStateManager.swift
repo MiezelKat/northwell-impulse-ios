@@ -58,7 +58,7 @@ class CTFStateManager: NSObject, RSTBStateHelper, CTFAppStateProtocol {
         return calendar.dateComponents(unitFlags, from: date)
     }
     
-    func combineDateWithDateComponents(date: Date, timeComponents: NSDateComponents) -> Date? {
+    private func combineDateWithDateComponents(date: Date, timeComponents: NSDateComponents) -> Date? {
         
         // *** define calendar components to use as well Timezone to UTC ***
         let unitFlags = Set<Calendar.Component>([.year, .month, .day])
