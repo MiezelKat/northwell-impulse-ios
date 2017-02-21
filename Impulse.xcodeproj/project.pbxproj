@@ -13,6 +13,12 @@
 		E20590031E5BE80C00D978B7 /* CTFActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20590021E5BE80C00D978B7 /* CTFActions.swift */; };
 		E20590051E5BE82F00D978B7 /* CTFReducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20590041E5BE82F00D978B7 /* CTFReducers.swift */; };
 		E20590071E5BE87C00D978B7 /* CTFReduxPersistentStorageSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20590061E5BE87C00D978B7 /* CTFReduxPersistentStorageSubscriber.swift */; };
+		E20590091E5BF82200D978B7 /* CTFActionCreators.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20590081E5BF82200D978B7 /* CTFActionCreators.swift */; };
+		E205900F1E5BFF0500D978B7 /* self_assessment_5.json in Resources */ = {isa = PBXBuildFile; fileRef = E205900E1E5BFF0500D978B7 /* self_assessment_5.json */; };
+		E20590121E5BFF5F00D978B7 /* dd_time_1_year_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E20590101E5BFF5F00D978B7 /* dd_time_1_year_full_task.json */; };
+		E20590131E5BFF5F00D978B7 /* dd_time_1_year_short_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E20590111E5BFF5F00D978B7 /* dd_time_1_year_short_task.json */; };
+		E20590151E5C045000D978B7 /* CTFSelectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20590141E5C045000D978B7 /* CTFSelectors.swift */; };
+		E20590171E5C079A00D978B7 /* CTFNotificationSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20590161E5C079A00D978B7 /* CTFNotificationSubscriber.swift */; };
 		E22792A81DD3DD010026F8AB /* CTFKeychainHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22792A71DD3DD010026F8AB /* CTFKeychainHelpers.swift */; };
 		E22792BE1DD53A490026F8AB /* CTFAutosizingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22792BD1DD53A490026F8AB /* CTFAutosizingLabel.swift */; };
 		E234C8F41E58EA9300E24E86 /* NSDate+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234C8F31E58EA9300E24E86 /* NSDate+Utilities.swift */; };
@@ -230,6 +236,12 @@
 		E20590021E5BE80C00D978B7 /* CTFActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFActions.swift; sourceTree = "<group>"; };
 		E20590041E5BE82F00D978B7 /* CTFReducers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFReducers.swift; sourceTree = "<group>"; };
 		E20590061E5BE87C00D978B7 /* CTFReduxPersistentStorageSubscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFReduxPersistentStorageSubscriber.swift; sourceTree = "<group>"; };
+		E20590081E5BF82200D978B7 /* CTFActionCreators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFActionCreators.swift; sourceTree = "<group>"; };
+		E205900E1E5BFF0500D978B7 /* self_assessment_5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = self_assessment_5.json; path = "northwell-impulse-common/assets/json/survey/self_assessment_5.json"; sourceTree = SOURCE_ROOT; };
+		E20590101E5BFF5F00D978B7 /* dd_time_1_year_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dd_time_1_year_full_task.json; path = "northwell-impulse-common/assets/json/survey/dd_time_1_year_full_task.json"; sourceTree = SOURCE_ROOT; };
+		E20590111E5BFF5F00D978B7 /* dd_time_1_year_short_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dd_time_1_year_short_task.json; path = "northwell-impulse-common/assets/json/survey/dd_time_1_year_short_task.json"; sourceTree = SOURCE_ROOT; };
+		E20590141E5C045000D978B7 /* CTFSelectors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFSelectors.swift; sourceTree = "<group>"; };
+		E20590161E5C079A00D978B7 /* CTFNotificationSubscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFNotificationSubscriber.swift; sourceTree = "<group>"; };
 		E22792A71DD3DD010026F8AB /* CTFKeychainHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFKeychainHelpers.swift; sourceTree = "<group>"; };
 		E22792BD1DD53A490026F8AB /* CTFAutosizingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFAutosizingLabel.swift; sourceTree = "<group>"; };
 		E234C8C41E58E1E200E24E86 /* BridgeSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BridgeSDK.xcodeproj; path = "Bridge-iOS-SDK/BridgeSDK.xcodeproj"; sourceTree = "<group>"; };
@@ -482,9 +494,12 @@
 				E2831A971E5B9D3F00E3D727 /* CTFActivityRun.swift */,
 				E2831A981E5B9D3F00E3D727 /* CTFReduxStoreManager.swift */,
 				E20590061E5BE87C00D978B7 /* CTFReduxPersistentStorageSubscriber.swift */,
+				E20590161E5C079A00D978B7 /* CTFNotificationSubscriber.swift */,
 				E2058FF51E5BE7E900D978B7 /* CTFReduxStore.swift */,
 				E20590021E5BE80C00D978B7 /* CTFActions.swift */,
+				E20590081E5BF82200D978B7 /* CTFActionCreators.swift */,
 				E20590041E5BE82F00D978B7 /* CTFReducers.swift */,
+				E20590141E5C045000D978B7 /* CTFSelectors.swift */,
 			);
 			name = Redux;
 			sourceTree = "<group>";
@@ -608,6 +623,8 @@
 				E2B70ABD1E09A19400C93093 /* dd_money_6_month_full_task.json */,
 				E2B70AC01E09A1A300C93093 /* dd_money_6_month_short_task.json */,
 				E2B70AC81E09A4AC00C93093 /* am_survey_dd_time_6_month.json */,
+				E20590101E5BFF5F00D978B7 /* dd_time_1_year_full_task.json */,
+				E20590111E5BFF5F00D978B7 /* dd_time_1_year_short_task.json */,
 				E2B70AC91E09A4AC00C93093 /* dd_time_6_month_full_task.json */,
 				E2B70ACA1E09A4AC00C93093 /* dd_time_6_month_short_task.json */,
 				E2B70AAA1E0999BA00C93093 /* am_survey_bart_25_cents.json */,
@@ -623,6 +640,7 @@
 				E2B70A2D1E0895BD00C93093 /* PAMMultipleSelection.json */,
 				E2B70A2E1E0895BD00C93093 /* self_assessment_3.json */,
 				E2B70A2F1E0895BD00C93093 /* self_assessment_4.json */,
+				E205900E1E5BFF0500D978B7 /* self_assessment_5.json */,
 				E2B70A301E0895BD00C93093 /* self_assessment_7.json */,
 				E2B70A311E0895BD00C93093 /* self_assessment_8.json */,
 				E2B70A321E0895BD00C93093 /* self_assessment_9.json */,
@@ -947,6 +965,7 @@
 				E2B70A351E0895BD00C93093 /* am_behaviors.json in Resources */,
 				E2B70AA81E09973500C93093 /* go_no_go_stable_stimulus_full_task.json in Resources */,
 				E2831AA51E5BA24900E3D727 /* trialActivities.json in Resources */,
+				E205900F1E5BFF0500D978B7 /* self_assessment_5.json in Resources */,
 				E2B70AA31E09945700C93093 /* go_no_go_variable_stimulus_short_task.json in Resources */,
 				E2B70AAC1E0999BA00C93093 /* am_survey_bart_25_cents.json in Resources */,
 				E2B70A491E0895BD00C93093 /* PAMMultipleSelection.json in Resources */,
@@ -973,6 +992,7 @@
 				E2B70A3D1E0895BD00C93093 /* baseline_behaviors_4.json in Resources */,
 				E24339401E0DC4C4009FF385 /* shuffled_active_tasks.json in Resources */,
 				E2B70A381E0895BD00C93093 /* am_likert_3.json in Resources */,
+				E20590121E5BFF5F00D978B7 /* dd_time_1_year_full_task.json in Resources */,
 				E2B70A371E0895BD00C93093 /* am_likert_1a.json in Resources */,
 				E2AA6CF91DA41E19005D5137 /* BridgeInfo.plist in Resources */,
 				E2B70ACD1E09A4AC00C93093 /* dd_time_6_month_short_task.json in Resources */,
@@ -983,6 +1003,7 @@
 				E2B70A401E0895BD00C93093 /* Baseline.json in Resources */,
 				E243393F1E0DC4C4009FF385 /* daily_active_tasks.json in Resources */,
 				E2B70A4B1E0895BD00C93093 /* self_assessment_4.json in Resources */,
+				E20590131E5BFF5F00D978B7 /* dd_time_1_year_short_task.json in Resources */,
 				E2B70ADF1E09B76B00C93093 /* pm_survey_go_no_go_variable.json in Resources */,
 				E2B70AA11E09913000C93093 /* self_assessment_10_21.json in Resources */,
 				E2B70AB31E099B3B00C93093 /* bart_250_dollars_short_task.json in Resources */,
@@ -1201,15 +1222,18 @@
 				E2831A931E5B9C3C00E3D727 /* DemographicsResultTransformer.swift in Sources */,
 				E2831A8D1E5B9C3000E3D727 /* CTFTaskViewController.swift in Sources */,
 				E2B70A921E08C3F100C93093 /* CTFSemanticDifferentialScaleFormItemDecriptor.swift in Sources */,
+				E20590151E5C045000D978B7 /* CTFSelectors.swift in Sources */,
 				E234C91A1E5A0F8800E24E86 /* CTFBridgeManagerError.swift in Sources */,
 				E2B70A871E08AF5F00C93093 /* CTFLikertFormStepGenerator.swift in Sources */,
 				E234C9101E59463100E24E86 /* CTFAppStateProtocol.swift in Sources */,
 				E2058FF61E5BE7E900D978B7 /* CTFReduxStore.swift in Sources */,
 				E22792BE1DD53A490026F8AB /* CTFAutosizingLabel.swift in Sources */,
 				E295FC341DDF9E8F001B175D /* CTFStateManager.swift in Sources */,
+				E20590171E5C079A00D978B7 /* CTFNotificationSubscriber.swift in Sources */,
 				E234C9481E5A87CC00E24E86 /* SBBDataArchiveConvertable.swift in Sources */,
 				E234C8FF1E59364B00E24E86 /* CTFBridgeInfo.swift in Sources */,
 				E234C9161E594BAF00E24E86 /* CTFBridgeExternalIDStepViewController.swift in Sources */,
+				E20590091E5BF82200D978B7 /* CTFActionCreators.swift in Sources */,
 				E20590031E5BE80C00D978B7 /* CTFActions.swift in Sources */,
 				E2831AA01E5B9DD800E3D727 /* CTFLoginStep.swift in Sources */,
 				E2AA6D0D1DA43C6B005D5137 /* CTFActivityArchive.swift in Sources */,

@@ -44,17 +44,13 @@ class CTFReduxStoreManager: NSObject {
             }
         }
         
-        let reducer = CombinedReducer([
-            ActivityQueueReducer(),
-            ResultsQueueReducer(),
-            LastCompletedTaskIdentifier()
-        ])
+        
         
         let state: CTFReduxStore = CTFReduxPersistentStorageSubscriber.sharedInstance.loadState()
         debugPrint(state)
         
         self.store = Store<CTFReduxStore>(
-            reducer: reducer,
+            reducer: CTFReducers.reducer,
             state: state,
             middleware: [loggingMiddleware]
         )
@@ -62,6 +58,7 @@ class CTFReduxStoreManager: NSObject {
         super.init()
         
         self.store.subscribe(CTFReduxPersistentStorageSubscriber.sharedInstance)
+        self.store.subscribe(CTFNotificationSubscriber.config(state: state))
         
     }
     

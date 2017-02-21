@@ -14,12 +14,31 @@ struct CTFReduxStore: StateType {
     let activityQueue: [(UUID, CTFActivityRun)]
     let resultsQueue: [(UUID, CTFActivityRun, ORKTaskResult)]
     let lastCompletedTaskIdentifier: String?
+    let baselineCompletedDate: Date?
+    let day21NotificationFireDate: Date?
+    let day212ndNotificationFireDate: Date?
+    
+    let morningNotificationFireDate: Date?
+    let morning2ndNotificationFireDate: Date?
+    
+    let eveningNotificationFireDate: Date?
+    let evening2ndNotificationFireDate: Date?
+    
+    let enable2ndReminderNotifications: Bool
     
     static func empty() -> CTFReduxStore {
         return CTFReduxStore(
             activityQueue: [],
             resultsQueue: [],
-            lastCompletedTaskIdentifier: nil
+            lastCompletedTaskIdentifier: nil,
+            baselineCompletedDate: nil,
+            day21NotificationFireDate: nil,
+            day212ndNotificationFireDate: nil,
+            morningNotificationFireDate: nil,
+            morning2ndNotificationFireDate: nil,
+            eveningNotificationFireDate: nil,
+            evening2ndNotificationFireDate: nil,
+            enable2ndReminderNotifications: true
         )
     }
 }

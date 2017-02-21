@@ -61,6 +61,10 @@ class CTFResultsProcessorManager: NSObject, StoreSubscriber {
     
     func processResult(uuid: UUID, activityRun: CTFActivityRun, taskResult: ORKTaskResult) {
         
+        if activityRun.identifier == "baseline" {
+            CTFActionCreators.handleBaselineSurvey(taskResult)
+        }
+        
         //process result
         
         if let resultTransforms = activityRun.resultTransforms {
@@ -74,22 +78,6 @@ class CTFResultsProcessorManager: NSObject, StoreSubscriber {
     }
     
     func newState(state: CTFReduxStore) {
-        
-        //it looks like this is deadlocking sometimes
-//        let pendingResult = self.resultsProcessorQueue.sync {
-//            return self.pendingResult
-//        }
-        
-//        if self.pendingResult == nil,
-//            let (uuid, activityRun, taskResult) = state.resultsQueue.first {
-//            
-////            self.resultsProcessorQueue.async {
-////                self.processResult(uuid: uuid, activityRun: activityRun, taskResult: taskResult)
-////            }
-//            
-//            self.processResult(uuid: uuid, activityRun: activityRun, taskResult: taskResult)
-//            
-//        }
         
         self.pendingResult = state.resultsQueue.first
         

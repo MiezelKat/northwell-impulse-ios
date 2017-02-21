@@ -24,3 +24,27 @@ struct CompleteActivityAction: Action {
 struct ResultsProcessedAction: Action {
     let uuid: UUID
 }
+
+struct MarkBaselineSurveyCompletedAction: Action {
+    let completedDate: Date
+}
+
+struct Set21DayNotificationAction: Action {
+    let initialFireDate: Date
+    let secondaryFireDate: Date
+}
+
+struct SetMorningNotificationAction: Action {
+    let initialFireDate: Date
+    let secondaryFireDate: Date
+}
+
+struct SetEveningNotificationAction: Action {
+    let initialFireDate: Date
+    let secondaryFireDate: Date
+}
+
+struct Enable2ndNotificationAction: Action {
+    let enable: Bool
+}
+

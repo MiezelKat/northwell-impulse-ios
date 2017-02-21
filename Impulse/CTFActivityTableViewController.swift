@@ -9,9 +9,10 @@
 import UIKit
 import ResearchSuiteTaskBuilder
 import Gloss
+import ReSwift
 
 
-class CTFActivityTableViewController: UITableViewController, CTFSettingsDelegate {
+class CTFActivityTableViewController: UITableViewController, CTFSettingsDelegate, StoreSubscriber {
 
     static let kActivitiesFileName = "activities"
     static let kTrialActivitiesFileName = "trialActivities"
@@ -28,8 +29,31 @@ class CTFActivityTableViewController: UITableViewController, CTFSettingsDelegate
         
         self.activitiesSchedule = self.loadSchedule(filename: CTFActivityTableViewController.kActivitiesFileName)
         self.trialActivitiesSchedule = self.loadSchedule(filename: CTFActivityTableViewController.kTrialActivitiesFileName)
-        self.loadData()
+        
+        CTFReduxStoreManager.sharedInstance.store.subscribe(self)
+        if let state = CTFReduxStoreManager.sharedInstance.store.state {
+            self.loadData(state: state)
+        }
+    
     }
+    
+    deinit {
+        CTFReduxStoreManager.sharedInstance.store.unsubscribe(self)
+    }
+    
+    func shouldReloadData(state: CTFReduxStore) -> Bool {
+        return false
+    }
+    
+    func newState(state: CTFReduxStore) {
+        
+        //possibly reload data
+        if self.shouldReloadData(state: state) {
+            self.reloadData(state: state)
+        }
+        
+    }
+    
     
     func loadSchedule(filename: String) -> CTFSchedule? {
         guard let json = CTFTaskBuilderManager.getJson(forFilename: filename) as? JSON else {
@@ -38,34 +62,11 @@ class CTFActivityTableViewController: UITableViewController, CTFSettingsDelegate
         
         return CTFSchedule(json: json)
     }
-    
-    
-//    func loadTasksAndSchedulesJson() -> [String: Any]? {
-//        
-//        guard let filePath = Bundle.main.path(forResource: "tasks_and_schedules", ofType: "json")
-//            else {
-//                fatalError("Unable to locate file tasks_and_schedules")
-//        }
-//        
-//        guard let fileContent = try? Data(contentsOf: URL(fileURLWithPath: filePath))
-//            else {
-//                fatalError("Unable to create NSData with file content (PAM data)")
-//        }
-//        
-//        do {
-//            return try JSONSerialization.jsonObject(with: fileContent, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String: Any]
-//            
-//        } catch let error {
-//            fatalError("Cannot load activities")
-//        }
-//        
-//        return nil
-//    }
-//    
-    func loadData() {
+
+    func loadData(state: CTFReduxStore) {
         
-        self.activities = self.activitiesSchedule?.items.filter(self.scheduledItemsFilter) ?? []
-        self.trialActivities = self.activitiesSchedule?.items.filter(self.trialItemsFilter) ?? []
+        self.activities = self.activitiesSchedule?.items.filter(self.scheduledItemsFilter(state: state)) ?? []
+        self.trialActivities = self.activitiesSchedule?.items.filter(self.trialItemsFilter(state: state)) ?? []
         
 //        self.activities = self.scheduleItems.filter(self.scheduledItemsFilter).flatMap({$0.generateScheduledActivity()})
 //        if self.activities.isEmpty {
@@ -83,8 +84,8 @@ class CTFActivityTableViewController: UITableViewController, CTFSettingsDelegate
 //        })
     }
     
-    func reloadData() {
-        self.loadData()
+    func reloadData(state: CTFReduxStore) {
+        self.loadData(state: state)
         self.reloadFinished()
     }
     
@@ -94,7 +95,7 @@ class CTFActivityTableViewController: UITableViewController, CTFSettingsDelegate
     }
     
     func settingsUpdated() {
-        self.reloadData()
+//        self.reloadData()
     }
     
     func numberOfSections() -> Int {
@@ -109,16 +110,7 @@ class CTFActivityTableViewController: UITableViewController, CTFSettingsDelegate
             return "Trial Activities"
         }
     }
-    
-//    public func title(for section: Int) -> String? {
-//        if section == 0 {
-//            return "Pending Activities"
-//        }
-//        else {
-//            return "Trial Activities"
-//        }
-//    }
-    
+
     private func scheduleItem(forIndexPath indexPath: IndexPath) -> CTFScheduleItem? {
         if (indexPath as NSIndexPath).section == 0 {
             return self.activities[(indexPath as NSIndexPath).row]
@@ -176,9 +168,17 @@ class CTFActivityTableViewController: UITableViewController, CTFSettingsDelegate
         
     }
     
-    func scheduledItemsFilter(scheduleItem: CTFScheduleItem) -> Bool {
+    func scheduledItemsFilter(state: CTFReduxStore) -> (CTFScheduleItem) -> Bool {
+        return { scheduleItem in
+            switch(scheduleItem.identifier) {
+            case "baseline":
+                return CTFSelectors.shouldShowBaselineSurvey(state: state)
+            default:
+                return true
+            }
+            
+        }
         
-        return true
 
 //        switch(scheduleItem.identifier) {
 //        case "baseline":
@@ -201,8 +201,10 @@ class CTFActivityTableViewController: UITableViewController, CTFSettingsDelegate
 //        }
     }
     
-    func trialItemsFilter(scheduleItem: CTFScheduleItem) -> Bool {
-        return true
+    func trialItemsFilter(state: CTFReduxStore) -> (CTFScheduleItem) -> Bool {
+        return { scheduleItem in
+            return true
+        }
     }
 
 
