@@ -12,12 +12,12 @@ import ResearchKit
 
 class CTFReduxStoreManager: NSObject {
     
-    static let sharedInstance = CTFReduxStoreManager()
-    static let mainStore = sharedInstance.store
+//    static let sharedInstance = CTFReduxStoreManager()
+//    static let mainStore = sharedInstance.store
     
     let store: Store<CTFReduxState>
     
-    private override init() {
+    public init(initialState: CTFReduxState?) {
         
         let loggingMiddleware: Middleware = { dispatch, getState in
             return { next in
@@ -46,21 +46,23 @@ class CTFReduxStoreManager: NSObject {
         
         
         
-        let state: CTFReduxState = CTFReduxPersistentStorageSubscriber.sharedInstance.loadState()
-        debugPrint(state)
+//        let state: CTFReduxState = CTFReduxPersistentStorageSubscriber.sharedInstance.loadState()
+//        debugPrint(state)
         
         self.store = Store<CTFReduxState>(
             reducer: CTFReducers.reducer,
-            state: state,
+            state: initialState,
             middleware: [loggingMiddleware]
         )
         
         super.init()
         
-        self.store.subscribe(CTFReduxPersistentStorageSubscriber.sharedInstance)
-        self.store.subscribe(CTFNotificationSubscriber.config(state: state))
-        self.store.subscribe(CTFReduxStateHelper.sharedInstance)
-        
     }
+    
+    deinit {
+        debugPrint("\(self) deiniting")
+    }
+    
+    
     
 }

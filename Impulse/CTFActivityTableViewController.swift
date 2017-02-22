@@ -25,6 +25,15 @@ class CTFActivityTableViewController: UITableViewController, CTFSettingsDelegate
     
     var state: CTFReduxState?
     
+    var store: Store<CTFReduxState>? {
+        if let appDelegate = UIApplication.shared.delegate as? CTFAppDelegate {
+            return appDelegate.reduxStoreManager?.store
+        }
+        else {
+            return nil
+        }
+    }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -32,15 +41,15 @@ class CTFActivityTableViewController: UITableViewController, CTFSettingsDelegate
         self.activitiesSchedule = self.loadSchedule(filename: CTFActivityTableViewController.kActivitiesFileName)
         self.trialActivitiesSchedule = self.loadSchedule(filename: CTFActivityTableViewController.kTrialActivitiesFileName)
         
-        CTFReduxStoreManager.sharedInstance.store.subscribe(self)
-        if let state = CTFReduxStoreManager.sharedInstance.store.state {
+        self.store?.subscribe(self)
+        if let state = self.store?.state {
             self.loadData(state: state)
         }
     
     }
     
     deinit {
-        CTFReduxStoreManager.sharedInstance.store.unsubscribe(self)
+        self.store?.unsubscribe(self)
     }
     
     func newState(state: CTFReduxState) {
@@ -168,7 +177,7 @@ class CTFActivityTableViewController: UITableViewController, CTFSettingsDelegate
             resultTransforms: item.resultTransforms,
             onCompletionActions: item.onCompletionActions)
         let action = QueueActivityAction(uuid: UUID(), activityRun: activityRun)
-        CTFReduxStoreManager.mainStore.dispatch(action)
+        self.store?.dispatch(action)
         
     }
     

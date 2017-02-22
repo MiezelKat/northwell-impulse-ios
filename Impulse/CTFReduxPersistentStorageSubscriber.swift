@@ -244,12 +244,30 @@ class CTFReduxPersistentStorageSubscriber: NSObject, StoreSubscriber {
         )
     }
     
-    static let sharedInstance = CTFReduxPersistentStorageSubscriber()
-    
-    private override init() {
-        super.init()
-        
-    }
+//    static private let staticQueue = DispatchQueue(label: "CTFReduxPersistentStorageSubscriberStaticQueue")
+//    
+//    static private var _sharedInstance: CTFReduxPersistentStorageSubscriber?
+//    
+//    
+//    public static var sharedInstance: CTFReduxPersistentStorageSubscriber {
+//        return staticQueue.sync {
+//            if _sharedInstance == nil {
+//                _sharedInstance = CTFReduxPersistentStorageSubscriber()
+//            }
+//            return _sharedInstance!
+//        }
+//    }
+//    
+//    public static func clear() {
+//        return staticQueue.sync {
+//            CTFStateManager.defaultManager.clearState()
+//        }
+//    }
+//    
+//    private override init() {
+//        super.init()
+//        
+//    }
     
     func newState(state: CTFReduxState) {
         
@@ -275,6 +293,10 @@ class CTFReduxPersistentStorageSubscriber: NSObject, StoreSubscriber {
         
         self.extensibleStorage.set(map: state.extensibleStorage)
         
+    }
+    
+    deinit {
+        debugPrint("\(self) deiniting")
     }
     
 }

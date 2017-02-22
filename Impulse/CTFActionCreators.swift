@@ -30,7 +30,7 @@ class CTFActionCreators: NSObject {
         return { (state, store) in
             //set baseline completed date
             let markBaselineAction = MarkBaselineSurveyCompletedAction(completedDate: result.endDate)
-            CTFReduxStoreManager.mainStore.dispatch(markBaselineAction)
+            store.dispatch(markBaselineAction)
             
             //set 21 day notification
             let initialFireDate = Date(timeInterval: CTFActionCreators.k21DaySurveyDelayInterval, since: result.endDate)
@@ -81,7 +81,7 @@ class CTFActionCreators: NSObject {
                 
                 //set baseline completed date
                 let markBaselineAction = MarkBaselineSurveyCompletedAction(completedDate: completedDate)
-                CTFReduxStoreManager.mainStore.dispatch(markBaselineAction)
+                store.dispatch(markBaselineAction)
                 
                 //set 21 day notification
                 let initialFireDate = Date(timeInterval: CTFActionCreators.k21DaySurveyDelayInterval, since: result.endDate)
@@ -194,7 +194,7 @@ class CTFActionCreators: NSObject {
             let surveyTimeAction = SetMorningSurveyTimeAction(components: dateComponents)
             store.dispatch(surveyTimeAction)
             
-            let lastCompletion: Date? = CTFReduxStoreManager.mainStore.state.lastMorningCompletionDate
+            let lastCompletion: Date? = store.state.lastMorningCompletionDate
             if let initialFireDate = CTFActionCreators.getNotificationFireDate(timeComponents: dateComponents as NSDateComponents, latestCompletion: lastCompletion) {
                 let secondaryFireDate = initialFireDate.addingTimeInterval(CTFActionCreators.kSecondaryNotificationDelay)
                 let notificationAction = SetMorningNotificationAction(
@@ -219,7 +219,7 @@ class CTFActionCreators: NSObject {
             let surveyTimeAction = SetEveningSurveyTimeAction(components: dateComponents)
             store.dispatch(surveyTimeAction)
             
-            let lastCompletion: Date? = CTFReduxStoreManager.mainStore.state.lastEveningCompletionDate
+            let lastCompletion: Date? = store.state.lastEveningCompletionDate
             if let initialFireDate = CTFActionCreators.getNotificationFireDate(timeComponents: dateComponents as NSDateComponents, latestCompletion: lastCompletion) {
                 let secondaryFireDate = initialFireDate.addingTimeInterval(CTFActionCreators.kSecondaryNotificationDelay)
                 let notificationAction = SetEveningNotificationAction(

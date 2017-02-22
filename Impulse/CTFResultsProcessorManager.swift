@@ -14,7 +14,7 @@ import sdlrkx
 
 class CTFResultsProcessorManager: NSObject, StoreSubscriber {
     
-    static let sharedInstance = CTFResultsProcessorManager()
+//    static let sharedInstance = CTFResultsProcessorManager()
     
     var _pendingResult: (UUID, CTFActivityRun, ORKTaskResult)? = nil
     
@@ -38,8 +38,9 @@ class CTFResultsProcessorManager: NSObject, StoreSubscriber {
     
     let resultsProcessorQueue: DispatchQueue
     let rsrp: RSRPResultsProcessor
+    let store: Store<CTFReduxState>
     
-    override init() {
+    init(store: Store<CTFReduxState>) {
         
         self.resultsProcessorQueue = DispatchQueue(label: "CTFResultsProcessorManagerQueue")
         self.rsrp = RSRPResultsProcessor(
@@ -49,28 +50,29 @@ class CTFResultsProcessorManager: NSObject, StoreSubscriber {
                 CTFGoNoGoSummaryResultsTransformer.self
             ], backEnd: CTFBridgeManager.sharedManager)
         
+        self.store = store
         super.init()
-        CTFReduxStoreManager.mainStore.subscribe(self)
+        store.subscribe(self)
         
     }
     
     deinit {
-        CTFReduxStoreManager.mainStore.unsubscribe(self)
+        store.unsubscribe(self)
     }
     
     func processResult(uuid: UUID, activityRun: CTFActivityRun, taskResult: ORKTaskResult) {
 
         switch(activityRun.identifier) {
         case "baseline":
-            CTFReduxStoreManager.mainStore.dispatch(CTFActionCreators.handleBaselineSurvey(taskResult))
+            store.dispatch(CTFActionCreators.handleBaselineSurvey(taskResult))
         case "reenrollment":
-            CTFReduxStoreManager.mainStore.dispatch(CTFActionCreators.handleReenrollment(taskResult))
+            store.dispatch(CTFActionCreators.handleReenrollment(taskResult))
         case "21-day-assessment":
-            CTFReduxStoreManager.mainStore.dispatch(CTFActionCreators.handleDay21Survey(taskResult))
+            store.dispatch(CTFActionCreators.handleDay21Survey(taskResult))
         case "am_survey":
-            CTFReduxStoreManager.mainStore.dispatch(CTFActionCreators.handleMorningSurvey(taskResult))
+            store.dispatch(CTFActionCreators.handleMorningSurvey(taskResult))
         case "pm_survey":
-            CTFReduxStoreManager.mainStore.dispatch(CTFActionCreators.handleEveningSurvey(taskResult))
+            store.dispatch(CTFActionCreators.handleEveningSurvey(taskResult))
             
         default:
             break
@@ -84,7 +86,7 @@ class CTFResultsProcessorManager: NSObject, StoreSubscriber {
 
         self.pendingResult = nil
         let action = ResultsProcessedAction(uuid: uuid)
-        CTFReduxStoreManager.mainStore.dispatch(action)
+        store.dispatch(action)
         
     }
     

@@ -14,9 +14,10 @@ class CTFReduxStateHelper: NSObject, RSTBStateHelper, StoreSubscriber {
     
     var state: CTFReduxState?
     
-    public static let sharedInstance = CTFReduxStateHelper()
+    let store: Store<CTFReduxState>
     
-    private override init() {
+    init(store: Store<CTFReduxState>) {
+        self.store = store
         super.init()
     }
     
@@ -25,7 +26,7 @@ class CTFReduxStateHelper: NSObject, RSTBStateHelper, StoreSubscriber {
     }
     
     public func setValueInState(value: NSSecureCoding?, forKey: String) {
-        CTFReduxStoreManager.mainStore.dispatch(CTFActionCreators.setValueInExtensibleStorage(key: forKey, value: value != nil ? value! as! NSObject : nil))
+        self.store.dispatch(CTFActionCreators.setValueInExtensibleStorage(key: forKey, value: value != nil ? value! as! NSObject : nil))
     }
     
     public func valueInState(forKey: String) -> NSSecureCoding? {
@@ -34,6 +35,10 @@ class CTFReduxStateHelper: NSObject, RSTBStateHelper, StoreSubscriber {
         }
         
         return CTFSelectors.getValueInExtensibleStorage(state: state, key: forKey)
+    }
+    
+    deinit {
+        debugPrint("\(self) deiniting")
     }
     
 

@@ -47,16 +47,25 @@ class CTFTaskBuilderManager: NSObject {
         RSTBElementSelectorGenerator()
     ]
     
-    static let sharedInstance = CTFTaskBuilderManager()
-    static let sharedBuilder = sharedInstance.rstb
+//    static let sharedInstance = CTFTaskBuilderManager()
+//    static let sharedBuilder = sharedInstance.rstb
     
     let rstb: RSTBTaskBuilder
     
-    private override init() {
+//    private static var stateHelper: RSTBStateHelper? {
+//        if let appDelegate = UIApplication.shared.delegate as? CTFAppDelegate {
+//            return appDelegate.reduxStateHelper as? RSTBStateHelper
+//        }
+//        else {
+//            return nil
+//        }
+//    }
+    
+    init(stateHelper: RSTBStateHelper) {
         
         // Do any additional setup after loading the view, typically from a nib.
         self.rstb = RSTBTaskBuilder(
-            stateHelper: CTFReduxStateHelper.sharedInstance,
+            stateHelper: stateHelper,
             elementGeneratorServices: CTFTaskBuilderManager.elementGeneratorServices,
             stepGeneratorServices: CTFTaskBuilderManager.stepGeneratorServices,
             answerFormatGeneratorServices: CTFTaskBuilderManager.answerFormatGeneratorServices)

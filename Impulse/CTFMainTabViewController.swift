@@ -47,17 +47,35 @@ class CTFMainTabViewController: UITabBarController, CTFRootViewControllerProtoco
         }
     }
     
+    var store: Store<CTFReduxState>? {
+        if let appDelegate = UIApplication.shared.delegate as? CTFAppDelegate {
+            return appDelegate.reduxStoreManager?.store
+        }
+        else {
+            return nil
+        }
+    }
+    
+    var taskBuilder: CTFTaskBuilderManager? {
+        if let appDelegate = UIApplication.shared.delegate as? CTFAppDelegate {
+            return appDelegate.taskBuilderManager
+        }
+        else {
+            return nil
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        CTFReduxStoreManager.mainStore.subscribe(self)
+        self.store?.subscribe(self)
         
         //force results processor init
-        _ = CTFResultsProcessorManager.sharedInstance
+//        _ = CTFResultsProcessorManager.sharedInstance
     }
     
     deinit {
-        CTFReduxStoreManager.mainStore.unsubscribe(self)
+        self.store?.unsubscribe(self)
     }
     
     func newState(state: CTFReduxState) {
@@ -75,13 +93,15 @@ class CTFMainTabViewController: UITabBarController, CTFRootViewControllerProtoco
     
     func runActivity(uuid: UUID, activityRun: CTFActivityRun) {
         
-        guard let steps = CTFTaskBuilderManager.sharedBuilder.steps(forElement: activityRun.activity) else {
+        guard let steps = self.taskBuilder?.rstb.steps(forElement: activityRun.activity) else {
             return
         }
         
         
         
         let task = ORKOrderedTask(identifier: activityRun.identifier, steps: steps)
+        
+        let store = self.store
         
         let taskFinishedHandler: ((ORKTaskViewController, ORKTaskViewControllerFinishReason, Error?) -> ()) = { [weak self] (taskViewController, reason, error) in
             
@@ -92,7 +112,7 @@ class CTFMainTabViewController: UITabBarController, CTFRootViewControllerProtoco
                     taskViewController.result : nil
                 
                 let action = CompleteActivityAction(uuid: uuid, activityRun: activityRun, taskResult: taskResult)
-                CTFReduxStoreManager.mainStore.dispatch(action)
+                store?.dispatch(action)
             })
             
         }

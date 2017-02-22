@@ -40,16 +40,16 @@ class CTFNotificationSubscriber: NSObject, StoreSubscriber {
     let eveningNotificationFireDate: ObservableValue<Date>
     let evening2ndNotificationFireDate: ObservableValue<Date>
     
-    static private var _sharedInstance: CTFNotificationSubscriber?
-    
-    public static var sharedInstance: CTFNotificationSubscriber {
-        return _sharedInstance!
-    }
-    
-    public static func config(state: CTFReduxState) -> CTFNotificationSubscriber {
-        _sharedInstance = CTFNotificationSubscriber(state: state)
-        return _sharedInstance!
-    }
+//    static private var _sharedInstance: CTFNotificationSubscriber?
+//    
+//    public static var sharedInstance: CTFNotificationSubscriber {
+//        return _sharedInstance!
+//    }
+//    
+//    public static func config(state: CTFReduxState) -> CTFNotificationSubscriber {
+//        _sharedInstance = CTFNotificationSubscriber(state: state)
+//        return _sharedInstance!
+//    }
     
     private static func observationClosureGenerator(notificationIdentifier: String, text: String, taskIdentifier: String) -> (Date?) -> () {
         return { date in
@@ -69,10 +69,10 @@ class CTFNotificationSubscriber: NSObject, StoreSubscriber {
         }
     }
     
-    private init(state: CTFReduxState) {
+    override init() {
         
         self.day21NotificationFireDate = ObservableValue(
-            initialValue: state.day21NotificationFireDate,
+            initialValue: nil,
             observationClosure: CTFNotificationSubscriber.observationClosureGenerator(
                 notificationIdentifier: CTFNotificationSubscriber.k21DayNotificationIdentifier,
                 text: CTFNotificationSubscriber.k21DayNotificationText,
@@ -80,7 +80,7 @@ class CTFNotificationSubscriber: NSObject, StoreSubscriber {
         ))
         
         self.day212ndNotificationFireDate = ObservableValue(
-            initialValue: state.day212ndNotificationFireDate,
+            initialValue: nil,
             observationClosure: CTFNotificationSubscriber.observationClosureGenerator(
                 notificationIdentifier: CTFNotificationSubscriber.k21DayNotificationIdentifier2nd,
                 text: CTFNotificationSubscriber.k21DayNotificationText,
@@ -88,7 +88,7 @@ class CTFNotificationSubscriber: NSObject, StoreSubscriber {
         ))
         
         self.morningNotificationFireDate = ObservableValue(
-            initialValue: state.morningNotificationFireDate,
+            initialValue: nil,
             observationClosure: CTFNotificationSubscriber.observationClosureGenerator(
                 notificationIdentifier: CTFNotificationSubscriber.kMorningNotificationIdentifer,
                 text: CTFNotificationSubscriber.kMorningNotificationText,
@@ -96,7 +96,7 @@ class CTFNotificationSubscriber: NSObject, StoreSubscriber {
         ))
         
         self.morning2ndNotificationFireDate = ObservableValue(
-            initialValue: state.morning2ndNotificationFireDate,
+            initialValue: nil,
             observationClosure: CTFNotificationSubscriber.observationClosureGenerator(
                 notificationIdentifier: CTFNotificationSubscriber.kMorningNotificationIdentifer2nd,
                 text: CTFNotificationSubscriber.kMorningNotificationText,
@@ -104,7 +104,7 @@ class CTFNotificationSubscriber: NSObject, StoreSubscriber {
         ))
         
         self.eveningNotificationFireDate = ObservableValue(
-            initialValue: state.eveningNotificationFireDate,
+            initialValue: nil,
             observationClosure: CTFNotificationSubscriber.observationClosureGenerator(
                 notificationIdentifier: CTFNotificationSubscriber.kEveningNotificationIdentifer,
                 text: CTFNotificationSubscriber.kEveningNotificationText,
@@ -112,7 +112,7 @@ class CTFNotificationSubscriber: NSObject, StoreSubscriber {
         ))
         
         self.evening2ndNotificationFireDate = ObservableValue(
-            initialValue: state.evening2ndNotificationFireDate,
+            initialValue: nil,
             observationClosure: CTFNotificationSubscriber.observationClosureGenerator(
                 notificationIdentifier: CTFNotificationSubscriber.kEveningNotificationIdentifer2nd,
                 text: CTFNotificationSubscriber.kEveningNotificationText,
@@ -170,5 +170,9 @@ class CTFNotificationSubscriber: NSObject, StoreSubscriber {
     
     static private func cancelAllNotifications() {
         CTFNotificationSubscriber.NotificationIdentifiers.forEach({CTFNotificationSubscriber.cancelNotification(withIdentifier: $0)})
+    }
+    
+    deinit {
+        debugPrint("\(self) deiniting")
     }
 }

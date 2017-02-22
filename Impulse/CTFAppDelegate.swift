@@ -48,6 +48,16 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
 
     var window: UIWindow?
     
+    var reduxStoreManager: CTFReduxStoreManager?
+    
+    //the following are subscribers
+    var reduxPersistenceSubscriber: CTFReduxPersistentStorageSubscriber?
+    var reduxStateHelper: CTFReduxStateHelper?
+    var reduxNotificationSubscriber: CTFNotificationSubscriber?
+    
+    var taskBuilderManager: CTFTaskBuilderManager?
+    var resultsProcessorManager: CTFResultsProcessorManager?
+
     open var containerRootViewController: CTFRootViewControllerProtocol? {
         return window?.rootViewController as? CTFRootViewControllerProtocol
     }
@@ -64,6 +74,8 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
                 print("Got error \(error) when resetting keychain")
             }
         }
+        
+        self.initializeState()
         
         var appState: CTFAppStateProtocol = CTFStateManager.defaultManager
         
@@ -97,7 +109,7 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
             
             let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = mainStoryboard.instantiateInitialViewController() as! CTFMainTabViewController
-
+            
             window.rootViewController = vc
         }
         else {
@@ -303,6 +315,54 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
         viewController.present(alert, animated: true, completion: nil)
     }
     
+    private func initializeState() {
+        let reduxPersistenceSubscriber = CTFReduxPersistentStorageSubscriber()
+        let persistedState = reduxPersistenceSubscriber.loadState()
+        let storeManager = CTFReduxStoreManager(initialState: persistedState)
+        let notificationManager = CTFNotificationSubscriber()
+        let stateHelper = CTFReduxStateHelper(store: storeManager.store)
+        
+        let taskBuilder = CTFTaskBuilderManager(stateHelper: stateHelper)
+        let resultsProcessor = CTFResultsProcessorManager(store: storeManager.store)
+        
+        self.reduxStoreManager = storeManager
+        self.reduxPersistenceSubscriber = reduxPersistenceSubscriber
+        self.reduxStateHelper = stateHelper
+        self.reduxNotificationSubscriber = notificationManager
+        
+        self.taskBuilderManager = taskBuilder
+        self.resultsProcessorManager = resultsProcessor
+        
+        storeManager.store.subscribe(reduxPersistenceSubscriber)
+        storeManager.store.subscribe(notificationManager)
+        storeManager.store.subscribe(stateHelper)
+        
+    }
+    
+    private func resetState() {
+        
+        //unwind
+        
+        let oldStoreManager = self.reduxStoreManager!
+        oldStoreManager.store.unsubscribe(self.reduxPersistenceSubscriber!)
+        oldStoreManager.store.unsubscribe(self.reduxStateHelper!)
+        oldStoreManager.store.unsubscribe(self.reduxNotificationSubscriber!)
+        
+        self.reduxStoreManager = nil
+        self.reduxPersistenceSubscriber = nil
+        self.reduxStateHelper = nil
+        self.reduxNotificationSubscriber = nil
+        self.taskBuilderManager = nil
+        self.resultsProcessorManager = nil
+        
+        CTFKeychainHelpers.clearKeychain()
+        
+        self.initializeState()
+        
+    }
+    
+    
+//    private func initialize 
     
     public func signOut() {
         
@@ -321,8 +381,7 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
                     DispatchQueue.main.async {
                         //clear keychain (passcode stored in keychain
                         appState.isLoggedIn = false
-                        CTFStateManager.defaultManager.clearState()
-                        CTFReduxStoreManager.mainStore.dispatch(CTFActionCreators.clearStore())
+                        self.resetState()
                         appDelegate.showViewController()
                     }
                     
