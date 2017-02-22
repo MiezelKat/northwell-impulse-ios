@@ -32,20 +32,18 @@ class CTFLogInViaExternalIdViewController: UIViewController, ORKTaskViewControll
         let passcodeStep = ORKPasscodeStep(identifier: "passcode")
         passcodeStep.passcodeType = .type4Digit
         
-        
-//        let task = ORKNavigableOrderedTask(identifier: "registration", steps: [consentQuestionStep, externalIDStep, passcodeStep, notConsentedStep])
-        
         let task = ORKNavigableOrderedTask(identifier: "registration", steps: [consentQuestionStep, logInStep, passcodeStep, notConsentedStep])
         
         let consentResultSelector = ORKResultSelector(resultIdentifier: "consent")
         let notConsentResultPredicate = ORKResultPredicate.predicateForBooleanQuestionResult(with: consentResultSelector, expectedAnswer: false)
+        let consentNavigationRule = ORKPredicateStepNavigationRule(resultPredicates: [notConsentResultPredicate], destinationStepIdentifiers: ["not_consented"], defaultStepIdentifier: CTFLogInViaExternalIdViewController.LoginStepdentifier, validateArrays: false)
 //        let consentNavigationRule = ORKPredicateStepNavigationRule(resultPredicates: [(notConsentResultPredicate, "not_consented")], destinationStepIdentifiers: "externalID")
-//        
-//        task.setNavigationRule(consentNavigationRule, forTriggerStepIdentifier: "consent")
-//        
-//        let skipNotConsentRule = ORKDirectStepNavigationRule(destinationStepIdentifier: "")
         
-//        task.setNavigationRule(skipNotConsentRule, forTriggerStepIdentifier: "passcode")
+        task.setNavigationRule(consentNavigationRule, forTriggerStepIdentifier: "consent")
+        
+        let skipNotConsentRule = ORKDirectStepNavigationRule(destinationStepIdentifier: "")
+        
+        task.setNavigationRule(skipNotConsentRule, forTriggerStepIdentifier: "passcode")
         
         
         let vc = ORKTaskViewController(task: task, taskRun: nil)

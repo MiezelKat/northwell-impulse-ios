@@ -36,13 +36,13 @@ class CTFStateManager: NSObject, RSTBStateHelper, CTFAppStateProtocol {
     override init() {
         super.init()
         //check for firstRun
-        if UserDefaults.standard.object(forKey: "FirstRun") == nil {
-            UserDefaults.standard.set("1stRun", forKey: "FirstRun")
-            UserDefaults.standard.synchronize()
-            
-            self.setNotificationsBasedOnKeychainState()
-            //            self.clearKeychain()
-        }
+//        if UserDefaults.standard.object(forKey: "FirstRun") == nil {
+//            UserDefaults.standard.set("1stRun", forKey: "FirstRun")
+//            UserDefaults.standard.synchronize()
+//            
+//            self.setNotificationsBasedOnKeychainState()
+//            //            self.clearKeychain()
+//        }
     }
     
     static let defaultManager = CTFStateManager()
