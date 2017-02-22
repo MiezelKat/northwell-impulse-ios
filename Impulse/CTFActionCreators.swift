@@ -17,6 +17,11 @@ class CTFActionCreators: NSObject {
     static let k1DayInterval: TimeInterval = 24.0 * k1HourInterval
     static let k21DaySurveyDelayInterval: TimeInterval = 21.0 * k1DayInterval
     
+    static let kDailySurveyNotificationWindowBeforeInterval: TimeInterval = 0.0
+    static let kDailySurveyNotificationWindowAfterInterval: TimeInterval = 30.0 * k1MinuteInterval
+    static let kDailySurveyTimeBeforeInterval: TimeInterval = 2.0 * k1HourInterval
+    static let kDailySurveyTimeAfterInterval: TimeInterval = 6.0 * k1HourInterval
+    static let kDailySurveyDelaySinceBaselineTimeInterval: TimeInterval = 0.0
     static let kSecondaryNotificationDelay: TimeInterval = 2.0 * k1HourInterval
     
     static let kBaselineBehaviorResults: String = "BaselineBehaviorResults"
@@ -64,6 +69,118 @@ class CTFActionCreators: NSObject {
             }
             
             return nil
+        }
+    }
+    
+    static func handleReenrollment(_ result: ORKTaskResult) -> (CTFReduxState, Store<CTFReduxState>) -> Action? {
+        return { (state, store) in
+            
+            if let notificationTimeResult = result.result(forIdentifier: "baseline_completed_date_picker") as? ORKStepResult,
+                let dateQuestionResult = notificationTimeResult.firstResult as? ORKDateQuestionResult,
+                let completedDate = dateQuestionResult.dateAnswer {
+                
+                //set baseline completed date
+                let markBaselineAction = MarkBaselineSurveyCompletedAction(completedDate: completedDate)
+                CTFReduxStoreManager.mainStore.dispatch(markBaselineAction)
+                
+                //set 21 day notification
+                let initialFireDate = Date(timeInterval: CTFActionCreators.k21DaySurveyDelayInterval, since: result.endDate)
+                let secondaryFireDate = initialFireDate.addingTimeInterval(CTFActionCreators.kSecondaryNotificationDelay)
+                let day21NotificationAction = Set21DayNotificationAction(
+                    initialFireDate: initialFireDate,
+                    secondaryFireDate: secondaryFireDate)
+                
+                store.dispatch(day21NotificationAction)
+            }
+            
+            //
+            if let notificationTimeResult = result.result(forIdentifier: "morning_notification_time_picker") as? ORKStepResult,
+                let timeOfDayResult = notificationTimeResult.firstResult as? ORKTimeOfDayQuestionResult,
+                let dateComponents = timeOfDayResult.dateComponentsAnswer {
+                
+                store.dispatch(setMorningSurveyTime(dateComponents))
+            }
+            
+            if let notificationTimeResult = result.result(forIdentifier: "evening_notification_time_picker") as? ORKStepResult,
+                let timeOfDayResult = notificationTimeResult.firstResult as? ORKTimeOfDayQuestionResult,
+                let dateComponents = timeOfDayResult.dateComponentsAnswer {
+                
+                store.dispatch(setEveningSurveyTime(dateComponents))
+            }
+            
+            if let stepResult = result.result(forIdentifier: "baseline_behaviors_4") as? ORKStepResult,
+                let questionResult = stepResult.firstResult as? ORKChoiceQuestionResult,
+                let answers = questionResult.choiceAnswers as? [String],
+                answers.count > 0 {
+                
+                //                let secureCodingAnswers = answers as NSObject
+                //                debugPrint(secureCodingAnswers)
+                let setBehaviorsAction = SetValueInExtensibleStorage(key: CTFActionCreators.kBaselineBehaviorResults, value: answers as NSObject)
+                store.dispatch(setBehaviorsAction)
+                
+            }
+            
+            return nil
+        }
+    }
+    
+    static func handleMorningSurvey(_ result: ORKTaskResult) -> (CTFReduxState, Store<CTFReduxState>) -> Action? {
+        return { (state, store) in
+            
+            if let dateComponents = state.morningSurveyTimeComponents,
+                let initialFireDate = CTFActionCreators.getNotificationFireDate(timeComponents: dateComponents as NSDateComponents, latestCompletion: result.endDate) {
+                let secondaryFireDate = initialFireDate.addingTimeInterval(CTFActionCreators.kSecondaryNotificationDelay)
+                let notificationAction = SetMorningNotificationAction(
+                    initialFireDate: initialFireDate,
+                    secondaryFireDate: secondaryFireDate)
+                
+                store.dispatch(notificationAction)
+            }
+            
+            return MarkMorningSurveyCompletedAction(completedDate: result.endDate)
+            
+        }
+    }
+    
+    static func handleEveningSurvey(_ result: ORKTaskResult) -> (CTFReduxState, Store<CTFReduxState>) -> Action? {
+        return { (state, store) in
+            
+            if let dateComponents = state.eveningSurveyTimeComponents,
+                let initialFireDate = CTFActionCreators.getNotificationFireDate(timeComponents: dateComponents as NSDateComponents, latestCompletion: result.endDate) {
+                let secondaryFireDate = initialFireDate.addingTimeInterval(CTFActionCreators.kSecondaryNotificationDelay)
+                let notificationAction = SetEveningNotificationAction(
+                    initialFireDate: initialFireDate,
+                    secondaryFireDate: secondaryFireDate)
+                
+                store.dispatch(notificationAction)
+            }
+            
+            return MarkEveningSurveyCompletedAction(completedDate: result.endDate)
+            
+        }
+    }
+    
+    static func handleDay21Survey(_ result: ORKTaskResult) -> (CTFReduxState, Store<CTFReduxState>) -> Action? {
+        return { (state, store) in
+            
+            store.dispatch(ClearAllNotificationsAction())
+            
+            return MarkDay21SurveyCompletedAction(completedDate: result.endDate)
+            
+        }
+    }
+    
+    static func setValueInExtensibleStorage(key: String, value: NSObject?) -> (CTFReduxState, Store<CTFReduxState>) -> Action? {
+        
+        return { (state, store) in
+            return SetValueInExtensibleStorage(key: key, value: value)
+        }
+        
+    }
+    
+    static func clearStore() -> (CTFReduxState, Store<CTFReduxState>) -> Action? {
+        return { (state, store) in
+            return ClearStore()
         }
     }
     
@@ -143,7 +260,7 @@ class CTFActionCreators: NSObject {
         return calendar.dateComponents(unitFlags, from: date)
     }
     
-    static private func combineDateWithDateComponents(date: Date, timeComponents: NSDateComponents) -> Date? {
+    static public func combineDateWithDateComponents(date: Date, timeComponents: NSDateComponents) -> Date? {
         
         // *** define calendar components to use as well Timezone to UTC ***
 //        let unitFlags = Set<Calendar.Component>([.year, .month, .day])

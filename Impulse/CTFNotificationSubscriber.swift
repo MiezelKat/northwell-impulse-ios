@@ -51,85 +51,73 @@ class CTFNotificationSubscriber: NSObject, StoreSubscriber {
         return _sharedInstance!
     }
     
+    private static func observationClosureGenerator(notificationIdentifier: String, text: String, taskIdentifier: String) -> (Date?) -> () {
+        return { date in
+            if let fireDate = date {
+                
+                CTFNotificationSubscriber.setNotification(
+                    forIdentifier: notificationIdentifier,
+                    initialFireDate: fireDate,
+                    text: text,
+                    taskIdentifier: taskIdentifier
+                )
+                
+            }
+            else {
+                CTFNotificationSubscriber.cancelNotification(withIdentifier: notificationIdentifier)
+            }
+        }
+    }
+    
     private init(state: CTFReduxState) {
         
-        self.day21NotificationFireDate = ObservableValue(initialValue: state.day21NotificationFireDate, observationClosure: { (date) in
-            if let fireDate = date {
-                
-                CTFNotificationSubscriber.setNotification(
-                    forIdentifier: CTFNotificationSubscriber.k21DayNotificationIdentifier,
-                    initialFireDate: fireDate,
-                    text: CTFNotificationSubscriber.k21DayNotificationText,
-                    taskIdentifier: CTFNotificationSubscriber.k21DayTaskIdentifier
-                )
-                
-            }
-        })
+        self.day21NotificationFireDate = ObservableValue(
+            initialValue: state.day21NotificationFireDate,
+            observationClosure: CTFNotificationSubscriber.observationClosureGenerator(
+                notificationIdentifier: CTFNotificationSubscriber.k21DayNotificationIdentifier,
+                text: CTFNotificationSubscriber.k21DayNotificationText,
+                taskIdentifier: CTFNotificationSubscriber.k21DayTaskIdentifier
+        ))
         
-        self.day212ndNotificationFireDate = ObservableValue(initialValue: state.day212ndNotificationFireDate, observationClosure: { (date) in
-            if let fireDate = date {
-                
-                CTFNotificationSubscriber.setNotification(
-                    forIdentifier: CTFNotificationSubscriber.k21DayNotificationIdentifier2nd,
-                    initialFireDate: fireDate,
-                    text: CTFNotificationSubscriber.k21DayNotificationText,
-                    taskIdentifier: CTFNotificationSubscriber.k21DayTaskIdentifier
-                )
-                
-            }
-        })
+        self.day212ndNotificationFireDate = ObservableValue(
+            initialValue: state.day212ndNotificationFireDate,
+            observationClosure: CTFNotificationSubscriber.observationClosureGenerator(
+                notificationIdentifier: CTFNotificationSubscriber.k21DayNotificationIdentifier2nd,
+                text: CTFNotificationSubscriber.k21DayNotificationText,
+                taskIdentifier: CTFNotificationSubscriber.k21DayTaskIdentifier
+        ))
         
-        self.morningNotificationFireDate = ObservableValue(initialValue: state.morningNotificationFireDate, observationClosure: { (date) in
-            if let fireDate = date {
-                
-                CTFNotificationSubscriber.setNotification(
-                    forIdentifier: CTFNotificationSubscriber.kMorningNotificationIdentifer,
-                    initialFireDate: fireDate,
-                    text: CTFNotificationSubscriber.kMorningNotificationText,
-                    taskIdentifier: CTFNotificationSubscriber.kMorningTaskIdentifier
-                )
-                
-            }
-        })
+        self.morningNotificationFireDate = ObservableValue(
+            initialValue: state.morningNotificationFireDate,
+            observationClosure: CTFNotificationSubscriber.observationClosureGenerator(
+                notificationIdentifier: CTFNotificationSubscriber.kMorningNotificationIdentifer,
+                text: CTFNotificationSubscriber.kMorningNotificationText,
+                taskIdentifier: CTFNotificationSubscriber.kMorningTaskIdentifier
+        ))
         
-        self.morning2ndNotificationFireDate = ObservableValue(initialValue: state.morning2ndNotificationFireDate, observationClosure: { (date) in
-            if let fireDate = date {
-                
-                CTFNotificationSubscriber.setNotification(
-                    forIdentifier: CTFNotificationSubscriber.kMorningNotificationIdentifer2nd,
-                    initialFireDate: fireDate,
-                    text: CTFNotificationSubscriber.kMorningNotificationText,
-                    taskIdentifier: CTFNotificationSubscriber.kMorningTaskIdentifier
-                )
-                
-            }
-        })
+        self.morning2ndNotificationFireDate = ObservableValue(
+            initialValue: state.morning2ndNotificationFireDate,
+            observationClosure: CTFNotificationSubscriber.observationClosureGenerator(
+                notificationIdentifier: CTFNotificationSubscriber.kMorningNotificationIdentifer2nd,
+                text: CTFNotificationSubscriber.kMorningNotificationText,
+                taskIdentifier: CTFNotificationSubscriber.kMorningTaskIdentifier
+        ))
         
-        self.eveningNotificationFireDate = ObservableValue(initialValue: state.eveningNotificationFireDate, observationClosure: { (date) in
-            if let fireDate = date {
-                
-                CTFNotificationSubscriber.setNotification(
-                    forIdentifier: CTFNotificationSubscriber.kEveningNotificationIdentifer,
-                    initialFireDate: fireDate,
-                    text: CTFNotificationSubscriber.kEveningNotificationText,
-                    taskIdentifier: CTFNotificationSubscriber.kEveningTaskIdentifier
-                )
-                
-            }
-        })
+        self.eveningNotificationFireDate = ObservableValue(
+            initialValue: state.eveningNotificationFireDate,
+            observationClosure: CTFNotificationSubscriber.observationClosureGenerator(
+                notificationIdentifier: CTFNotificationSubscriber.kEveningNotificationIdentifer,
+                text: CTFNotificationSubscriber.kEveningNotificationText,
+                taskIdentifier: CTFNotificationSubscriber.kEveningTaskIdentifier
+        ))
         
-        self.evening2ndNotificationFireDate = ObservableValue(initialValue: state.evening2ndNotificationFireDate, observationClosure: { (date) in
-            if let fireDate = date {
-                
-                CTFNotificationSubscriber.setNotification(
-                    forIdentifier: CTFNotificationSubscriber.kEveningNotificationIdentifer2nd,
-                    initialFireDate: fireDate,
-                    text: CTFNotificationSubscriber.kEveningNotificationText,
-                    taskIdentifier: CTFNotificationSubscriber.kEveningTaskIdentifier
-                )
-                
-            }
-        })
+        self.evening2ndNotificationFireDate = ObservableValue(
+            initialValue: state.evening2ndNotificationFireDate,
+            observationClosure: CTFNotificationSubscriber.observationClosureGenerator(
+                notificationIdentifier: CTFNotificationSubscriber.kEveningNotificationIdentifer2nd,
+                text: CTFNotificationSubscriber.kEveningNotificationText,
+                taskIdentifier: CTFNotificationSubscriber.kEveningTaskIdentifier
+        ))
         
         super.init()
         
@@ -149,6 +137,9 @@ class CTFNotificationSubscriber: NSObject, StoreSubscriber {
     }
     
     static private func setNotification(forIdentifier: String, initialFireDate: Date, text: String, taskIdentifier: String) {
+        
+        //always clear notification before setting
+        cancelNotification(withIdentifier: forIdentifier)
         
         let settings = UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil)
         UIApplication.shared.registerUserNotificationSettings(settings)

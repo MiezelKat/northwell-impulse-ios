@@ -23,6 +23,8 @@ class CTFActivityTableViewController: UITableViewController, CTFSettingsDelegate
     var trialActivitiesSchedule: CTFSchedule?
     var trialActivities: [CTFScheduleItem] = []
     
+    var state: CTFReduxState?
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -41,16 +43,18 @@ class CTFActivityTableViewController: UITableViewController, CTFSettingsDelegate
         CTFReduxStoreManager.sharedInstance.store.unsubscribe(self)
     }
     
-    func shouldReloadData(state: CTFReduxState) -> Bool {
-        return false
-    }
-    
     func newState(state: CTFReduxState) {
         
         //possibly reload data
-        if self.shouldReloadData(state: state) {
+        if let oldState = self.state,
+            CTFSelectors.shouldReloadActivities(newState: state, oldState: oldState){
             self.reloadData(state: state)
         }
+        else {
+            self.reloadData(state: state)
+        }
+        
+        self.state = CTFReduxState.newState(fromState: state)
         
     }
     
@@ -173,8 +177,17 @@ class CTFActivityTableViewController: UITableViewController, CTFSettingsDelegate
             switch(scheduleItem.identifier) {
             case "baseline":
                 return CTFSelectors.shouldShowBaselineSurvey(state: state)
+            case "reenrollment":
+                return CTFSelectors.shouldShowReenrollmentSurvey(state: state)
+            case "21-day-assessment":
+                return CTFSelectors.shouldShow21DaySurvey(state: state)
+            case "am_survey":
+                return CTFSelectors.shouldShowMorningSurvey(state: state)
+            case "pm_survey":
+                return CTFSelectors.shouldShowEveningSurvey(state: state)
+                
             default:
-                return true
+                return false
             }
             
         }

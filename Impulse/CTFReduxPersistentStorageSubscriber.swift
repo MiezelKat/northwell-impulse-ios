@@ -45,7 +45,9 @@ class PersistedValue<T: Equatable>: ObservableValue<T> {
         self.key = key
         
         let observationClosure: ObservationClosure = { value in
-            CTFStateManager.defaultManager.setValueInState(value: value as? NSSecureCoding, forKey: key)
+            let secureCodingValue = value as? NSSecureCoding
+            debugPrint(secureCodingValue)
+            CTFStateManager.defaultManager.setValueInState(value: secureCodingValue, forKey: key)
         }
         
         super.init(
@@ -85,13 +87,16 @@ class PersistedValueMap: NSObject {
         
         if let keys = self.keys.get() as? [String] {
             keys.forEach({ (key) in
-                self.map[key] = PersistedValue<NSObject>(key: key)
+                let valueKey = self.valueKeyComputeFunction(key)
+                self.map[key] = PersistedValue<NSObject>(key: valueKey)
             })
         }
         
     }
     
-    subscript(key: String) -> NSObject? {
+    
+    
+    private subscript(key: String) -> NSObject? {
         
         get {
             
@@ -250,6 +255,12 @@ class CTFReduxPersistentStorageSubscriber: NSObject, StoreSubscriber {
         
         self.lastCompletedTaskIdentifier.set(value: state.lastCompletedTaskIdentifier)
         self.baselineCompletedDate.set(value: state.baselineCompletedDate)
+        self.lastMorningCompletionDate.set(value: state.lastMorningCompletionDate)
+        self.lastEveningCompletionDate.set(value: state.lastEveningCompletionDate)
+        self.day21CompletionDate.set(value: state.day21CompletionDate)
+        
+        self.morningSurveyTimeComponents.set(value: state.morningSurveyTimeComponents)
+        self.eveningSurveyTimeComponents.set(value: state.eveningSurveyTimeComponents)
         
         self.day21NotificationFireDate.set(value: state.day21NotificationFireDate)
         self.day212ndNotificationFireDate.set(value: state.day212ndNotificationFireDate)

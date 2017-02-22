@@ -530,7 +530,7 @@ let kThankYouText = "Thank you for today's input!"
 //            
 //            CTFStateManager.defaultManager.markBaselineSurveyAsCompleted(completedDate: completedDate)
 //        }
-//        
+//
 //        //extract morning and evening survey times
 //        
 //        if let notificationTimeResult = result.result(forIdentifier: "morning_notification_time_picker") as? ORKStepResult,

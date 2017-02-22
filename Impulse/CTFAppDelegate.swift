@@ -316,10 +316,13 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
             if loggedIn, let appDelegate = UIApplication.shared.delegate as? CTFAppDelegate {
                 CTFBridgeManager.sharedManager.signOut(completion: { (error) in
                     
+                    
+                    
                     DispatchQueue.main.async {
                         //clear keychain (passcode stored in keychain
                         appState.isLoggedIn = false
                         CTFStateManager.defaultManager.clearState()
+                        CTFReduxStoreManager.mainStore.dispatch(CTFActionCreators.clearStore())
                         appDelegate.showViewController()
                     }
                     

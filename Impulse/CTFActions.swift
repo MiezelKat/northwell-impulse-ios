@@ -56,6 +56,10 @@ struct SetEveningNotificationAction: Action {
     let secondaryFireDate: Date
 }
 
+struct ClearAllNotificationsAction: Action {
+    
+}
+
 struct Enable2ndNotificationAction: Action {
     let enable: Bool
 }
@@ -71,5 +75,9 @@ struct SetEveningSurveyTimeAction: Action {
 struct SetValueInExtensibleStorage: Action {
     let key: String
     let value: NSObject?
+}
+
+struct ClearStore: Action {
+    
 }
 

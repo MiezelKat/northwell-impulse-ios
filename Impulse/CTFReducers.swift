@@ -170,6 +170,14 @@ class CTFReducers: NSObject {
                 eveningNotificationFireDate = notificationAction.initialFireDate
                 evening2ndNotificationFireDate = notificationAction.secondaryFireDate
                 
+            case _ as ClearAllNotificationsAction:
+                day21NotificationFireDate = nil
+                day212ndNotificationFireDate = nil
+                morningNotificationFireDate = nil
+                morning2ndNotificationFireDate = nil
+                eveningNotificationFireDate = nil
+                evening2ndNotificationFireDate = nil
+                
             default:
                 break
             }
@@ -198,7 +206,7 @@ class CTFReducers: NSObject {
             case let setTimeAction as SetMorningSurveyTimeAction:
                 morningSurveyTimeComponents = setTimeAction.components
                 
-            case let setTimeAction as SetMorningSurveyTimeAction:
+            case let setTimeAction as SetEveningSurveyTimeAction:
                 eveningSurveyTimeComponents = setTimeAction.components
                 
             default:

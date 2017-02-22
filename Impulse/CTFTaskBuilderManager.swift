@@ -56,7 +56,7 @@ class CTFTaskBuilderManager: NSObject {
         
         // Do any additional setup after loading the view, typically from a nib.
         self.rstb = RSTBTaskBuilder(
-            stateHelper: CTFStateManager.defaultManager,
+            stateHelper: CTFReduxStateHelper.sharedInstance,
             elementGeneratorServices: CTFTaskBuilderManager.elementGeneratorServices,
             stepGeneratorServices: CTFTaskBuilderManager.stepGeneratorServices,
             answerFormatGeneratorServices: CTFTaskBuilderManager.answerFormatGeneratorServices)

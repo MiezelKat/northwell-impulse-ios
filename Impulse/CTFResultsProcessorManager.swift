@@ -16,7 +16,6 @@ class CTFResultsProcessorManager: NSObject, StoreSubscriber {
     
     static let sharedInstance = CTFResultsProcessorManager()
     
-    
     var _pendingResult: (UUID, CTFActivityRun, ORKTaskResult)? = nil
     
     var pendingResult: (UUID, CTFActivityRun, ORKTaskResult)? {
@@ -60,11 +59,21 @@ class CTFResultsProcessorManager: NSObject, StoreSubscriber {
     }
     
     func processResult(uuid: UUID, activityRun: CTFActivityRun, taskResult: ORKTaskResult) {
-        
-        if activityRun.identifier == "baseline" {
-            
+
+        switch(activityRun.identifier) {
+        case "baseline":
             CTFReduxStoreManager.mainStore.dispatch(CTFActionCreators.handleBaselineSurvey(taskResult))
+        case "reenrollment":
+            CTFReduxStoreManager.mainStore.dispatch(CTFActionCreators.handleReenrollment(taskResult))
+        case "21-day-assessment":
+            CTFReduxStoreManager.mainStore.dispatch(CTFActionCreators.handleDay21Survey(taskResult))
+        case "am_survey":
+            CTFReduxStoreManager.mainStore.dispatch(CTFActionCreators.handleMorningSurvey(taskResult))
+        case "pm_survey":
+            CTFReduxStoreManager.mainStore.dispatch(CTFActionCreators.handleEveningSurvey(taskResult))
             
+        default:
+            break
         }
         
         //process result

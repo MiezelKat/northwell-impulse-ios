@@ -59,6 +59,7 @@ class CTFReduxStoreManager: NSObject {
         
         self.store.subscribe(CTFReduxPersistentStorageSubscriber.sharedInstance)
         self.store.subscribe(CTFNotificationSubscriber.config(state: state))
+        self.store.subscribe(CTFReduxStateHelper.sharedInstance)
         
     }
     
