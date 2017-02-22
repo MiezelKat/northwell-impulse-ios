@@ -343,10 +343,13 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
         
         //unwind
         
-        let oldStoreManager = self.reduxStoreManager!
-        oldStoreManager.store.unsubscribe(self.reduxPersistenceSubscriber!)
-        oldStoreManager.store.unsubscribe(self.reduxStateHelper!)
-        oldStoreManager.store.unsubscribe(self.reduxNotificationSubscriber!)
+        if let oldStoreManager = self.reduxStoreManager {
+            if let s = self.reduxPersistenceSubscriber { oldStoreManager.store.unsubscribe(s) }
+            if let s = self.reduxStateHelper { oldStoreManager.store.unsubscribe(s) }
+            if let s = self.reduxNotificationSubscriber { oldStoreManager.store.unsubscribe(s) }
+        }
+        
+        self.reduxNotificationSubscriber?.cancelAllNotifications()
         
         self.reduxStoreManager = nil
         self.reduxPersistenceSubscriber = nil

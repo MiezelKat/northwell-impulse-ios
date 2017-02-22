@@ -43,7 +43,12 @@ class CTFMainTabViewController: UITabBarController, CTFRootViewControllerProtoco
     var contentHidden = false {
         didSet {
             guard contentHidden != oldValue && isViewLoaded else { return }
-            self.childViewControllers.first?.view.isHidden = contentHidden
+
+            if let vc = self.presentedViewController {
+                vc.view.isHidden = contentHidden
+            }
+            
+            self.view.isHidden = contentHidden
         }
     }
     

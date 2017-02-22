@@ -168,7 +168,7 @@ class CTFNotificationSubscriber: NSObject, StoreSubscriber {
         }
     }
     
-    static private func cancelAllNotifications() {
+    public func cancelAllNotifications() {
         CTFNotificationSubscriber.NotificationIdentifiers.forEach({CTFNotificationSubscriber.cancelNotification(withIdentifier: $0)})
     }
     
