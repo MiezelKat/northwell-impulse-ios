@@ -196,7 +196,7 @@ class CTFActivityTableViewController: UITableViewController, CTFSettingsDelegate
                 return CTFSelectors.shouldShowEveningSurvey(state: state)
                 
             default:
-                return false
+                return true
             }
             
         }

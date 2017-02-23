@@ -10,54 +10,64 @@ import UIKit
 import BridgeSDK
 
 public protocol SBBDataArchiveBuilder: SBBDataArchiveConvertable {
-    
     var schemaIdentifier: String { get }
-    
     var schemaVersion: Int { get }
+    var metadata: [String: Any] { get }
+    var data: [String: Any] { get }
+    var createdOn: Date { get }
     
-    var metadataAdditions: [String: AnyObject]? { get }
-    var data: [String: AnyObject] { get }
-    
-    
-    var startDate: Date? { get }
-    var endDate: Date? { get }
-
+    var kUUIDKey: String { get }
+    var kTaskIdentifierKey: String { get }
+    var kTaskRunUUIDKey: String { get }
+    var kStartDate: String { get }
+    var kEndDate: String { get }
+    var kDataFilename: String { get }
+    var kMetadataFilename: String { get }
 }
 
 extension SBBDataArchiveBuilder {
     
-    public var metadataAdditions: [String: AnyObject]? {
-        return nil
+    public var kUUIDKey: String {
+        return "UUID"
     }
     
-    public var metadata: [String: AnyObject] {
+    public var kTaskIdentifierKey: String {
+        return "taskIdentifier"
+    }
     
-        var metadata = [String: AnyObject]()
-        
-        if let startDate = self.startDate {
-            metadata[self.kStartDate] = staticISO8601Formatter.string(from: startDate) as AnyObject?
-        }
-        
-        if let endDate = self.endDate {
-            metadata[self.kEndDate] = staticISO8601Formatter.string(from: endDate) as AnyObject?
-        }
-        
-        if let metadataAdditions = self.metadataAdditions {
-            metadataAdditions.forEach({
-                metadata[$0] = $1
-            })
-        }
-        
-        return metadata
+    public var kTaskRunUUIDKey: String {
+        return "taskRunUUID"
+    }
+    
+    public var kStartDate: String {
+        return "startDate"
+    }
+    
+    public var kEndDate: String {
+        return "endDate"
+    }
+    
+    public var kDataFilename: String {
+        return "data.json"
+    }
+    
+    public var kMetadataFilename: String {
+        return "metadata.json"
     }
     
     public func toArchive() -> SBBDataArchive? {
         
         let dataArchive = SBBDataArchive(reference: self.schemaIdentifier, jsonValidationMapping: nil)
         
+        debugPrint(self.schemaIdentifier)
+        debugPrint(self.schemaVersion)
+        debugPrint(self.metadata)
+        debugPrint(self.data)
+        debugPrint(self.createdOn)
+        
         dataArchive.setArchiveInfoObject(self.schemaVersion, forKey: self.kSchemaRevisionKey)
-        dataArchive.insertDictionary(intoArchive: self.data, filename: "data.json", createdOn: endDate ?? Date())
-        dataArchive.insertDictionary(intoArchive: self.metadata, filename: "metadata.json", createdOn: endDate ?? Date())
+        dataArchive.insertDictionary(intoArchive: self.data, filename: self.kDataFilename, createdOn: self.createdOn)
+        dataArchive.insertDictionary(intoArchive: self.metadata, filename: self.kMetadataFilename, createdOn: self.createdOn)
         
         do {
             try dataArchive.complete()

@@ -11,22 +11,22 @@ import sdlrkx
 import BridgeSDK
 
 
-extension CTFDelayDiscountingRaw: SBBDataArchiveBuilder {
+extension CTFDelayDiscountingRaw {
 
     //its up to this convertable to manage the schema id and schema revision
     
-    public var schemaIdentifier: String {
+    override public var schemaIdentifier: String {
         return "delay_discounting_raw"
     }
     
-    public var schemaVersion: Int {
-        return 2
+    override public var schemaVersion: Int {
+        return 5
     }
     
-    public var data: [String: AnyObject] {
+    override public var data: [String: Any] {
         return [
-            "variableLabel": self.variableLabel as AnyObject,
-            "nowArray": self.nowArray as AnyObject
+            "variableLabel": self.variableLabel,
+            "nowArray": self.nowArray
         ]
     }
 

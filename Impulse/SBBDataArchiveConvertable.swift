@@ -32,15 +32,12 @@ open class ArchiveableResult : NSObject {
 public protocol SBBDataArchiveConvertable {
     func toArchive() -> SBBDataArchive?
     
-//    static var kSurveyCreatedOnKey: String { get }
-//    static var kSurveyGuidKey: String { get }
     var kSchemaRevisionKey: String { get }
-//    static var kTaskIdentifierKey: String { get }
-//    static var kScheduledActivityGuidKey: String { get }
-//    static var kTaskRunUUIDKey: String { get }
-    var kStartDate: String { get }
-    var kEndDate: String { get }
-//    static var kMetadataFilename: String { get }
+//    var kTaskIdentifierKey: String { get }
+//    var kTaskRunUUIDKey: String { get }
+//    var kStartDate: String { get }
+//    var kEndDate: String { get }
+//    var kMetadataFilename: String { get }
 }
 
 
@@ -58,40 +55,40 @@ extension SBBDataArchiveConvertable {
         return Self.ISO8601Formatter().string(from: date)
     }
     
-    public static var kSurveyCreatedOnKey: String {
-        return "surveyCreatedOn"
-    }
-    
-    public static var kSurveyGuidKey: String {
-        return "surveyGuid"
-    }
-    
+//    public static var kSurveyCreatedOnKey: String {
+//        return "surveyCreatedOn"
+//    }
+//    
+//    public static var kSurveyGuidKey: String {
+//        return "surveyGuid"
+//    }
+//    
     public var kSchemaRevisionKey: String {
         return "schemaRevision"
     }
-    
-    public static var kTaskIdentifierKey: String {
-        return "taskIdentifier"
-    }
-    
-    public static var kScheduledActivityGuidKey: String {
-        return "scheduledActivityGuid"
-    }
-    
-    public static var kTaskRunUUIDKey: String {
-        return "taskRunUUID"
-    }
-    
-    public var kStartDate: String {
-        return "startDate"
-    }
-
-    public var kEndDate: String {
-        return "endDate"
-    }
-    
-    public static var kMetadataFilename: String {
-        return "metadata.json"
-    }
+//    
+//    public static var kTaskIdentifierKey: String {
+//        return "taskIdentifier"
+//    }
+//    
+//    public static var kScheduledActivityGuidKey: String {
+//        return "scheduledActivityGuid"
+//    }
+//    
+//    public static var kTaskRunUUIDKey: String {
+//        return "taskRunUUID"
+//    }
+//    
+//    public var kStartDate: String {
+//        return "startDate"
+//    }
+//
+//    public var kEndDate: String {
+//        return "endDate"
+//    }
+//    
+//    public static var kMetadataFilename: String {
+//        return "metadata.json"
+//    }
     
 }

@@ -7,6 +7,8 @@ target 'Impulse' do
 
   # Pods for Impulse
 
+  # pod "ResearchSuiteResultsProcessor", :path => '~/Developer/Foundry/ResearchSuite/ios/ResearchSuiteResultsProcessor'
+  # pod "sdlrkx", :path => '~/Developer/Foundry/ResearchSuite/ios/sdl-rkx'
 
   pod "ResearchSuiteTaskBuilder"
   pod "ResearchSuiteResultsProcessor"
