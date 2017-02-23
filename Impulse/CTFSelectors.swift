@@ -10,15 +10,15 @@ import UIKit
 
 class CTFSelectors: NSObject {
     
-    static func shouldShowBaselineSurvey(state: CTFReduxState) -> Bool {
+    static func shouldShowBaselineSurvey(_ state: CTFReduxState) -> Bool {
         return state.baselineCompletedDate == nil
     }
     
-    static func shouldShowReenrollmentSurvey(state: CTFReduxState) -> Bool {
+    static func shouldShowReenrollmentSurvey(_ state: CTFReduxState) -> Bool {
         return state.baselineCompletedDate == nil
     }
     
-    static public func shouldShow21DaySurvey(state: CTFReduxState) -> Bool {
+    static public func shouldShow21DaySurvey(_ state: CTFReduxState) -> Bool {
         
         guard let baselineDate = state.baselineCompletedDate else {
             return false
@@ -40,7 +40,11 @@ class CTFSelectors: NSObject {
         
     }
     
-    static public func shouldShowMorningSurvey(state: CTFReduxState) -> Bool {
+    static public func morningSurveyTimeComponents(_ state: CTFReduxState) -> DateComponents? {
+        return state.morningSurveyTimeComponents
+    }
+    
+    static public func shouldShowMorningSurvey(_ state: CTFReduxState) -> Bool {
         
         //show am survey if the following are true
         //1) Baseline has been completed at least kDailySurveyDelaySinceBaselineTimeInterval ago
@@ -58,7 +62,7 @@ class CTFSelectors: NSObject {
         }
         
         //2
-        guard let morningSurveyTimeComponents = state.morningSurveyTimeComponents,
+        guard let morningSurveyTimeComponents = morningSurveyTimeComponents(state),
             let todaysMorningSurveyTime = CTFActionCreators.combineDateWithDateComponents(date: Date(), timeComponents: morningSurveyTimeComponents as NSDateComponents) else {
                 return false
         }
@@ -80,7 +84,11 @@ class CTFSelectors: NSObject {
         }
     }
     
-    static public func shouldShowEveningSurvey(state: CTFReduxState) -> Bool {
+    static public func eveningSurveyTimeComponents(_ state: CTFReduxState) -> DateComponents? {
+        return state.eveningSurveyTimeComponents
+    }
+    
+    static public func shouldShowEveningSurvey(_ state: CTFReduxState) -> Bool {
         
         //show am survey if the following are true
         //1) Baseline has been completed at least kDailySurveyDelaySinceBaselineTimeInterval ago
@@ -98,7 +106,7 @@ class CTFSelectors: NSObject {
         }
         
         //2
-        guard let eveningSurveyTimeComponents = state.eveningSurveyTimeComponents,
+        guard let eveningSurveyTimeComponents = eveningSurveyTimeComponents(state),
             let todaysEveningSurveyTime = CTFActionCreators.combineDateWithDateComponents(date: Date(), timeComponents: eveningSurveyTimeComponents as NSDateComponents) else {
                 return false
         }
@@ -129,9 +137,21 @@ class CTFSelectors: NSObject {
             (newState.lastEveningCompletionDate != oldState.lastEveningCompletionDate)
     }
 
-    static func getValueInExtensibleStorage(state: CTFReduxState, key: String) -> NSSecureCoding? {
-        return state.extensibleStorage[key] as? NSSecureCoding
+    static func getValueInExtensibleStorage(_ state: CTFReduxState) -> (String) -> NSSecureCoding? {
+        return { key in
+            return state.extensibleStorage[key] as? NSSecureCoding
+        }
     }
+    
+    static func baselineCompletedDate(_ state: CTFReduxState) -> Date? {
+        return state.baselineCompletedDate
+    }
+    
+    static func showTrialActivities(_ state: CTFReduxState) -> Bool {
+        return state.shouldShowTrialActivities
+    }
+    
+    
 }
 
 

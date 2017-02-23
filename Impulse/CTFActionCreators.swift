@@ -184,6 +184,44 @@ class CTFActionCreators: NSObject {
         }
     }
     
+    static func showTrialActivities(show: Bool) -> (CTFReduxState, Store<CTFReduxState>) -> Action? {
+        return { (state, store) in
+            return SetShouldShowTrialActivities(show: show)
+        }
+    }
+    
+    static func handleSetMorningSurveyTime(_ result: ORKTaskResult) -> (CTFReduxState, Store<CTFReduxState>) -> Action? {
+        return { (state, store) in
+            
+            guard let notificationTimeResult = result.result(forIdentifier: "morning_notification_time_picker") as? ORKStepResult,
+                let timeOfDayResult = notificationTimeResult.firstResult as? ORKTimeOfDayQuestionResult,
+                let dateComponents = timeOfDayResult.dateComponentsAnswer else {
+                    return nil
+            }
+            
+            store.dispatch(setMorningSurveyTime(dateComponents))
+            return nil
+        }
+    }
+    
+    static func handleSetEveningSurveyTime(_ result: ORKTaskResult) -> (CTFReduxState, Store<CTFReduxState>) -> Action? {
+        return { (state, store) in
+            
+            guard let notificationTimeResult = result.result(forIdentifier: "evening_notification_time_picker") as? ORKStepResult,
+                let timeOfDayResult = notificationTimeResult.firstResult as? ORKTimeOfDayQuestionResult,
+                let dateComponents = timeOfDayResult.dateComponentsAnswer else {
+                    return nil
+            }
+            
+            store.dispatch(setEveningSurveyTime(dateComponents))
+            return nil
+        }
+    }
+    
+    
+    
+    
+    
     // MARK: privates
     private static func setMorningSurveyTime(_ dateComponents: DateComponents) -> (CTFReduxState, Store<CTFReduxState>) -> Action? {
         
@@ -296,6 +334,8 @@ class CTFActionCreators: NSObject {
         return Date.RandomDateBetween(from: fromDate, to: toDate)
         
     }
+    
+    
     
 
 }

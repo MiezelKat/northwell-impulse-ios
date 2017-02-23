@@ -81,3 +81,7 @@ struct ClearStore: Action {
     
 }
 
+struct SetShouldShowTrialActivities: Action {
+    let show: Bool
+}
+

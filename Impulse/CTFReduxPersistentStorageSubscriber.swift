@@ -198,6 +198,8 @@ class CTFReduxPersistentStorageSubscriber: NSObject, StoreSubscriber {
     
     static let kExtensibleStorage: String = "ExtensibleStorage"
     
+    static let kShouldShowTrialActivities: String = "ShouldShowTrialActivities"
+    
     let lastCompletedTaskIdentifier = PersistedValue<String>(key: CTFReduxPersistentStorageSubscriber.kLastCompletedTaskIdentifier)
     
     let baselineCompletedDate = PersistedValue<Date>(key: CTFReduxPersistentStorageSubscriber.kBaselineSurveyCompleted)
@@ -221,6 +223,8 @@ class CTFReduxPersistentStorageSubscriber: NSObject, StoreSubscriber {
     
     let extensibleStorage = PersistedValueMap(key: CTFReduxPersistentStorageSubscriber.kExtensibleStorage)
     
+    let shouldShowTrialActivities = PersistedValue<Bool>(key: CTFReduxPersistentStorageSubscriber.kShouldShowTrialActivities)
+    
     
     func loadState() -> CTFReduxState {
         return CTFReduxState(
@@ -240,7 +244,8 @@ class CTFReduxPersistentStorageSubscriber: NSObject, StoreSubscriber {
             eveningNotificationFireDate: self.eveningNotificationFireDate.get(),
             evening2ndNotificationFireDate: self.evening2ndNotificationFireDate.get(),
             enable2ndReminderNotifications: self.enable2ndReminderNotifications.get() ?? true,
-            extensibleStorage: self.extensibleStorage.get()
+            extensibleStorage: self.extensibleStorage.get(),
+            shouldShowTrialActivities: self.shouldShowTrialActivities.get() ?? false
         )
     }
     
@@ -292,6 +297,8 @@ class CTFReduxPersistentStorageSubscriber: NSObject, StoreSubscriber {
         self.enable2ndReminderNotifications.set(value: state.enable2ndReminderNotifications)
         
         self.extensibleStorage.set(map: state.extensibleStorage)
+        
+        self.shouldShowTrialActivities.set(value: state.shouldShowTrialActivities)
         
     }
     

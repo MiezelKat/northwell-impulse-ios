@@ -19,7 +19,8 @@ class CTFReducers: NSObject {
         CompletionDateReducer(),
         NotificationReducer(),
         SurveyTimeReducer(),
-        ExtensibleStorageReducer()
+        ExtensibleStorageReducer(),
+        SettingsReducer()
     ])
     
     struct ActivityQueueReducer: Reducer {
@@ -224,28 +225,48 @@ class CTFReducers: NSObject {
     struct ExtensibleStorageReducer: Reducer {
         func handleAction(action: Action, state: CTFReduxState?) -> CTFReduxState {
             let state = state ?? CTFReduxState.empty()
-            
-            var extensibleStorageDict: [String: NSObject] = state.extensibleStorage
-            
+
             switch action {
                 
-            case let setTimeAction as SetValueInExtensibleStorage:
-                let key = setTimeAction.key
-                if let value = setTimeAction.value {
+            case let setValueAction as SetValueInExtensibleStorage:
+                
+                var extensibleStorageDict: [String: NSObject] = state.extensibleStorage
+                
+                let key = setValueAction.key
+                
+                if let value = setValueAction.value {
                     extensibleStorageDict[key] = value
                 }
                 else {
                     extensibleStorageDict.removeValue(forKey: key)
                 }
                 
+                return CTFReduxState.newState(
+                    fromState: state,
+                    extensibleStorage: extensibleStorageDict
+                )
+                
             default:
-                break
+                return state
             }
-            
-            return CTFReduxState.newState(
-                fromState: state,
-                extensibleStorage: extensibleStorageDict
-            )
+        }
+    }
+    
+    struct SettingsReducer: Reducer {
+        func handleAction(action: Action, state: CTFReduxState?) -> CTFReduxState {
+            let state = state ?? CTFReduxState.empty()
+
+            switch action {
+                
+            case let showTrialsAction as SetShouldShowTrialActivities:
+                return CTFReduxState.newState(
+                    fromState: state,
+                    shouldShowTrialActivities: showTrialsAction.show
+                )
+                
+            default:
+                return state
+            }
         }
     }
     

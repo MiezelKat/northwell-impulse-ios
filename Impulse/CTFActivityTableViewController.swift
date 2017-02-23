@@ -12,7 +12,7 @@ import Gloss
 import ReSwift
 
 
-class CTFActivityTableViewController: UITableViewController, CTFSettingsDelegate, StoreSubscriber {
+class CTFActivityTableViewController: UITableViewController, StoreSubscriber {
 
     static let kActivitiesFileName = "activities"
     static let kTrialActivitiesFileName = "trialActivities"
@@ -107,10 +107,6 @@ class CTFActivityTableViewController: UITableViewController, CTFSettingsDelegate
         self.tableView.reloadData()
     }
     
-    func settingsUpdated() {
-//        self.reloadData()
-    }
-    
     func numberOfSections() -> Int {
         return CTFStateManager.defaultManager.shouldShowTrialActivities() ? 2 : 1
     }
@@ -185,15 +181,15 @@ class CTFActivityTableViewController: UITableViewController, CTFSettingsDelegate
         return { scheduleItem in
             switch(scheduleItem.identifier) {
             case "baseline":
-                return CTFSelectors.shouldShowBaselineSurvey(state: state)
+                return CTFSelectors.shouldShowBaselineSurvey(state)
             case "reenrollment":
-                return CTFSelectors.shouldShowReenrollmentSurvey(state: state)
+                return CTFSelectors.shouldShowReenrollmentSurvey(state)
             case "21-day-assessment":
-                return CTFSelectors.shouldShow21DaySurvey(state: state)
+                return CTFSelectors.shouldShow21DaySurvey(state)
             case "am_survey":
-                return CTFSelectors.shouldShowMorningSurvey(state: state)
+                return CTFSelectors.shouldShowMorningSurvey(state)
             case "pm_survey":
-                return CTFSelectors.shouldShowEveningSurvey(state: state)
+                return CTFSelectors.shouldShowEveningSurvey(state)
                 
             default:
                 return true

@@ -73,6 +73,10 @@ class CTFResultsProcessorManager: NSObject, StoreSubscriber {
             store.dispatch(CTFActionCreators.handleMorningSurvey(taskResult))
         case "pm_survey":
             store.dispatch(CTFActionCreators.handleEveningSurvey(taskResult))
+        case "set_morning_survey":
+            store.dispatch(CTFActionCreators.handleSetMorningSurveyTime(taskResult))
+        case "set_evening_survey":
+            store.dispatch(CTFActionCreators.handleSetEveningSurveyTime(taskResult))
             
         default:
             break

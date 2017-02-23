@@ -34,7 +34,7 @@ class CTFReduxStateHelper: NSObject, RSTBStateHelper, StoreSubscriber {
             return nil
         }
         
-        return CTFSelectors.getValueInExtensibleStorage(state: state, key: forKey)
+        return CTFSelectors.getValueInExtensibleStorage(state)(forKey)
     }
     
     deinit {
