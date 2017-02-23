@@ -61,26 +61,6 @@ class CTFResultsProcessorManager: NSObject, StoreSubscriber {
     }
     
     func processResult(uuid: UUID, activityRun: CTFActivityRun, taskResult: ORKTaskResult) {
-
-        switch(activityRun.identifier) {
-        case "baseline":
-            store.dispatch(CTFActionCreators.handleBaselineSurvey(taskResult))
-        case "reenrollment":
-            store.dispatch(CTFActionCreators.handleReenrollment(taskResult))
-        case "21-day-assessment":
-            store.dispatch(CTFActionCreators.handleDay21Survey(taskResult))
-        case "am_survey":
-            store.dispatch(CTFActionCreators.handleMorningSurvey(taskResult))
-        case "pm_survey":
-            store.dispatch(CTFActionCreators.handleEveningSurvey(taskResult))
-        case "set_morning_survey":
-            store.dispatch(CTFActionCreators.handleSetMorningSurveyTime(taskResult))
-        case "set_evening_survey":
-            store.dispatch(CTFActionCreators.handleSetEveningSurveyTime(taskResult))
-            
-        default:
-            break
-        }
         
         //process result
         

@@ -85,6 +85,7 @@ class CTFMainTabViewController: UITabBarController, CTFRootViewControllerProtoco
         if self.presentedActivity == nil,
             let (uuid, activityRun) = state.activityQueue.first {
             
+            self.presentedActivity = uuid
             self.runActivity(uuid: uuid, activityRun: activityRun)
             
         }
@@ -107,19 +108,21 @@ class CTFMainTabViewController: UITabBarController, CTFRootViewControllerProtoco
         
         let taskFinishedHandler: ((ORKTaskViewController, ORKTaskViewControllerFinishReason, Error?) -> ()) = { [weak self] (taskViewController, reason, error) in
             
-            self?.dismiss(animated: true, completion: {
-                self?.presentedActivity = nil
+            let taskResult: ORKTaskResult? = (reason == ORKTaskViewControllerFinishReason.completed) ?
+                taskViewController.result : nil
+            
+            store?.dispatch(CTFActionCreators.completeActivity(uuid: uuid, activityRun: activityRun, taskResult: taskResult), callback: { (state) in
                 
-                let taskResult: ORKTaskResult? = (reason == ORKTaskViewControllerFinishReason.completed) ?
-                    taskViewController.result : nil
-                
-                let action = CompleteActivityAction(uuid: uuid, activityRun: activityRun, taskResult: taskResult)
-                store?.dispatch(action)
+                self?.dismiss(animated: true, completion: {
+                    self?.presentedActivity = nil
+                })
             })
+            
+            
             
         }
         
-        let taskViewController = CTFTaskViewController(task: task, taskFinishedHandler: taskFinishedHandler)
+        let taskViewController = CTFTaskViewController(activityUUID: uuid, task: task, taskFinishedHandler: taskFinishedHandler)
         
         
         present(taskViewController, animated: true, completion: nil)

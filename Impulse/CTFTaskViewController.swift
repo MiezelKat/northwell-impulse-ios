@@ -13,9 +13,11 @@ public class CTFTaskViewController: ORKTaskViewController, ORKTaskViewController
     
     var taskFinishedHandler: ((ORKTaskViewController, ORKTaskViewControllerFinishReason, Error?) -> ())
     
+    let activityUUID: UUID
     
-    init(task: ORKTask, taskFinishedHandler: @escaping ((ORKTaskViewController, ORKTaskViewControllerFinishReason, Error?) -> ())) {
+    init(activityUUID: UUID, task: ORKTask, taskFinishedHandler: @escaping ((ORKTaskViewController, ORKTaskViewControllerFinishReason, Error?) -> ())) {
         
+        self.activityUUID = activityUUID
         self.taskFinishedHandler = taskFinishedHandler
         super.init(task: task, taskRun: nil)
         self.delegate = self

@@ -26,6 +26,48 @@ class CTFActionCreators: NSObject {
     
     static let kBaselineBehaviorResults: String = "BaselineBehaviorResults"
     
+    public typealias ActionCreator = (_ state: CTFReduxState, _ store: Store<CTFReduxState>) -> Action?
+    public typealias AsyncActionCreator = (
+        _ state: CTFReduxState,
+        _ store: Store<CTFReduxState>,
+        _ actionCreatorCallback: @escaping ((ActionCreator) -> Void)
+        ) -> Void
+
+    
+    static func completeActivity(uuid: UUID, activityRun: CTFActivityRun, taskResult: ORKTaskResult?) -> AsyncActionCreator {
+        return { (state, store, actionCreatorCallback) in
+                        
+            //process a bunch of actions
+            if let taskResult = taskResult {
+                switch(activityRun.identifier) {
+                case "baseline":
+                    store.dispatch(CTFActionCreators.handleBaselineSurvey(taskResult))
+                case "reenrollment":
+                    store.dispatch(CTFActionCreators.handleReenrollment(taskResult))
+                case "21-day-assessment":
+                    store.dispatch(CTFActionCreators.handleDay21Survey(taskResult))
+                case "am_survey":
+                    store.dispatch(CTFActionCreators.handleMorningSurvey(taskResult))
+                case "pm_survey":
+                    store.dispatch(CTFActionCreators.handleEveningSurvey(taskResult))
+                case "set_morning_survey":
+                    store.dispatch(CTFActionCreators.handleSetMorningSurveyTime(taskResult))
+                case "set_evening_survey":
+                    store.dispatch(CTFActionCreators.handleSetEveningSurveyTime(taskResult))
+                    
+                default:
+                    break
+                }
+            }
+            
+            let completeAction = CompleteActivityAction(uuid: uuid, activityRun: activityRun, taskResult: taskResult)
+            actionCreatorCallback( { (store, state) in
+                return completeAction
+            })
+            
+        }
+    }
+    
     static func handleBaselineSurvey(_ result: ORKTaskResult) -> (CTFReduxState, Store<CTFReduxState>) -> Action? {
         return { (state, store) in
             //set baseline completed date
@@ -127,6 +169,8 @@ class CTFActionCreators: NSObject {
     static func handleMorningSurvey(_ result: ORKTaskResult) -> (CTFReduxState, Store<CTFReduxState>) -> Action? {
         return { (state, store) in
             
+            assert(state.morningSurveyTimeComponents != nil, "date components should exist here")
+            
             if let dateComponents = state.morningSurveyTimeComponents,
                 let initialFireDate = CTFActionCreators.getNotificationFireDate(timeComponents: dateComponents as NSDateComponents, latestCompletion: result.endDate) {
                 let secondaryFireDate = initialFireDate.addingTimeInterval(CTFActionCreators.kSecondaryNotificationDelay)
@@ -144,6 +188,8 @@ class CTFActionCreators: NSObject {
     
     static func handleEveningSurvey(_ result: ORKTaskResult) -> (CTFReduxState, Store<CTFReduxState>) -> Action? {
         return { (state, store) in
+            
+            assert(state.morningSurveyTimeComponents != nil, "date components should exist here")
             
             if let dateComponents = state.eveningSurveyTimeComponents,
                 let initialFireDate = CTFActionCreators.getNotificationFireDate(timeComponents: dateComponents as NSDateComponents, latestCompletion: result.endDate) {
@@ -232,7 +278,7 @@ class CTFActionCreators: NSObject {
             let surveyTimeAction = SetMorningSurveyTimeAction(components: dateComponents)
             store.dispatch(surveyTimeAction)
             
-            let lastCompletion: Date? = store.state.lastMorningCompletionDate
+            let lastCompletion: Date? = state.lastMorningCompletionDate
             if let initialFireDate = CTFActionCreators.getNotificationFireDate(timeComponents: dateComponents as NSDateComponents, latestCompletion: lastCompletion) {
                 let secondaryFireDate = initialFireDate.addingTimeInterval(CTFActionCreators.kSecondaryNotificationDelay)
                 let notificationAction = SetMorningNotificationAction(
@@ -257,7 +303,7 @@ class CTFActionCreators: NSObject {
             let surveyTimeAction = SetEveningSurveyTimeAction(components: dateComponents)
             store.dispatch(surveyTimeAction)
             
-            let lastCompletion: Date? = store.state.lastEveningCompletionDate
+            let lastCompletion: Date? = state.lastEveningCompletionDate
             if let initialFireDate = CTFActionCreators.getNotificationFireDate(timeComponents: dateComponents as NSDateComponents, latestCompletion: lastCompletion) {
                 let secondaryFireDate = initialFireDate.addingTimeInterval(CTFActionCreators.kSecondaryNotificationDelay)
                 let notificationAction = SetEveningNotificationAction(
