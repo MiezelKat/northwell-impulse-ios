@@ -11,6 +11,10 @@ import ReSwift
 import ResearchKit
 
 struct CTFReduxState: StateType {
+    
+    let loaded: Bool
+    let loggedIn: Bool
+    
     let activityQueue: [(UUID, CTFActivityRun)]
     let resultsQueue: [(UUID, CTFActivityRun, ORKTaskResult)]
     let lastCompletedTaskIdentifier: String?
@@ -40,6 +44,8 @@ struct CTFReduxState: StateType {
     
     static func empty() -> CTFReduxState {
         return CTFReduxState(
+            loaded: false,
+            loggedIn: false,
             activityQueue: [],
             resultsQueue: [],
             lastCompletedTaskIdentifier: nil,
@@ -65,6 +71,8 @@ struct CTFReduxState: StateType {
     //note the double optionals in the case of optionals!!
     static func newState(
         fromState: CTFReduxState,
+        loaded: Bool? = nil,
+        loggedIn: Bool? = nil,
         activityQueue: [(UUID, CTFActivityRun)]? = nil,
         resultsQueue: [(UUID, CTFActivityRun, ORKTaskResult)]? = nil,
         lastCompletedTaskIdentifier: (String?)? = nil,
@@ -85,6 +93,8 @@ struct CTFReduxState: StateType {
         shouldShowTrialActivities: Bool? = nil
         ) -> CTFReduxState {
         return CTFReduxState(
+            loaded: loaded ?? fromState.loaded,
+            loggedIn: loggedIn ?? fromState.loggedIn,
             activityQueue: activityQueue ?? fromState.activityQueue,
             resultsQueue: resultsQueue ?? fromState.resultsQueue,
             lastCompletedTaskIdentifier: lastCompletedTaskIdentifier ?? fromState.lastCompletedTaskIdentifier,

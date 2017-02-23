@@ -1,21 +1,67 @@
 //
-//  CTFStateManager+SBBAuthManagerDelegateProtocol.swift
+//  CTFKeychainManager.swift
 //  Impulse
 //
-//  Created by James Kizer on 2/18/17.
-//  Copyright © 2017 James Kizer. All rights reserved.
+//  Created by James Kizer on 11/9/16.
+//  Copyright © 2016 James Kizer. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import ResearchKit
 import BridgeSDK
 
-
-
-extension CTFStateManager: SBBAuthManagerDelegateProtocol {
+class CTFKeychainManager: NSObject, SBBAuthManagerDelegateProtocol {
+    static func setKeychainObject(_ object: NSSecureCoding, forKey key: String) {
+        do {
+            try ORKKeychainWrapper.setObject(object, forKey: key)
+        } catch let error {
+            assertionFailure("Got error \(error) when setting \(key)")
+        }
+    }
     
-    static let kSessionTokenKey: String = "SessionToken"
-    static let kPasswordKey: String = "Password"
-    static let kEmailKey: String = "Email"
+    static func removeKeychainObject(forKey key: String) {
+        do {
+            try ORKKeychainWrapper.removeObject(forKey: key)
+        } catch let error {
+            assertionFailure("Got error \(error) when setting \(key)")
+        }
+    }
+    
+    static func clearKeychain() {
+        do {
+            try ORKKeychainWrapper.resetKeychain()
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
+    
+    static func getKeychainObject(_ key: String) -> NSSecureCoding? {
+        
+        var error: NSError?
+        let o = ORKKeychainWrapper.object(forKey: key, error: &error)
+        if error == nil {
+            return o
+        }
+        else {
+            print("Got error \(error) when getting \(key). This may just be the key has not yet been set!!")
+            return nil
+        }
+    }
+    
+    static public func setValueInState(value: NSSecureCoding?, forKey: String) {
+        if let val = value {
+            CTFKeychainManager.setKeychainObject(val, forKey: forKey)
+        }
+        else {
+            CTFKeychainManager.removeKeychainObject(forKey: forKey)
+        }
+    }
+    
+    static public func valueInState(forKey: String) -> NSSecureCoding? {
+        return CTFKeychainManager.getKeychainObject(forKey)
+    }
+    
+    static let sharedManager = CTFKeychainManager()
     
     /*!
      *  This delegate method should return the session token for the current signed-in user session,
@@ -28,7 +74,7 @@ extension CTFStateManager: SBBAuthManagerDelegateProtocol {
      *  @return The session token, or nil.
      */
     public func sessionToken(forAuthManager authManager: SBBAuthManagerProtocol) -> String? {
-        return self.valueInState(forKey: CTFStateManager.kSessionTokenKey) as? String
+        return CTFKeychainManager.valueInState(forKey: CTFStudyConstants.kSessionTokenKey) as? String
     }
     
     
@@ -47,11 +93,10 @@ extension CTFStateManager: SBBAuthManagerDelegateProtocol {
      *  @param password The password used when signing in to obtain this session token.
      */
     public func authManager(_ authManager: SBBAuthManagerProtocol?, didGetSessionToken sessionToken: String?, forEmail email: String?, andPassword password: String?) {
-       
-        self.setValueInState(value: sessionToken as? NSSecureCoding, forKey: CTFStateManager.kSessionTokenKey)
-        self.setValueInState(value: email as? NSSecureCoding, forKey: CTFStateManager.kEmailKey)
-        self.setValueInState(value: password as? NSSecureCoding, forKey: CTFStateManager.kPasswordKey)
         
+        CTFKeychainManager.setValueInState(value: sessionToken as? NSSecureCoding, forKey: CTFStudyConstants.kSessionTokenKey)
+        CTFKeychainManager.setValueInState(value: email as? NSSecureCoding, forKey: CTFStudyConstants.kEmailKey)
+        CTFKeychainManager.setValueInState(value: password as? NSSecureCoding, forKey: CTFStudyConstants.kPasswordKey)
         
     }
     
@@ -67,7 +112,7 @@ extension CTFStateManager: SBBAuthManagerDelegateProtocol {
      *  @return The email for the user account, or nil.
      */
     public func email(forAuthManager authManager: SBBAuthManagerProtocol?) -> String? {
-        return self.valueInState(forKey: CTFStateManager.kEmailKey) as? String
+        return CTFKeychainManager.valueInState(forKey: CTFStudyConstants.kEmailKey) as? String
     }
     
     
@@ -82,7 +127,6 @@ extension CTFStateManager: SBBAuthManagerDelegateProtocol {
      *  @return The password, or nil.
      */
     public func password(forAuthManager authManager: SBBAuthManagerProtocol?) -> String? {
-        return self.valueInState(forKey: CTFStateManager.kPasswordKey) as? String
+        return CTFKeychainManager.valueInState(forKey: CTFStudyConstants.kPasswordKey) as? String
     }
-    
 }

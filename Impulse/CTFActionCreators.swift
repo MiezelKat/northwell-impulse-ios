@@ -10,6 +10,8 @@ import UIKit
 import ReSwift
 import ResearchKit
 
+
+
 class CTFActionCreators: NSObject {
     
     static let k1MinuteInterval: TimeInterval = 60.0
@@ -33,6 +35,27 @@ class CTFActionCreators: NSObject {
         _ actionCreatorCallback: @escaping ((ActionCreator) -> Void)
         ) -> Void
 
+    static func setAppLoaded(loaded: Bool) -> AsyncActionCreator {
+        return { (state, store, actionCreatorCallback) in
+            
+            let appLoadedAction = SetAppLoadedAction(loaded: loaded)
+            actionCreatorCallback( { (store, state) in
+                return appLoadedAction
+            })
+            
+        }
+    }
+    
+    static func setLoggedIn(loggedIn: Bool) -> AsyncActionCreator {
+        return { (state, store, actionCreatorCallback) in
+            
+            let loggedInAction = SetLoggedInAction(loggedIn: loggedIn)
+            actionCreatorCallback( { (store, state) in
+                return loggedInAction
+            })
+            
+        }
+    }
     
     static func completeActivity(uuid: UUID, activityRun: CTFActivityRun, taskResult: ORKTaskResult?) -> AsyncActionCreator {
         return { (state, store, actionCreatorCallback) in

@@ -46,21 +46,9 @@ class CTFTaskBuilderManager: NSObject {
         RSTBElementFileGenerator(),
         RSTBElementSelectorGenerator()
     ]
-    
-//    static let sharedInstance = CTFTaskBuilderManager()
-//    static let sharedBuilder = sharedInstance.rstb
-    
+
     let rstb: RSTBTaskBuilder
-    
-//    private static var stateHelper: RSTBStateHelper? {
-//        if let appDelegate = UIApplication.shared.delegate as? CTFAppDelegate {
-//            return appDelegate.reduxStateHelper as? RSTBStateHelper
-//        }
-//        else {
-//            return nil
-//        }
-//    }
-    
+
     init(stateHelper: RSTBStateHelper) {
         
         // Do any additional setup after loading the view, typically from a nib.

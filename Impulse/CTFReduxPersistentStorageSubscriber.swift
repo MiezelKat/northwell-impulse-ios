@@ -47,18 +47,18 @@ class PersistedValue<T: Equatable>: ObservableValue<T> {
         let observationClosure: ObservationClosure = { value in
             let secureCodingValue = value as? NSSecureCoding
             debugPrint(secureCodingValue)
-            CTFStateManager.defaultManager.setValueInState(value: secureCodingValue, forKey: key)
+            CTFKeychainManager.setValueInState(value: secureCodingValue, forKey: key)
         }
         
         super.init(
-            initialValue: CTFStateManager.defaultManager.valueInState(forKey: key) as? T,
+            initialValue: CTFKeychainManager.valueInState(forKey: key) as? T,
             observationClosure: observationClosure
         )
 
     }
     
     func delete() {
-        CTFStateManager.defaultManager.setValueInState(value: nil, forKey: self.key)
+        CTFKeychainManager.setValueInState(value: nil, forKey: self.key)
     }
 }
 
@@ -228,6 +228,8 @@ class CTFReduxPersistentStorageSubscriber: NSObject, StoreSubscriber {
     
     func loadState() -> CTFReduxState {
         return CTFReduxState(
+            loaded: false,
+            loggedIn: false,
             activityQueue: [],
             resultsQueue: [],
             lastCompletedTaskIdentifier: self.lastCompletedTaskIdentifier.get(),

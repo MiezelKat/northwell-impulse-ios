@@ -63,12 +63,8 @@ class CTFLogInViaExternalIdViewController: UIViewController, ORKTaskViewControll
                         return
                 }
                 
-                var appState: CTFAppStateProtocol = CTFStateManager.defaultManager
-                appState.isLoggedIn = booleanAnswer.boolValue
-                
-                
-                
-                appDelegate.showViewController()
+                appDelegate.setLoggedInAndShowViewController(loggedIn: booleanAnswer.boolValue, completion: {})
+
             }
             else {
                 if let appDelegate = UIApplication.shared.delegate as? CTFAppDelegate {

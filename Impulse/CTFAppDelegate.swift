@@ -76,13 +76,14 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
         }
         
         self.initializeState()
-        
-        var appState: CTFAppStateProtocol = CTFStateManager.defaultManager
-        
+
+        let store = self.reduxStoreManager?.store
         CTFBridgeManager.sharedManager.isLoggedIn { (loggedIn) in
-            appState.isLoggedIn = loggedIn
-            appState.isLoaded = true
-            self.showViewController()
+            
+            self.setLoggedInAndShowViewController(loggedIn: loggedIn, completion: {
+                store?.dispatch(CTFActionCreators.setAppLoaded(loaded: true))
+            })
+            
         }
         
         return true
@@ -93,15 +94,27 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
         return true
     }
     
-    open func showViewController() {
+    open func setLoggedInAndShowViewController(loggedIn: Bool, completion: @escaping () -> Void) {
+        let store = self.reduxStoreManager?.store
+        store?.dispatch(CTFActionCreators.setLoggedIn(loggedIn: loggedIn), callback: { (state) in
+            self.showViewController(state: state)
+            completion()
+        })
+    }
+    
+    open func showViewController(state: CTFReduxState) {
         
         guard let window = self.window else {
             return
         }
         
-        var appState: CTFAppStateProtocol = CTFStateManager.defaultManager
         
-        if appState.isLoggedIn {
+        //check for case where a failure occurs during login
+        if CTFSelectors.isLoggedIn(state) && !ORKPasscodeViewController.isPasscodeStoredInKeychain() {
+            self.signOut()
+        }
+
+        if CTFSelectors.isLoggedIn(state) && ORKPasscodeViewController.isPasscodeStoredInKeychain() {
             
             let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = mainStoryboard.instantiateInitialViewController() as! CTFMainTabViewController
@@ -353,7 +366,7 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
         self.taskBuilderManager = nil
         self.resultsProcessorManager = nil
         
-        CTFKeychainHelpers.clearKeychain()
+        CTFKeychainManager.clearKeychain()
         
         self.initializeState()
         
@@ -368,22 +381,33 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
         let vc = UIViewController()
         vc.view.backgroundColor = UIColor.white
         transition(toRootViewController: vc, animated: false)
-        
-        var appState: CTFAppStateProtocol = CTFStateManager.defaultManager
+
         CTFBridgeManager.sharedManager.isLoggedIn(completion: { (loggedIn) in
-            if loggedIn, let appDelegate = UIApplication.shared.delegate as? CTFAppDelegate {
+            if loggedIn {
                 CTFBridgeManager.sharedManager.signOut(completion: { (error) in
                     
                     
                     
                     DispatchQueue.main.async {
                         //clear keychain (passcode stored in keychain
-                        appState.isLoggedIn = false
                         self.resetState()
-                        appDelegate.showViewController()
+                        self.setLoggedInAndShowViewController(loggedIn: false, completion: { 
+                            
+                            
+                        })
                     }
                     
                 })
+            }
+            else {
+                DispatchQueue.main.async {
+                    //clear keychain (passcode stored in keychain
+                    self.resetState()
+                    self.setLoggedInAndShowViewController(loggedIn: false, completion: {
+                        
+                        
+                    })
+                }
             }
         })
         

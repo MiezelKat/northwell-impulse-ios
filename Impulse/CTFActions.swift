@@ -85,3 +85,12 @@ struct SetShouldShowTrialActivities: Action {
     let show: Bool
 }
 
+struct SetAppLoadedAction: Action {
+    let loaded: Bool
+}
+
+struct SetLoggedInAction: Action {
+    let loggedIn: Bool
+}
+
+

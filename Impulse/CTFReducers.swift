@@ -13,6 +13,7 @@ import ResearchKit
 class CTFReducers: NSObject {
     
     public static let reducer = CombinedReducer([
+        AppStateReducer(),
         ActivityQueueReducer(),
         ResultsQueueReducer(),
         LastCompletedTaskIdentifier(),
@@ -22,6 +23,25 @@ class CTFReducers: NSObject {
         ExtensibleStorageReducer(),
         SettingsReducer()
     ])
+    
+    struct AppStateReducer: Reducer {
+        func handleAction(action: Action, state: CTFReduxState?) -> CTFReduxState {
+            let state = state ?? CTFReduxState.empty()
+            
+            switch action {
+                
+            case let loadedAction as SetAppLoadedAction:
+                return CTFReduxState.newState(fromState: state, loaded: loadedAction.loaded)
+                
+            case let loggedInAction as SetLoggedInAction:
+                return CTFReduxState.newState(fromState: state, loggedIn: loggedInAction.loggedIn)
+                
+            default:
+                return state
+            }
+            
+        }
+    }
     
     struct ActivityQueueReducer: Reducer {
         

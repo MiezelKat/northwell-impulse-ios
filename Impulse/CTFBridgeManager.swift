@@ -21,7 +21,7 @@ public class CTFBridgeManager: NSObject, RSRPBackEnd {
     private override init() {
         
         BridgeSDK.setup()
-        BridgeSDK.setAuthDelegate(CTFStateManager.defaultManager)
+        BridgeSDK.setAuthDelegate(CTFKeychainManager.sharedManager)
         
     }
     

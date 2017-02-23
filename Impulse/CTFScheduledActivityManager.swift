@@ -26,25 +26,25 @@ import sdlrkx
 
 
 
-let k1MinuteInterval: TimeInterval = 60.0
-let k1HourInterval: TimeInterval = k1MinuteInterval * 60.0
-let k1DayInterval: TimeInterval = 24.0 * k1HourInterval
-
-
-let k21DaySurveyDelayInterval: TimeInterval = 21.0 * k1DayInterval
-//let k21DaySurveyDelayInterval: TimeInterval = 21.0 * k1MinuteInterval
-
-
-let kDailySurveyNotificationWindowBeforeInterval: TimeInterval = 0.0
-let kDailySurveyNotificationWindowAfterInterval: TimeInterval = 30.0 * k1MinuteInterval
-let kDailySurveyTimeBeforeInterval: TimeInterval = 2.0 * k1HourInterval
-let kDailySurveyTimeAfterInterval: TimeInterval = 6.0 * k1HourInterval
-let kDailySurveyDelaySinceBaselineTimeInterval: TimeInterval = 0.0
-let kSecondaryNotificationDelay: TimeInterval = 2.0 * k1HourInterval
+//let k1MinuteInterval: TimeInterval = 60.0
+//let k1HourInterval: TimeInterval = k1MinuteInterval * 60.0
+//let k1DayInterval: TimeInterval = 24.0 * k1HourInterval
+//
+//
+//let k21DaySurveyDelayInterval: TimeInterval = 21.0 * k1DayInterval
+////let k21DaySurveyDelayInterval: TimeInterval = 21.0 * k1MinuteInterval
+//
+//
+//let kDailySurveyNotificationWindowBeforeInterval: TimeInterval = 0.0
+//let kDailySurveyNotificationWindowAfterInterval: TimeInterval = 30.0 * k1MinuteInterval
+//let kDailySurveyTimeBeforeInterval: TimeInterval = 2.0 * k1HourInterval
+//let kDailySurveyTimeAfterInterval: TimeInterval = 6.0 * k1HourInterval
+//let kDailySurveyDelaySinceBaselineTimeInterval: TimeInterval = 0.0
+//let kSecondaryNotificationDelay: TimeInterval = 2.0 * k1HourInterval
 //let kDailySurveyDelaySinceBaselineTimeInterval: TimeInterval = 2.0 * k1MinuteInterval
 
-let kThankYouGUID = "Thank-you-GUID"
-let kThankYouText = "Thank you for today's input!"
+//let kThankYouGUID = "Thank-you-GUID"
+//let kThankYouText = "Thank you for today's input!"
 
 
 

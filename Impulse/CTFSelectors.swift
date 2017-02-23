@@ -10,6 +10,14 @@ import UIKit
 
 class CTFSelectors: NSObject {
     
+    static func isLoggedIn(_ state: CTFReduxState) -> Bool {
+        return state.loggedIn
+    }
+    
+    static func isLoaded(_ state: CTFReduxState) -> Bool {
+        return state.loaded
+    }
+    
     static func shouldShowBaselineSurvey(_ state: CTFReduxState) -> Bool {
         return state.baselineCompletedDate == nil
     }
@@ -31,7 +39,7 @@ class CTFSelectors: NSObject {
         let timeSinceBaseline = NSDate().timeIntervalSince(baselineDate as Date)
         
         //1
-        if timeSinceBaseline <= k21DaySurveyDelayInterval {
+        if timeSinceBaseline <= CTFStudyConstants.k21DaySurveyDelayInterval {
             return false
         }
         

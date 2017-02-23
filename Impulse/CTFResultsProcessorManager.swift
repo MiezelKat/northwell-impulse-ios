@@ -14,8 +14,6 @@ import sdlrkx
 
 class CTFResultsProcessorManager: NSObject, StoreSubscriber {
     
-//    static let sharedInstance = CTFResultsProcessorManager()
-    
     var _pendingResult: (UUID, CTFActivityRun, ORKTaskResult)? = nil
     
     var pendingResult: (UUID, CTFActivityRun, ORKTaskResult)? {

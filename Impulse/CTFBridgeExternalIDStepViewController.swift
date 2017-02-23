@@ -39,10 +39,15 @@ class CTFBridgeExternalIDStepViewController: CTFLoginStepViewController {
         }
         
         do {
+            
+            self.isLoading = true
             try CTFBridgeManager.sharedManager.signIn(externalID: username) { (error) in
                 if error != nil {
                     
                     DispatchQueue.main.async {
+                        
+                        self.isLoading = false
+                        
                         let errorMessage: String = {
                             if let sageError = error as? NSError {
                                 return sageError.localizedDescription
@@ -71,6 +76,9 @@ class CTFBridgeExternalIDStepViewController: CTFLoginStepViewController {
                 }
                 else {
                     DispatchQueue.main.async {
+                        
+                        self.isLoading = false
+                        
                         self.loggedIn = true
                         completion(true)
                         return
@@ -83,6 +91,9 @@ class CTFBridgeExternalIDStepViewController: CTFLoginStepViewController {
         catch {
             
             DispatchQueue.main.async {
+                
+                self.isLoading = false
+                
                 let alertController = UIAlertController(title: "An internal error occurred", message: "If this problem continues, please contact the research coordinator", preferredStyle: UIAlertControllerStyle.alert)
                 
                 // Replace UIAlertActionStyle.Default by UIAlertActionStyle.default

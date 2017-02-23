@@ -20,14 +20,10 @@
 		E20590151E5C045000D978B7 /* CTFSelectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20590141E5C045000D978B7 /* CTFSelectors.swift */; };
 		E20590171E5C079A00D978B7 /* CTFNotificationSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20590161E5C079A00D978B7 /* CTFNotificationSubscriber.swift */; };
 		E205901D1E5D0F4C00D978B7 /* CTFReduxStateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205901C1E5D0F4C00D978B7 /* CTFReduxStateHelper.swift */; };
-		E22792A81DD3DD010026F8AB /* CTFKeychainHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22792A71DD3DD010026F8AB /* CTFKeychainHelpers.swift */; };
+		E22792A81DD3DD010026F8AB /* CTFKeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22792A71DD3DD010026F8AB /* CTFKeychainManager.swift */; };
 		E22792BE1DD53A490026F8AB /* CTFAutosizingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22792BD1DD53A490026F8AB /* CTFAutosizingLabel.swift */; };
 		E234C8F41E58EA9300E24E86 /* NSDate+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234C8F31E58EA9300E24E86 /* NSDate+Utilities.swift */; };
-		E234C8F61E58EC3800E24E86 /* ORKResult+SBBExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234C8F51E58EC3800E24E86 /* ORKResult+SBBExtension.swift */; };
-		E234C8FF1E59364B00E24E86 /* CTFBridgeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234C8FE1E59364B00E24E86 /* CTFBridgeInfo.swift */; };
 		E234C9031E59382500E24E86 /* Dictionary+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234C9021E59382500E24E86 /* Dictionary+Utilities.swift */; };
-		E234C90E1E593EBC00E24E86 /* CTFStateManager+SBBAuthManagerDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234C90D1E593EBC00E24E86 /* CTFStateManager+SBBAuthManagerDelegateProtocol.swift */; };
-		E234C9101E59463100E24E86 /* CTFAppStateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234C90F1E59463100E24E86 /* CTFAppStateProtocol.swift */; };
 		E234C9141E594B0600E24E86 /* CTFBridgeExternalIDStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234C9131E594B0600E24E86 /* CTFBridgeExternalIDStep.swift */; };
 		E234C9161E594BAF00E24E86 /* CTFBridgeExternalIDStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234C9151E594BAF00E24E86 /* CTFBridgeExternalIDStepViewController.swift */; };
 		E234C9181E5A0D6700E24E86 /* CTFBridgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234C9171E5A0D6700E24E86 /* CTFBridgeManager.swift */; };
@@ -43,12 +39,13 @@
 		E237F39D1E5E509500671B77 /* RSRPIntermediateResult+SBBDataArchiveConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E237F39C1E5E509500671B77 /* RSRPIntermediateResult+SBBDataArchiveConvertable.swift */; };
 		E237F3AB1E5E8B8F00671B77 /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = E237F3AA1E5E8B8F00671B77 /* settings.json */; };
 		E237F3C61E5F482A00671B77 /* thankYouActivity.json in Resources */ = {isa = PBXBuildFile; fileRef = E237F3C51E5F482A00671B77 /* thankYouActivity.json */; };
+		E237F3D31E5F556F00671B77 /* CTFScheduledActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E237F3D21E5F556F00671B77 /* CTFScheduledActivityManager.swift */; };
+		E237F3D51E5F565D00671B77 /* CTFStudyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E237F3D41E5F565D00671B77 /* CTFStudyConstants.swift */; };
 		E243393F1E0DC4C4009FF385 /* daily_active_tasks.json in Resources */ = {isa = PBXBuildFile; fileRef = E243393D1E0DC4C4009FF385 /* daily_active_tasks.json */; };
 		E24339401E0DC4C4009FF385 /* shuffled_active_tasks.json in Resources */ = {isa = PBXBuildFile; fileRef = E243393E1E0DC4C4009FF385 /* shuffled_active_tasks.json */; };
 		E2831A8C1E5B9C3000E3D727 /* CTFTaskBuilderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2831A8A1E5B9C3000E3D727 /* CTFTaskBuilderManager.swift */; };
 		E2831A8D1E5B9C3000E3D727 /* CTFTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2831A8B1E5B9C3000E3D727 /* CTFTaskViewController.swift */; };
 		E2831A911E5B9C3C00E3D727 /* DemographicsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2831A8E1E5B9C3C00E3D727 /* DemographicsResult.swift */; };
-		E2831A921E5B9C3C00E3D727 /* DemographicsResult+OMHDatapoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2831A8F1E5B9C3C00E3D727 /* DemographicsResult+OMHDatapoint.swift */; };
 		E2831A991E5B9D3F00E3D727 /* CTFActionDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2831A961E5B9D3F00E3D727 /* CTFActionDescriptor.swift */; };
 		E2831A9A1E5B9D3F00E3D727 /* CTFActivityRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2831A971E5B9D3F00E3D727 /* CTFActivityRun.swift */; };
 		E2831A9B1E5B9D3F00E3D727 /* CTFReduxStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2831A981E5B9D3F00E3D727 /* CTFReduxStoreManager.swift */; };
@@ -61,17 +58,11 @@
 		E2919EB71DE4956F0034AD08 /* FoundryAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2919EB61DE4956F0034AD08 /* FoundryAssets.xcassets */; };
 		E295FC211DDCC001001B175D /* UIColor+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295FC201DDCC001001B175D /* UIColor+String.swift */; };
 		E295FC2A1DDE36EB001B175D /* CTFSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295FC291DDE36EB001B175D /* CTFSettingsTableViewController.swift */; };
-		E295FC341DDF9E8F001B175D /* CTFStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295FC331DDF9E8F001B175D /* CTFStateManager.swift */; };
 		E2AA6CDE1DA41A60005D5137 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6CDD1DA41A60005D5137 /* Onboarding.storyboard */; };
 		E2AA6CF91DA41E19005D5137 /* BridgeInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6CF71DA41E19005D5137 /* BridgeInfo.plist */; };
 		E2AA6CFA1DA41E19005D5137 /* BridgeInfo-private.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6CF81DA41E19005D5137 /* BridgeInfo-private.plist */; };
 		E2AA6CFC1DA41F3D005D5137 /* CTFLogInViaExternalIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6CFB1DA41F3D005D5137 /* CTFLogInViaExternalIdViewController.swift */; };
 		E2AA6D031DA43C54005D5137 /* CTFActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D021DA43C54005D5137 /* CTFActivityTableViewController.swift */; };
-		E2AA6D051DA43C5C005D5137 /* CTFScheduledActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D041DA43C5C005D5137 /* CTFScheduledActivityManager.swift */; };
-		E2AA6D0B1DA43C6B005D5137 /* CTFScheduledActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D061DA43C6B005D5137 /* CTFScheduledActivity.swift */; };
-		E2AA6D0C1DA43C6B005D5137 /* CTFActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D071DA43C6B005D5137 /* CTFActivity.swift */; };
-		E2AA6D0D1DA43C6B005D5137 /* CTFActivityArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D081DA43C6B005D5137 /* CTFActivityArchive.swift */; };
-		E2AA6D0E1DA43C6B005D5137 /* CTFActivityResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D091DA43C6B005D5137 /* CTFActivityResult.swift */; };
 		E2AA6D0F1DA43C6B005D5137 /* CTFActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D0A1DA43C6B005D5137 /* CTFActivityTableViewCell.swift */; };
 		E2AA6D181DA43C83005D5137 /* CTFBorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D111DA43C83005D5137 /* CTFBorderedButton.swift */; };
 		E2AA6D191DA43C83005D5137 /* CTFFormItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D121DA43C83005D5137 /* CTFFormItemCell.swift */; };
@@ -223,15 +214,11 @@
 		E20590141E5C045000D978B7 /* CTFSelectors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFSelectors.swift; sourceTree = "<group>"; };
 		E20590161E5C079A00D978B7 /* CTFNotificationSubscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFNotificationSubscriber.swift; sourceTree = "<group>"; };
 		E205901C1E5D0F4C00D978B7 /* CTFReduxStateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFReduxStateHelper.swift; sourceTree = "<group>"; };
-		E22792A71DD3DD010026F8AB /* CTFKeychainHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFKeychainHelpers.swift; sourceTree = "<group>"; };
+		E22792A71DD3DD010026F8AB /* CTFKeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFKeychainManager.swift; sourceTree = "<group>"; };
 		E22792BD1DD53A490026F8AB /* CTFAutosizingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFAutosizingLabel.swift; sourceTree = "<group>"; };
 		E234C8C41E58E1E200E24E86 /* BridgeSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BridgeSDK.xcodeproj; path = "Bridge-iOS-SDK/BridgeSDK.xcodeproj"; sourceTree = "<group>"; };
 		E234C8F31E58EA9300E24E86 /* NSDate+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Utilities.swift"; sourceTree = "<group>"; };
-		E234C8F51E58EC3800E24E86 /* ORKResult+SBBExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "ORKResult+SBBExtension.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		E234C8FE1E59364B00E24E86 /* CTFBridgeInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CTFBridgeInfo.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E234C9021E59382500E24E86 /* Dictionary+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Utilities.swift"; sourceTree = "<group>"; };
-		E234C90D1E593EBC00E24E86 /* CTFStateManager+SBBAuthManagerDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CTFStateManager+SBBAuthManagerDelegateProtocol.swift"; sourceTree = "<group>"; };
-		E234C90F1E59463100E24E86 /* CTFAppStateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFAppStateProtocol.swift; sourceTree = "<group>"; };
 		E234C9131E594B0600E24E86 /* CTFBridgeExternalIDStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFBridgeExternalIDStep.swift; sourceTree = "<group>"; };
 		E234C9151E594BAF00E24E86 /* CTFBridgeExternalIDStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFBridgeExternalIDStepViewController.swift; sourceTree = "<group>"; };
 		E234C9171E5A0D6700E24E86 /* CTFBridgeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFBridgeManager.swift; sourceTree = "<group>"; };
@@ -245,12 +232,13 @@
 		E237F39C1E5E509500671B77 /* RSRPIntermediateResult+SBBDataArchiveConvertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RSRPIntermediateResult+SBBDataArchiveConvertable.swift"; sourceTree = "<group>"; };
 		E237F3AA1E5E8B8F00671B77 /* settings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = settings.json; path = "northwell-impulse-common/assets/json/survey/settings.json"; sourceTree = SOURCE_ROOT; };
 		E237F3C51E5F482A00671B77 /* thankYouActivity.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = thankYouActivity.json; path = "northwell-impulse-common/assets/json/survey/thankYouActivity.json"; sourceTree = SOURCE_ROOT; };
+		E237F3D21E5F556F00671B77 /* CTFScheduledActivityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFScheduledActivityManager.swift; sourceTree = "<group>"; };
+		E237F3D41E5F565D00671B77 /* CTFStudyConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFStudyConstants.swift; sourceTree = "<group>"; };
 		E243393D1E0DC4C4009FF385 /* daily_active_tasks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = daily_active_tasks.json; path = "northwell-impulse-common/assets/json/survey/daily_active_tasks.json"; sourceTree = SOURCE_ROOT; };
 		E243393E1E0DC4C4009FF385 /* shuffled_active_tasks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = shuffled_active_tasks.json; path = "northwell-impulse-common/assets/json/survey/shuffled_active_tasks.json"; sourceTree = SOURCE_ROOT; };
 		E2831A8A1E5B9C3000E3D727 /* CTFTaskBuilderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFTaskBuilderManager.swift; sourceTree = "<group>"; };
 		E2831A8B1E5B9C3000E3D727 /* CTFTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFTaskViewController.swift; sourceTree = "<group>"; };
 		E2831A8E1E5B9C3C00E3D727 /* DemographicsResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemographicsResult.swift; sourceTree = "<group>"; };
-		E2831A8F1E5B9C3C00E3D727 /* DemographicsResult+OMHDatapoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DemographicsResult+OMHDatapoint.swift"; sourceTree = "<group>"; };
 		E2831A961E5B9D3F00E3D727 /* CTFActionDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFActionDescriptor.swift; sourceTree = "<group>"; };
 		E2831A971E5B9D3F00E3D727 /* CTFActivityRun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFActivityRun.swift; sourceTree = "<group>"; };
 		E2831A981E5B9D3F00E3D727 /* CTFReduxStoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFReduxStoreManager.swift; sourceTree = "<group>"; };
@@ -263,18 +251,12 @@
 		E2919EB61DE4956F0034AD08 /* FoundryAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FoundryAssets.xcassets; sourceTree = "<group>"; };
 		E295FC201DDCC001001B175D /* UIColor+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+String.swift"; sourceTree = "<group>"; };
 		E295FC291DDE36EB001B175D /* CTFSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFSettingsTableViewController.swift; sourceTree = "<group>"; };
-		E295FC331DDF9E8F001B175D /* CTFStateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CTFStateManager.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E2AA6CDD1DA41A60005D5137 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		E2AA6CF71DA41E19005D5137 /* BridgeInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BridgeInfo.plist; sourceTree = "<group>"; };
 		E2AA6CF81DA41E19005D5137 /* BridgeInfo-private.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BridgeInfo-private.plist"; sourceTree = "<group>"; };
 		E2AA6CFB1DA41F3D005D5137 /* CTFLogInViaExternalIdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFLogInViaExternalIdViewController.swift; sourceTree = "<group>"; };
 		E2AA6CFE1DA42593005D5137 /* Impulse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Impulse.entitlements; sourceTree = "<group>"; };
 		E2AA6D021DA43C54005D5137 /* CTFActivityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFActivityTableViewController.swift; sourceTree = "<group>"; };
-		E2AA6D041DA43C5C005D5137 /* CTFScheduledActivityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CTFScheduledActivityManager.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		E2AA6D061DA43C6B005D5137 /* CTFScheduledActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFScheduledActivity.swift; sourceTree = "<group>"; };
-		E2AA6D071DA43C6B005D5137 /* CTFActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFActivity.swift; sourceTree = "<group>"; };
-		E2AA6D081DA43C6B005D5137 /* CTFActivityArchive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CTFActivityArchive.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		E2AA6D091DA43C6B005D5137 /* CTFActivityResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFActivityResult.swift; sourceTree = "<group>"; };
 		E2AA6D0A1DA43C6B005D5137 /* CTFActivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFActivityTableViewCell.swift; sourceTree = "<group>"; };
 		E2AA6D111DA43C83005D5137 /* CTFBorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFBorderedButton.swift; sourceTree = "<group>"; };
 		E2AA6D121DA43C83005D5137 /* CTFFormItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFFormItemCell.swift; sourceTree = "<group>"; };
@@ -427,8 +409,6 @@
 				E234C9441E5A83F100E24E86 /* RSRP */,
 				E234C8F21E58E50B00E24E86 /* Login */,
 				E234C8F31E58EA9300E24E86 /* NSDate+Utilities.swift */,
-				E234C8F51E58EC3800E24E86 /* ORKResult+SBBExtension.swift */,
-				E234C8FE1E59364B00E24E86 /* CTFBridgeInfo.swift */,
 				E234C9171E5A0D6700E24E86 /* CTFBridgeManager.swift */,
 				E234C9191E5A0F8800E24E86 /* CTFBridgeManagerError.swift */,
 				E234C91B1E5A22B300E24E86 /* CTFRootViewControllerProtocol.swift */,
@@ -591,7 +571,6 @@
 			isa = PBXGroup;
 			children = (
 				E2831A8E1E5B9C3C00E3D727 /* DemographicsResult.swift */,
-				E2831A8F1E5B9C3C00E3D727 /* DemographicsResult+OMHDatapoint.swift */,
 			);
 			name = Baseline;
 			sourceTree = "<group>";
@@ -619,16 +598,11 @@
 		E2AA6D011DA43BC7005D5137 /* Study Management */ = {
 			isa = PBXGroup;
 			children = (
-				E2AA6D041DA43C5C005D5137 /* CTFScheduledActivityManager.swift */,
+				E22792A71DD3DD010026F8AB /* CTFKeychainManager.swift */,
 				E2CCB6691DB158AF00C801A4 /* CTFScheduleItem.swift */,
+				E237F3D21E5F556F00671B77 /* CTFScheduledActivityManager.swift */,
+				E237F3D41E5F565D00671B77 /* CTFStudyConstants.swift */,
 				E2831A9C1E5B9DAD00E3D727 /* CTFSchedule.swift */,
-				E2AA6D061DA43C6B005D5137 /* CTFScheduledActivity.swift */,
-				E295FC331DDF9E8F001B175D /* CTFStateManager.swift */,
-				E234C90D1E593EBC00E24E86 /* CTFStateManager+SBBAuthManagerDelegateProtocol.swift */,
-				E234C90F1E59463100E24E86 /* CTFAppStateProtocol.swift */,
-				E2AA6D071DA43C6B005D5137 /* CTFActivity.swift */,
-				E2AA6D081DA43C6B005D5137 /* CTFActivityArchive.swift */,
-				E2AA6D091DA43C6B005D5137 /* CTFActivityResult.swift */,
 				E2AA6D0A1DA43C6B005D5137 /* CTFActivityTableViewCell.swift */,
 				E2AA6D021DA43C54005D5137 /* CTFActivityTableViewController.swift */,
 				E295FC291DDE36EB001B175D /* CTFSettingsTableViewController.swift */,
@@ -787,7 +761,6 @@
 				E2FE1AB61DB0337200DBB8E7 /* Array+Random.swift */,
 				E234C9021E59382500E24E86 /* Dictionary+Utilities.swift */,
 				E23535DB1DB57B6F005BAFE3 /* GenericHelpers.swift */,
-				E22792A71DD3DD010026F8AB /* CTFKeychainHelpers.swift */,
 				E295FC201DDCC001001B175D /* UIColor+String.swift */,
 			);
 			name = Helpers;
@@ -1175,7 +1148,6 @@
 				E2831A911E5B9C3C00E3D727 /* DemographicsResult.swift in Sources */,
 				E2831AA71E5BA4B100E3D727 /* PAMMultipleStepGenerator.swift in Sources */,
 				E20590071E5BE87C00D978B7 /* CTFReduxPersistentStorageSubscriber.swift in Sources */,
-				E2831A921E5B9C3C00E3D727 /* DemographicsResult+OMHDatapoint.swift in Sources */,
 				E2AA6D181DA43C83005D5137 /* CTFBorderedButton.swift in Sources */,
 				E2B70B031E0A3F8200C93093 /* CTFExtendedSingleChoiceStepGenerator.swift in Sources */,
 				E20590051E5BE82F00D978B7 /* CTFReducers.swift in Sources */,
@@ -1187,11 +1159,10 @@
 				E2D9E09D1DF4DAB1007772DA /* CTFSolidButton.swift in Sources */,
 				E2B70AFC1E0A08C600C93093 /* CTFExtendedMultipleChoiceStepGenerator.swift in Sources */,
 				E2831A9A1E5B9D3F00E3D727 /* CTFActivityRun.swift in Sources */,
-				E22792A81DD3DD010026F8AB /* CTFKeychainHelpers.swift in Sources */,
+				E22792A81DD3DD010026F8AB /* CTFKeychainManager.swift in Sources */,
 				E2831A9B1E5B9D3F00E3D727 /* CTFReduxStoreManager.swift in Sources */,
-				E2AA6D051DA43C5C005D5137 /* CTFScheduledActivityManager.swift in Sources */,
+				E237F3D31E5F556F00671B77 /* CTFScheduledActivityManager.swift in Sources */,
 				E2AA6D1B1DA43C83005D5137 /* CTFPulsusFormStep.swift in Sources */,
-				E2AA6D0E1DA43C6B005D5137 /* CTFActivityResult.swift in Sources */,
 				E234C9031E59382500E24E86 /* Dictionary+Utilities.swift in Sources */,
 				E2CCB66A1DB158AF00C801A4 /* CTFScheduleItem.swift in Sources */,
 				E2B70A941E08C55300C93093 /* CTFSemanticDifferentialFormStepGenerator.swift in Sources */,
@@ -1205,13 +1176,11 @@
 				E234C9461E5A845D00E24E86 /* CTFDelayDiscountingRaw+SBBDataArchiveConvertable.swift in Sources */,
 				E2B70A901E08C3BB00C93093 /* CTFSemanticDifferentialScaleFormParameters.swift in Sources */,
 				E234C9431E5A791000E24E86 /* CTFResultsProcessorManager.swift in Sources */,
-				E2AA6D0C1DA43C6B005D5137 /* CTFActivity.swift in Sources */,
 				E234C9141E594B0600E24E86 /* CTFBridgeExternalIDStep.swift in Sources */,
+				E237F3D51E5F565D00671B77 /* CTFStudyConstants.swift in Sources */,
 				E2C18EAD1DD147C1005E0324 /* CTFScaleAnswerFormat.swift in Sources */,
 				E2FE1AB71DB0337200DBB8E7 /* Array+Random.swift in Sources */,
-				E2AA6D0B1DA43C6B005D5137 /* CTFScheduledActivity.swift in Sources */,
 				E2AA6CFC1DA41F3D005D5137 /* CTFLogInViaExternalIdViewController.swift in Sources */,
-				E234C90E1E593EBC00E24E86 /* CTFStateManager+SBBAuthManagerDelegateProtocol.swift in Sources */,
 				E234C94A1E5A90EB00E24E86 /* SBBDataArchiveBuilder.swift in Sources */,
 				E295FC2A1DDE36EB001B175D /* CTFSettingsTableViewController.swift in Sources */,
 				E234C9181E5A0D6700E24E86 /* CTFBridgeManager.swift in Sources */,
@@ -1223,22 +1192,17 @@
 				E20590151E5C045000D978B7 /* CTFSelectors.swift in Sources */,
 				E234C91A1E5A0F8800E24E86 /* CTFBridgeManagerError.swift in Sources */,
 				E2B70A871E08AF5F00C93093 /* CTFLikertFormStepGenerator.swift in Sources */,
-				E234C9101E59463100E24E86 /* CTFAppStateProtocol.swift in Sources */,
 				E205901D1E5D0F4C00D978B7 /* CTFReduxStateHelper.swift in Sources */,
 				E2058FF61E5BE7E900D978B7 /* CTFReduxState.swift in Sources */,
 				E22792BE1DD53A490026F8AB /* CTFAutosizingLabel.swift in Sources */,
-				E295FC341DDF9E8F001B175D /* CTFStateManager.swift in Sources */,
 				E20590171E5C079A00D978B7 /* CTFNotificationSubscriber.swift in Sources */,
 				E234C9481E5A87CC00E24E86 /* SBBDataArchiveConvertable.swift in Sources */,
-				E234C8FF1E59364B00E24E86 /* CTFBridgeInfo.swift in Sources */,
 				E234C9161E594BAF00E24E86 /* CTFBridgeExternalIDStepViewController.swift in Sources */,
 				E237F39D1E5E509500671B77 /* RSRPIntermediateResult+SBBDataArchiveConvertable.swift in Sources */,
 				E20590091E5BF82200D978B7 /* CTFActionCreators.swift in Sources */,
 				E20590031E5BE80C00D978B7 /* CTFActions.swift in Sources */,
 				E2831AA01E5B9DD800E3D727 /* CTFLoginStep.swift in Sources */,
-				E2AA6D0D1DA43C6B005D5137 /* CTFActivityArchive.swift in Sources */,
 				E2B70A8E1E08BD8E00C93093 /* CTFLikertScaleFormParameters.swift in Sources */,
-				E234C8F61E58EC3800E24E86 /* ORKResult+SBBExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
