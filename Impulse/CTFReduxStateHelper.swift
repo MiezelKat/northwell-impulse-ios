@@ -26,7 +26,7 @@ class CTFReduxStateHelper: NSObject, RSTBStateHelper, StoreSubscriber {
     }
     
     public func setValueInState(value: NSSecureCoding?, forKey: String) {
-        self.store.dispatch(CTFActionCreators.setValueInExtensibleStorage(key: forKey, value: value != nil ? value! as! NSObject : nil))
+        self.store.dispatch(CTFActionCreators.setValueInExtensibleStorage(key: forKey, value: value != nil ? value! as? NSObject : nil))
     }
     
     public func valueInState(forKey: String) -> NSSecureCoding? {

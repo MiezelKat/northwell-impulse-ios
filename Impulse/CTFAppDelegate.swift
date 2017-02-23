@@ -79,14 +79,10 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
         
         var appState: CTFAppStateProtocol = CTFStateManager.defaultManager
         
-        do {
-            try CTFBridgeManager.sharedManager.isLoggedIn { (loggedIn) in
-                appState.isLoggedIn = loggedIn
-                appState.isLoaded = true
-                self.showViewController()
-            }
-        } catch let error {
-            debugPrint(error)
+        CTFBridgeManager.sharedManager.isLoggedIn { (loggedIn) in
+            appState.isLoggedIn = loggedIn
+            appState.isLoaded = true
+            self.showViewController()
         }
         
         return true
@@ -97,10 +93,10 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
         return true
     }
     
-    open func showViewController() -> Bool {
+    open func showViewController() {
         
         guard let window = self.window else {
-            return false
+            return
         }
         
         var appState: CTFAppStateProtocol = CTFStateManager.defaultManager
@@ -118,8 +114,7 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
             window.rootViewController = vc
         }
         
-        return true
-        
+        return
     }
     
     open func applicationWillResignActive(_ application: UIApplication) {

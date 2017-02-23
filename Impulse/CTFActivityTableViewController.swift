@@ -16,12 +16,16 @@ class CTFActivityTableViewController: UITableViewController, StoreSubscriber {
 
     static let kActivitiesFileName = "activities"
     static let kTrialActivitiesFileName = "trialActivities"
+    static let kThankYouActivities = "thankYouActivity"
     
     var activitiesSchedule: CTFSchedule?
     var activities: [CTFScheduleItem] = []
     
     var trialActivitiesSchedule: CTFSchedule?
     var trialActivities: [CTFScheduleItem] = []
+
+    var thankYouActivitiesSchedule: CTFSchedule?
+    var thankYouActivity: CTFScheduleItem?
     
     var state: CTFReduxState?
     
@@ -40,6 +44,7 @@ class CTFActivityTableViewController: UITableViewController, StoreSubscriber {
         
         self.activitiesSchedule = self.loadSchedule(filename: CTFActivityTableViewController.kActivitiesFileName)
         self.trialActivitiesSchedule = self.loadSchedule(filename: CTFActivityTableViewController.kTrialActivitiesFileName)
+        self.thankYouActivitiesSchedule = self.loadSchedule(filename: CTFActivityTableViewController.kThankYouActivities)
         
         self.store?.subscribe(self)
         if let state = self.store?.state {
@@ -53,17 +58,16 @@ class CTFActivityTableViewController: UITableViewController, StoreSubscriber {
     }
     
     func newState(state: CTFReduxState) {
-        
+        let oldState = self.state
+        self.state = state
         //possibly reload data
-        if let oldState = self.state,
+        if let oldState = oldState,
             CTFSelectors.shouldReloadActivities(newState: state, oldState: oldState){
             self.reloadData(state: state)
         }
         else {
             self.reloadData(state: state)
         }
-        
-        self.state = CTFReduxState.newState(fromState: state)
         
     }
     
@@ -79,22 +83,16 @@ class CTFActivityTableViewController: UITableViewController, StoreSubscriber {
     func loadData(state: CTFReduxState) {
         
         self.activities = self.activitiesSchedule?.items.filter(self.scheduledItemsFilter(state: state)) ?? []
-        self.trialActivities = self.activitiesSchedule?.items.filter(self.trialItemsFilter(state: state)) ?? []
+        self.trialActivities = self.trialActivitiesSchedule?.items.filter(self.trialItemsFilter(state: state)) ?? []
         
-//        self.activities = self.scheduleItems.filter(self.scheduledItemsFilter).flatMap({$0.generateScheduledActivity()})
-//        if self.activities.isEmpty {
-//            
-//            let thankYouActivity = CTFScheduledActivity(guid: kThankYouGUID, title: kThankYouText, activity: nil, timeEstimate: nil)!
-//            thankYouActivity.completed = true
-//            self.activities = [thankYouActivity]
-//        }
-//        
-//        self.trialActivities = self.scheduleItems.filter(self.trialItemsFilter).flatMap({ scheduledItem in
-//            let activity = scheduledItem.generateScheduledActivity()
-//            activity?.completed = CTFStateManager.defaultManager.isTrialActivityCompleted(guid: scheduledItem.guid)
-//            activity?.trial = true
-//            return activity
-//        })
+        
+        if self.activities.isEmpty,
+            let thankYouActivity = self.thankYouActivitiesSchedule?.items.first {
+            
+            self.activities = [thankYouActivity]
+            
+        }
+        
     }
     
     func reloadData(state: CTFReduxState) {
@@ -107,9 +105,15 @@ class CTFActivityTableViewController: UITableViewController, StoreSubscriber {
         self.tableView.reloadData()
     }
     
-    func numberOfSections() -> Int {
-        return CTFStateManager.defaultManager.shouldShowTrialActivities() ? 2 : 1
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        if let state = self.state {
+            return CTFSelectors.showTrialActivities(state) ? 2 : 1
+        }
+        else {
+            return 1
+        }
     }
+    
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
@@ -154,6 +158,9 @@ class CTFActivityTableViewController: UITableViewController, StoreSubscriber {
         }
         
         activityCell.titleLabel.text = item.title
+        activityCell.complete = false
+        activityCell.timeLabel?.text = nil
+        activityCell.subtitleLabel.text = nil
 
         return activityCell
         
@@ -192,31 +199,10 @@ class CTFActivityTableViewController: UITableViewController, StoreSubscriber {
                 return CTFSelectors.shouldShowEveningSurvey(state)
                 
             default:
-                return true
+                return false
             }
             
         }
-        
-
-//        switch(scheduleItem.identifier) {
-//        case "baseline":
-//            return CTFStateManager.defaultManager.shouldShowBaselineSurvey()
-//            
-//        case "reenrollment":
-//            return CTFStateManager.defaultManager.shouldShowBaselineSurvey()
-//            
-//        case "21-day-assessment":
-//            return CTFStateManager.defaultManager.shouldShow21DaySurvey()
-//            
-//        case "am_survey":
-//            return CTFStateManager.defaultManager.shouldShowMorningSurvey()
-//            
-//        case "pm_survey":
-//            return CTFStateManager.defaultManager.shouldShowEveningSurvey()
-//            
-//        default:
-//            return false
-//        }
     }
     
     func trialItemsFilter(state: CTFReduxState) -> (CTFScheduleItem) -> Bool {

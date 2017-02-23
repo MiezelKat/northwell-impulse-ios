@@ -108,23 +108,6 @@ class CTFSettingsTableViewController: UITableViewController, StoreSubscriber {
         self.state = state
         
     }
-
-    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
-        /*
-         The `reason` passed to this method indicates why the task view
-         controller finished: Did the user cancel, save, or actually complete
-         the task; or was there an error?
-         
-         The actual result of the task is on the `result` property of the task
-         view controller.
-         */
-        
-        self._taskResultFinishedCompletionHandler?(taskViewController.result)
-        
-        taskViewController.dismiss(animated: true, completion: nil)
-        
-//        self.updateUI()
-    }
     
     
     private func scheduleItem(forIdentifier identifier: String) -> CTFScheduleItem? {

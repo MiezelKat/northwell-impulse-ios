@@ -90,8 +90,6 @@ class CTFMainTabViewController: UITabBarController, CTFRootViewControllerProtoco
             
         }
         
-        debugPrint(CTFSelectors.getValueInExtensibleStorage(state)("BaselineBehaviorResults"))
-        
     }
     
     func runActivity(uuid: UUID, activityRun: CTFActivityRun) {

@@ -134,7 +134,8 @@ class CTFSelectors: NSObject {
             (newState.morningSurveyTimeComponents != oldState.morningSurveyTimeComponents) ||
             (newState.lastMorningCompletionDate != oldState.lastMorningCompletionDate) ||
             (newState.eveningSurveyTimeComponents != oldState.eveningSurveyTimeComponents) ||
-            (newState.lastEveningCompletionDate != oldState.lastEveningCompletionDate)
+            (newState.lastEveningCompletionDate != oldState.lastEveningCompletionDate)  ||
+            (newState.shouldShowTrialActivities != oldState.shouldShowTrialActivities)
     }
 
     static func getValueInExtensibleStorage(_ state: CTFReduxState) -> (String) -> NSSecureCoding? {
