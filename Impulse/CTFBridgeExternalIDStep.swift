@@ -11,7 +11,15 @@ import ResearchKit
 
 class CTFBridgeExternalIDStep: CTFLoginStep {
 
-    public init(identifier: String) {
+    public init(identifier: String, bridgeManager: CTFBridgeManager) {
+        
+        let didLoad: (UIViewController) -> Void = { viewController in
+            
+            if let bridgeVC = viewController as? CTFBridgeExternalIDStepViewController {
+                bridgeVC.bridgeManager = bridgeManager
+            }
+            
+        }
         
         super.init(identifier: identifier,
                    title: "Sign In",
@@ -21,6 +29,7 @@ class CTFBridgeExternalIDStep: CTFLoginStep {
                    passwordFieldName: "Confirm Participant ID",
                    passwordFieldAnswerFormat: CTFLoginStep.usernameAnswerFormat(),
                    loginViewControllerClass: CTFBridgeExternalIDStepViewController.self,
+                   loginViewControllerDidLoad: didLoad,
                    loginButtonTitle: "Sign In",
                    forgotPasswordButtonTitle: nil)
     }

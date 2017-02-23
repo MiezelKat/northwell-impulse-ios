@@ -33,19 +33,9 @@ public protocol SBBDataArchiveConvertable {
     func toArchive() -> SBBDataArchive?
     
     var kSchemaRevisionKey: String { get }
-//    var kTaskIdentifierKey: String { get }
-//    var kTaskRunUUIDKey: String { get }
-//    var kStartDate: String { get }
-//    var kEndDate: String { get }
-//    var kMetadataFilename: String { get }
 }
 
-
-
-
-
 extension SBBDataArchiveConvertable {
-    //    func kSurveyCreatedOnKey() -> String
     
     public static func ISO8601Formatter() -> DateFormatter {
         return staticISO8601Formatter
@@ -54,41 +44,9 @@ extension SBBDataArchiveConvertable {
     public func stringFromDate(_ date: Date) -> String {
         return Self.ISO8601Formatter().string(from: date)
     }
-    
-//    public static var kSurveyCreatedOnKey: String {
-//        return "surveyCreatedOn"
-//    }
-//    
-//    public static var kSurveyGuidKey: String {
-//        return "surveyGuid"
-//    }
-//    
+
     public var kSchemaRevisionKey: String {
         return "schemaRevision"
     }
-//    
-//    public static var kTaskIdentifierKey: String {
-//        return "taskIdentifier"
-//    }
-//    
-//    public static var kScheduledActivityGuidKey: String {
-//        return "scheduledActivityGuid"
-//    }
-//    
-//    public static var kTaskRunUUIDKey: String {
-//        return "taskRunUUID"
-//    }
-//    
-//    public var kStartDate: String {
-//        return "startDate"
-//    }
-//
-//    public var kEndDate: String {
-//        return "endDate"
-//    }
-//    
-//    public static var kMetadataFilename: String {
-//        return "metadata.json"
-//    }
     
 }

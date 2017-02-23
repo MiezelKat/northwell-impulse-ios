@@ -38,7 +38,7 @@ class CTFResultsProcessorManager: NSObject, StoreSubscriber {
     let rsrp: RSRPResultsProcessor
     let store: Store<CTFReduxState>
     
-    init(store: Store<CTFReduxState>) {
+    init(store: Store<CTFReduxState>, backEnd: RSRPBackEnd) {
         
         self.resultsProcessorQueue = DispatchQueue(label: "CTFResultsProcessorManagerQueue")
         self.rsrp = RSRPResultsProcessor(
@@ -46,7 +46,7 @@ class CTFResultsProcessorManager: NSObject, StoreSubscriber {
                 CTFDelayDiscountingRawResultsTransformer.self,
                 CTFBARTSummaryResultsTransformer.self,
                 CTFGoNoGoSummaryResultsTransformer.self
-            ], backEnd: CTFBridgeManager.sharedManager)
+            ], backEnd: backEnd)
         
         self.store = store
         super.init()

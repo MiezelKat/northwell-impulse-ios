@@ -41,6 +41,7 @@
 		E237F3C61E5F482A00671B77 /* thankYouActivity.json in Resources */ = {isa = PBXBuildFile; fileRef = E237F3C51E5F482A00671B77 /* thankYouActivity.json */; };
 		E237F3D31E5F556F00671B77 /* CTFScheduledActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E237F3D21E5F556F00671B77 /* CTFScheduledActivityManager.swift */; };
 		E237F3D51E5F565D00671B77 /* CTFStudyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E237F3D41E5F565D00671B77 /* CTFStudyConstants.swift */; };
+		E237F3DC1E5F7D6600671B77 /* CTFReduxStateHelper+SBBAuthManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E237F3DB1E5F7D6600671B77 /* CTFReduxStateHelper+SBBAuthManagerDelegate.swift */; };
 		E243393F1E0DC4C4009FF385 /* daily_active_tasks.json in Resources */ = {isa = PBXBuildFile; fileRef = E243393D1E0DC4C4009FF385 /* daily_active_tasks.json */; };
 		E24339401E0DC4C4009FF385 /* shuffled_active_tasks.json in Resources */ = {isa = PBXBuildFile; fileRef = E243393E1E0DC4C4009FF385 /* shuffled_active_tasks.json */; };
 		E2831A8C1E5B9C3000E3D727 /* CTFTaskBuilderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2831A8A1E5B9C3000E3D727 /* CTFTaskBuilderManager.swift */; };
@@ -234,6 +235,7 @@
 		E237F3C51E5F482A00671B77 /* thankYouActivity.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = thankYouActivity.json; path = "northwell-impulse-common/assets/json/survey/thankYouActivity.json"; sourceTree = SOURCE_ROOT; };
 		E237F3D21E5F556F00671B77 /* CTFScheduledActivityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFScheduledActivityManager.swift; sourceTree = "<group>"; };
 		E237F3D41E5F565D00671B77 /* CTFStudyConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFStudyConstants.swift; sourceTree = "<group>"; };
+		E237F3DB1E5F7D6600671B77 /* CTFReduxStateHelper+SBBAuthManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CTFReduxStateHelper+SBBAuthManagerDelegate.swift"; sourceTree = "<group>"; };
 		E243393D1E0DC4C4009FF385 /* daily_active_tasks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = daily_active_tasks.json; path = "northwell-impulse-common/assets/json/survey/daily_active_tasks.json"; sourceTree = SOURCE_ROOT; };
 		E243393E1E0DC4C4009FF385 /* shuffled_active_tasks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = shuffled_active_tasks.json; path = "northwell-impulse-common/assets/json/survey/shuffled_active_tasks.json"; sourceTree = SOURCE_ROOT; };
 		E2831A8A1E5B9C3000E3D727 /* CTFTaskBuilderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFTaskBuilderManager.swift; sourceTree = "<group>"; };
@@ -441,6 +443,7 @@
 				E20590041E5BE82F00D978B7 /* CTFReducers.swift */,
 				E20590141E5C045000D978B7 /* CTFSelectors.swift */,
 				E205901C1E5D0F4C00D978B7 /* CTFReduxStateHelper.swift */,
+				E237F3DB1E5F7D6600671B77 /* CTFReduxStateHelper+SBBAuthManagerDelegate.swift */,
 			);
 			name = Redux;
 			sourceTree = "<group>";
@@ -1183,6 +1186,7 @@
 				E2AA6CFC1DA41F3D005D5137 /* CTFLogInViaExternalIdViewController.swift in Sources */,
 				E234C94A1E5A90EB00E24E86 /* SBBDataArchiveBuilder.swift in Sources */,
 				E295FC2A1DDE36EB001B175D /* CTFSettingsTableViewController.swift in Sources */,
+				E237F3DC1E5F7D6600671B77 /* CTFReduxStateHelper+SBBAuthManagerDelegate.swift in Sources */,
 				E234C9181E5A0D6700E24E86 /* CTFBridgeManager.swift in Sources */,
 				E2B70A8A1E08B43600C93093 /* CTFLikertFormItemDescriptor.swift in Sources */,
 				E2AA6D1D1DA43C83005D5137 /* CTFPulsusFormStepViewController.swift in Sources */,

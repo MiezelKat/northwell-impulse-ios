@@ -14,6 +14,9 @@ struct CTFReduxState: StateType {
     
     let loaded: Bool
     let loggedIn: Bool
+    let sessionToken: String?
+    let email: String?
+    let password: String?
     
     let activityQueue: [(UUID, CTFActivityRun)]
     let resultsQueue: [(UUID, CTFActivityRun, ORKTaskResult)]
@@ -46,6 +49,9 @@ struct CTFReduxState: StateType {
         return CTFReduxState(
             loaded: false,
             loggedIn: false,
+            sessionToken: nil,
+            email: nil,
+            password: nil,
             activityQueue: [],
             resultsQueue: [],
             lastCompletedTaskIdentifier: nil,
@@ -73,6 +79,9 @@ struct CTFReduxState: StateType {
         fromState: CTFReduxState,
         loaded: Bool? = nil,
         loggedIn: Bool? = nil,
+        sessionToken: (String?)? = nil,
+        email: (String?)? = nil,
+        password: (String?)? = nil,
         activityQueue: [(UUID, CTFActivityRun)]? = nil,
         resultsQueue: [(UUID, CTFActivityRun, ORKTaskResult)]? = nil,
         lastCompletedTaskIdentifier: (String?)? = nil,
@@ -95,6 +104,9 @@ struct CTFReduxState: StateType {
         return CTFReduxState(
             loaded: loaded ?? fromState.loaded,
             loggedIn: loggedIn ?? fromState.loggedIn,
+            sessionToken: sessionToken ?? fromState.sessionToken,
+            email: email ?? fromState.email,
+            password: password ?? fromState.password,
             activityQueue: activityQueue ?? fromState.activityQueue,
             resultsQueue: resultsQueue ?? fromState.resultsQueue,
             lastCompletedTaskIdentifier: lastCompletedTaskIdentifier ?? fromState.lastCompletedTaskIdentifier,

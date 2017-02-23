@@ -14,6 +14,7 @@ class CTFReducers: NSObject {
     
     public static let reducer = CombinedReducer([
         AppStateReducer(),
+        SBBAuthReducer(),
         ActivityQueueReducer(),
         ResultsQueueReducer(),
         LastCompletedTaskIdentifier(),
@@ -35,6 +36,27 @@ class CTFReducers: NSObject {
                 
             case let loggedInAction as SetLoggedInAction:
                 return CTFReduxState.newState(fromState: state, loggedIn: loggedInAction.loggedIn)
+                
+            default:
+                return state
+            }
+            
+        }
+    }
+    
+    struct SBBAuthReducer: Reducer {
+        func handleAction(action: Action, state: CTFReduxState?) -> CTFReduxState {
+            let state = state ?? CTFReduxState.empty()
+            
+            switch action {
+                
+            case let credentialsAction as SetBridgeCredentialsAction:
+                return CTFReduxState.newState(
+                    fromState: state,
+                    sessionToken: credentialsAction.sessionToken,
+                    email: credentialsAction.email,
+                    password: credentialsAction.password
+                )
                 
             default:
                 return state

@@ -93,4 +93,12 @@ struct SetLoggedInAction: Action {
     let loggedIn: Bool
 }
 
+struct SetBridgeCredentialsAction: Action {
+    let sessionToken: String?
+    let email: String?
+    let password: String?
+}
+
+
+
 

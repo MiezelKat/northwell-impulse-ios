@@ -18,6 +18,18 @@ class CTFSelectors: NSObject {
         return state.loaded
     }
     
+    static func sessionToken(_ state: CTFReduxState) -> String?  {
+        return state.sessionToken
+    }
+    
+    static func email(_ state: CTFReduxState) -> String?  {
+        return state.email
+    }
+    
+    static func password(_ state: CTFReduxState) -> String?  {
+        return state.password
+    }
+    
     static func shouldShowBaselineSurvey(_ state: CTFReduxState) -> Bool {
         return state.baselineCompletedDate == nil
     }

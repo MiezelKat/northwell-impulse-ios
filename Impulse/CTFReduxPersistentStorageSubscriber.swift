@@ -46,7 +46,6 @@ class PersistedValue<T: Equatable>: ObservableValue<T> {
         
         let observationClosure: ObservationClosure = { value in
             let secureCodingValue = value as? NSSecureCoding
-            debugPrint(secureCodingValue)
             CTFKeychainManager.setValueInState(value: secureCodingValue, forKey: key)
         }
         
@@ -175,6 +174,10 @@ class PersistedValueMap: NSObject {
 
 class CTFReduxPersistentStorageSubscriber: NSObject, StoreSubscriber {
     
+    static let kSessionToken = "SessionToken"
+    static let kEmail = "Email"
+    static let kPassword = "Password"
+    
     static let kLastCompletedTaskIdentifier = "lastCompletedTaskIdentifier"
     
     
@@ -199,6 +202,10 @@ class CTFReduxPersistentStorageSubscriber: NSObject, StoreSubscriber {
     static let kExtensibleStorage: String = "ExtensibleStorage"
     
     static let kShouldShowTrialActivities: String = "ShouldShowTrialActivities"
+    
+    let sessionToken = PersistedValue<String>(key: CTFReduxPersistentStorageSubscriber.kSessionToken)
+    let email = PersistedValue<String>(key: CTFReduxPersistentStorageSubscriber.kEmail)
+    let password = PersistedValue<String>(key: CTFReduxPersistentStorageSubscriber.kPassword)
     
     let lastCompletedTaskIdentifier = PersistedValue<String>(key: CTFReduxPersistentStorageSubscriber.kLastCompletedTaskIdentifier)
     
@@ -230,6 +237,9 @@ class CTFReduxPersistentStorageSubscriber: NSObject, StoreSubscriber {
         return CTFReduxState(
             loaded: false,
             loggedIn: false,
+            sessionToken: self.sessionToken.get(),
+            email: self.email.get(),
+            password: self.password.get(),
             activityQueue: [],
             resultsQueue: [],
             lastCompletedTaskIdentifier: self.lastCompletedTaskIdentifier.get(),
@@ -251,32 +261,11 @@ class CTFReduxPersistentStorageSubscriber: NSObject, StoreSubscriber {
         )
     }
     
-//    static private let staticQueue = DispatchQueue(label: "CTFReduxPersistentStorageSubscriberStaticQueue")
-//    
-//    static private var _sharedInstance: CTFReduxPersistentStorageSubscriber?
-//    
-//    
-//    public static var sharedInstance: CTFReduxPersistentStorageSubscriber {
-//        return staticQueue.sync {
-//            if _sharedInstance == nil {
-//                _sharedInstance = CTFReduxPersistentStorageSubscriber()
-//            }
-//            return _sharedInstance!
-//        }
-//    }
-//    
-//    public static func clear() {
-//        return staticQueue.sync {
-//            CTFStateManager.defaultManager.clearState()
-//        }
-//    }
-//    
-//    private override init() {
-//        super.init()
-//        
-//    }
-    
     func newState(state: CTFReduxState) {
+        
+        self.sessionToken.set(value: state.sessionToken)
+        self.email.set(value: state.email)
+        self.password.set(value: state.password)
         
         self.lastCompletedTaskIdentifier.set(value: state.lastCompletedTaskIdentifier)
         self.baselineCompletedDate.set(value: state.baselineCompletedDate)

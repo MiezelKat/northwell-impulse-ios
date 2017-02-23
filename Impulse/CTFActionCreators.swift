@@ -57,6 +57,12 @@ class CTFActionCreators: NSObject {
         }
     }
     
+    static func setBridgeCredentials(sessionToken: String?, email: String?, password: String?) -> (CTFReduxState, Store<CTFReduxState>) -> Action? {
+        return { (state, store) in
+            return SetBridgeCredentialsAction(sessionToken: sessionToken, email: email, password: password)
+        }
+    }
+    
     static func completeActivity(uuid: UUID, activityRun: CTFActivityRun, taskResult: ORKTaskResult?) -> AsyncActionCreator {
         return { (state, store, actionCreatorCallback) in
                         

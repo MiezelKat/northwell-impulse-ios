@@ -42,6 +42,7 @@
 import UIKit
 import ResearchKit
 import BridgeSDK
+import ResearchSuiteResultsProcessor
 
 @UIApplicationMain
 class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
@@ -57,7 +58,15 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
     
     var taskBuilderManager: CTFTaskBuilderManager?
     var resultsProcessorManager: CTFResultsProcessorManager?
-
+    var bridgeManager: CTFBridgeManager?
+    
+    var rsrpBackEnd: RSRPBackEnd? {
+        return self.bridgeManager
+    }
+    
+    var initializeStateClosure: (() -> Void)?
+    var resetStateClosure: (() -> Void)?
+    
     open var containerRootViewController: CTFRootViewControllerProtocol? {
         return window?.rootViewController as? CTFRootViewControllerProtocol
     }
@@ -75,10 +84,22 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
             }
         }
         
-        self.initializeState()
-
+        let bridgeManager = CTFBridgeManager()
+        
+        self.initializeStateClosure = {
+            self.initializeState(bridgeManager: bridgeManager, backEnd: bridgeManager)
+        }
+        
+        self.resetStateClosure = {
+            self.resetState(bridgeManager: bridgeManager, backEnd: bridgeManager)
+        }
+    
+        self.bridgeManager = bridgeManager
+        
+        self.initializeStateClosure!()
+        
         let store = self.reduxStoreManager?.store
-        CTFBridgeManager.sharedManager.isLoggedIn { (loggedIn) in
+        bridgeManager.isLoggedIn { (loggedIn) in
             
             self.setLoggedInAndShowViewController(loggedIn: loggedIn, completion: {
                 store?.dispatch(CTFActionCreators.setAppLoaded(loaded: true))
@@ -154,69 +175,9 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
     
     open func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
         if identifier == kBackgroundSessionIdentifier {
-            CTFBridgeManager.sharedManager.restoreBackgroundSession(identifier: identifier, completionHandler: completionHandler)
+            self.bridgeManager!.restoreBackgroundSession(identifier: identifier, completionHandler: completionHandler)
         }
     }
-    
-    
-//
-//    func applicationWillResignActive(_ application: UIApplication) {
-//        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-//        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-//    }
-//
-//    func applicationDidEnterBackground(_ application: UIApplication) {
-//        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-//        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-//    }
-//
-//    func applicationWillEnterForeground(_ application: UIApplication) {
-//        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-//    }
-//
-//    func applicationDidBecomeActive(_ application: UIApplication) {
-//        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-//    }
-//
-//    func applicationWillTerminate(_ application: UIApplication) {
-//        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-//    }
-    
-//    override var requiredPermissions: SBAPermissionsType {
-//        return [.coremotion, .localNotifications, .microphone]
-//    }
-    
-//    override func showMainViewController(animated: Bool) {
-//        guard let storyboard = openStoryboard("Main"),
-//            let vc = storyboard.instantiateInitialViewController()
-//            else {
-//                assertionFailure("Failed to load onboarding storyboard")
-//                return
-//        }
-//        self.transition(toRootViewController: vc, animated: animated)
-//    }
-//    
-//    override func showOnboardingViewController(animated: Bool) {
-//        
-//        //clear user keychain
-//        do {
-//            try ORKKeychainWrapper.resetKeychain()
-//        } catch let error {
-////            assertionFailure("Got error \(error) when resetting keychain")
-//        }
-//        
-//        guard let storyboard = openStoryboard("Onboarding"),
-//            let vc = storyboard.instantiateInitialViewController()
-//            else {
-//                assertionFailure("Failed to load onboarding storyboard")
-//                return
-//        }
-//        self.transition(toRootViewController: vc, animated: animated)
-//    }
-//    
-//    func openStoryboard(_ name: String) -> UIStoryboard? {
-//        return UIStoryboard(name: name, bundle: nil)
-//    }
 
     /**
      Convenience method for presenting a modal view controller.
@@ -323,15 +284,17 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
         viewController.present(alert, animated: true, completion: nil)
     }
     
-    private func initializeState() {
+    private func initializeState(bridgeManager: CTFBridgeManager, backEnd: RSRPBackEnd) {
         let reduxPersistenceSubscriber = CTFReduxPersistentStorageSubscriber()
         let persistedState = reduxPersistenceSubscriber.loadState()
         let storeManager = CTFReduxStoreManager(initialState: persistedState)
         let notificationManager = CTFNotificationSubscriber()
         let stateHelper = CTFReduxStateHelper(store: storeManager.store)
         
+        bridgeManager.setAuthDelegate(delegate: stateHelper)
+        
         let taskBuilder = CTFTaskBuilderManager(stateHelper: stateHelper)
-        let resultsProcessor = CTFResultsProcessorManager(store: storeManager.store)
+        let resultsProcessor = CTFResultsProcessorManager(store: storeManager.store, backEnd: backEnd)
         
         self.reduxStoreManager = storeManager
         self.reduxPersistenceSubscriber = reduxPersistenceSubscriber
@@ -347,8 +310,9 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
         
     }
     
-    private func resetState() {
+    private func resetState(bridgeManager: CTFBridgeManager, backEnd: RSRPBackEnd) {
         
+        bridgeManager.setAuthDelegate(delegate: nil)
         //unwind
         
         if let oldStoreManager = self.reduxStoreManager {
@@ -365,15 +329,12 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
         self.reduxNotificationSubscriber = nil
         self.taskBuilderManager = nil
         self.resultsProcessorManager = nil
-        
+
         CTFKeychainManager.clearKeychain()
         
-        self.initializeState()
+        self.initializeState(bridgeManager: bridgeManager, backEnd: backEnd)
         
     }
-    
-    
-//    private func initialize 
     
     public func signOut() {
         
@@ -381,35 +342,36 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
         let vc = UIViewController()
         vc.view.backgroundColor = UIColor.white
         transition(toRootViewController: vc, animated: false)
-
-        CTFBridgeManager.sharedManager.isLoggedIn(completion: { (loggedIn) in
-            if loggedIn {
-                CTFBridgeManager.sharedManager.signOut(completion: { (error) in
-                    
-                    
-                    
-                    DispatchQueue.main.async {
-                        //clear keychain (passcode stored in keychain
-                        self.resetState()
-                        self.setLoggedInAndShowViewController(loggedIn: false, completion: { 
-                            
-                            
-                        })
-                    }
+        
+        let finishedClosure = {
+            DispatchQueue.main.async {
+                //clear keychain (passcode stored in keychain
+                self.resetStateClosure!()
+                self.setLoggedInAndShowViewController(loggedIn: false, completion: {
                     
                 })
             }
-            else {
-                DispatchQueue.main.async {
-                    //clear keychain (passcode stored in keychain
-                    self.resetState()
-                    self.setLoggedInAndShowViewController(loggedIn: false, completion: {
+        }
+        
+        if let bridgeManager = self.bridgeManager {
+            bridgeManager.isLoggedIn(completion: { (loggedIn) in
+                if loggedIn {
+                    bridgeManager.signOut(completion: { (error) in
                         
+                        finishedClosure()
                         
                     })
                 }
-            }
-        })
+                else {
+                    finishedClosure()
+                }
+            })
+        }
+        else {
+            finishedClosure()
+        }
+
+        
         
     }
 

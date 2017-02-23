@@ -15,18 +15,15 @@ import ResearchSuiteResultsProcessor
 
 
 public class CTFBridgeManager: NSObject, RSRPBackEnd {
-    
-    static public let sharedManager: CTFBridgeManager = CTFBridgeManager()
-    
-    private override init() {
-        
+
+    override init() {
         BridgeSDK.setup()
-        BridgeSDK.setAuthDelegate(CTFKeychainManager.sharedManager)
-        
     }
     
-    
-    
+    func setAuthDelegate(delegate: SBBAuthManagerDelegateProtocol?) {
+        BridgeSDK.setAuthDelegate(delegate)
+    }
+
     public func isLoggedIn(completion: @escaping ((Bool) -> ())) {
         
         if let authManager: SBBAuthManagerProtocol = SBBComponentManager.component(SBBAuthManager.self) as? SBBAuthManagerProtocol {

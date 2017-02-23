@@ -29,6 +29,8 @@ open class CTFLoginStepViewController: ORKFormStepViewController {
         if let step = self.step as? CTFLoginStep {
             self.continueButtonTitle = step.loginButtonTitle
             self.skipButtonTitle = step.forgotPasswordButtonTitle
+            
+            step.loginViewControllerDidLoad?(self)
         }
         
     }
