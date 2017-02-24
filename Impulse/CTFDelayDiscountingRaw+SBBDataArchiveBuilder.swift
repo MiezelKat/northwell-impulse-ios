@@ -1,5 +1,5 @@
 //
-//  CTFDelayDiscountingRaw+SBBDataArchiveConvertable.swift
+//  CTFDelayDiscountingRaw+SBBDataArchiveBuilder.swift
 //  Impulse
 //
 //  Created by James Kizer on 2/19/17.
@@ -20,13 +20,16 @@ extension CTFDelayDiscountingRaw {
     }
     
     override public var schemaVersion: Int {
-        return 5
+        return 6
     }
     
     override public var data: [String: Any] {
         return [
             "variableLabel": self.variableLabel,
-            "nowArray": self.nowArray
+            "nowArray": self.nowArray,
+            "laterArray": self.laterArray,
+            "choiceArray": self.choiceArray,
+            "times": self.times
         ]
     }
 

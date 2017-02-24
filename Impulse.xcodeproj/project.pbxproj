@@ -20,6 +20,8 @@
 		E20590151E5C045000D978B7 /* CTFSelectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20590141E5C045000D978B7 /* CTFSelectors.swift */; };
 		E20590171E5C079A00D978B7 /* CTFNotificationSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20590161E5C079A00D978B7 /* CTFNotificationSubscriber.swift */; };
 		E205901D1E5D0F4C00D978B7 /* CTFReduxStateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205901C1E5D0F4C00D978B7 /* CTFReduxStateHelper.swift */; };
+		E20D5C381E5FA9FE006655E8 /* demographics.json in Resources */ = {isa = PBXBuildFile; fileRef = E20D5C371E5FA9FE006655E8 /* demographics.json */; };
+		E20D5C3C1E5FB3F7006655E8 /* DemographicsResult+SBBDataArchiveBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20D5C3B1E5FB3F7006655E8 /* DemographicsResult+SBBDataArchiveBuilder.swift */; };
 		E22792A81DD3DD010026F8AB /* CTFKeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22792A71DD3DD010026F8AB /* CTFKeychainManager.swift */; };
 		E22792BE1DD53A490026F8AB /* CTFAutosizingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22792BD1DD53A490026F8AB /* CTFAutosizingLabel.swift */; };
 		E234C8F41E58EA9300E24E86 /* NSDate+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234C8F31E58EA9300E24E86 /* NSDate+Utilities.swift */; };
@@ -32,11 +34,11 @@
 		E234C91D1E5A5D7500E24E86 /* BridgeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E234C8D71E58E1E300E24E86 /* BridgeSDK.framework */; };
 		E234C91E1E5A5D7500E24E86 /* BridgeSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E234C8D71E58E1E300E24E86 /* BridgeSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E234C9431E5A791000E24E86 /* CTFResultsProcessorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234C9421E5A791000E24E86 /* CTFResultsProcessorManager.swift */; };
-		E234C9461E5A845D00E24E86 /* CTFDelayDiscountingRaw+SBBDataArchiveConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234C9451E5A845D00E24E86 /* CTFDelayDiscountingRaw+SBBDataArchiveConvertable.swift */; };
+		E234C9461E5A845D00E24E86 /* CTFDelayDiscountingRaw+SBBDataArchiveBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234C9451E5A845D00E24E86 /* CTFDelayDiscountingRaw+SBBDataArchiveBuilder.swift */; };
 		E234C9481E5A87CC00E24E86 /* SBBDataArchiveConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234C9471E5A87CC00E24E86 /* SBBDataArchiveConvertable.swift */; };
 		E234C94A1E5A90EB00E24E86 /* SBBDataArchiveBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234C9491E5A90EB00E24E86 /* SBBDataArchiveBuilder.swift */; };
 		E23535DC1DB57B6F005BAFE3 /* GenericHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23535DB1DB57B6F005BAFE3 /* GenericHelpers.swift */; };
-		E237F39D1E5E509500671B77 /* RSRPIntermediateResult+SBBDataArchiveConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E237F39C1E5E509500671B77 /* RSRPIntermediateResult+SBBDataArchiveConvertable.swift */; };
+		E237F39D1E5E509500671B77 /* RSRPIntermediateResult+SBBDataArchiveBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E237F39C1E5E509500671B77 /* RSRPIntermediateResult+SBBDataArchiveBuilder.swift */; };
 		E237F3AB1E5E8B8F00671B77 /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = E237F3AA1E5E8B8F00671B77 /* settings.json */; };
 		E237F3C61E5F482A00671B77 /* thankYouActivity.json in Resources */ = {isa = PBXBuildFile; fileRef = E237F3C51E5F482A00671B77 /* thankYouActivity.json */; };
 		E237F3D31E5F556F00671B77 /* CTFScheduledActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E237F3D21E5F556F00671B77 /* CTFScheduledActivityManager.swift */; };
@@ -215,6 +217,8 @@
 		E20590141E5C045000D978B7 /* CTFSelectors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFSelectors.swift; sourceTree = "<group>"; };
 		E20590161E5C079A00D978B7 /* CTFNotificationSubscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFNotificationSubscriber.swift; sourceTree = "<group>"; };
 		E205901C1E5D0F4C00D978B7 /* CTFReduxStateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFReduxStateHelper.swift; sourceTree = "<group>"; };
+		E20D5C371E5FA9FE006655E8 /* demographics.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = demographics.json; path = "northwell-impulse-common/assets/json/survey/demographics.json"; sourceTree = SOURCE_ROOT; };
+		E20D5C3B1E5FB3F7006655E8 /* DemographicsResult+SBBDataArchiveBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DemographicsResult+SBBDataArchiveBuilder.swift"; sourceTree = "<group>"; };
 		E22792A71DD3DD010026F8AB /* CTFKeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFKeychainManager.swift; sourceTree = "<group>"; };
 		E22792BD1DD53A490026F8AB /* CTFAutosizingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFAutosizingLabel.swift; sourceTree = "<group>"; };
 		E234C8C41E58E1E200E24E86 /* BridgeSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BridgeSDK.xcodeproj; path = "Bridge-iOS-SDK/BridgeSDK.xcodeproj"; sourceTree = "<group>"; };
@@ -226,11 +230,11 @@
 		E234C9191E5A0F8800E24E86 /* CTFBridgeManagerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFBridgeManagerError.swift; sourceTree = "<group>"; };
 		E234C91B1E5A22B300E24E86 /* CTFRootViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFRootViewControllerProtocol.swift; sourceTree = "<group>"; };
 		E234C9421E5A791000E24E86 /* CTFResultsProcessorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFResultsProcessorManager.swift; sourceTree = "<group>"; };
-		E234C9451E5A845D00E24E86 /* CTFDelayDiscountingRaw+SBBDataArchiveConvertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CTFDelayDiscountingRaw+SBBDataArchiveConvertable.swift"; sourceTree = "<group>"; };
+		E234C9451E5A845D00E24E86 /* CTFDelayDiscountingRaw+SBBDataArchiveBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CTFDelayDiscountingRaw+SBBDataArchiveBuilder.swift"; sourceTree = "<group>"; };
 		E234C9471E5A87CC00E24E86 /* SBBDataArchiveConvertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBBDataArchiveConvertable.swift; sourceTree = "<group>"; };
 		E234C9491E5A90EB00E24E86 /* SBBDataArchiveBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBBDataArchiveBuilder.swift; sourceTree = "<group>"; };
 		E23535DB1DB57B6F005BAFE3 /* GenericHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericHelpers.swift; sourceTree = "<group>"; };
-		E237F39C1E5E509500671B77 /* RSRPIntermediateResult+SBBDataArchiveConvertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RSRPIntermediateResult+SBBDataArchiveConvertable.swift"; sourceTree = "<group>"; };
+		E237F39C1E5E509500671B77 /* RSRPIntermediateResult+SBBDataArchiveBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RSRPIntermediateResult+SBBDataArchiveBuilder.swift"; sourceTree = "<group>"; };
 		E237F3AA1E5E8B8F00671B77 /* settings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = settings.json; path = "northwell-impulse-common/assets/json/survey/settings.json"; sourceTree = SOURCE_ROOT; };
 		E237F3C51E5F482A00671B77 /* thankYouActivity.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = thankYouActivity.json; path = "northwell-impulse-common/assets/json/survey/thankYouActivity.json"; sourceTree = SOURCE_ROOT; };
 		E237F3D21E5F556F00671B77 /* CTFScheduledActivityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFScheduledActivityManager.swift; sourceTree = "<group>"; };
@@ -443,7 +447,6 @@
 				E20590041E5BE82F00D978B7 /* CTFReducers.swift */,
 				E20590141E5C045000D978B7 /* CTFSelectors.swift */,
 				E205901C1E5D0F4C00D978B7 /* CTFReduxStateHelper.swift */,
-				E237F3DB1E5F7D6600671B77 /* CTFReduxStateHelper+SBBAuthManagerDelegate.swift */,
 			);
 			name = Redux;
 			sourceTree = "<group>";
@@ -452,10 +455,11 @@
 			isa = PBXGroup;
 			children = (
 				E2831A781E5B9A6C00E3D727 /* Baseline */,
-				E234C9451E5A845D00E24E86 /* CTFDelayDiscountingRaw+SBBDataArchiveConvertable.swift */,
-				E237F39C1E5E509500671B77 /* RSRPIntermediateResult+SBBDataArchiveConvertable.swift */,
+				E234C9451E5A845D00E24E86 /* CTFDelayDiscountingRaw+SBBDataArchiveBuilder.swift */,
+				E237F39C1E5E509500671B77 /* RSRPIntermediateResult+SBBDataArchiveBuilder.swift */,
 				E234C9471E5A87CC00E24E86 /* SBBDataArchiveConvertable.swift */,
 				E234C9491E5A90EB00E24E86 /* SBBDataArchiveBuilder.swift */,
+				E237F3DB1E5F7D6600671B77 /* CTFReduxStateHelper+SBBAuthManagerDelegate.swift */,
 			);
 			name = RSRP;
 			sourceTree = "<group>";
@@ -486,6 +490,7 @@
 			children = (
 				E2B70A2D1E0895BD00C93093 /* PAMMultipleSelection.json */,
 				E2B70A241E0895BD00C93093 /* Baseline.json */,
+				E20D5C371E5FA9FE006655E8 /* demographics.json */,
 			);
 			name = Baseline;
 			sourceTree = "<group>";
@@ -574,6 +579,7 @@
 			isa = PBXGroup;
 			children = (
 				E2831A8E1E5B9C3C00E3D727 /* DemographicsResult.swift */,
+				E20D5C3B1E5FB3F7006655E8 /* DemographicsResult+SBBDataArchiveBuilder.swift */,
 			);
 			name = Baseline;
 			sourceTree = "<group>";
@@ -933,6 +939,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E20D5C381E5FA9FE006655E8 /* demographics.json in Resources */,
 				E2B70A361E0895BD00C93093 /* am_likert_1.json in Resources */,
 				E2831AA41E5BA24800E3D727 /* activities.json in Resources */,
 				E2B70A9D1E098EA700C93093 /* Reenrollment.json in Resources */,
@@ -1176,13 +1183,14 @@
 				E2AA6D031DA43C54005D5137 /* CTFActivityTableViewController.swift in Sources */,
 				E2831A8C1E5B9C3000E3D727 /* CTFTaskBuilderManager.swift in Sources */,
 				E2EF6B1F1DA2E2970034456A /* CTFAppDelegate.swift in Sources */,
-				E234C9461E5A845D00E24E86 /* CTFDelayDiscountingRaw+SBBDataArchiveConvertable.swift in Sources */,
+				E234C9461E5A845D00E24E86 /* CTFDelayDiscountingRaw+SBBDataArchiveBuilder.swift in Sources */,
 				E2B70A901E08C3BB00C93093 /* CTFSemanticDifferentialScaleFormParameters.swift in Sources */,
 				E234C9431E5A791000E24E86 /* CTFResultsProcessorManager.swift in Sources */,
 				E234C9141E594B0600E24E86 /* CTFBridgeExternalIDStep.swift in Sources */,
 				E237F3D51E5F565D00671B77 /* CTFStudyConstants.swift in Sources */,
 				E2C18EAD1DD147C1005E0324 /* CTFScaleAnswerFormat.swift in Sources */,
 				E2FE1AB71DB0337200DBB8E7 /* Array+Random.swift in Sources */,
+				E20D5C3C1E5FB3F7006655E8 /* DemographicsResult+SBBDataArchiveBuilder.swift in Sources */,
 				E2AA6CFC1DA41F3D005D5137 /* CTFLogInViaExternalIdViewController.swift in Sources */,
 				E234C94A1E5A90EB00E24E86 /* SBBDataArchiveBuilder.swift in Sources */,
 				E295FC2A1DDE36EB001B175D /* CTFSettingsTableViewController.swift in Sources */,
@@ -1202,7 +1210,7 @@
 				E20590171E5C079A00D978B7 /* CTFNotificationSubscriber.swift in Sources */,
 				E234C9481E5A87CC00E24E86 /* SBBDataArchiveConvertable.swift in Sources */,
 				E234C9161E594BAF00E24E86 /* CTFBridgeExternalIDStepViewController.swift in Sources */,
-				E237F39D1E5E509500671B77 /* RSRPIntermediateResult+SBBDataArchiveConvertable.swift in Sources */,
+				E237F39D1E5E509500671B77 /* RSRPIntermediateResult+SBBDataArchiveBuilder.swift in Sources */,
 				E20590091E5BF82200D978B7 /* CTFActionCreators.swift in Sources */,
 				E20590031E5BE80C00D978B7 /* CTFActions.swift in Sources */,
 				E2831AA01E5B9DD800E3D727 /* CTFLoginStep.swift in Sources */,

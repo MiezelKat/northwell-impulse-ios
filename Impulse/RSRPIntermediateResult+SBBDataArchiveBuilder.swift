@@ -1,5 +1,5 @@
  //
-//  RSRPIntermediateResult+SBBDataArchiveConvertable.swift
+//  RSRPIntermediateResult+SBBDataArchiveBuilder.swift
 //  Impulse
 //
 //  Created by James Kizer on 2/22/17.

@@ -43,6 +43,7 @@ class CTFResultsProcessorManager: NSObject, StoreSubscriber {
         self.resultsProcessorQueue = DispatchQueue(label: "CTFResultsProcessorManagerQueue")
         self.rsrp = RSRPResultsProcessor(
             frontEndTransformers: [
+                DemographicsResult.self,
                 CTFDelayDiscountingRawResultsTransformer.self,
                 CTFBARTSummaryResultsTransformer.self,
                 CTFGoNoGoSummaryResultsTransformer.self
