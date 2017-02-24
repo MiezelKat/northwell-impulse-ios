@@ -6,18 +6,18 @@
 //  Copyright © 2016 James Kizer. All rights reserved.
 //
 
-import Bricoleur
+import ResearchSuiteTaskBuilder
 import Gloss
 import ResearchKit
 
-class CTFExtendedMultipleChoiceStepGenerator: BCLMultipleChoiceStepGenerator {
+class CTFExtendedMultipleChoiceStepGenerator: RSTBMultipleChoiceStepGenerator {
     
-    open override func generateChoices(items: [BCLChoiceStepDescriptor.ChoiceItem], valueSuffix: String?, shouldShuffle: Bool?) -> [ORKTextChoice] {
+    open override func generateChoices(items: [RSTBChoiceStepDescriptor.ChoiceItem], valueSuffix: String?, shouldShuffle: Bool?) -> [ORKTextChoice] {
         
         return super.generateChoices(items: items, valueSuffix: valueSuffix, shouldShuffle: false)
     }
     
-    open override func generateFilter(type: String, jsonObject: JSON, helper: BCLStepBuilderHelper) -> ChoiceItemFilter? {
+    open override func generateFilter(type: String, jsonObject: JSON, helper: RSTBTaskBuilderHelper) -> ChoiceItemFilter? {
         
         guard let includedValuesKey: String = "filterItemsByValueInListKeyedBy" <~~ jsonObject,
             let stateHelper = helper.stateHelper,
@@ -32,7 +32,7 @@ class CTFExtendedMultipleChoiceStepGenerator: BCLMultipleChoiceStepGenerator {
             return super.generateFilter(type: type, jsonObject: jsonObject, helper: helper)
         }
         
-        return { (item: BCLChoiceStepDescriptor.ChoiceItem) in
+        return { (item: RSTBChoiceStepDescriptor.ChoiceItem) in
             if let value = item.value as? String {
                 return includedValues.contains(where: { (includedValue) -> Bool in
                     return includedValue.hasPrefix(value)

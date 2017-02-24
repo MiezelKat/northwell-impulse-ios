@@ -8,9 +8,9 @@
 
 import UIKit
 import Gloss
-import Bricoleur
+import ResearchSuiteTaskBuilder
 
-class CTFSemanticDifferentialScaleFormItemDecriptor: BCLStepDescriptor {
+class CTFSemanticDifferentialScaleFormItemDecriptor: RSTBStepDescriptor {
     
     let minimum: Int
     let maximum: Int

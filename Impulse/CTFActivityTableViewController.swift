@@ -7,66 +7,210 @@
 //
 
 import UIKit
-import BridgeAppSDK
+import ResearchSuiteTaskBuilder
+import Gloss
+import ReSwift
 
-//public protocol SBAScheduledActivityDataSource: class {
-//
-//    func reloadData()
-//    func numberOfSections() -> Int
-//    func numberOfRowsInSection(section: Int) -> Int
-//    func scheduledActivityAtIndexPath(indexPath: NSIndexPath) -> SBBScheduledActivity?
-//    func shouldShowTaskForIndexPath(indexPath: NSIndexPath) -> Bool
-//
-//    optional func didSelectRowAtIndexPath(indexPath: NSIndexPath)
-//    optional func sectionTitle(section: Int) -> String?
-//}
 
-public protocol CTFScheduledActivityDataSource: SBAScheduledActivityDataSource {
-    func ctfScheduledActivityAtIndexPath(_ indexPath: IndexPath) -> CTFScheduledActivity?
-}
+class CTFActivityTableViewController: UITableViewController, StoreSubscriber {
 
-class CTFActivityTableViewController: SBAActivityTableViewController, CTFSettingsDelegate {
+    static let kActivitiesFileName = "activities"
+    static let kTrialActivitiesFileName = "trialActivities"
+    static let kThankYouActivities = "thankYouActivity"
+    
+    var activitiesSchedule: CTFSchedule?
+    var activities: [CTFScheduleItem] = []
+    
+    var trialActivitiesSchedule: CTFSchedule?
+    var trialActivities: [CTFScheduleItem] = []
 
-    override var scheduledActivityDataSource: SBAScheduledActivityDataSource {
-        return _ctfScheduledActivityManager
+    var thankYouActivitiesSchedule: CTFSchedule?
+    var thankYouActivity: CTFScheduleItem?
+    
+    var state: CTFReduxState?
+    
+    var store: Store<CTFReduxState>? {
+        if let appDelegate = UIApplication.shared.delegate as? CTFAppDelegate {
+            return appDelegate.reduxStoreManager?.store
+        }
+        else {
+            return nil
+        }
     }
     
-    lazy fileprivate var _ctfScheduledActivityManager : CTFScheduledActivityManager = {
-        guard let filePath = Bundle.main.path(forResource: "tasks_and_schedules", ofType: "json")
-            else {
-                fatalError("Unable to locate file tasks_and_schedules")
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+        self.activitiesSchedule = self.loadSchedule(filename: CTFActivityTableViewController.kActivitiesFileName)
+        self.trialActivitiesSchedule = self.loadSchedule(filename: CTFActivityTableViewController.kTrialActivitiesFileName)
+        self.thankYouActivitiesSchedule = self.loadSchedule(filename: CTFActivityTableViewController.kThankYouActivities)
+        
+        self.store?.subscribe(self)
+        if let state = self.store?.state {
+            self.loadData(state: state)
+        }
+    
+    }
+    
+    deinit {
+        self.store?.unsubscribe(self)
+    }
+    
+    func newState(state: CTFReduxState) {
+        let oldState = self.state
+        self.state = state
+        //possibly reload data
+        if let oldState = oldState,
+            CTFSelectors.shouldReloadActivities(newState: state, oldState: oldState){
+            self.reloadData(state: state)
+        }
+        else {
+            self.reloadData(state: state)
         }
         
-        guard let fileContent = try? Data(contentsOf: URL(fileURLWithPath: filePath))
-            else {
-                fatalError("Unable to create NSData with file content (PAM data)")
+    }
+    
+    
+    func loadSchedule(filename: String) -> CTFSchedule? {
+        guard let json = CTFTaskBuilderManager.getJson(forFilename: filename) as? JSON else {
+            return nil
         }
         
-        let tasksAndSchedules = try! JSONSerialization.jsonObject(with: fileContent, options: JSONSerialization.ReadingOptions.mutableContainers)
+        return CTFSchedule(json: json)
+    }
+
+    func loadData(state: CTFReduxState) {
         
-        return CTFScheduledActivityManager(delegate: self, json: tasksAndSchedules as AnyObject)
-    }()
+        self.activities = self.activitiesSchedule?.items.filter(self.scheduledItemsFilter(state: state)) ?? []
+        self.trialActivities = self.trialActivitiesSchedule?.items.filter(self.trialItemsFilter(state: state)) ?? []
+        
+        
+        if self.activities.isEmpty,
+            let thankYouActivity = self.thankYouActivitiesSchedule?.items.first {
+            
+            self.activities = [thankYouActivity]
+            
+        }
+        
+    }
     
+    func reloadData(state: CTFReduxState) {
+        self.loadData(state: state)
+        self.reloadFinished()
+    }
     
+    func reloadFinished() {
+        self.refreshControl?.endRefreshing()
+        self.tableView.reloadData()
+    }
     
-    override func configure(cell: UITableViewCell, in tableView: UITableView, at indexPath: IndexPath) {
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        if let state = self.state {
+            return CTFSelectors.showTrialActivities(state) ? 2 : 1
+        }
+        else {
+            return 1
+        }
+    }
+    
+
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Pending Activities"
+        }
+        else {
+            return "Trial Activities"
+        }
+    }
+
+    private func scheduleItem(forIndexPath indexPath: IndexPath) -> CTFScheduleItem? {
+        if (indexPath as NSIndexPath).section == 0 {
+            return self.activities[(indexPath as NSIndexPath).row]
+        }
+        else {
+            return self.trialActivities[(indexPath as NSIndexPath).row]
+        }
+    }
+
+    
+    //MARK: Data Source
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return self.activities.count
+        }
+        else {
+            return self.trialActivities.count
+        }
+    }
+
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
+        let identifier = "ActivityCell"
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        
         guard let activityCell = cell as? CTFActivityTableViewCell,
-            let scheduledActivityDataSource = self.scheduledActivityDataSource as? CTFScheduledActivityDataSource,
-            let schedule = scheduledActivityDataSource.ctfScheduledActivityAtIndexPath(indexPath) else {
-                return
+            let item = self.scheduleItem(forIndexPath: indexPath) else {
+                return cell
         }
         
-        // The only cell type that is supported in the base implementation is an SBAActivityTableViewCell
-        activityCell.titleLabel.text = schedule.title
-        activityCell.complete = schedule.completed
-        activityCell.timeLabel?.text = ""
-        activityCell.subtitleLabel?.text = schedule.timeEstimate
+        activityCell.titleLabel.text = item.title
+        activityCell.complete = false
+        activityCell.timeLabel?.text = nil
+        activityCell.subtitleLabel.text = nil
+
+        return activityCell
         
     }
     
-    func settingsUpdated() {
-        self.scheduledActivityDataSource.reloadData()
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        guard let item = self.scheduleItem(forIndexPath: indexPath) else {
+            return
+        }
+        
+        let activityRun = CTFActivityRun(
+            identifier: item.identifier,
+            activity: item.activity as JsonElement,
+            resultTransforms: item.resultTransforms,
+            onCompletionActions: item.onCompletionActions)
+        let action = QueueActivityAction(uuid: UUID(), activityRun: activityRun)
+        self.store?.dispatch(action)
+        
     }
     
+    func scheduledItemsFilter(state: CTFReduxState) -> (CTFScheduleItem) -> Bool {
+        return { scheduleItem in
+            switch(scheduleItem.identifier) {
+            case "baseline":
+                return CTFSelectors.shouldShowBaselineSurvey(state)
+            case "reenrollment":
+                return CTFSelectors.shouldShowReenrollmentSurvey(state)
+            case "21-day-assessment":
+                return CTFSelectors.shouldShow21DaySurvey(state)
+            case "am_survey":
+                return CTFSelectors.shouldShowMorningSurvey(state)
+            case "pm_survey":
+                return CTFSelectors.shouldShowEveningSurvey(state)
+                
+            default:
+                return false
+            }
+            
+        }
+    }
+    
+    func trialItemsFilter(state: CTFReduxState) -> (CTFScheduleItem) -> Bool {
+        return { scheduleItem in
+            return true
+        }
+    }
+
+
     
 }

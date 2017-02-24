@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import Bricoleur
+import ResearchSuiteTaskBuilder
 import ResearchKit
 import Gloss
 
-class CTFLikertFormStepGenerator: BCLBaseStepGenerator {
+class CTFLikertFormStepGenerator: RSTBBaseStepGenerator {
     
     public init(){}
     
@@ -23,7 +23,7 @@ class CTFLikertFormStepGenerator: BCLBaseStepGenerator {
         return self._supportedTypes
     }
     
-    open func generateStep(type: String, jsonObject: JSON, helper: BCLStepBuilderHelper) -> ORKStep? {
+    open func generateStep(type: String, jsonObject: JSON, helper: RSTBTaskBuilderHelper) -> ORKStep? {
         
         guard let customStepDescriptor = helper.getCustomStepDescriptor(forJsonObject: jsonObject),
             let parameters = customStepDescriptor.parameters,
@@ -46,7 +46,7 @@ class CTFLikertFormStepGenerator: BCLBaseStepGenerator {
     open func processStepResult(type: String,
                                 jsonObject: JsonObject,
                                 result: ORKStepResult,
-                                helper: BCLStepBuilderHelper) -> JSON? {
+                                helper: RSTBTaskBuilderHelper) -> JSON? {
         return nil
     }
 

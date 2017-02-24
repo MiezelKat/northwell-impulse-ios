@@ -7,12 +7,12 @@
 //
 
 import UIKit
-import Bricoleur
+import ResearchSuiteTaskBuilder
 import ResearchKit
-import SDLRKX
+import sdlrkx
 import Gloss
 
-class PAMMultipleStepGenerator: BCLBaseStepGenerator {
+class PAMMultipleStepGenerator: RSTBBaseStepGenerator {
 
     public init(){}
     
@@ -24,7 +24,7 @@ class PAMMultipleStepGenerator: BCLBaseStepGenerator {
         return self._supportedTypes
     }
     
-    open func generateStep(type: String, jsonObject: JSON, helper: BCLStepBuilderHelper) -> ORKStep? {
+    open func generateStep(type: String, jsonObject: JSON, helper: RSTBTaskBuilderHelper) -> ORKStep? {
         
         guard let customStepDescriptor = helper.getCustomStepDescriptor(forJsonObject: jsonObject),
             let parameters = customStepDescriptor.parameters else {
@@ -37,7 +37,7 @@ class PAMMultipleStepGenerator: BCLBaseStepGenerator {
     open func processStepResult(type: String,
                                 jsonObject: JsonObject,
                                 result: ORKStepResult,
-                                helper: BCLStepBuilderHelper) -> JSON? {
+                                helper: RSTBTaskBuilderHelper) -> JSON? {
         return nil
     }
     

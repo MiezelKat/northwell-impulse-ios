@@ -7,10 +7,10 @@
 //
 
 import UIKit
-import Bricoleur
+import ResearchSuiteTaskBuilder
 import Gloss
 
-class CTFLikertFormItemDescriptor: BCLStepDescriptor {
+class CTFLikertFormItemDescriptor: RSTBStepDescriptor {
     
     let minimum: Int
     let maximum: Int

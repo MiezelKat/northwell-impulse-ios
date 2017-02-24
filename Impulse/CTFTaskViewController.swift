@@ -1,16 +1,37 @@
 //
-//  CTFTaskViewController.swift
-//  Impulse
+//  CTFActivityRunner.swift
+//  ImpulsivityOhmage
 //
-//  Created by James Kizer on 12/20/16.
-//  Copyright © 2016 James Kizer. All rights reserved.
+//  Created by James Kizer on 2/11/17.
+//  Copyright © 2017 Foundry @ Cornell Tech. All rights reserved.
 //
 
 import UIKit
 import ResearchKit
 
-class CTFTaskViewController: ORKTaskViewController {
-
-    public var scheduleGUID: String?
+public class CTFTaskViewController: ORKTaskViewController, ORKTaskViewControllerDelegate {
+    
+    var taskFinishedHandler: ((ORKTaskViewController, ORKTaskViewControllerFinishReason, Error?) -> ())
+    
+    let activityUUID: UUID
+    
+    init(activityUUID: UUID, task: ORKTask, taskFinishedHandler: @escaping ((ORKTaskViewController, ORKTaskViewControllerFinishReason, Error?) -> ())) {
+        
+        self.activityUUID = activityUUID
+        self.taskFinishedHandler = taskFinishedHandler
+        super.init(task: task, taskRun: nil)
+        self.delegate = self
+    }
+    
+    required public init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
+        
+        self.taskFinishedHandler(taskViewController, reason, error)
+        
+        
+    }
 
 }

@@ -1,12 +1,6 @@
-[submodule "BridgeAppSDK"]
-	path = BridgeAppSDK
-	url = https://github.com/Sage-Bionetworks/BridgeAppSDK.git
 [submodule "northwell-impulse-common"]
 	path = northwell-impulse-common
 	url = https://github.com/smalldatalab/northwell-impulse-common.git
-[submodule "sdl-rkx"]
-	path = sdl-rkx
-	url = https://github.com/cornelltech/sdl-rkx.git
-[submodule "Bricoleur-ios"]
-	path = Bricoleur-ios
-	url = https://github.com/cornelltech/Bricoleur-ios.git
+[submodule "Bridge-iOS-SDK"]
+	path = Bridge-iOS-SDK
+	url = https://github.com/cornelltech/Bridge-iOS-SDK.git

@@ -53,7 +53,7 @@ extension Date {
             return nil
         }
         
-        let multiplier = CGFloat(Float(arc4random()) / Float(UINT32_MAX))
+        let multiplier = Float(Float(arc4random()) / Float(UINT32_MAX))
         return Date(timeInterval: interval * Double(multiplier), since: from)
     }
 }

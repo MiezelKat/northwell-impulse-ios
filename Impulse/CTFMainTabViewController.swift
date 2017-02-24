@@ -32,47 +32,100 @@
 //
 
 import UIKit
-import BridgeAppSDK
+//import BridgeAppSDK
+import ReSwift
+import ResearchKit
 
-class CTFMainTabViewController: UITabBarController, SBARootViewControllerProtocol {
+class CTFMainTabViewController: UITabBarController, CTFRootViewControllerProtocol, StoreSubscriber {
+    
+    var presentedActivity: UUID?
     
     var contentHidden = false {
         didSet {
             guard contentHidden != oldValue && isViewLoaded else { return }
-            self.childViewControllers.first?.view.isHidden = contentHidden
+
+            if let vc = self.presentedViewController {
+                vc.view.isHidden = contentHidden
+            }
+            
+            self.view.isHidden = contentHidden
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    var store: Store<CTFReduxState>? {
+        if let appDelegate = UIApplication.shared.delegate as? CTFAppDelegate {
+            return appDelegate.reduxStoreManager?.store
+        }
+        else {
+            return nil
+        }
+    }
+    
+    var taskBuilder: CTFTaskBuilderManager? {
+        if let appDelegate = UIApplication.shared.delegate as? CTFAppDelegate {
+            return appDelegate.taskBuilderManager
+        }
+        else {
+            return nil
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        if let activitiesNavController = self.viewControllers?.first(where: { (viewController) -> Bool in
-            guard let navController = viewController as? UINavigationController,
-                navController.viewControllers.first is CTFActivityTableViewController else {
-                    return false
-            }
-            return true
-        }) as? UINavigationController,
-            let activitiesController = activitiesNavController.viewControllers.first as? CTFActivityTableViewController {
+        self.store?.subscribe(self)
+    }
+    
+    deinit {
+        self.store?.unsubscribe(self)
+    }
+    
+    func newState(state: CTFReduxState) {
+        
+        if self.presentedActivity == nil,
+            let (uuid, activityRun) = state.activityQueue.first {
             
-            if let settingsNavController = self.viewControllers?.first(where: { (viewController) -> Bool in
-                guard let navController = viewController as? UINavigationController,
-                    navController.viewControllers.first is CTFSettingsTableViewController else {
-                        return false
-                }
-                return true
-            }) as? UINavigationController,
-                let settingsController = settingsNavController.viewControllers.first as? CTFSettingsTableViewController {
+            self.presentedActivity = uuid
+            self.runActivity(uuid: uuid, activityRun: activityRun)
+            
+        }
+        
+    }
+    
+    func runActivity(uuid: UUID, activityRun: CTFActivityRun) {
+        
+        guard let steps = self.taskBuilder?.rstb.steps(forElement: activityRun.activity) else {
+            return
+        }
+        
+        
+        
+        let task = ORKOrderedTask(identifier: activityRun.identifier, steps: steps)
+        
+        let store = self.store
+        
+        let taskFinishedHandler: ((ORKTaskViewController, ORKTaskViewControllerFinishReason, Error?) -> ()) = { [weak self] (taskViewController, reason, error) in
+            
+            let taskResult: ORKTaskResult? = (reason == ORKTaskViewControllerFinishReason.completed) ?
+                taskViewController.result : nil
+            
+            store?.dispatch(CTFActionCreators.completeActivity(uuid: uuid, activityRun: activityRun, taskResult: taskResult), callback: { (state) in
                 
-                settingsController.delegate = activitiesController
-                
-                
-            }
+                self?.dismiss(animated: true, completion: {
+                    self?.presentedActivity = nil
+                })
+            })
+            
             
             
         }
         
+        let taskViewController = CTFTaskViewController(activityUUID: uuid, task: task, taskFinishedHandler: taskFinishedHandler)
+        
+        
+        present(taskViewController, animated: true, completion: nil)
         
     }
+    
 
 }
