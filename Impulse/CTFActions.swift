@@ -85,6 +85,10 @@ struct SetShouldShowTrialActivities: Action {
     let show: Bool
 }
 
+struct SetDebugModeAction: Action {
+    let debugMode: Bool
+}
+
 struct SetAppLoadedAction: Action {
     let loaded: Bool
 }

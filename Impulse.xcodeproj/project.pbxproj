@@ -46,6 +46,7 @@
 		E237F3DC1E5F7D6600671B77 /* CTFReduxStateHelper+SBBAuthManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E237F3DB1E5F7D6600671B77 /* CTFReduxStateHelper+SBBAuthManagerDelegate.swift */; };
 		E243393F1E0DC4C4009FF385 /* daily_active_tasks.json in Resources */ = {isa = PBXBuildFile; fileRef = E243393D1E0DC4C4009FF385 /* daily_active_tasks.json */; };
 		E24339401E0DC4C4009FF385 /* shuffled_active_tasks.json in Resources */ = {isa = PBXBuildFile; fileRef = E243393E1E0DC4C4009FF385 /* shuffled_active_tasks.json */; };
+		E25883F41E61E024001F1DE1 /* CTFScaleFormResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25883F31E61E024001F1DE1 /* CTFScaleFormResult.swift */; };
 		E2831A8C1E5B9C3000E3D727 /* CTFTaskBuilderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2831A8A1E5B9C3000E3D727 /* CTFTaskBuilderManager.swift */; };
 		E2831A8D1E5B9C3000E3D727 /* CTFTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2831A8B1E5B9C3000E3D727 /* CTFTaskViewController.swift */; };
 		E2831A911E5B9C3C00E3D727 /* DemographicsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2831A8E1E5B9C3C00E3D727 /* DemographicsResult.swift */; };
@@ -242,6 +243,7 @@
 		E237F3DB1E5F7D6600671B77 /* CTFReduxStateHelper+SBBAuthManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CTFReduxStateHelper+SBBAuthManagerDelegate.swift"; sourceTree = "<group>"; };
 		E243393D1E0DC4C4009FF385 /* daily_active_tasks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = daily_active_tasks.json; path = "northwell-impulse-common/assets/json/survey/daily_active_tasks.json"; sourceTree = SOURCE_ROOT; };
 		E243393E1E0DC4C4009FF385 /* shuffled_active_tasks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = shuffled_active_tasks.json; path = "northwell-impulse-common/assets/json/survey/shuffled_active_tasks.json"; sourceTree = SOURCE_ROOT; };
+		E25883F31E61E024001F1DE1 /* CTFScaleFormResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFScaleFormResult.swift; sourceTree = "<group>"; };
 		E2831A8A1E5B9C3000E3D727 /* CTFTaskBuilderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFTaskBuilderManager.swift; sourceTree = "<group>"; };
 		E2831A8B1E5B9C3000E3D727 /* CTFTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFTaskViewController.swift; sourceTree = "<group>"; };
 		E2831A8E1E5B9C3C00E3D727 /* DemographicsResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemographicsResult.swift; sourceTree = "<group>"; };
@@ -454,7 +456,6 @@
 		E234C9441E5A83F100E24E86 /* RSRP */ = {
 			isa = PBXGroup;
 			children = (
-				E2831A781E5B9A6C00E3D727 /* Baseline */,
 				E234C9451E5A845D00E24E86 /* CTFDelayDiscountingRaw+SBBDataArchiveBuilder.swift */,
 				E237F39C1E5E509500671B77 /* RSRPIntermediateResult+SBBDataArchiveBuilder.swift */,
 				E234C9471E5A87CC00E24E86 /* SBBDataArchiveConvertable.swift */,
@@ -573,6 +574,23 @@
 				E2B70A9E1E09913000C93093 /* Day_21.json */,
 			);
 			name = "21 Day";
+			sourceTree = "<group>";
+		};
+		E25883F11E61DF6E001F1DE1 /* Results Processing */ = {
+			isa = PBXGroup;
+			children = (
+				E25883F21E61DF7E001F1DE1 /* Likert/SemDif */,
+				E2831A781E5B9A6C00E3D727 /* Baseline */,
+			);
+			name = "Results Processing";
+			sourceTree = "<group>";
+		};
+		E25883F21E61DF7E001F1DE1 /* Likert/SemDif */ = {
+			isa = PBXGroup;
+			children = (
+				E25883F31E61E024001F1DE1 /* CTFScaleFormResult.swift */,
+			);
+			name = Likert/SemDif;
 			sourceTree = "<group>";
 		};
 		E2831A781E5B9A6C00E3D727 /* Baseline */ = {
@@ -707,6 +725,7 @@
 				E234C8F11E58E50300E24E86 /* Sage Glue */,
 				E2FE1AB51DB0336200DBB8E7 /* Helpers */,
 				E2EF6B1E1DA2E2970034456A /* CTFAppDelegate.swift */,
+				E25883F11E61DF6E001F1DE1 /* Results Processing */,
 				E2AA6D341DA43D07005D5137 /* CTFMainTabViewController.swift */,
 				E2AA6CFB1DA41F3D005D5137 /* CTFLogInViaExternalIdViewController.swift */,
 				E234C9421E5A791000E24E86 /* CTFResultsProcessorManager.swift */,
@@ -1157,6 +1176,7 @@
 				E2831A991E5B9D3F00E3D727 /* CTFActionDescriptor.swift in Sources */,
 				E2831A911E5B9C3C00E3D727 /* DemographicsResult.swift in Sources */,
 				E2831AA71E5BA4B100E3D727 /* PAMMultipleStepGenerator.swift in Sources */,
+				E25883F41E61E024001F1DE1 /* CTFScaleFormResult.swift in Sources */,
 				E20590071E5BE87C00D978B7 /* CTFReduxPersistentStorageSubscriber.swift in Sources */,
 				E2AA6D181DA43C83005D5137 /* CTFBorderedButton.swift in Sources */,
 				E2B70B031E0A3F8200C93093 /* CTFExtendedSingleChoiceStepGenerator.swift in Sources */,

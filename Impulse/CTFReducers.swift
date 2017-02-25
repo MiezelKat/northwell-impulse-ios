@@ -300,6 +300,12 @@ class CTFReducers: NSObject {
                     shouldShowTrialActivities: showTrialsAction.show
                 )
                 
+            case let setDebugModeAction as SetDebugModeAction:
+                return CTFReduxState.newState(
+                    fromState: state,
+                    debugMode: setDebugModeAction.debugMode
+                )
+                
             default:
                 return state
             }

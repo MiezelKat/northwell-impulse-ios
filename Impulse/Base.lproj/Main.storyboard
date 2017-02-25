@@ -41,7 +41,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wjD-RX-rGa" id="PYz-NW-i7N">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pVI-IV-aZh">
@@ -141,7 +141,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4tF-kX-3BT" id="GV1-Bi-hI3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="h3n-vQ-e8B">
@@ -254,21 +254,57 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="signOut" textLabel="pfU-fQ-4rz" style="IBUITableViewCellStyleDefault" id="VjC-cv-PJb">
-                                        <rect key="frame" x="0.0" y="300" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="VjC-cv-PJb">
+                                        <rect key="frame" x="0.0" y="300" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VjC-cv-PJb" id="EtH-nx-zDs">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Sign Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pfU-fQ-4rz">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpO-b4-2iS" customClass="CTFBorderedButton" customModule="Impulse" customModuleProvider="target">
+                                                    <rect key="frame" x="127" y="9" width="120" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="Wpq-fk-GjI"/>
+                                                        <constraint firstAttribute="width" constant="120" id="cEX-Vy-oSD"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Sign Out"/>
+                                                    <connections>
+                                                        <action selector="signOutTapped:" destination="Org-RQ-5MM" eventType="touchUpInside" id="s4i-hh-g1b"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dpO-b4-2iS" firstAttribute="centerX" secondItem="EtH-nx-zDs" secondAttribute="centerX" id="4AJ-yP-EL9"/>
+                                                <constraint firstItem="dpO-b4-2iS" firstAttribute="centerY" secondItem="EtH-nx-zDs" secondAttribute="centerY" id="Fuh-rf-bDT"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="fpd-xm-CWn" userLabel="Debug">
+                                        <rect key="frame" x="0.0" y="360" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fpd-xm-CWn" id="XBa-Jk-R5s">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pmh-Yv-j2F">
+                                                    <rect key="frame" x="318" y="14" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="debugModeChanged:" destination="Org-RQ-5MM" eventType="valueChanged" id="pX3-Qf-ogF"/>
+                                                    </connections>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Debug Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWb-TS-N0S">
+                                                    <rect key="frame" x="18" y="19" width="99" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="wWb-TS-N0S" firstAttribute="leading" secondItem="XBa-Jk-R5s" secondAttribute="leadingMargin" constant="10" id="Aqu-Sb-oft"/>
+                                                <constraint firstItem="pmh-Yv-j2F" firstAttribute="trailing" secondItem="XBa-Jk-R5s" secondAttribute="trailingMargin" id="G5i-gZ-4uq"/>
+                                                <constraint firstItem="pmh-Yv-j2F" firstAttribute="centerY" secondItem="XBa-Jk-R5s" secondAttribute="centerY" id="J74-3J-8ip"/>
+                                                <constraint firstItem="wWb-TS-N0S" firstAttribute="centerY" secondItem="XBa-Jk-R5s" secondAttribute="centerY" id="XMl-y4-tyb"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -281,6 +317,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="Ijn-22-M0Y"/>
                     <connections>
+                        <outlet property="debugModeSwitch" destination="pmh-Yv-j2F" id="vqq-wJ-bbK"/>
                         <outlet property="eveningSurveyCell" destination="XfG-Wz-sYK" id="TRa-JI-snp"/>
                         <outlet property="morningSurveyCell" destination="EqE-pA-w2x" id="rsa-Mo-teX"/>
                         <outlet property="participantSinceCell" destination="d8R-Qf-qJd" id="5Ug-d2-Qyj"/>

@@ -257,7 +257,8 @@ class CTFReduxPersistentStorageSubscriber: NSObject, StoreSubscriber {
             evening2ndNotificationFireDate: self.evening2ndNotificationFireDate.get(),
             enable2ndReminderNotifications: self.enable2ndReminderNotifications.get() ?? true,
             extensibleStorage: self.extensibleStorage.get(),
-            shouldShowTrialActivities: self.shouldShowTrialActivities.get() ?? false
+            shouldShowTrialActivities: self.shouldShowTrialActivities.get() ?? false,
+            debugMode: false
         )
     }
     

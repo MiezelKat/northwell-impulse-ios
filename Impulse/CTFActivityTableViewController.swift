@@ -107,7 +107,7 @@ class CTFActivityTableViewController: UITableViewController, StoreSubscriber {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         if let state = self.state {
-            return CTFSelectors.showTrialActivities(state) ? 2 : 1
+            return self.trialActivities.count > 0 ? 2 : 1
         }
         else {
             return 1
@@ -185,7 +185,13 @@ class CTFActivityTableViewController: UITableViewController, StoreSubscriber {
     }
     
     func scheduledItemsFilter(state: CTFReduxState) -> (CTFScheduleItem) -> Bool {
+        
         return { scheduleItem in
+            
+            if state.debugMode {
+                return true
+            }
+            
             switch(scheduleItem.identifier) {
             case "baseline":
                 return CTFSelectors.shouldShowBaselineSurvey(state)
@@ -207,7 +213,8 @@ class CTFActivityTableViewController: UITableViewController, StoreSubscriber {
     
     func trialItemsFilter(state: CTFReduxState) -> (CTFScheduleItem) -> Bool {
         return { scheduleItem in
-            return true
+            
+            return state.shouldShowTrialActivities || state.debugMode
         }
     }
 

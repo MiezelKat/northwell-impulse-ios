@@ -15,6 +15,7 @@ import ResearchSuiteTaskBuilder
 class CTFSettingsTableViewController: UITableViewController, StoreSubscriber {
     
     @IBOutlet weak var showTrialsSwitch: UISwitch!
+    @IBOutlet weak var debugModeSwitch: UISwitch!
     @IBOutlet weak var morningSurveyCell: UITableViewCell!
     @IBOutlet weak var eveningSurveyCell: UITableViewCell!
     @IBOutlet weak var participantSinceCell: UITableViewCell!
@@ -65,6 +66,7 @@ class CTFSettingsTableViewController: UITableViewController, StoreSubscriber {
     func updateUI(state: CTFReduxState) {
         self.showTrialsSwitch.isEnabled = CTFSelectors.baselineCompletedDate(state) != nil
         self.showTrialsSwitch.setOn(CTFSelectors.showTrialActivities(state), animated: true)
+        self.debugModeSwitch.setOn(CTFSelectors.debugMode(state), animated: true)
         
         if let components = CTFSelectors.morningSurveyTimeComponents(state),
             let hour = components.hour,
@@ -116,6 +118,8 @@ class CTFSettingsTableViewController: UITableViewController, StoreSubscriber {
         }).first
     }
     
+    
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if let cell = tableView.cellForRow(at: indexPath) {
@@ -126,25 +130,25 @@ class CTFSettingsTableViewController: UITableViewController, StoreSubscriber {
                 return
             }
             
-            if reuseIdentifier == "signOut" {
-                
-                let title = "Sign Out"
-                let message = "In order to reset your passcode, you'll need to log out of the app completely and log back in using your email and password."
-                let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-                
-                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-                alert.addAction(cancelAction)
-                
-                let logoutAction = UIAlertAction(title: "Log Out", style: .destructive, handler: { _ in
-                    if let appDelegate = UIApplication.shared.delegate as? CTFAppDelegate {
-                        appDelegate.signOut()
-                    }
-                })
-                alert.addAction(logoutAction)
-                
-                self.present(alert, animated: true, completion: nil)
-                
-            }
+//            if reuseIdentifier == "signOut" {
+//                
+//                let title = "Sign Out"
+//                let message = "In order to reset your passcode, you'll need to log out of the app completely and log back in using your email and password."
+//                let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+//                
+//                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//                alert.addAction(cancelAction)
+//                
+//                let logoutAction = UIAlertAction(title: "Log Out", style: .destructive, handler: { _ in
+//                    if let appDelegate = UIApplication.shared.delegate as? CTFAppDelegate {
+//                        appDelegate.signOut()
+//                    }
+//                })
+//                alert.addAction(logoutAction)
+//                
+//                self.present(alert, animated: true, completion: nil)
+//                
+//            }
             
             guard let state = self.state,
                 CTFSelectors.baselineCompletedDate(state) != nil,
@@ -162,13 +166,34 @@ class CTFSettingsTableViewController: UITableViewController, StoreSubscriber {
         }
     }
     
+    @IBAction func signOutTapped(_ sender: UIButton) {
+        
+        let title = "Sign Out"
+        let message = "In order to reset your passcode, you'll need to log out of the app completely and log back in using your email and password."
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        
+        let logoutAction = UIAlertAction(title: "Log Out", style: .destructive, handler: { _ in
+            if let appDelegate = UIApplication.shared.delegate as? CTFAppDelegate {
+                appDelegate.signOut()
+            }
+        })
+        alert.addAction(logoutAction)
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
     @IBAction func showTrialsChanged(_ sender: UISwitch) {
         
         self.store?.dispatch(CTFActionCreators.showTrialActivities(show: sender.isOn))
         
     }
     
-    
+    @IBAction func debugModeChanged(_ sender: UISwitch) {
+        self.store?.dispatch(CTFActionCreators.setDebugMode(debugMode: sender.isOn))
+    }
     
     
 
