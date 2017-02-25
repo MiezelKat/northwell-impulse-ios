@@ -13,7 +13,7 @@ target 'Impulse' do
   pod "ResearchSuiteTaskBuilder"
   pod "ResearchSuiteResultsProcessor"
   pod "sdlrkx"
-  pod "ResearchKit", "~> 1.3"
+  pod "ResearchKit", "~> 1.4"
   pod "ReSwift"
 
   target 'ImpulseTests' do

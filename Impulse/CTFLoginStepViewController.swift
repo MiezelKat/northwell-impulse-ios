@@ -70,7 +70,7 @@ open class CTFLoginStepViewController: ORKFormStepViewController {
     
     override open func goForward() {
         
-        guard let loginStep = self.step as? CTFLoginStep,
+        guard let _ = self.step as? CTFLoginStep,
             let loginStepResult = self.result else {
             return
         }

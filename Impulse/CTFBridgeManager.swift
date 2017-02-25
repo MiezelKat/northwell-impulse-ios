@@ -134,8 +134,7 @@ public class CTFBridgeManager: NSObject, RSRPBackEnd {
     public func add(intermediateResult: RSRPIntermediateResult) {
         
         debugPrint(intermediateResult)
-        if let convertable = intermediateResult as? SBBDataArchiveConvertable,
-            let dataArchive = convertable.toArchive() {
+        if let dataArchive = intermediateResult.toArchive() {
             dataArchive.encryptAndUploadArchive()
         }
         
