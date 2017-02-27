@@ -21,12 +21,12 @@ class CTFExtendedMultipleChoiceStepGenerator: RSTBMultipleChoiceStepGenerator {
         
         guard let includedValuesKey: String = "filterItemsByValueInListKeyedBy" <~~ jsonObject,
             let stateHelper = helper.stateHelper,
-            let includedValuesString = stateHelper.valueInState(forKey: includedValuesKey) as? String else {
+            let includedValues = stateHelper.valueInState(forKey: includedValuesKey) as? [String] else {
             
             return super.generateFilter(type: type, jsonObject: jsonObject, helper: helper)
         }
         
-        let includedValues = includedValuesString.components(separatedBy: ",")
+//        let includedValues = includedValuesString.components(separatedBy: ",")
         
         guard includedValues.count > 0 else {
             return super.generateFilter(type: type, jsonObject: jsonObject, helper: helper)

@@ -10,7 +10,7 @@ import UIKit
 import ResearchSuiteResultsProcessor
 import ResearchKit
 
-class CTFScaleFormResult: RSRPIntermediateResult {
+class CTFScaleFormResult: RSRPIntermediateResult, RSRPFrontEndTransformer {
     
     static public let kType = "CTFScaleFormResult"
     
@@ -22,12 +22,75 @@ class CTFScaleFormResult: RSRPIntermediateResult {
         return supportedTypes.contains(type)
     }
     
+
     public static func transform(
         taskIdentifier: String,
         taskRunUUID: UUID,
-        parameters: [String: ORKStepResult]
+        parameters: [String: AnyObject]
         ) -> RSRPIntermediateResult? {
     
-        return nil
+        guard let schemaID = parameters["schemaID"] as? String,
+            let schemaVersion = parameters["schemaVersion"] as? Int else {
+            return nil
+        }
+        
+        let stepResults: [ORKStepResult] = parameters.flatMap { (pair) -> ORKStepResult? in
+            return pair.value as? ORKStepResult
+        }
+        
+        let childResults = stepResults.flatMap({ (stepResult) -> [ORKScaleQuestionResult]? in
+            return stepResult.results as? [ORKScaleQuestionResult]
+        }).joined()
+        
+        guard childResults.count > 0 else {
+            return nil
+        }
+        
+        let identifierSuffix = parameters["identifierSuffix"] as? String
+        
+        let resultMap:[String: Int] = {
+            var map: [String: Int] = [:]
+            childResults.forEach { (result) in
+                let identifier = result.identifier + (identifierSuffix ?? "")
+                if let scaleAnswer = result.scaleAnswer {
+                    map[identifier] = scaleAnswer.intValue
+                }
+            }
+            
+            return map
+        }()
+
+        return CTFScaleFormResult(
+            uuid: UUID(),
+            taskIdentifier: taskIdentifier,
+            taskRunUUID: taskRunUUID,
+            schemaID: schemaID,
+            schemaVersion: schemaVersion,
+            resultMap: resultMap
+        )
+    }
+
+    let schemaID: String
+    let version: Int
+    let resultMap:[String: Int]
+    
+    public init(
+        uuid: UUID,
+        taskIdentifier: String,
+        taskRunUUID: UUID,
+        schemaID: String,
+        schemaVersion: Int,
+        resultMap: [String: Int]) {
+        
+        self.schemaID = schemaID
+        self.version = schemaVersion
+        self.resultMap = resultMap
+        
+        super.init(
+            type: DemographicsResult.kType,
+            uuid: uuid,
+            taskIdentifier: taskIdentifier,
+            taskRunUUID: taskRunUUID
+        )
     }
 }

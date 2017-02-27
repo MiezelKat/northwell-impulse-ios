@@ -1,6 +1,6 @@
 {
   "name": "sdlrkx",
-  "version": "0.6.0",
+  "version": "0.9.0",
   "summary": "SDL visual self-report for ResearchKit",
   "description": "The Small Data Lab ResearchKit Extensions package is the easiest way to include SDL visual self-report (YADL, MEDL, PAM) and Behavioral extensions (Go / No Go, Delayed Discounting, BART)into a ResearchKit application.",
   "homepage": "https://github.com/cornelltech/sdl-rkx",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/cornelltech/sdl-rkx.git",
-    "tag": "0.6.0"
+    "tag": "0.9.0"
   },
   "platforms": {
     "ios": "9.0"
@@ -31,7 +31,7 @@
 
         ],
         "ResearchKit": [
-          "~> 1.3.1"
+          "~> 1.4"
         ]
       },
       "resources": [
@@ -47,10 +47,37 @@
 
         ],
         "ResearchSuiteTaskBuilder": [
-          "~> 0.2.0"
+          "~> 0.2"
         ],
         "Gloss": [
           "~> 1"
+        ]
+      }
+    },
+    {
+      "name": "VSR-RSRPSupport",
+      "source_files": "source/VSR/RSRPSupport/Classes/**/*",
+      "dependencies": {
+        "sdlrkx/VSR": [
+
+        ],
+        "ResearchSuiteResultsProcessor": [
+          "~> 0.2"
+        ],
+        "ResearchKit": [
+          "~> 1.4"
+        ]
+      }
+    },
+    {
+      "name": "VSR-RSRPOhmageBackend",
+      "source_files": "source/VSR/RSRPOhmageBackendSupport/Classes/**/*",
+      "dependencies": {
+        "sdlrkx/VSR-RSRPSupport": [
+
+        ],
+        "OMHClient": [
+
         ]
       }
     },
@@ -62,7 +89,7 @@
 
         ],
         "ResearchKit": [
-          "~> 1.3.1"
+          "~> 1.4"
         ]
       },
       "resources": "source/Behavioral/Core/Assets/BART/BART.xcassets"
@@ -75,7 +102,7 @@
 
         ],
         "ResearchSuiteTaskBuilder": [
-          "~> 0.2.0"
+          "~> 0.2"
         ],
         "Gloss": [
           "~> 1"
@@ -90,10 +117,10 @@
 
         ],
         "ResearchSuiteResultsProcessor": [
-
+          "~> 0.2"
         ],
         "ResearchKit": [
-          "~> 1.3.1"
+          "~> 1.4"
         ]
       }
     },

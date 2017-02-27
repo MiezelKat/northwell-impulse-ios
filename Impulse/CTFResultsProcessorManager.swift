@@ -46,7 +46,10 @@ class CTFResultsProcessorManager: NSObject, StoreSubscriber {
                 DemographicsResult.self,
                 CTFDelayDiscountingRawResultsTransformer.self,
                 CTFBARTSummaryResultsTransformer.self,
-                CTFGoNoGoSummaryResultsTransformer.self
+                CTFGoNoGoSummaryResultsTransformer.self,
+                CTFScaleFormResult.self,
+                CTFPAMRaw.self,
+                CTFPAMMultipleRaw.self
             ], backEnd: backEnd)
         
         self.store = store

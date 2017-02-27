@@ -17,7 +17,7 @@ public class DemographicsResult: RSRPIntermediateResult, RSRPFrontEndTransformer
     public static func transform(
         taskIdentifier: String,
         taskRunUUID: UUID,
-        parameters: [String: ORKStepResult]
+        parameters: [String: AnyObject]
         ) -> RSRPIntermediateResult? {
         
         let gender: String? = {

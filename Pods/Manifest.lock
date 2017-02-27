@@ -1,43 +1,52 @@
 PODS:
-  - Alamofire (4.3.0)
+  - Alamofire (4.4.0)
   - Gloss (1.2.1)
   - OMHClient (0.0.4):
     - Alamofire (~> 4.0)
   - ResearchKit (1.4.1)
-  - ResearchSuiteResultsProcessor (0.1.0):
+  - ResearchSuiteResultsProcessor (0.2.0):
     - Gloss (~> 1.1)
     - ResearchKit (~> 1.3)
   - ResearchSuiteTaskBuilder (0.2.0):
     - Gloss (~> 1.1)
     - ResearchKit (~> 1.3)
   - ReSwift (3.0.0)
-  - sdlrkx (0.7.0):
-    - sdlrkx/Behavioral (= 0.7.0)
-    - sdlrkx/Behavioral-RSRPOhmageBackend (= 0.7.0)
-    - sdlrkx/Behavioral-RSRPSupport (= 0.7.0)
-    - sdlrkx/Behavioral-RSTBSupport (= 0.7.0)
-    - sdlrkx/Helpers (= 0.7.0)
-    - sdlrkx/VSR (= 0.7.0)
-    - sdlrkx/VSR-RSTBSupport (= 0.7.0)
-  - sdlrkx/Behavioral (0.7.0):
+  - sdlrkx (0.9.0):
+    - sdlrkx/Behavioral (= 0.9.0)
+    - sdlrkx/Behavioral-RSRPOhmageBackend (= 0.9.0)
+    - sdlrkx/Behavioral-RSRPSupport (= 0.9.0)
+    - sdlrkx/Behavioral-RSTBSupport (= 0.9.0)
+    - sdlrkx/Helpers (= 0.9.0)
+    - sdlrkx/VSR (= 0.9.0)
+    - sdlrkx/VSR-RSRPOhmageBackend (= 0.9.0)
+    - sdlrkx/VSR-RSRPSupport (= 0.9.0)
+    - sdlrkx/VSR-RSTBSupport (= 0.9.0)
+  - sdlrkx/Behavioral (0.9.0):
     - ResearchKit (~> 1.4)
     - sdlrkx/Helpers
-  - sdlrkx/Behavioral-RSRPOhmageBackend (0.7.0):
+  - sdlrkx/Behavioral-RSRPOhmageBackend (0.9.0):
     - OMHClient
     - sdlrkx/Behavioral-RSRPSupport
-  - sdlrkx/Behavioral-RSRPSupport (0.7.0):
+  - sdlrkx/Behavioral-RSRPSupport (0.9.0):
     - ResearchKit (~> 1.4)
-    - ResearchSuiteResultsProcessor (~> 0.1)
+    - ResearchSuiteResultsProcessor (~> 0.2)
     - sdlrkx/Behavioral
-  - sdlrkx/Behavioral-RSTBSupport (0.7.0):
+  - sdlrkx/Behavioral-RSTBSupport (0.9.0):
     - Gloss (~> 1)
     - ResearchSuiteTaskBuilder (~> 0.2)
     - sdlrkx/Behavioral
-  - sdlrkx/Helpers (0.7.0)
-  - sdlrkx/VSR (0.7.0):
+  - sdlrkx/Helpers (0.9.0)
+  - sdlrkx/VSR (0.9.0):
     - ResearchKit (~> 1.4)
     - sdlrkx/Helpers
-  - sdlrkx/VSR-RSTBSupport (0.7.0):
+  - sdlrkx/VSR-RSRPOhmageBackend (0.9.0):
+    - OMHClient
+    - sdlrkx/VSR-RSRPSupport
+  - sdlrkx/VSR-RSRPSupport (0.9.0):
+    - ResearchKit (~> 1.4)
+    - ResearchSuiteResultsProcessor (~> 0.2)
+    - sdlrkx/VSR
+  - sdlrkx/VSR-RSTBSupport (0.9.0):
     - Gloss (~> 1)
     - ResearchSuiteTaskBuilder (~> 0.2)
     - sdlrkx/VSR
@@ -50,14 +59,14 @@ DEPENDENCIES:
   - sdlrkx
 
 SPEC CHECKSUMS:
-  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   Gloss: 9ab33b8ede01e4232571d43a6bf9259b85d1de69
   OMHClient: 684aa8267b0152ec32cd676ea754e459a822bf5a
   ResearchKit: 3533ea3a2270e4ed7ff830e19755dc959fdfd430
-  ResearchSuiteResultsProcessor: 648b15c376c020ab58a46f6348e3809812e73f53
+  ResearchSuiteResultsProcessor: 02e69c59c251436234ea0b4ac525268725896f80
   ResearchSuiteTaskBuilder: ab01cf3f618d369eeb63507da82a36ba54f04e5e
   ReSwift: f0255f4b4f2dacd12c5d97d34d13fc5dad6d6371
-  sdlrkx: 9de4a999c28378b88d4483c50dd2aefe7275a2bd
+  sdlrkx: 1bb798a0ae3f8dfb49ce125dc3ca17dc9046a67c
 
 PODFILE CHECKSUM: 3dc9e8feb56a3004cb41480983c5e197d718ab2d
 

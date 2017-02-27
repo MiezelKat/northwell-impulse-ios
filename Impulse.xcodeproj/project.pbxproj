@@ -58,7 +58,6 @@
 		E2831AA11E5B9DD800E3D727 /* CTFLoginStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2831A9F1E5B9DD800E3D727 /* CTFLoginStepViewController.swift */; };
 		E2831AA41E5BA24800E3D727 /* activities.json in Resources */ = {isa = PBXBuildFile; fileRef = E2831AA21E5BA24800E3D727 /* activities.json */; };
 		E2831AA51E5BA24900E3D727 /* trialActivities.json in Resources */ = {isa = PBXBuildFile; fileRef = E2831AA31E5BA24800E3D727 /* trialActivities.json */; };
-		E2831AA71E5BA4B100E3D727 /* PAMMultipleStepGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2831AA61E5BA4B100E3D727 /* PAMMultipleStepGenerator.swift */; };
 		E2919EB71DE4956F0034AD08 /* FoundryAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2919EB61DE4956F0034AD08 /* FoundryAssets.xcassets */; };
 		E295FC211DDCC001001B175D /* UIColor+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295FC201DDCC001001B175D /* UIColor+String.swift */; };
 		E295FC2A1DDE36EB001B175D /* CTFSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295FC291DDE36EB001B175D /* CTFSettingsTableViewController.swift */; };
@@ -80,7 +79,6 @@
 		E2B70A351E0895BD00C93093 /* am_behaviors.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A191E0895BD00C93093 /* am_behaviors.json */; };
 		E2B70A361E0895BD00C93093 /* am_likert_1.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A1A1E0895BD00C93093 /* am_likert_1.json */; };
 		E2B70A371E0895BD00C93093 /* am_likert_1a.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A1B1E0895BD00C93093 /* am_likert_1a.json */; };
-		E2B70A381E0895BD00C93093 /* am_likert_3.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A1C1E0895BD00C93093 /* am_likert_3.json */; };
 		E2B70A3B1E0895BD00C93093 /* bart_25_cents_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A1F1E0895BD00C93093 /* bart_25_cents_full_task.json */; };
 		E2B70A401E0895BD00C93093 /* Baseline.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A241E0895BD00C93093 /* Baseline.json */; };
 		E2B70A451E0895BD00C93093 /* go_no_go_variable_stimulus_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A291E0895BD00C93093 /* go_no_go_variable_stimulus_full_task.json */; };
@@ -111,11 +109,14 @@
 		E2B70AC11E09A1A300C93093 /* dd_money_6_month_short_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AC01E09A1A300C93093 /* dd_money_6_month_short_task.json */; };
 		E2B70ACC1E09A4AC00C93093 /* dd_time_6_month_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AC91E09A4AC00C93093 /* dd_time_6_month_full_task.json */; };
 		E2B70ACD1E09A4AC00C93093 /* dd_time_6_month_short_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70ACA1E09A4AC00C93093 /* dd_time_6_month_short_task.json */; };
-		E2B70AD71E09B76B00C93093 /* pm_likert_1.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70ACE1E09B76B00C93093 /* pm_likert_1.json */; };
 		E2B70AE41E09BD9D00C93093 /* go_no_go_practice_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70AE01E09BD9D00C93093 /* go_no_go_practice_full_task.json */; };
 		E2B70AFC1E0A08C600C93093 /* CTFExtendedMultipleChoiceStepGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B70AFB1E0A08C600C93093 /* CTFExtendedMultipleChoiceStepGenerator.swift */; };
 		E2B70B031E0A3F8200C93093 /* CTFExtendedSingleChoiceStepGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B70B021E0A3F8200C93093 /* CTFExtendedSingleChoiceStepGenerator.swift */; };
 		E2C18EAD1DD147C1005E0324 /* CTFScaleAnswerFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C18EAC1DD147C1005E0324 /* CTFScaleAnswerFormat.swift */; };
+		E2C9ACAB1E63D13700CF9F6F /* daily_sem_diff.json in Resources */ = {isa = PBXBuildFile; fileRef = E2C9ACAA1E63D13700CF9F6F /* daily_sem_diff.json */; };
+		E2C9ACB81E63D1B800CF9F6F /* CTFScaleFormResult+SBBDataArchiveBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C9ACB71E63D1B800CF9F6F /* CTFScaleFormResult+SBBDataArchiveBuilder.swift */; };
+		E2C9ACD71E63DF9C00CF9F6F /* CTFPAMRaw+SBBDataArchiveBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C9ACD61E63DF9C00CF9F6F /* CTFPAMRaw+SBBDataArchiveBuilder.swift */; };
+		E2C9ACD91E63E20100CF9F6F /* CTFPAMMultipleRaw+SBBDataArchiveBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C9ACD81E63E20100CF9F6F /* CTFPAMMultipleRaw+SBBDataArchiveBuilder.swift */; };
 		E2CCB66A1DB158AF00C801A4 /* CTFScheduleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CCB6691DB158AF00C801A4 /* CTFScheduleItem.swift */; };
 		E2D9E09D1DF4DAB1007772DA /* CTFSolidButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D9E09C1DF4DAB1007772DA /* CTFSolidButton.swift */; };
 		E2DCE02D1E0B56AA003E4BC1 /* am_survey.json in Resources */ = {isa = PBXBuildFile; fileRef = E2DCE02C1E0B56AA003E4BC1 /* am_survey.json */; };
@@ -255,7 +256,6 @@
 		E2831A9F1E5B9DD800E3D727 /* CTFLoginStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFLoginStepViewController.swift; sourceTree = "<group>"; };
 		E2831AA21E5BA24800E3D727 /* activities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = activities.json; path = "northwell-impulse-common/assets/json/survey/activities.json"; sourceTree = SOURCE_ROOT; };
 		E2831AA31E5BA24800E3D727 /* trialActivities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = trialActivities.json; path = "northwell-impulse-common/assets/json/survey/trialActivities.json"; sourceTree = SOURCE_ROOT; };
-		E2831AA61E5BA4B100E3D727 /* PAMMultipleStepGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PAMMultipleStepGenerator.swift; sourceTree = "<group>"; };
 		E2919EB61DE4956F0034AD08 /* FoundryAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FoundryAssets.xcassets; sourceTree = "<group>"; };
 		E295FC201DDCC001001B175D /* UIColor+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+String.swift"; sourceTree = "<group>"; };
 		E295FC291DDE36EB001B175D /* CTFSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFSettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -278,7 +278,6 @@
 		E2B70A191E0895BD00C93093 /* am_behaviors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = am_behaviors.json; path = "northwell-impulse-common/assets/json/survey/am_behaviors.json"; sourceTree = SOURCE_ROOT; };
 		E2B70A1A1E0895BD00C93093 /* am_likert_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = am_likert_1.json; path = "northwell-impulse-common/assets/json/survey/am_likert_1.json"; sourceTree = SOURCE_ROOT; };
 		E2B70A1B1E0895BD00C93093 /* am_likert_1a.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = am_likert_1a.json; path = "northwell-impulse-common/assets/json/survey/am_likert_1a.json"; sourceTree = SOURCE_ROOT; };
-		E2B70A1C1E0895BD00C93093 /* am_likert_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = am_likert_3.json; path = "northwell-impulse-common/assets/json/survey/am_likert_3.json"; sourceTree = SOURCE_ROOT; };
 		E2B70A1F1E0895BD00C93093 /* bart_25_cents_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = bart_25_cents_full_task.json; path = "northwell-impulse-common/assets/json/survey/bart_25_cents_full_task.json"; sourceTree = SOURCE_ROOT; };
 		E2B70A241E0895BD00C93093 /* Baseline.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Baseline.json; path = "northwell-impulse-common/assets/json/survey/Baseline.json"; sourceTree = SOURCE_ROOT; };
 		E2B70A291E0895BD00C93093 /* go_no_go_variable_stimulus_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = go_no_go_variable_stimulus_full_task.json; path = "northwell-impulse-common/assets/json/survey/go_no_go_variable_stimulus_full_task.json"; sourceTree = SOURCE_ROOT; };
@@ -309,11 +308,14 @@
 		E2B70AC01E09A1A300C93093 /* dd_money_6_month_short_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dd_money_6_month_short_task.json; path = "northwell-impulse-common/assets/json/survey/dd_money_6_month_short_task.json"; sourceTree = SOURCE_ROOT; };
 		E2B70AC91E09A4AC00C93093 /* dd_time_6_month_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dd_time_6_month_full_task.json; path = "northwell-impulse-common/assets/json/survey/dd_time_6_month_full_task.json"; sourceTree = SOURCE_ROOT; };
 		E2B70ACA1E09A4AC00C93093 /* dd_time_6_month_short_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dd_time_6_month_short_task.json; path = "northwell-impulse-common/assets/json/survey/dd_time_6_month_short_task.json"; sourceTree = SOURCE_ROOT; };
-		E2B70ACE1E09B76B00C93093 /* pm_likert_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pm_likert_1.json; path = "northwell-impulse-common/assets/json/survey/pm_likert_1.json"; sourceTree = SOURCE_ROOT; };
 		E2B70AE01E09BD9D00C93093 /* go_no_go_practice_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = go_no_go_practice_full_task.json; path = "northwell-impulse-common/assets/json/survey/go_no_go_practice_full_task.json"; sourceTree = SOURCE_ROOT; };
 		E2B70AFB1E0A08C600C93093 /* CTFExtendedMultipleChoiceStepGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFExtendedMultipleChoiceStepGenerator.swift; sourceTree = "<group>"; };
 		E2B70B021E0A3F8200C93093 /* CTFExtendedSingleChoiceStepGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFExtendedSingleChoiceStepGenerator.swift; sourceTree = "<group>"; };
 		E2C18EAC1DD147C1005E0324 /* CTFScaleAnswerFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFScaleAnswerFormat.swift; sourceTree = "<group>"; };
+		E2C9ACAA1E63D13700CF9F6F /* daily_sem_diff.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = daily_sem_diff.json; path = "northwell-impulse-common/assets/json/survey/daily_sem_diff.json"; sourceTree = SOURCE_ROOT; };
+		E2C9ACB71E63D1B800CF9F6F /* CTFScaleFormResult+SBBDataArchiveBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CTFScaleFormResult+SBBDataArchiveBuilder.swift"; sourceTree = "<group>"; };
+		E2C9ACD61E63DF9C00CF9F6F /* CTFPAMRaw+SBBDataArchiveBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CTFPAMRaw+SBBDataArchiveBuilder.swift"; sourceTree = "<group>"; };
+		E2C9ACD81E63E20100CF9F6F /* CTFPAMMultipleRaw+SBBDataArchiveBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CTFPAMMultipleRaw+SBBDataArchiveBuilder.swift"; sourceTree = "<group>"; };
 		E2CCB6691DB158AF00C801A4 /* CTFScheduleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFScheduleItem.swift; sourceTree = "<group>"; };
 		E2D9E09C1DF4DAB1007772DA /* CTFSolidButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFSolidButton.swift; sourceTree = "<group>"; };
 		E2DCE02C1E0B56AA003E4BC1 /* am_survey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = am_survey.json; path = "northwell-impulse-common/assets/json/survey/am_survey.json"; sourceTree = SOURCE_ROOT; };
@@ -456,34 +458,12 @@
 		E234C9441E5A83F100E24E86 /* RSRP */ = {
 			isa = PBXGroup;
 			children = (
-				E234C9451E5A845D00E24E86 /* CTFDelayDiscountingRaw+SBBDataArchiveBuilder.swift */,
 				E237F39C1E5E509500671B77 /* RSRPIntermediateResult+SBBDataArchiveBuilder.swift */,
 				E234C9471E5A87CC00E24E86 /* SBBDataArchiveConvertable.swift */,
 				E234C9491E5A90EB00E24E86 /* SBBDataArchiveBuilder.swift */,
 				E237F3DB1E5F7D6600671B77 /* CTFReduxStateHelper+SBBAuthManagerDelegate.swift */,
 			);
 			name = RSRP;
-			sourceTree = "<group>";
-		};
-		E237F3B71E5F3BD800671B77 /* Morning Survey */ = {
-			isa = PBXGroup;
-			children = (
-				E2B70A191E0895BD00C93093 /* am_behaviors.json */,
-				E2B70A1A1E0895BD00C93093 /* am_likert_1.json */,
-				E2DCE02C1E0B56AA003E4BC1 /* am_survey.json */,
-				E2B70A1B1E0895BD00C93093 /* am_likert_1a.json */,
-				E2B70A1C1E0895BD00C93093 /* am_likert_3.json */,
-			);
-			name = "Morning Survey";
-			sourceTree = "<group>";
-		};
-		E237F3B81E5F3D0800671B77 /* Evening Survey */ = {
-			isa = PBXGroup;
-			children = (
-				E2B70ACE1E09B76B00C93093 /* pm_likert_1.json */,
-				E2DCE0311E0B5FE8003E4BC1 /* pm_survey.json */,
-			);
-			name = "Evening Survey";
 			sourceTree = "<group>";
 		};
 		E237F3B91E5F3D3600671B77 /* Baseline */ = {
@@ -579,6 +559,9 @@
 		E25883F11E61DF6E001F1DE1 /* Results Processing */ = {
 			isa = PBXGroup;
 			children = (
+				E234C9451E5A845D00E24E86 /* CTFDelayDiscountingRaw+SBBDataArchiveBuilder.swift */,
+				E2C9ACD61E63DF9C00CF9F6F /* CTFPAMRaw+SBBDataArchiveBuilder.swift */,
+				E2C9ACD81E63E20100CF9F6F /* CTFPAMMultipleRaw+SBBDataArchiveBuilder.swift */,
 				E25883F21E61DF7E001F1DE1 /* Likert/SemDif */,
 				E2831A781E5B9A6C00E3D727 /* Baseline */,
 			);
@@ -589,8 +572,22 @@
 			isa = PBXGroup;
 			children = (
 				E25883F31E61E024001F1DE1 /* CTFScaleFormResult.swift */,
+				E2C9ACB71E63D1B800CF9F6F /* CTFScaleFormResult+SBBDataArchiveBuilder.swift */,
 			);
 			name = Likert/SemDif;
+			sourceTree = "<group>";
+		};
+		E25884081E61F6B8001F1DE1 /* Daily */ = {
+			isa = PBXGroup;
+			children = (
+				E2C9ACAA1E63D13700CF9F6F /* daily_sem_diff.json */,
+				E2DCE0311E0B5FE8003E4BC1 /* pm_survey.json */,
+				E2DCE02C1E0B56AA003E4BC1 /* am_survey.json */,
+				E2B70A191E0895BD00C93093 /* am_behaviors.json */,
+				E2B70A1A1E0895BD00C93093 /* am_likert_1.json */,
+				E2B70A1B1E0895BD00C93093 /* am_likert_1a.json */,
+			);
+			name = Daily;
 			sourceTree = "<group>";
 		};
 		E2831A781E5B9A6C00E3D727 /* Baseline */ = {
@@ -643,7 +640,6 @@
 				E21F23741DA44EE300760EA7 /* Likert */,
 				E2B70AFB1E0A08C600C93093 /* CTFExtendedMultipleChoiceStepGenerator.swift */,
 				E2B70B021E0A3F8200C93093 /* CTFExtendedSingleChoiceStepGenerator.swift */,
-				E2831AA61E5BA4B100E3D727 /* PAMMultipleStepGenerator.swift */,
 			);
 			name = "RK Extensions";
 			sourceTree = "<group>";
@@ -673,8 +669,7 @@
 				E237F3BC1E5F3D6900671B77 /* Reenrollment */,
 				E237F3BB1E5F3D5000671B77 /* Active Tasks */,
 				E237F3B91E5F3D3600671B77 /* Baseline */,
-				E237F3B81E5F3D0800671B77 /* Evening Survey */,
-				E237F3B71E5F3BD800671B77 /* Morning Survey */,
+				E25884081E61F6B8001F1DE1 /* Daily */,
 				E237F3AA1E5E8B8F00671B77 /* settings.json */,
 				E2831AA21E5BA24800E3D727 /* activities.json */,
 				E2831AA31E5BA24800E3D727 /* trialActivities.json */,
@@ -970,7 +965,6 @@
 				E2B70A4E1E0895BD00C93093 /* self_assessment_9.json in Resources */,
 				E2B70A4D1E0895BD00C93093 /* self_assessment_8.json in Resources */,
 				E2EF6B261DA2E2970034456A /* Assets.xcassets in Resources */,
-				E2B70AD71E09B76B00C93093 /* pm_likert_1.json in Resources */,
 				E2EF6B241DA2E2970034456A /* Main.storyboard in Resources */,
 				E2DCE0321E0B5FE8003E4BC1 /* pm_survey.json in Resources */,
 				E2B70A451E0895BD00C93093 /* go_no_go_variable_stimulus_full_task.json in Resources */,
@@ -985,6 +979,7 @@
 				E2B70A4C1E0895BD00C93093 /* self_assessment_7.json in Resources */,
 				E2B70AB91E09A04200C93093 /* dd_money_1_month_short_task.json in Resources */,
 				E2AA6CDE1DA41A60005D5137 /* Onboarding.storyboard in Resources */,
+				E2C9ACAB1E63D13700CF9F6F /* daily_sem_diff.json in Resources */,
 				E2B70AE41E09BD9D00C93093 /* go_no_go_practice_full_task.json in Resources */,
 				E2DCE02D1E0B56AA003E4BC1 /* am_survey.json in Resources */,
 				E2B70AA01E09913000C93093 /* Day_21.json in Resources */,
@@ -994,7 +989,6 @@
 				E2B70AB51E099B9000C93093 /* bart_25_cents_short_task.json in Resources */,
 				E2B70ABB1E09A08000C93093 /* dd_money_1_month_full_task.json in Resources */,
 				E24339401E0DC4C4009FF385 /* shuffled_active_tasks.json in Resources */,
-				E2B70A381E0895BD00C93093 /* am_likert_3.json in Resources */,
 				E20590121E5BFF5F00D978B7 /* dd_time_1_year_full_task.json in Resources */,
 				E237F3C61E5F482A00671B77 /* thankYouActivity.json in Resources */,
 				E2B70A371E0895BD00C93093 /* am_likert_1a.json in Resources */,
@@ -1175,7 +1169,6 @@
 			files = (
 				E2831A991E5B9D3F00E3D727 /* CTFActionDescriptor.swift in Sources */,
 				E2831A911E5B9C3C00E3D727 /* DemographicsResult.swift in Sources */,
-				E2831AA71E5BA4B100E3D727 /* PAMMultipleStepGenerator.swift in Sources */,
 				E25883F41E61E024001F1DE1 /* CTFScaleFormResult.swift in Sources */,
 				E20590071E5BE87C00D978B7 /* CTFReduxPersistentStorageSubscriber.swift in Sources */,
 				E2AA6D181DA43C83005D5137 /* CTFBorderedButton.swift in Sources */,
@@ -1184,6 +1177,7 @@
 				E2AA6D351DA43D07005D5137 /* CTFMainTabViewController.swift in Sources */,
 				E234C8F41E58EA9300E24E86 /* NSDate+Utilities.swift in Sources */,
 				E2AA6D0F1DA43C6B005D5137 /* CTFActivityTableViewCell.swift in Sources */,
+				E2C9ACD71E63DF9C00CF9F6F /* CTFPAMRaw+SBBDataArchiveBuilder.swift in Sources */,
 				E2831AA11E5B9DD800E3D727 /* CTFLoginStepViewController.swift in Sources */,
 				E2FE1AA61DAEEA1B00DBB8E7 /* ORKStepViewController+Helpers.swift in Sources */,
 				E2D9E09D1DF4DAB1007772DA /* CTFSolidButton.swift in Sources */,
@@ -1234,6 +1228,8 @@
 				E20590091E5BF82200D978B7 /* CTFActionCreators.swift in Sources */,
 				E20590031E5BE80C00D978B7 /* CTFActions.swift in Sources */,
 				E2831AA01E5B9DD800E3D727 /* CTFLoginStep.swift in Sources */,
+				E2C9ACB81E63D1B800CF9F6F /* CTFScaleFormResult+SBBDataArchiveBuilder.swift in Sources */,
+				E2C9ACD91E63E20100CF9F6F /* CTFPAMMultipleRaw+SBBDataArchiveBuilder.swift in Sources */,
 				E2B70A8E1E08BD8E00C93093 /* CTFLikertScaleFormParameters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

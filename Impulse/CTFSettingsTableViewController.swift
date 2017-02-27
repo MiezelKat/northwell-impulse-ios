@@ -66,6 +66,8 @@ class CTFSettingsTableViewController: UITableViewController, StoreSubscriber {
     func updateUI(state: CTFReduxState) {
         self.showTrialsSwitch.isEnabled = CTFSelectors.baselineCompletedDate(state) != nil
         self.showTrialsSwitch.setOn(CTFSelectors.showTrialActivities(state), animated: true)
+        
+        self.debugModeSwitch.isEnabled = CTFSelectors.baselineCompletedDate(state) != nil
         self.debugModeSwitch.setOn(CTFSelectors.debugMode(state), animated: true)
         
         if let components = CTFSelectors.morningSurveyTimeComponents(state),
