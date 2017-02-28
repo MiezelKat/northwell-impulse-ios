@@ -1,8 +1,8 @@
 //
-//  CTFScaleFormResult.swift
+//  CTFTextIntermediateResult.swift
 //  Impulse
 //
-//  Created by James Kizer on 2/25/17.
+//  Created by James Kizer on 2/27/17.
 //  Copyright © 2017 James Kizer. All rights reserved.
 //
 
@@ -10,9 +10,9 @@ import UIKit
 import ResearchSuiteResultsProcessor
 import ResearchKit
 
-class CTFScaleFormResult: RSRPIntermediateResult, RSRPFrontEndTransformer {
+class CTFTextIntermediateResult: RSRPIntermediateResult, RSRPFrontEndTransformer {
     
-    static public let kType = "CTFScaleFormResult"
+    static public let kType = "CTFTextResult"
     
     private static let supportedTypes = [
         kType
@@ -22,45 +22,38 @@ class CTFScaleFormResult: RSRPIntermediateResult, RSRPFrontEndTransformer {
         return supportedTypes.contains(type)
     }
     
-
     public static func transform(
         taskIdentifier: String,
         taskRunUUID: UUID,
         parameters: [String: AnyObject]
         ) -> RSRPIntermediateResult? {
-    
+        
         guard let schemaID = parameters["schemaID"] as? String,
             let schemaVersion = parameters["schemaVersion"] as? Int else {
-            return nil
+                return nil
         }
         
         let stepResults: [ORKStepResult] = parameters.flatMap { (pair) -> ORKStepResult? in
             return pair.value as? ORKStepResult
         }
         
-        let childResults = stepResults.flatMap({ (stepResult) -> [ORKScaleQuestionResult]? in
-            return stepResult.results as? [ORKScaleQuestionResult]
-        }).joined()
-        
-        guard childResults.count > 0 else {
-            return nil
-        }
-        
-        let identifierSuffix = parameters["identifierSuffix"] as? String
-        
-        let resultMap:[String: Int] = {
-            var map: [String: Int] = [:]
-            childResults.forEach { (result) in
-                let identifier = result.identifier + (identifierSuffix ?? "")
-                if let scaleAnswer = result.scaleAnswer {
-                    map[identifier] = scaleAnswer.intValue
+        let resultMap:[String: String] = {
+            var map: [String: String] = [:]
+            stepResults.forEach { (stepResult) in
+                if let textResult = stepResult.results?.first as? ORKTextQuestionResult,
+                    let text = textResult.textAnswer {
+                    map[stepResult.identifier] = text
                 }
             }
             
             return map
         }()
+    
+        guard resultMap.count > 0 else {
+            return nil
+        }
 
-        return CTFScaleFormResult(
+        return CTFTextIntermediateResult(
             uuid: UUID(),
             taskIdentifier: taskIdentifier,
             taskRunUUID: taskRunUUID,
@@ -71,10 +64,10 @@ class CTFScaleFormResult: RSRPIntermediateResult, RSRPFrontEndTransformer {
             resultMap: resultMap
         )
     }
-
+    
     let schemaID: String
     let version: Int
-    let resultMap:[String: Int]
+    let resultMap: [String:String]
     
     public init(
         uuid: UUID,
@@ -84,17 +77,23 @@ class CTFScaleFormResult: RSRPIntermediateResult, RSRPFrontEndTransformer {
         endDate: Date?,
         schemaID: String,
         schemaVersion: Int,
-        resultMap: [String: Int]) {
+        resultMap: [String:String]) {
         
         self.schemaID = schemaID
         self.version = schemaVersion
         self.resultMap = resultMap
         
         super.init(
-            type: DemographicsResult.kType,
+            type: CTFMultipleChoiceIntermediateResult.kType,
             uuid: uuid,
             taskIdentifier: taskIdentifier,
             taskRunUUID: taskRunUUID
         )
+        
+        self.startDate = startDate
+        self.endDate = endDate
+        
+        
     }
+    
 }

@@ -121,12 +121,18 @@
 		E2D9E09D1DF4DAB1007772DA /* CTFSolidButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D9E09C1DF4DAB1007772DA /* CTFSolidButton.swift */; };
 		E2DCE02D1E0B56AA003E4BC1 /* am_survey.json in Resources */ = {isa = PBXBuildFile; fileRef = E2DCE02C1E0B56AA003E4BC1 /* am_survey.json */; };
 		E2DCE0321E0B5FE8003E4BC1 /* pm_survey.json in Resources */ = {isa = PBXBuildFile; fileRef = E2DCE0311E0B5FE8003E4BC1 /* pm_survey.json */; };
+		E2E87EF61E648D3600FF3693 /* CTFMultipleChoiceIntermediateResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E87EF51E648D3600FF3693 /* CTFMultipleChoiceIntermediateResult.swift */; };
+		E2E87F031E64903F00FF3693 /* CTFMultipleChoiceIntermediateResult+SBBDataArchiveBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E87F021E64903F00FF3693 /* CTFMultipleChoiceIntermediateResult+SBBDataArchiveBuilder.swift */; };
 		E2EF6B1F1DA2E2970034456A /* CTFAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF6B1E1DA2E2970034456A /* CTFAppDelegate.swift */; };
 		E2EF6B241DA2E2970034456A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EF6B221DA2E2970034456A /* Main.storyboard */; };
 		E2EF6B261DA2E2970034456A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2EF6B251DA2E2970034456A /* Assets.xcassets */; };
 		E2EF6B291DA2E2970034456A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EF6B271DA2E2970034456A /* LaunchScreen.storyboard */; };
 		E2EF6B341DA2E2980034456A /* ImpulseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF6B331DA2E2980034456A /* ImpulseTests.swift */; };
 		E2EF6B3F1DA2E2980034456A /* ImpulseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF6B3E1DA2E2980034456A /* ImpulseUITests.swift */; };
+		E2F7B59E1E650B2B00745780 /* CTFTimeOfDayIntermediateResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7B59D1E650B2B00745780 /* CTFTimeOfDayIntermediateResult.swift */; };
+		E2F7B5AB1E650D1100745780 /* CTFTextIntermediateResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7B5AA1E650D1100745780 /* CTFTextIntermediateResult.swift */; };
+		E2F7B5AD1E650F9600745780 /* CTFTimeOfDayIntermediateResult+SBBDataArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7B5AC1E650F9600745780 /* CTFTimeOfDayIntermediateResult+SBBDataArchive.swift */; };
+		E2F7B5AF1E650FA900745780 /* CTFTextIntermediateResult+SBBDataArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7B5AE1E650FA900745780 /* CTFTextIntermediateResult+SBBDataArchive.swift */; };
 		E2FE1AA61DAEEA1B00DBB8E7 /* ORKStepViewController+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE1AA51DAEEA1B00DBB8E7 /* ORKStepViewController+Helpers.swift */; };
 		E2FE1AB71DB0337200DBB8E7 /* Array+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE1AB61DB0337200DBB8E7 /* Array+Random.swift */; };
 		F8070F50C900C48C57912FBA /* Pods_ImpulseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F4F885C88EF8C8BA7E9462E /* Pods_ImpulseUITests.framework */; };
@@ -320,6 +326,8 @@
 		E2D9E09C1DF4DAB1007772DA /* CTFSolidButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFSolidButton.swift; sourceTree = "<group>"; };
 		E2DCE02C1E0B56AA003E4BC1 /* am_survey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = am_survey.json; path = "northwell-impulse-common/assets/json/survey/am_survey.json"; sourceTree = SOURCE_ROOT; };
 		E2DCE0311E0B5FE8003E4BC1 /* pm_survey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pm_survey.json; path = "northwell-impulse-common/assets/json/survey/pm_survey.json"; sourceTree = SOURCE_ROOT; };
+		E2E87EF51E648D3600FF3693 /* CTFMultipleChoiceIntermediateResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFMultipleChoiceIntermediateResult.swift; sourceTree = "<group>"; };
+		E2E87F021E64903F00FF3693 /* CTFMultipleChoiceIntermediateResult+SBBDataArchiveBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CTFMultipleChoiceIntermediateResult+SBBDataArchiveBuilder.swift"; sourceTree = "<group>"; };
 		E2EF6B1B1DA2E2970034456A /* Impulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Impulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2EF6B1E1DA2E2970034456A /* CTFAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTFAppDelegate.swift; sourceTree = "<group>"; };
 		E2EF6B231DA2E2970034456A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -332,6 +340,10 @@
 		E2EF6B3A1DA2E2980034456A /* ImpulseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImpulseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2EF6B3E1DA2E2980034456A /* ImpulseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpulseUITests.swift; sourceTree = "<group>"; };
 		E2EF6B401DA2E2980034456A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2F7B59D1E650B2B00745780 /* CTFTimeOfDayIntermediateResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFTimeOfDayIntermediateResult.swift; sourceTree = "<group>"; };
+		E2F7B5AA1E650D1100745780 /* CTFTextIntermediateResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFTextIntermediateResult.swift; sourceTree = "<group>"; };
+		E2F7B5AC1E650F9600745780 /* CTFTimeOfDayIntermediateResult+SBBDataArchive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CTFTimeOfDayIntermediateResult+SBBDataArchive.swift"; sourceTree = "<group>"; };
+		E2F7B5AE1E650FA900745780 /* CTFTextIntermediateResult+SBBDataArchive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CTFTextIntermediateResult+SBBDataArchive.swift"; sourceTree = "<group>"; };
 		E2FE1AA51DAEEA1B00DBB8E7 /* ORKStepViewController+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ORKStepViewController+Helpers.swift"; sourceTree = "<group>"; };
 		E2FE1AB61DB0337200DBB8E7 /* Array+Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Random.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -491,11 +503,11 @@
 		E237F3BB1E5F3D5000671B77 /* Active Tasks */ = {
 			isa = PBXGroup;
 			children = (
-				E237F3BE1E5F3D8100671B77 /* DD */,
 				E237F3BD1E5F3D7D00671B77 /* BART */,
+				E237F3BE1E5F3D8100671B77 /* DD */,
+				E237F3BA1E5F3D4100671B77 /* GNG */,
 				E243393D1E0DC4C4009FF385 /* daily_active_tasks.json */,
 				E243393E1E0DC4C4009FF385 /* shuffled_active_tasks.json */,
-				E237F3BA1E5F3D4100671B77 /* GNG */,
 			);
 			name = "Active Tasks";
 			sourceTree = "<group>";
@@ -564,6 +576,12 @@
 				E2C9ACD81E63E20100CF9F6F /* CTFPAMMultipleRaw+SBBDataArchiveBuilder.swift */,
 				E25883F21E61DF7E001F1DE1 /* Likert/SemDif */,
 				E2831A781E5B9A6C00E3D727 /* Baseline */,
+				E2E87EF51E648D3600FF3693 /* CTFMultipleChoiceIntermediateResult.swift */,
+				E2E87F021E64903F00FF3693 /* CTFMultipleChoiceIntermediateResult+SBBDataArchiveBuilder.swift */,
+				E2F7B59D1E650B2B00745780 /* CTFTimeOfDayIntermediateResult.swift */,
+				E2F7B5AC1E650F9600745780 /* CTFTimeOfDayIntermediateResult+SBBDataArchive.swift */,
+				E2F7B5AA1E650D1100745780 /* CTFTextIntermediateResult.swift */,
+				E2F7B5AE1E650FA900745780 /* CTFTextIntermediateResult+SBBDataArchive.swift */,
 			);
 			name = "Results Processing";
 			sourceTree = "<group>";
@@ -1195,8 +1213,10 @@
 				E295FC211DDCC001001B175D /* UIColor+String.swift in Sources */,
 				E2AA6D191DA43C83005D5137 /* CTFFormItemCell.swift in Sources */,
 				E2AA6D031DA43C54005D5137 /* CTFActivityTableViewController.swift in Sources */,
+				E2F7B5AD1E650F9600745780 /* CTFTimeOfDayIntermediateResult+SBBDataArchive.swift in Sources */,
 				E2831A8C1E5B9C3000E3D727 /* CTFTaskBuilderManager.swift in Sources */,
 				E2EF6B1F1DA2E2970034456A /* CTFAppDelegate.swift in Sources */,
+				E2F7B59E1E650B2B00745780 /* CTFTimeOfDayIntermediateResult.swift in Sources */,
 				E234C9461E5A845D00E24E86 /* CTFDelayDiscountingRaw+SBBDataArchiveBuilder.swift in Sources */,
 				E2B70A901E08C3BB00C93093 /* CTFSemanticDifferentialScaleFormParameters.swift in Sources */,
 				E234C9431E5A791000E24E86 /* CTFResultsProcessorManager.swift in Sources */,
@@ -1204,6 +1224,7 @@
 				E237F3D51E5F565D00671B77 /* CTFStudyConstants.swift in Sources */,
 				E2C18EAD1DD147C1005E0324 /* CTFScaleAnswerFormat.swift in Sources */,
 				E2FE1AB71DB0337200DBB8E7 /* Array+Random.swift in Sources */,
+				E2E87F031E64903F00FF3693 /* CTFMultipleChoiceIntermediateResult+SBBDataArchiveBuilder.swift in Sources */,
 				E20D5C3C1E5FB3F7006655E8 /* DemographicsResult+SBBDataArchiveBuilder.swift in Sources */,
 				E2AA6CFC1DA41F3D005D5137 /* CTFLogInViaExternalIdViewController.swift in Sources */,
 				E234C94A1E5A90EB00E24E86 /* SBBDataArchiveBuilder.swift in Sources */,
@@ -1211,10 +1232,12 @@
 				E237F3DC1E5F7D6600671B77 /* CTFReduxStateHelper+SBBAuthManagerDelegate.swift in Sources */,
 				E234C9181E5A0D6700E24E86 /* CTFBridgeManager.swift in Sources */,
 				E2B70A8A1E08B43600C93093 /* CTFLikertFormItemDescriptor.swift in Sources */,
+				E2F7B5AB1E650D1100745780 /* CTFTextIntermediateResult.swift in Sources */,
 				E2AA6D1D1DA43C83005D5137 /* CTFPulsusFormStepViewController.swift in Sources */,
 				E23535DC1DB57B6F005BAFE3 /* GenericHelpers.swift in Sources */,
 				E2831A8D1E5B9C3000E3D727 /* CTFTaskViewController.swift in Sources */,
 				E2B70A921E08C3F100C93093 /* CTFSemanticDifferentialScaleFormItemDecriptor.swift in Sources */,
+				E2E87EF61E648D3600FF3693 /* CTFMultipleChoiceIntermediateResult.swift in Sources */,
 				E20590151E5C045000D978B7 /* CTFSelectors.swift in Sources */,
 				E234C91A1E5A0F8800E24E86 /* CTFBridgeManagerError.swift in Sources */,
 				E2B70A871E08AF5F00C93093 /* CTFLikertFormStepGenerator.swift in Sources */,
@@ -1225,6 +1248,7 @@
 				E234C9481E5A87CC00E24E86 /* SBBDataArchiveConvertable.swift in Sources */,
 				E234C9161E594BAF00E24E86 /* CTFBridgeExternalIDStepViewController.swift in Sources */,
 				E237F39D1E5E509500671B77 /* RSRPIntermediateResult+SBBDataArchiveBuilder.swift in Sources */,
+				E2F7B5AF1E650FA900745780 /* CTFTextIntermediateResult+SBBDataArchive.swift in Sources */,
 				E20590091E5BF82200D978B7 /* CTFActionCreators.swift in Sources */,
 				E20590031E5BE80C00D978B7 /* CTFActions.swift in Sources */,
 				E2831AA01E5B9DD800E3D727 /* CTFLoginStep.swift in Sources */,

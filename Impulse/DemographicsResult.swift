@@ -107,8 +107,8 @@ public class DemographicsResult: RSRPIntermediateResult, RSRPFrontEndTransformer
             )
         
         
-        demographics.startDate = parameters["gender"]?.startDate ?? Date()
-        demographics.endDate = parameters["religion"]?.endDate ?? Date()
+        demographics.startDate = parameters["gender"]?.startDate
+        demographics.endDate = parameters["religion"]?.endDate
         
         return demographics
         

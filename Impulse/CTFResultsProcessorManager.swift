@@ -49,7 +49,10 @@ class CTFResultsProcessorManager: NSObject, StoreSubscriber {
                 CTFGoNoGoSummaryResultsTransformer.self,
                 CTFScaleFormResult.self,
                 CTFPAMRaw.self,
-                CTFPAMMultipleRaw.self
+                CTFPAMMultipleRaw.self,
+                CTFMultipleChoiceIntermediateResult.self,
+                CTFTimeOfDayIntermediateResult.self,
+                CTFTextIntermediateResult.self
             ], backEnd: backEnd)
         
         self.store = store
