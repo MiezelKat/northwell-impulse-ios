@@ -14,20 +14,6 @@ import ResearchKit
 
 class CTFActionCreators: NSObject {
     
-    static let k1MinuteInterval: TimeInterval = 60.0
-    static let k1HourInterval: TimeInterval = k1MinuteInterval * 60.0
-    static let k1DayInterval: TimeInterval = 24.0 * k1HourInterval
-    static let k21DaySurveyDelayInterval: TimeInterval = 21.0 * k1DayInterval
-    
-    static let kDailySurveyNotificationWindowBeforeInterval: TimeInterval = 0.0
-    static let kDailySurveyNotificationWindowAfterInterval: TimeInterval = 30.0 * k1MinuteInterval
-    static let kDailySurveyTimeBeforeInterval: TimeInterval = 2.0 * k1HourInterval
-    static let kDailySurveyTimeAfterInterval: TimeInterval = 6.0 * k1HourInterval
-    static let kDailySurveyDelaySinceBaselineTimeInterval: TimeInterval = 0.0
-    static let kSecondaryNotificationDelay: TimeInterval = 2.0 * k1HourInterval
-    
-    static let kBaselineBehaviorResults: String = "BaselineBehaviorResults"
-    
     public typealias ActionCreator = (_ state: CTFReduxState, _ store: Store<CTFReduxState>) -> Action?
     public typealias AsyncActionCreator = (
         _ state: CTFReduxState,
@@ -104,8 +90,8 @@ class CTFActionCreators: NSObject {
             store.dispatch(markBaselineAction)
             
             //set 21 day notification
-            let initialFireDate = Date(timeInterval: CTFActionCreators.k21DaySurveyDelayInterval, since: result.endDate)
-            let secondaryFireDate = initialFireDate.addingTimeInterval(CTFActionCreators.kSecondaryNotificationDelay)
+            let initialFireDate = Date(timeInterval: CTFStudyConstants.k21DaySurveyDelayInterval, since: result.endDate)
+            let secondaryFireDate = initialFireDate.addingTimeInterval(CTFStudyConstants.kSecondaryNotificationDelay)
             let day21NotificationAction = Set21DayNotificationAction(
                 initialFireDate: initialFireDate,
                 secondaryFireDate: secondaryFireDate)
@@ -134,7 +120,7 @@ class CTFActionCreators: NSObject {
                 
 //                let secureCodingAnswers = answers as NSObject
 //                debugPrint(secureCodingAnswers)
-                let setBehaviorsAction = SetValueInExtensibleStorage(key: CTFActionCreators.kBaselineBehaviorResults, value: answers as NSObject)
+                let setBehaviorsAction = SetValueInExtensibleStorage(key: CTFStudyConstants.kBaselineBehaviorResults, value: answers as NSObject)
                 store.dispatch(setBehaviorsAction)
                 
             }
@@ -155,8 +141,8 @@ class CTFActionCreators: NSObject {
                 store.dispatch(markBaselineAction)
                 
                 //set 21 day notification
-                let initialFireDate = Date(timeInterval: CTFActionCreators.k21DaySurveyDelayInterval, since: result.endDate)
-                let secondaryFireDate = initialFireDate.addingTimeInterval(CTFActionCreators.kSecondaryNotificationDelay)
+                let initialFireDate = Date(timeInterval: CTFStudyConstants.k21DaySurveyDelayInterval, since: completedDate)
+                let secondaryFireDate = initialFireDate.addingTimeInterval(CTFStudyConstants.kSecondaryNotificationDelay)
                 let day21NotificationAction = Set21DayNotificationAction(
                     initialFireDate: initialFireDate,
                     secondaryFireDate: secondaryFireDate)
@@ -186,7 +172,7 @@ class CTFActionCreators: NSObject {
                 
                 //                let secureCodingAnswers = answers as NSObject
                 //                debugPrint(secureCodingAnswers)
-                let setBehaviorsAction = SetValueInExtensibleStorage(key: CTFActionCreators.kBaselineBehaviorResults, value: answers as NSObject)
+                let setBehaviorsAction = SetValueInExtensibleStorage(key: CTFStudyConstants.kBaselineBehaviorResults, value: answers as NSObject)
                 store.dispatch(setBehaviorsAction)
                 
             }
@@ -202,7 +188,7 @@ class CTFActionCreators: NSObject {
             
             if let dateComponents = state.morningSurveyTimeComponents,
                 let initialFireDate = CTFActionCreators.getNotificationFireDate(timeComponents: dateComponents as NSDateComponents, latestCompletion: result.endDate) {
-                let secondaryFireDate = initialFireDate.addingTimeInterval(CTFActionCreators.kSecondaryNotificationDelay)
+                let secondaryFireDate = initialFireDate.addingTimeInterval(CTFStudyConstants.kSecondaryNotificationDelay)
                 let notificationAction = SetMorningNotificationAction(
                     initialFireDate: initialFireDate,
                     secondaryFireDate: secondaryFireDate)
@@ -222,7 +208,7 @@ class CTFActionCreators: NSObject {
             
             if let dateComponents = state.eveningSurveyTimeComponents,
                 let initialFireDate = CTFActionCreators.getNotificationFireDate(timeComponents: dateComponents as NSDateComponents, latestCompletion: result.endDate) {
-                let secondaryFireDate = initialFireDate.addingTimeInterval(CTFActionCreators.kSecondaryNotificationDelay)
+                let secondaryFireDate = initialFireDate.addingTimeInterval(CTFStudyConstants.kSecondaryNotificationDelay)
                 let notificationAction = SetEveningNotificationAction(
                     initialFireDate: initialFireDate,
                     secondaryFireDate: secondaryFireDate)
@@ -315,7 +301,7 @@ class CTFActionCreators: NSObject {
             
             let lastCompletion: Date? = state.lastMorningCompletionDate
             if let initialFireDate = CTFActionCreators.getNotificationFireDate(timeComponents: dateComponents as NSDateComponents, latestCompletion: lastCompletion) {
-                let secondaryFireDate = initialFireDate.addingTimeInterval(CTFActionCreators.kSecondaryNotificationDelay)
+                let secondaryFireDate = initialFireDate.addingTimeInterval(CTFStudyConstants.kSecondaryNotificationDelay)
                 let notificationAction = SetMorningNotificationAction(
                     initialFireDate: initialFireDate,
                     secondaryFireDate: secondaryFireDate)
@@ -340,7 +326,7 @@ class CTFActionCreators: NSObject {
             
             let lastCompletion: Date? = state.lastEveningCompletionDate
             if let initialFireDate = CTFActionCreators.getNotificationFireDate(timeComponents: dateComponents as NSDateComponents, latestCompletion: lastCompletion) {
-                let secondaryFireDate = initialFireDate.addingTimeInterval(CTFActionCreators.kSecondaryNotificationDelay)
+                let secondaryFireDate = initialFireDate.addingTimeInterval(CTFStudyConstants.kSecondaryNotificationDelay)
                 let notificationAction = SetEveningNotificationAction(
                     initialFireDate: initialFireDate,
                     secondaryFireDate: secondaryFireDate)
@@ -409,8 +395,8 @@ class CTFActionCreators: NSObject {
         }
         
         //select window around baseDate
-        let fromDate = baseDate.addingTimeInterval(-1.0 * kDailySurveyNotificationWindowBeforeInterval)
-        let toDate = baseDate.addingTimeInterval(kDailySurveyNotificationWindowAfterInterval)
+        let fromDate = baseDate.addingTimeInterval(-1.0 * CTFStudyConstants.kDailySurveyNotificationWindowBeforeInterval)
+        let toDate = baseDate.addingTimeInterval(CTFStudyConstants.kDailySurveyNotificationWindowAfterInterval)
         
         return Date.RandomDateBetween(from: fromDate, to: toDate)
         

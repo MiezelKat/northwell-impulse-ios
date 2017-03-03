@@ -59,11 +59,11 @@ extension SBBDataArchiveBuilder {
         
         let dataArchive = SBBDataArchive(reference: self.schemaIdentifier, jsonValidationMapping: nil)
         
-        debugPrint(self.schemaIdentifier)
-        debugPrint(self.schemaVersion)
-        debugPrint(self.metadata)
-        debugPrint(self.data)
-        debugPrint(self.createdOn)
+        guard JSONSerialization.isValidJSONObject(self.metadata),
+            JSONSerialization.isValidJSONObject(self.data) else {
+                assertionFailure("Cannot serialize json\n metadata: \(self.metadata)\n data: \(self.data)")
+                return nil
+        }
         
         dataArchive.setArchiveInfoObject(self.schemaVersion, forKey: self.kSchemaRevisionKey)
         dataArchive.insertDictionary(intoArchive: self.data, filename: self.kDataFilename, createdOn: self.createdOn)

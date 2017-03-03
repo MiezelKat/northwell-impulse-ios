@@ -11,42 +11,42 @@ PODS:
     - Gloss (~> 1.1)
     - ResearchKit (~> 1.3)
   - ReSwift (3.0.0)
-  - sdlrkx (0.9.0):
-    - sdlrkx/Behavioral (= 0.9.0)
-    - sdlrkx/Behavioral-RSRPOhmageBackend (= 0.9.0)
-    - sdlrkx/Behavioral-RSRPSupport (= 0.9.0)
-    - sdlrkx/Behavioral-RSTBSupport (= 0.9.0)
-    - sdlrkx/Helpers (= 0.9.0)
-    - sdlrkx/VSR (= 0.9.0)
-    - sdlrkx/VSR-RSRPOhmageBackend (= 0.9.0)
-    - sdlrkx/VSR-RSRPSupport (= 0.9.0)
-    - sdlrkx/VSR-RSTBSupport (= 0.9.0)
-  - sdlrkx/Behavioral (0.9.0):
+  - sdlrkx (0.10.0):
+    - sdlrkx/Behavioral (= 0.10.0)
+    - sdlrkx/Behavioral-RSRPOhmageBackend (= 0.10.0)
+    - sdlrkx/Behavioral-RSRPSupport (= 0.10.0)
+    - sdlrkx/Behavioral-RSTBSupport (= 0.10.0)
+    - sdlrkx/Helpers (= 0.10.0)
+    - sdlrkx/VSR (= 0.10.0)
+    - sdlrkx/VSR-RSRPOhmageBackend (= 0.10.0)
+    - sdlrkx/VSR-RSRPSupport (= 0.10.0)
+    - sdlrkx/VSR-RSTBSupport (= 0.10.0)
+  - sdlrkx/Behavioral (0.10.0):
     - ResearchKit (~> 1.4)
     - sdlrkx/Helpers
-  - sdlrkx/Behavioral-RSRPOhmageBackend (0.9.0):
+  - sdlrkx/Behavioral-RSRPOhmageBackend (0.10.0):
     - OMHClient
     - sdlrkx/Behavioral-RSRPSupport
-  - sdlrkx/Behavioral-RSRPSupport (0.9.0):
+  - sdlrkx/Behavioral-RSRPSupport (0.10.0):
     - ResearchKit (~> 1.4)
     - ResearchSuiteResultsProcessor (~> 0.2)
     - sdlrkx/Behavioral
-  - sdlrkx/Behavioral-RSTBSupport (0.9.0):
+  - sdlrkx/Behavioral-RSTBSupport (0.10.0):
     - Gloss (~> 1)
     - ResearchSuiteTaskBuilder (~> 0.2)
     - sdlrkx/Behavioral
-  - sdlrkx/Helpers (0.9.0)
-  - sdlrkx/VSR (0.9.0):
+  - sdlrkx/Helpers (0.10.0)
+  - sdlrkx/VSR (0.10.0):
     - ResearchKit (~> 1.4)
     - sdlrkx/Helpers
-  - sdlrkx/VSR-RSRPOhmageBackend (0.9.0):
+  - sdlrkx/VSR-RSRPOhmageBackend (0.10.0):
     - OMHClient
     - sdlrkx/VSR-RSRPSupport
-  - sdlrkx/VSR-RSRPSupport (0.9.0):
+  - sdlrkx/VSR-RSRPSupport (0.10.0):
     - ResearchKit (~> 1.4)
     - ResearchSuiteResultsProcessor (~> 0.2)
     - sdlrkx/VSR
-  - sdlrkx/VSR-RSTBSupport (0.9.0):
+  - sdlrkx/VSR-RSTBSupport (0.10.0):
     - Gloss (~> 1)
     - ResearchSuiteTaskBuilder (~> 0.2)
     - sdlrkx/VSR
@@ -66,7 +66,7 @@ SPEC CHECKSUMS:
   ResearchSuiteResultsProcessor: 02e69c59c251436234ea0b4ac525268725896f80
   ResearchSuiteTaskBuilder: ab01cf3f618d369eeb63507da82a36ba54f04e5e
   ReSwift: f0255f4b4f2dacd12c5d97d34d13fc5dad6d6371
-  sdlrkx: 1bb798a0ae3f8dfb49ce125dc3ca17dc9046a67c
+  sdlrkx: 11304eb426a9921f857d6fbef263e73b6d766455
 
 PODFILE CHECKSUM: 3dc9e8feb56a3004cb41480983c5e197d718ab2d
 

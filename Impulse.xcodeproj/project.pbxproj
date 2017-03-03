@@ -41,7 +41,6 @@
 		E237F39D1E5E509500671B77 /* RSRPIntermediateResult+SBBDataArchiveBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E237F39C1E5E509500671B77 /* RSRPIntermediateResult+SBBDataArchiveBuilder.swift */; };
 		E237F3AB1E5E8B8F00671B77 /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = E237F3AA1E5E8B8F00671B77 /* settings.json */; };
 		E237F3C61E5F482A00671B77 /* thankYouActivity.json in Resources */ = {isa = PBXBuildFile; fileRef = E237F3C51E5F482A00671B77 /* thankYouActivity.json */; };
-		E237F3D31E5F556F00671B77 /* CTFScheduledActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E237F3D21E5F556F00671B77 /* CTFScheduledActivityManager.swift */; };
 		E237F3D51E5F565D00671B77 /* CTFStudyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E237F3D41E5F565D00671B77 /* CTFStudyConstants.swift */; };
 		E237F3DC1E5F7D6600671B77 /* CTFReduxStateHelper+SBBAuthManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E237F3DB1E5F7D6600671B77 /* CTFReduxStateHelper+SBBAuthManagerDelegate.swift */; };
 		E243393F1E0DC4C4009FF385 /* daily_active_tasks.json in Resources */ = {isa = PBXBuildFile; fileRef = E243393D1E0DC4C4009FF385 /* daily_active_tasks.json */; };
@@ -75,6 +74,8 @@
 		E2AA6D1E1DA43C83005D5137 /* CTFPulsusFormStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6D171DA43C83005D5137 /* CTFPulsusFormStepViewController.xib */; };
 		E2AA6D221DA43CC1005D5137 /* cornell-mhealth-eval.pem in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6D211DA43CC1005D5137 /* cornell-mhealth-eval.pem */; };
 		E2AA6D351DA43D07005D5137 /* CTFMainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D341DA43D07005D5137 /* CTFMainTabViewController.swift */; };
+		E2AEBFE91E68A0730069527B /* CTFBARTSummary+SBBDataArchiveBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AEBFE81E68A0730069527B /* CTFBARTSummary+SBBDataArchiveBuilder.swift */; };
+		E2AEBFF61E68E8C60069527B /* CTFGoNoGoSummary+SBBDataArchiveBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AEBFF51E68E8C60069527B /* CTFGoNoGoSummary+SBBDataArchiveBuilder.swift */; };
 		E2B70A181E0895A800C93093 /* tasks_and_schedules.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A171E0895A800C93093 /* tasks_and_schedules.json */; };
 		E2B70A351E0895BD00C93093 /* am_behaviors.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A191E0895BD00C93093 /* am_behaviors.json */; };
 		E2B70A361E0895BD00C93093 /* am_likert_1.json in Resources */ = {isa = PBXBuildFile; fileRef = E2B70A1A1E0895BD00C93093 /* am_likert_1.json */; };
@@ -245,7 +246,6 @@
 		E237F39C1E5E509500671B77 /* RSRPIntermediateResult+SBBDataArchiveBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RSRPIntermediateResult+SBBDataArchiveBuilder.swift"; sourceTree = "<group>"; };
 		E237F3AA1E5E8B8F00671B77 /* settings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = settings.json; path = "northwell-impulse-common/assets/json/survey/settings.json"; sourceTree = SOURCE_ROOT; };
 		E237F3C51E5F482A00671B77 /* thankYouActivity.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = thankYouActivity.json; path = "northwell-impulse-common/assets/json/survey/thankYouActivity.json"; sourceTree = SOURCE_ROOT; };
-		E237F3D21E5F556F00671B77 /* CTFScheduledActivityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFScheduledActivityManager.swift; sourceTree = "<group>"; };
 		E237F3D41E5F565D00671B77 /* CTFStudyConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFStudyConstants.swift; sourceTree = "<group>"; };
 		E237F3DB1E5F7D6600671B77 /* CTFReduxStateHelper+SBBAuthManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CTFReduxStateHelper+SBBAuthManagerDelegate.swift"; sourceTree = "<group>"; };
 		E243393D1E0DC4C4009FF385 /* daily_active_tasks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = daily_active_tasks.json; path = "northwell-impulse-common/assets/json/survey/daily_active_tasks.json"; sourceTree = SOURCE_ROOT; };
@@ -280,6 +280,8 @@
 		E2AA6D171DA43C83005D5137 /* CTFPulsusFormStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CTFPulsusFormStepViewController.xib; sourceTree = "<group>"; };
 		E2AA6D211DA43CC1005D5137 /* cornell-mhealth-eval.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "cornell-mhealth-eval.pem"; sourceTree = "<group>"; };
 		E2AA6D341DA43D07005D5137 /* CTFMainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFMainTabViewController.swift; sourceTree = "<group>"; };
+		E2AEBFE81E68A0730069527B /* CTFBARTSummary+SBBDataArchiveBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CTFBARTSummary+SBBDataArchiveBuilder.swift"; sourceTree = "<group>"; };
+		E2AEBFF51E68E8C60069527B /* CTFGoNoGoSummary+SBBDataArchiveBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CTFGoNoGoSummary+SBBDataArchiveBuilder.swift"; sourceTree = "<group>"; };
 		E2B70A171E0895A800C93093 /* tasks_and_schedules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = tasks_and_schedules.json; path = "northwell-impulse-common/assets/json/tasks_and_schedules.json"; sourceTree = SOURCE_ROOT; };
 		E2B70A191E0895BD00C93093 /* am_behaviors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = am_behaviors.json; path = "northwell-impulse-common/assets/json/survey/am_behaviors.json"; sourceTree = SOURCE_ROOT; };
 		E2B70A1A1E0895BD00C93093 /* am_likert_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = am_likert_1.json; path = "northwell-impulse-common/assets/json/survey/am_likert_1.json"; sourceTree = SOURCE_ROOT; };
@@ -572,6 +574,8 @@
 			isa = PBXGroup;
 			children = (
 				E234C9451E5A845D00E24E86 /* CTFDelayDiscountingRaw+SBBDataArchiveBuilder.swift */,
+				E2AEBFE81E68A0730069527B /* CTFBARTSummary+SBBDataArchiveBuilder.swift */,
+				E2AEBFF51E68E8C60069527B /* CTFGoNoGoSummary+SBBDataArchiveBuilder.swift */,
 				E2C9ACD61E63DF9C00CF9F6F /* CTFPAMRaw+SBBDataArchiveBuilder.swift */,
 				E2C9ACD81E63E20100CF9F6F /* CTFPAMMultipleRaw+SBBDataArchiveBuilder.swift */,
 				E25883F21E61DF7E001F1DE1 /* Likert/SemDif */,
@@ -642,7 +646,6 @@
 			children = (
 				E22792A71DD3DD010026F8AB /* CTFKeychainManager.swift */,
 				E2CCB6691DB158AF00C801A4 /* CTFScheduleItem.swift */,
-				E237F3D21E5F556F00671B77 /* CTFScheduledActivityManager.swift */,
 				E237F3D41E5F565D00671B77 /* CTFStudyConstants.swift */,
 				E2831A9C1E5B9DAD00E3D727 /* CTFSchedule.swift */,
 				E2AA6D0A1DA43C6B005D5137 /* CTFActivityTableViewCell.swift */,
@@ -1203,7 +1206,6 @@
 				E2831A9A1E5B9D3F00E3D727 /* CTFActivityRun.swift in Sources */,
 				E22792A81DD3DD010026F8AB /* CTFKeychainManager.swift in Sources */,
 				E2831A9B1E5B9D3F00E3D727 /* CTFReduxStoreManager.swift in Sources */,
-				E237F3D31E5F556F00671B77 /* CTFScheduledActivityManager.swift in Sources */,
 				E2AA6D1B1DA43C83005D5137 /* CTFPulsusFormStep.swift in Sources */,
 				E234C9031E59382500E24E86 /* Dictionary+Utilities.swift in Sources */,
 				E2CCB66A1DB158AF00C801A4 /* CTFScheduleItem.swift in Sources */,
@@ -1225,6 +1227,7 @@
 				E2C18EAD1DD147C1005E0324 /* CTFScaleAnswerFormat.swift in Sources */,
 				E2FE1AB71DB0337200DBB8E7 /* Array+Random.swift in Sources */,
 				E2E87F031E64903F00FF3693 /* CTFMultipleChoiceIntermediateResult+SBBDataArchiveBuilder.swift in Sources */,
+				E2AEBFF61E68E8C60069527B /* CTFGoNoGoSummary+SBBDataArchiveBuilder.swift in Sources */,
 				E20D5C3C1E5FB3F7006655E8 /* DemographicsResult+SBBDataArchiveBuilder.swift in Sources */,
 				E2AA6CFC1DA41F3D005D5137 /* CTFLogInViaExternalIdViewController.swift in Sources */,
 				E234C94A1E5A90EB00E24E86 /* SBBDataArchiveBuilder.swift in Sources */,
@@ -1237,6 +1240,7 @@
 				E23535DC1DB57B6F005BAFE3 /* GenericHelpers.swift in Sources */,
 				E2831A8D1E5B9C3000E3D727 /* CTFTaskViewController.swift in Sources */,
 				E2B70A921E08C3F100C93093 /* CTFSemanticDifferentialScaleFormItemDecriptor.swift in Sources */,
+				E2AEBFE91E68A0730069527B /* CTFBARTSummary+SBBDataArchiveBuilder.swift in Sources */,
 				E2E87EF61E648D3600FF3693 /* CTFMultipleChoiceIntermediateResult.swift in Sources */,
 				E20590151E5C045000D978B7 /* CTFSelectors.swift in Sources */,
 				E234C91A1E5A0F8800E24E86 /* CTFBridgeManagerError.swift in Sources */,

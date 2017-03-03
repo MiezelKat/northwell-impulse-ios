@@ -77,7 +77,7 @@ class CTFSelectors: NSObject {
         }
         
         let timeSinceBaseline = NSDate().timeIntervalSince(baselineDate as Date)
-        guard timeSinceBaseline > CTFActionCreators.kDailySurveyDelaySinceBaselineTimeInterval else {
+        guard timeSinceBaseline > CTFStudyConstants.kDailySurveyDelaySinceBaselineTimeInterval else {
             return false
         }
         
@@ -87,8 +87,8 @@ class CTFSelectors: NSObject {
                 return false
         }
  
-        let lowerDate = Date(timeIntervalSinceNow: -1.0 * CTFActionCreators.kDailySurveyTimeAfterInterval)
-        let upperDate = Date(timeIntervalSinceNow: CTFActionCreators.kDailySurveyTimeBeforeInterval)
+        let lowerDate = Date(timeIntervalSinceNow: -1.0 * CTFStudyConstants.kDailySurveyTimeAfterInterval)
+        let upperDate = Date(timeIntervalSinceNow: CTFStudyConstants.kDailySurveyTimeBeforeInterval)
         let dateRange = Range(uncheckedBounds: (lower: lowerDate, upper: upperDate))
         if !dateRange.contains(todaysMorningSurveyTime as Date) {
             return false
@@ -121,7 +121,7 @@ class CTFSelectors: NSObject {
         }
         
         let timeSinceBaseline = NSDate().timeIntervalSince(baselineDate as Date)
-        guard timeSinceBaseline > CTFActionCreators.kDailySurveyDelaySinceBaselineTimeInterval else {
+        guard timeSinceBaseline > CTFStudyConstants.kDailySurveyDelaySinceBaselineTimeInterval else {
             return false
         }
         
@@ -131,8 +131,8 @@ class CTFSelectors: NSObject {
                 return false
         }
         
-        let lowerDate = Date(timeIntervalSinceNow: -1.0 * CTFActionCreators.kDailySurveyTimeAfterInterval)
-        let upperDate = Date(timeIntervalSinceNow: CTFActionCreators.kDailySurveyTimeBeforeInterval)
+        let lowerDate = Date(timeIntervalSinceNow: -1.0 * CTFStudyConstants.kDailySurveyTimeAfterInterval)
+        let upperDate = Date(timeIntervalSinceNow: CTFStudyConstants.kDailySurveyTimeBeforeInterval)
         let dateRange = Range(uncheckedBounds: (lower: lowerDate, upper: upperDate))
         if !dateRange.contains(todaysEveningSurveyTime as Date) {
             return false
