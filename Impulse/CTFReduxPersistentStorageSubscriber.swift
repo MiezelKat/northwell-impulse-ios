@@ -177,6 +177,8 @@ class CTFReduxPersistentStorageSubscriber: NSObject, StoreSubscriber {
     static let kSessionToken = "SessionToken"
     static let kEmail = "Email"
     static let kPassword = "Password"
+
+    static let kGroupLabel = "GroupLabel"
     
     static let kLastCompletedTaskIdentifier = "lastCompletedTaskIdentifier"
     
@@ -206,6 +208,7 @@ class CTFReduxPersistentStorageSubscriber: NSObject, StoreSubscriber {
     let sessionToken = PersistedValue<String>(key: CTFReduxPersistentStorageSubscriber.kSessionToken)
     let email = PersistedValue<String>(key: CTFReduxPersistentStorageSubscriber.kEmail)
     let password = PersistedValue<String>(key: CTFReduxPersistentStorageSubscriber.kPassword)
+    let groupLabel = PersistedValue<String>(key: CTFReduxPersistentStorageSubscriber.kGroupLabel)
     
     let lastCompletedTaskIdentifier = PersistedValue<String>(key: CTFReduxPersistentStorageSubscriber.kLastCompletedTaskIdentifier)
     
@@ -240,6 +243,7 @@ class CTFReduxPersistentStorageSubscriber: NSObject, StoreSubscriber {
             sessionToken: self.sessionToken.get(),
             email: self.email.get(),
             password: self.password.get(),
+            groupLabel: self.groupLabel.get(),
             activityQueue: [],
             resultsQueue: [],
             lastCompletedTaskIdentifier: self.lastCompletedTaskIdentifier.get(),
@@ -267,6 +271,8 @@ class CTFReduxPersistentStorageSubscriber: NSObject, StoreSubscriber {
         self.sessionToken.set(value: state.sessionToken)
         self.email.set(value: state.email)
         self.password.set(value: state.password)
+        
+        self.groupLabel.set(value: state.groupLabel)
         
         self.lastCompletedTaskIdentifier.set(value: state.lastCompletedTaskIdentifier)
         self.baselineCompletedDate.set(value: state.baselineCompletedDate)

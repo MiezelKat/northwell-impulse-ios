@@ -15,6 +15,7 @@ class CTFReducers: NSObject {
     public static let reducer = CombinedReducer([
         AppStateReducer(),
         SBBAuthReducer(),
+        GroupLabelReducer(),
         ActivityQueueReducer(),
         ResultsQueueReducer(),
         LastCompletedTaskIdentifier(),
@@ -62,6 +63,24 @@ class CTFReducers: NSObject {
                 return state
             }
             
+        }
+    }
+    
+    struct GroupLabelReducer: Reducer {
+        func handleAction(action: Action, state: CTFReduxState?) -> CTFReduxState {
+            let state = state ?? CTFReduxState.empty()
+            
+            switch action {
+                
+            case let groupLabelAction as SetGroupLabel:
+                return CTFReduxState.newState(
+                    fromState: state,
+                    groupLabel: groupLabelAction.groupLabel
+                )
+                
+            default:
+                return state
+            }
         }
     }
     

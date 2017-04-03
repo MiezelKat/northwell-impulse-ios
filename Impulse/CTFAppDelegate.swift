@@ -137,15 +137,27 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
 
         if CTFSelectors.isLoggedIn(state) && ORKPasscodeViewController.isPasscodeStoredInKeychain() {
             
-            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = mainStoryboard.instantiateInitialViewController() as! CTFMainTabViewController
+            guard (window.rootViewController as? CTFMainTabViewController) == nil else {
+                return
+            }
             
-            window.rootViewController = vc
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            if let vc = mainStoryboard.instantiateInitialViewController() as? CTFMainTabViewController {
+                self.transition(toRootViewController: vc, animated: true)
+            }
+
+            
         }
         else {
+            guard (window.rootViewController as? CTFLogInViaExternalIdViewController) == nil else {
+                return
+            }
+            
             let onboardingStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
-            let vc = onboardingStoryboard.instantiateInitialViewController()
-            window.rootViewController = vc
+            if let vc = onboardingStoryboard.instantiateInitialViewController() as? CTFLogInViaExternalIdViewController {
+                self.transition(toRootViewController: vc, animated: true)
+            }
+            
         }
         
         return
@@ -198,13 +210,17 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
     open func transition(toRootViewController: UIViewController, animated: Bool) {
         guard let window = self.window else { return }
         if (animated) {
-            UIView.transition(with: window,
-                              duration: 0.6,
-                              options: UIViewAnimationOptions.transitionCrossDissolve,
-                              animations: {
-                                window.rootViewController = toRootViewController
-            },
-                              completion: nil)
+            let snapshot:UIView = (self.window?.snapshotView(afterScreenUpdates: true))!
+            toRootViewController.view.addSubview(snapshot);
+            
+            self.window?.rootViewController = toRootViewController;
+            
+            UIView.animate(withDuration: 0.3, animations: {() in
+                snapshot.layer.opacity = 0;
+            }, completion: {
+                (value: Bool) in
+                snapshot.removeFromSuperview()
+            })
         }
         else {
             window.rootViewController = toRootViewController
@@ -307,6 +323,7 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
         storeManager.store.subscribe(reduxPersistenceSubscriber)
         storeManager.store.subscribe(notificationManager)
         storeManager.store.subscribe(stateHelper)
+        storeManager.store.subscribe(bridgeManager)
         
     }
     
@@ -319,6 +336,7 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
             if let s = self.reduxPersistenceSubscriber { oldStoreManager.store.unsubscribe(s) }
             if let s = self.reduxStateHelper { oldStoreManager.store.unsubscribe(s) }
             if let s = self.reduxNotificationSubscriber { oldStoreManager.store.unsubscribe(s) }
+            oldStoreManager.store.unsubscribe(bridgeManager)
         }
         
         self.reduxNotificationSubscriber?.cancelAllNotifications()

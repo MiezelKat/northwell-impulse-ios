@@ -10,13 +10,15 @@ import UIKit
 import ReSwift
 import ResearchKit
 
-struct CTFReduxState: StateType {
+public struct CTFReduxState: StateType {
     
     let loaded: Bool
     let loggedIn: Bool
     let sessionToken: String?
     let email: String?
     let password: String?
+    
+    let groupLabel: String?
     
     let activityQueue: [(UUID, CTFActivityRun)]
     let resultsQueue: [(UUID, CTFActivityRun, ORKTaskResult)]
@@ -53,6 +55,7 @@ struct CTFReduxState: StateType {
             sessionToken: nil,
             email: nil,
             password: nil,
+            groupLabel: nil,
             activityQueue: [],
             resultsQueue: [],
             lastCompletedTaskIdentifier: nil,
@@ -84,6 +87,7 @@ struct CTFReduxState: StateType {
         sessionToken: (String?)? = nil,
         email: (String?)? = nil,
         password: (String?)? = nil,
+        groupLabel: (String?)? = nil,
         activityQueue: [(UUID, CTFActivityRun)]? = nil,
         resultsQueue: [(UUID, CTFActivityRun, ORKTaskResult)]? = nil,
         lastCompletedTaskIdentifier: (String?)? = nil,
@@ -110,6 +114,7 @@ struct CTFReduxState: StateType {
             sessionToken: sessionToken ?? fromState.sessionToken,
             email: email ?? fromState.email,
             password: password ?? fromState.password,
+            groupLabel: groupLabel ?? fromState.groupLabel,
             activityQueue: activityQueue ?? fromState.activityQueue,
             resultsQueue: resultsQueue ?? fromState.resultsQueue,
             lastCompletedTaskIdentifier: lastCompletedTaskIdentifier ?? fromState.lastCompletedTaskIdentifier,

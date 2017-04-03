@@ -9,19 +9,22 @@
 import UIKit
 import BridgeSDK
 import ResearchSuiteResultsProcessor
+import ReSwift
 
+public class CTFBridgeManager: NSObject, RSRPBackEnd, StoreSubscriber {
 
-
-
-
-public class CTFBridgeManager: NSObject, RSRPBackEnd {
-
+    var groupLabel: String?
+    
     override init() {
         BridgeSDK.setup()
     }
     
     func setAuthDelegate(delegate: SBBAuthManagerDelegateProtocol?) {
         BridgeSDK.setAuthDelegate(delegate)
+    }
+    
+    public func newState(state: CTFReduxState) {
+        self.groupLabel = state.groupLabel
     }
 
     public func isLoggedIn(completion: @escaping ((Bool) -> ())) {
@@ -132,6 +135,15 @@ public class CTFBridgeManager: NSObject, RSRPBackEnd {
     }
     
     public func add(intermediateResult: RSRPIntermediateResult) {
+        
+        if let groupLabel = self.groupLabel {
+            if intermediateResult.userInfo != nil {
+                intermediateResult.userInfo!["groupLabel"] = groupLabel
+            }
+            else {
+                intermediateResult.userInfo = ["groupLabel": groupLabel]
+            }
+        }
         
         debugPrint(intermediateResult)
         if let dataArchive = intermediateResult.toArchive() {

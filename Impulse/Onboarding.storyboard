@@ -1,27 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UXG-xC-ZdZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4Ns-Cm-U1C">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="aUE-4C-9SM">
-            <objects>
-                <navigationController id="UXG-xC-ZdZ" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Ua-f1-9Hh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="4Ns-Cm-U1C" kind="relationship" relationship="rootViewController" id="0GE-wh-Pe5"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2O2-aK-52A" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1841" y="91"/>
-        </scene>
-        <!--Log In-->
+        <!--Welcome!-->
         <scene sceneID="kdd-lf-uKJ">
             <objects>
                 <viewController id="4Ns-Cm-U1C" customClass="CTFLogInViaExternalIdViewController" customModule="Impulse" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,28 +21,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVK-GD-Q14">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVK-GD-Q14" customClass="CTFBorderedButton" customModule="Impulse" customModuleProvider="target">
+                                <rect key="frame" x="112.5" y="607" width="150" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="74" id="QNN-u3-bqL"/>
-                                    <constraint firstAttribute="height" constant="30" id="Xgp-TW-cJu"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="6kw-Uz-Gdh"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="CnK-hR-N5v"/>
                                 </constraints>
-                                <state key="normal" title="External ID"/>
+                                <state key="normal" title="Sign In"/>
                                 <connections>
                                     <action selector="externalIDTapped:" destination="4Ns-Cm-U1C" eventType="touchUpInside" id="0FU-fc-GT9"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="QYa-KW-PQ2">
+                                <rect key="frame" x="59.5" y="205.5" width="256" height="256"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="QYa-KW-PQ2" secondAttribute="height" multiplier="1:1" id="Ap2-ce-Xkp"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mPulse DMT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Snj-LE-gcy">
+                                <rect key="frame" x="69" y="125.5" width="237" height="48"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="cVK-GD-Q14" firstAttribute="top" secondItem="sup-ZI-57M" secondAttribute="bottom" constant="8" symbolic="YES" id="n65-rt-hUp"/>
+                            <constraint firstItem="QYa-KW-PQ2" firstAttribute="centerY" secondItem="vaR-9n-4GI" secondAttribute="centerY" id="3TG-C7-UjB"/>
+                            <constraint firstItem="Snj-LE-gcy" firstAttribute="centerX" secondItem="vaR-9n-4GI" secondAttribute="centerX" id="Z2F-aX-n3O"/>
+                            <constraint firstItem="QYa-KW-PQ2" firstAttribute="centerX" secondItem="vaR-9n-4GI" secondAttribute="centerX" id="izT-ZV-5L0"/>
+                            <constraint firstItem="qbp-Gp-FKc" firstAttribute="top" secondItem="cVK-GD-Q14" secondAttribute="bottom" constant="20" id="jM4-hH-iOr"/>
                             <constraint firstItem="cVK-GD-Q14" firstAttribute="centerX" secondItem="vaR-9n-4GI" secondAttribute="centerX" id="pXm-8R-Zev"/>
+                            <constraint firstItem="QYa-KW-PQ2" firstAttribute="top" secondItem="Snj-LE-gcy" secondAttribute="bottom" constant="32" id="pm6-qd-unb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Log In" id="Hcm-SD-8Xx"/>
+                    <navigationItem key="navigationItem" title="Welcome!" id="Hcm-SD-8Xx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ul-kA-UXF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-996" y="98"/>
+            <point key="canvasLocation" x="-1423" y="105"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="splash" width="256" height="256"/>
+    </resources>
 </document>

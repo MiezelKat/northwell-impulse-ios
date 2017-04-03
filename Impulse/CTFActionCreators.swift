@@ -89,6 +89,13 @@ class CTFActionCreators: NSObject {
             let markBaselineAction = MarkBaselineSurveyCompletedAction(completedDate: result.endDate)
             store.dispatch(markBaselineAction)
             
+            if let stepResult = result.result(forIdentifier: "group_label") as? ORKStepResult,
+                let groupLabelResult = stepResult.firstResult as? ORKTextQuestionResult,
+                let groupLabel = groupLabelResult.textAnswer {
+                
+                store.dispatch(setGroupLabel(groupLabel))
+            }
+            
             //set 21 day notification
             let initialFireDate = Date(timeInterval: CTFStudyConstants.k21DaySurveyDelayInterval, since: result.endDate)
             let secondaryFireDate = initialFireDate.addingTimeInterval(CTFStudyConstants.kSecondaryNotificationDelay)
@@ -148,6 +155,13 @@ class CTFActionCreators: NSObject {
                     secondaryFireDate: secondaryFireDate)
                 
                 store.dispatch(day21NotificationAction)
+            }
+            
+            if let stepResult = result.result(forIdentifier: "group_label") as? ORKStepResult,
+                let groupLabelResult = stepResult.firstResult as? ORKTextQuestionResult,
+                let groupLabel = groupLabelResult.textAnswer {
+                
+                store.dispatch(setGroupLabel(groupLabel))
             }
             
             //
@@ -285,9 +299,9 @@ class CTFActionCreators: NSObject {
         }
     }
     
-    
-    
-    
+    private static func setGroupLabel(_ groupLabel: String) -> Action {
+        return SetGroupLabel(groupLabel: groupLabel)
+    }
     
     // MARK: privates
     private static func setMorningSurveyTime(_ dateComponents: DateComponents) -> (CTFReduxState, Store<CTFReduxState>) -> Action? {

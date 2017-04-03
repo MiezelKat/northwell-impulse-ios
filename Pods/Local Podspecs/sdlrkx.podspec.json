@@ -1,6 +1,6 @@
 {
   "name": "sdlrkx",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "summary": "SDL visual self-report for ResearchKit",
   "description": "The Small Data Lab ResearchKit Extensions package is the easiest way to include SDL visual self-report (YADL, MEDL, PAM) and Behavioral extensions (Go / No Go, Delayed Discounting, BART)into a ResearchKit application.",
   "homepage": "https://github.com/cornelltech/sdl-rkx",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/cornelltech/sdl-rkx.git",
-    "tag": "0.10.0"
+    "tag": "0.11.0"
   },
   "platforms": {
     "ios": "9.0"
@@ -32,6 +32,9 @@
         ],
         "ResearchKit": [
           "~> 1.4"
+        ],
+        "Gloss": [
+          "~> 1"
         ]
       },
       "resources": [
@@ -47,7 +50,7 @@
 
         ],
         "ResearchSuiteTaskBuilder": [
-          "~> 0.2"
+          "~> 0.4"
         ],
         "Gloss": [
           "~> 1"
@@ -102,7 +105,7 @@
 
         ],
         "ResearchSuiteTaskBuilder": [
-          "~> 0.2"
+          "~> 0.4"
         ],
         "Gloss": [
           "~> 1"

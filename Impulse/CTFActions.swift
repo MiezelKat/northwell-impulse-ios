@@ -103,6 +103,10 @@ struct SetBridgeCredentialsAction: Action {
     let password: String?
 }
 
+struct SetGroupLabel: Action {
+    let groupLabel: String?
+}
+
 
 
 
