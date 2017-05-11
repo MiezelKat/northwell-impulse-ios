@@ -60,6 +60,7 @@
 		E2919EB71DE4956F0034AD08 /* FoundryAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2919EB61DE4956F0034AD08 /* FoundryAssets.xcassets */; };
 		E295FC211DDCC001001B175D /* UIColor+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295FC201DDCC001001B175D /* UIColor+String.swift */; };
 		E295FC2A1DDE36EB001B175D /* CTFSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295FC291DDE36EB001B175D /* CTFSettingsTableViewController.swift */; };
+		E297166A1EC4DBC400F94736 /* digital-marshmallow.pem in Resources */ = {isa = PBXBuildFile; fileRef = E29716691EC4DBC400F94736 /* digital-marshmallow.pem */; };
 		E2AA6CDE1DA41A60005D5137 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6CDD1DA41A60005D5137 /* Onboarding.storyboard */; };
 		E2AA6CF91DA41E19005D5137 /* BridgeInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6CF71DA41E19005D5137 /* BridgeInfo.plist */; };
 		E2AA6CFA1DA41E19005D5137 /* BridgeInfo-private.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6CF81DA41E19005D5137 /* BridgeInfo-private.plist */; };
@@ -72,7 +73,6 @@
 		E2AA6D1B1DA43C83005D5137 /* CTFPulsusFormStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D141DA43C83005D5137 /* CTFPulsusFormStep.swift */; };
 		E2AA6D1D1DA43C83005D5137 /* CTFPulsusFormStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D161DA43C83005D5137 /* CTFPulsusFormStepViewController.swift */; };
 		E2AA6D1E1DA43C83005D5137 /* CTFPulsusFormStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6D171DA43C83005D5137 /* CTFPulsusFormStepViewController.xib */; };
-		E2AA6D221DA43CC1005D5137 /* cornell-mhealth-eval.pem in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6D211DA43CC1005D5137 /* cornell-mhealth-eval.pem */; };
 		E2AA6D351DA43D07005D5137 /* CTFMainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D341DA43D07005D5137 /* CTFMainTabViewController.swift */; };
 		E2AEBFE91E68A0730069527B /* CTFBARTSummary+SBBDataArchiveBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AEBFE81E68A0730069527B /* CTFBARTSummary+SBBDataArchiveBuilder.swift */; };
 		E2AEBFF61E68E8C60069527B /* CTFGoNoGoSummary+SBBDataArchiveBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AEBFF51E68E8C60069527B /* CTFGoNoGoSummary+SBBDataArchiveBuilder.swift */; };
@@ -265,6 +265,7 @@
 		E2919EB61DE4956F0034AD08 /* FoundryAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FoundryAssets.xcassets; sourceTree = "<group>"; };
 		E295FC201DDCC001001B175D /* UIColor+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+String.swift"; sourceTree = "<group>"; };
 		E295FC291DDE36EB001B175D /* CTFSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFSettingsTableViewController.swift; sourceTree = "<group>"; };
+		E29716691EC4DBC400F94736 /* digital-marshmallow.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "digital-marshmallow.pem"; sourceTree = "<group>"; };
 		E2AA6CDD1DA41A60005D5137 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		E2AA6CF71DA41E19005D5137 /* BridgeInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BridgeInfo.plist; sourceTree = "<group>"; };
 		E2AA6CF81DA41E19005D5137 /* BridgeInfo-private.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BridgeInfo-private.plist"; sourceTree = "<group>"; };
@@ -278,7 +279,6 @@
 		E2AA6D141DA43C83005D5137 /* CTFPulsusFormStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFPulsusFormStep.swift; sourceTree = "<group>"; };
 		E2AA6D161DA43C83005D5137 /* CTFPulsusFormStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFPulsusFormStepViewController.swift; sourceTree = "<group>"; };
 		E2AA6D171DA43C83005D5137 /* CTFPulsusFormStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CTFPulsusFormStepViewController.xib; sourceTree = "<group>"; };
-		E2AA6D211DA43CC1005D5137 /* cornell-mhealth-eval.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "cornell-mhealth-eval.pem"; sourceTree = "<group>"; };
 		E2AA6D341DA43D07005D5137 /* CTFMainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFMainTabViewController.swift; sourceTree = "<group>"; };
 		E2AEBFE81E68A0730069527B /* CTFBARTSummary+SBBDataArchiveBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CTFBARTSummary+SBBDataArchiveBuilder.swift"; sourceTree = "<group>"; };
 		E2AEBFF51E68E8C60069527B /* CTFGoNoGoSummary+SBBDataArchiveBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CTFGoNoGoSummary+SBBDataArchiveBuilder.swift"; sourceTree = "<group>"; };
@@ -677,7 +677,7 @@
 		E2AA6D201DA43CB4005D5137 /* Certificates */ = {
 			isa = PBXGroup;
 			children = (
-				E2AA6D211DA43CC1005D5137 /* cornell-mhealth-eval.pem */,
+				E29716691EC4DBC400F94736 /* digital-marshmallow.pem */,
 			);
 			name = Certificates;
 			sourceTree = "<group>";
@@ -991,6 +991,7 @@
 				E2B70A451E0895BD00C93093 /* go_no_go_variable_stimulus_full_task.json in Resources */,
 				E2B70A351E0895BD00C93093 /* am_behaviors.json in Resources */,
 				E2B70AA81E09973500C93093 /* go_no_go_stable_stimulus_full_task.json in Resources */,
+				E297166A1EC4DBC400F94736 /* digital-marshmallow.pem in Resources */,
 				E2831AA51E5BA24900E3D727 /* trialActivities.json in Resources */,
 				E205900F1E5BFF0500D978B7 /* self_assessment_5.json in Resources */,
 				E2B70AA31E09945700C93093 /* go_no_go_variable_stimulus_short_task.json in Resources */,
@@ -1004,7 +1005,6 @@
 				E2B70AE41E09BD9D00C93093 /* go_no_go_practice_full_task.json in Resources */,
 				E2DCE02D1E0B56AA003E4BC1 /* am_survey.json in Resources */,
 				E2B70AA01E09913000C93093 /* Day_21.json in Resources */,
-				E2AA6D221DA43CC1005D5137 /* cornell-mhealth-eval.pem in Resources */,
 				E2AA6D1E1DA43C83005D5137 /* CTFPulsusFormStepViewController.xib in Resources */,
 				E2B70ACC1E09A4AC00C93093 /* dd_time_6_month_full_task.json in Resources */,
 				E2B70AB51E099B9000C93093 /* bart_25_cents_short_task.json in Resources */,

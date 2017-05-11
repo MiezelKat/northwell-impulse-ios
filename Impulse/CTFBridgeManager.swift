@@ -96,10 +96,45 @@ public class CTFBridgeManager: NSObject, RSRPBackEnd, StoreSubscriber {
         
     }
     
+    func getBridgeInfo() -> [String: AnyObject]? {
+        let bundle = Bundle.main
+        guard let path = Bundle.main.path(forResource: "BridgeInfo", ofType: "plist") else {
+            return nil
+        }
+        var bridgePlist = NSMutableDictionary(contentsOfFile: path)
+        if let privatePath = Bundle.main.path(forResource: "BridgeInfo-private", ofType: "plist"),
+            let privatePlist = NSDictionary(contentsOfFile: privatePath) as? [String: AnyObject] {
+            bridgePlist?.addEntries(from: privatePlist)
+        }
+        
+        return bridgePlist as? [String: AnyObject]
+    }
     //sign in
     public func signIn(externalID: String, completion: @escaping ((Error?) -> ())) {
         
-        let email = String(format: "jdk288+%@@cornell.edu", externalID)
+        guard let bridgeInfo = getBridgeInfo(),
+            let supportEmail: String = bridgeInfo["emailForLoginViaExternalId"] as? String else {
+            completion(CTFBridgeManagerError.invalidConfig)
+            return
+        }
+        
+//        NSBundle *mainBundle = [NSBundle mainBundle];
+//        NSDictionary *basePlist = [NSDictionary dictionaryWithContentsOfFile:[mainBundle pathForResource:@"BridgeInfo" ofType:@"plist"]];
+//        NSMutableDictionary *bridgePlist = [(basePlist ?: @{}) mutableCopy];
+//        NSDictionary *privatePlist = [NSDictionary dictionaryWithContentsOfFile:[mainBundle pathForResource:@"BridgeInfo-private" ofType:@"plist"]];
+//        if (privatePlist) {
+//            [bridgePlist addEntriesFromDictionary:privatePlist];
+//        }
+        
+        let supportEmailSplit = supportEmail.components(separatedBy: "@")
+        
+        guard let firstHalfOfEmail = supportEmailSplit.first,
+            let lastHalfOfEmail = supportEmailSplit.last else {
+                completion(CTFBridgeManagerError.invalidConfig)
+                return
+        }
+        
+        let email = String(format: "%@+%@@%@", firstHalfOfEmail, externalID, lastHalfOfEmail)
         let password = externalID
         
         self.signIn(username: email, password: password, completion: completion)

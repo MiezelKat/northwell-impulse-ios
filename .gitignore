@@ -2,6 +2,7 @@ UserInterfaceState.xcuserstate
 BridgeAppSDK.xcodeproj/xcuserdata/*.xcuserdatad
 .DS_Store
 *.pem
+scripts/
 
 
 

@@ -3,12 +3,12 @@
 <plist version="1.0">
 <dict>
 	<key>emailForLoginViaExternalId</key>
-	<string>jdk288@cornell.edu</string>
+	<string>rvitale@northwell.edu</string>
 	<key>studyIdentifier</key>
-	<string>cornell-mhealth-eval</string>
+	<string>digital-marshmallow</string>
 	<key>useCache</key>
 	<true/>
 	<key>certificateName</key>
-	<string>cornell-mhealth-eval</string>
+	<string>digital-marshmallow</string>
 </dict>
 </plist>
