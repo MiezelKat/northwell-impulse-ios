@@ -47,6 +47,7 @@ public struct CTFReduxState: StateType {
     
     let shouldShowTrialActivities: Bool
     let debugMode: Bool
+    let shouldShowDebugSwitch: Bool
     
     static func empty() -> CTFReduxState {
         return CTFReduxState(
@@ -74,7 +75,8 @@ public struct CTFReduxState: StateType {
             enable2ndReminderNotifications: true,
             extensibleStorage: [:],
             shouldShowTrialActivities: false,
-            debugMode: false
+            debugMode: false,
+            shouldShowDebugSwitch: false
         )
     }
     
@@ -106,7 +108,8 @@ public struct CTFReduxState: StateType {
         enable2ndReminderNotifications: Bool? = nil,
         extensibleStorage: [String: NSObject]? = nil,
         shouldShowTrialActivities: Bool? = nil,
-        debugMode: Bool? = nil
+        debugMode: Bool? = nil,
+        shouldShowDebugSwitch: Bool? = nil
         ) -> CTFReduxState {
         return CTFReduxState(
             loaded: loaded ?? fromState.loaded,
@@ -133,7 +136,8 @@ public struct CTFReduxState: StateType {
             enable2ndReminderNotifications: enable2ndReminderNotifications ?? fromState.enable2ndReminderNotifications,
             extensibleStorage: extensibleStorage ?? fromState.extensibleStorage,
             shouldShowTrialActivities: shouldShowTrialActivities ?? fromState.shouldShowTrialActivities,
-            debugMode: debugMode ?? fromState.debugMode
+            debugMode: debugMode ?? fromState.debugMode,
+            shouldShowDebugSwitch: shouldShowDebugSwitch ?? fromState.shouldShowDebugSwitch
         )
     }
     

@@ -271,6 +271,12 @@ class CTFActionCreators: NSObject {
         }
     }
     
+    static func showDebugSwitch(show: Bool) -> (CTFReduxState, Store<CTFReduxState>) -> Action? {
+        return { (state, store) in
+            return SetShouldShowDebugSwitch(show: show)
+        }
+    }
+    
     static func handleSetMorningSurveyTime(_ result: ORKTaskResult) -> (CTFReduxState, Store<CTFReduxState>) -> Action? {
         return { (state, store) in
             

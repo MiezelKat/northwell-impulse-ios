@@ -39,6 +39,11 @@ class CTFSettingsTableViewController: UITableViewController, StoreSubscriber {
     
     static let kSettingsFileName = "settings"
     var settingsSchedule: CTFSchedule?
+    var baselineCompleted: Bool = false
+    
+    let showDebugSwitchDelay = 3.0
+    let showDebugSwitchCount = 7
+    var currentShowDebugSwitchCount = 0
     
     private var _taskResultFinishedCompletionHandler: ((ORKTaskResult) -> Void)?
     
@@ -82,8 +87,11 @@ class CTFSettingsTableViewController: UITableViewController, StoreSubscriber {
     
     func updateUI(state: CTFReduxState) {
         
+        self.versionCell.textLabel?.text = self.versionString()
         
-        if CTFSelectors.baselineCompletedDate(state) == nil {
+        self.baselineCompleted = CTFSelectors.baselineCompletedDate(state) != nil
+        
+        if !self.baselineCompleted {
             self.cellsToHideBeforeBaseline.forEach({ (cell) in
                 cell.isHidden = true
             })
@@ -92,10 +100,10 @@ class CTFSettingsTableViewController: UITableViewController, StoreSubscriber {
             self.cellsToHideBeforeBaseline.forEach({ (cell) in
                 cell.isHidden = false
             })
-            self.showTrialsSwitch.isEnabled = CTFSelectors.baselineCompletedDate(state) != nil
+            
             self.showTrialsSwitch.setOn(CTFSelectors.showTrialActivities(state), animated: true)
             
-            self.debugModeSwitch.isEnabled = CTFSelectors.baselineCompletedDate(state) != nil
+            self.debugModeSwitchCell.isHidden = !CTFSelectors.showDebugSwitch(state)
             self.debugModeSwitch.setOn(CTFSelectors.debugMode(state), animated: true)
             
             if let components = CTFSelectors.morningSurveyTimeComponents(state),
@@ -133,6 +141,17 @@ class CTFSettingsTableViewController: UITableViewController, StoreSubscriber {
             }
         }
         
+    }
+    
+    func versionString() -> String {
+        
+        guard let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
+            let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
+        else {
+            return "Unknown Version"
+        }
+        
+        return "Version \(version) (Build \(build))"
         
         
     }
@@ -144,6 +163,36 @@ class CTFSettingsTableViewController: UITableViewController, StoreSubscriber {
         
     }
     
+    func delay(_ delay:TimeInterval, closure:@escaping ()->()) {
+        DispatchQueue.main.asyncAfter(
+            deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
+    }
+    
+    func versionLabelTapped() {
+        
+        if self.currentShowDebugSwitchCount == 0 {
+            self.delay(self.showDebugSwitchDelay) {
+                self.currentShowDebugSwitchCount = 0
+            }
+        }
+        
+        self.currentShowDebugSwitchCount = self.currentShowDebugSwitchCount + 1
+        
+        if (self.currentShowDebugSwitchCount == self.showDebugSwitchCount) {
+            self.toggleShowDebugSwitch()
+        }
+        
+    }
+    
+    func toggleShowDebugSwitch() {
+
+        let show = self.debugModeSwitchCell.isHidden
+        let action = CTFActionCreators.showDebugSwitch(show: show)
+        self.store?.dispatch(action)
+        self.store?.dispatch(CTFActionCreators.setDebugMode(debugMode: false))
+        
+    }
+    
     
     private func scheduleItem(forIdentifier identifier: String) -> CTFScheduleItem? {
         return self.settingsSchedule?.items.filter({ (item) -> Bool in
@@ -151,31 +200,37 @@ class CTFSettingsTableViewController: UITableViewController, StoreSubscriber {
         }).first
     }
     
-    
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if let cell = tableView.cellForRow(at: indexPath) {
+        if self.baselineCompleted,
+            let cell = tableView.cellForRow(at: indexPath) {
             cell.isSelected = false
             
             //add logout here
             guard let reuseIdentifier = cell.reuseIdentifier else {
                 return
             }
-
-            guard let state = self.state,
-                CTFSelectors.baselineCompletedDate(state) != nil,
-                let item = self.scheduleItem(forIdentifier: reuseIdentifier) else {
-                return 
-            }
             
-            let activityRun = CTFActivityRun(
-                identifier: item.identifier,
-                activity: item.activity as JsonElement,
-                resultTransforms: item.resultTransforms,
-                onCompletionActions: item.onCompletionActions)
-            let action = QueueActivityAction(uuid: UUID(), activityRun: activityRun)
-            self.store?.dispatch(action)
+            if reuseIdentifier == "version_cell" {
+                self.versionLabelTapped()
+            }
+            else {
+                guard let state = self.state,
+                    CTFSelectors.baselineCompletedDate(state) != nil,
+                    let item = self.scheduleItem(forIdentifier: reuseIdentifier) else {
+                        return
+                }
+                
+                let activityRun = CTFActivityRun(
+                    identifier: item.identifier,
+                    activity: item.activity as JsonElement,
+                    resultTransforms: item.resultTransforms,
+                    onCompletionActions: item.onCompletionActions)
+                let action = QueueActivityAction(uuid: UUID(), activityRun: activityRun)
+                self.store?.dispatch(action)
+            }
+
+            
         }
     }
     

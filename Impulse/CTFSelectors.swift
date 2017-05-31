@@ -177,6 +177,11 @@ class CTFSelectors: NSObject {
         return state.debugMode
     }
     
+    static func showDebugSwitch(_ state: CTFReduxState) -> Bool {
+        return state.shouldShowDebugSwitch
+    }
+    
+    
     
 }
 

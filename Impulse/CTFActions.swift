@@ -89,6 +89,11 @@ struct SetDebugModeAction: Action {
     let debugMode: Bool
 }
 
+struct SetShouldShowDebugSwitch: Action {
+    let show: Bool
+}
+
+
 struct SetAppLoadedAction: Action {
     let loaded: Bool
 }

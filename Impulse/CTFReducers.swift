@@ -325,6 +325,12 @@ class CTFReducers: NSObject {
                     debugMode: setDebugModeAction.debugMode
                 )
                 
+            case let showDebugSwitchAction as SetShouldShowDebugSwitch:
+                return CTFReduxState.newState(
+                    fromState: state,
+                    shouldShowDebugSwitch: showDebugSwitchAction.show
+                )
+                
             default:
                 return state
             }
