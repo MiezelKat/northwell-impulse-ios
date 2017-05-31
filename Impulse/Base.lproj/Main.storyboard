@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UOR-ZE-Ihr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UOR-ZE-Ihr">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -254,33 +254,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="VjC-cv-PJb">
-                                        <rect key="frame" x="0.0" y="300" width="375" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VjC-cv-PJb" id="EtH-nx-zDs">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpO-b4-2iS" customClass="CTFBorderedButton" customModule="Impulse" customModuleProvider="target">
-                                                    <rect key="frame" x="127" y="9" width="120" height="40"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="Wpq-fk-GjI"/>
-                                                        <constraint firstAttribute="width" constant="120" id="cEX-Vy-oSD"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Sign Out"/>
-                                                    <connections>
-                                                        <action selector="signOutTapped:" destination="Org-RQ-5MM" eventType="touchUpInside" id="s4i-hh-g1b"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="dpO-b4-2iS" firstAttribute="centerX" secondItem="EtH-nx-zDs" secondAttribute="centerX" id="4AJ-yP-EL9"/>
-                                                <constraint firstItem="dpO-b4-2iS" firstAttribute="centerY" secondItem="EtH-nx-zDs" secondAttribute="centerY" id="Fuh-rf-bDT"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="fpd-xm-CWn" userLabel="Debug">
-                                        <rect key="frame" x="0.0" y="360" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="300" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fpd-xm-CWn" id="XBa-Jk-R5s">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
@@ -315,7 +290,13 @@
                             <outlet property="delegate" destination="Org-RQ-5MM" id="kSM-zq-nwl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="Ijn-22-M0Y"/>
+                    <navigationItem key="navigationItem" title="Settings" id="Ijn-22-M0Y">
+                        <barButtonItem key="rightBarButtonItem" title="Sign Out" id="vrj-kX-biQ" userLabel="Sign Out">
+                            <connections>
+                                <action selector="signOutTapped:" destination="Org-RQ-5MM" id="m4y-9e-ta7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="debugModeSwitch" destination="pmh-Yv-j2F" id="vqq-wJ-bbK"/>
                         <outlet property="eveningSurveyCell" destination="XfG-Wz-sYK" id="TRa-JI-snp"/>
@@ -326,7 +307,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jfH-Nb-EQY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3382" y="1038"/>
+            <point key="canvasLocation" x="3450" y="1152"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Qhe-zy-fsw">

@@ -131,27 +131,7 @@ class CTFSettingsTableViewController: UITableViewController, StoreSubscriber {
             guard let reuseIdentifier = cell.reuseIdentifier else {
                 return
             }
-            
-//            if reuseIdentifier == "signOut" {
-//                
-//                let title = "Sign Out"
-//                let message = "In order to reset your passcode, you'll need to log out of the app completely and log back in using your email and password."
-//                let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-//                
-//                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-//                alert.addAction(cancelAction)
-//                
-//                let logoutAction = UIAlertAction(title: "Log Out", style: .destructive, handler: { _ in
-//                    if let appDelegate = UIApplication.shared.delegate as? CTFAppDelegate {
-//                        appDelegate.signOut()
-//                    }
-//                })
-//                alert.addAction(logoutAction)
-//                
-//                self.present(alert, animated: true, completion: nil)
-//                
-//            }
-            
+
             guard let state = self.state,
                 CTFSelectors.baselineCompletedDate(state) != nil,
                 let item = self.scheduleItem(forIdentifier: reuseIdentifier) else {
@@ -168,7 +148,7 @@ class CTFSettingsTableViewController: UITableViewController, StoreSubscriber {
         }
     }
     
-    @IBAction func signOutTapped(_ sender: UIButton) {
+    @IBAction func signOutTapped(_ sender: Any) {
         
         let title = "Sign Out"
         let message = "In order to reset your passcode, you'll need to log out of the app completely and log back in using your email and password."
@@ -187,6 +167,8 @@ class CTFSettingsTableViewController: UITableViewController, StoreSubscriber {
         self.present(alert, animated: true, completion: nil)
         
     }
+    
+    
     @IBAction func showTrialsChanged(_ sender: UISwitch) {
         
         self.store?.dispatch(CTFActionCreators.showTrialActivities(show: sender.isOn))
