@@ -16,9 +16,26 @@ class CTFSettingsTableViewController: UITableViewController, StoreSubscriber {
     
     @IBOutlet weak var showTrialsSwitch: UISwitch!
     @IBOutlet weak var debugModeSwitch: UISwitch!
+    
+    @IBOutlet weak var versionCell: UITableViewCell!
+    
+    @IBOutlet weak var showTrialActivitiesCell: UITableViewCell!
     @IBOutlet weak var morningSurveyCell: UITableViewCell!
     @IBOutlet weak var eveningSurveyCell: UITableViewCell!
     @IBOutlet weak var participantSinceCell: UITableViewCell!
+    @IBOutlet weak var commentsCell: UITableViewCell!
+    @IBOutlet weak var debugModeSwitchCell: UITableViewCell!
+    
+    var cellsToHideBeforeBaseline: [UITableViewCell] {
+        return [
+            self.showTrialActivitiesCell,
+            self.morningSurveyCell,
+            self.eveningSurveyCell,
+            self.participantSinceCell,
+            self.commentsCell,
+            self.debugModeSwitchCell,
+        ]
+    }
     
     static let kSettingsFileName = "settings"
     var settingsSchedule: CTFSchedule?
@@ -64,45 +81,59 @@ class CTFSettingsTableViewController: UITableViewController, StoreSubscriber {
 
     
     func updateUI(state: CTFReduxState) {
-        self.showTrialsSwitch.isEnabled = CTFSelectors.baselineCompletedDate(state) != nil
-        self.showTrialsSwitch.setOn(CTFSelectors.showTrialActivities(state), animated: true)
         
-        self.debugModeSwitch.isEnabled = CTFSelectors.baselineCompletedDate(state) != nil
-        self.debugModeSwitch.setOn(CTFSelectors.debugMode(state), animated: true)
         
-        if let components = CTFSelectors.morningSurveyTimeComponents(state),
-            let hour = components.hour,
-            let minute = components.minute {
+        if CTFSelectors.baselineCompletedDate(state) == nil {
+            self.cellsToHideBeforeBaseline.forEach({ (cell) in
+                cell.isHidden = true
+            })
+        }
+        else {
+            self.cellsToHideBeforeBaseline.forEach({ (cell) in
+                cell.isHidden = false
+            })
+            self.showTrialsSwitch.isEnabled = CTFSelectors.baselineCompletedDate(state) != nil
+            self.showTrialsSwitch.setOn(CTFSelectors.showTrialActivities(state), animated: true)
             
-            let timeString = String(format: "%d:%.2d %@", (hour % 12 == 0) ? 12 : hour % 12, minute, (hour / 12 == 0) ? "AM" : "PM")
-            print(timeString)
-            self.morningSurveyCell.detailTextLabel?.text = timeString
-        }
-        else {
-            self.morningSurveyCell.detailTextLabel?.text = ""
-        }
-        
-        if let components = CTFSelectors.eveningSurveyTimeComponents(state),
-            let hour = components.hour,
-            let minute = components.minute {
+            self.debugModeSwitch.isEnabled = CTFSelectors.baselineCompletedDate(state) != nil
+            self.debugModeSwitch.setOn(CTFSelectors.debugMode(state), animated: true)
             
-            let timeString = String(format: "%d:%.2d %@", (hour % 12 == 0) ? 12 : hour % 12, minute, (hour / 12 == 0) ? "AM" : "PM")
-            print(timeString)
-            self.eveningSurveyCell.detailTextLabel?.text = timeString
-        }
-        else {
-            self.eveningSurveyCell.detailTextLabel?.text = ""
+            if let components = CTFSelectors.morningSurveyTimeComponents(state),
+                let hour = components.hour,
+                let minute = components.minute {
+                
+                let timeString = String(format: "%d:%.2d %@", (hour % 12 == 0) ? 12 : hour % 12, minute, (hour / 12 == 0) ? "AM" : "PM")
+                print(timeString)
+                self.morningSurveyCell.detailTextLabel?.text = timeString
+            }
+            else {
+                self.morningSurveyCell.detailTextLabel?.text = ""
+            }
+            
+            if let components = CTFSelectors.eveningSurveyTimeComponents(state),
+                let hour = components.hour,
+                let minute = components.minute {
+                
+                let timeString = String(format: "%d:%.2d %@", (hour % 12 == 0) ? 12 : hour % 12, minute, (hour / 12 == 0) ? "AM" : "PM")
+                print(timeString)
+                self.eveningSurveyCell.detailTextLabel?.text = timeString
+            }
+            else {
+                self.eveningSurveyCell.detailTextLabel?.text = ""
+            }
+            
+            if let date = CTFSelectors.baselineCompletedDate(state) {
+                let formatter = DateFormatter()
+                formatter.dateStyle = DateFormatter.Style.medium
+                let dateString = formatter.string(from: date)
+                self.participantSinceCell.detailTextLabel?.text = dateString
+            }
+            else {
+                self.participantSinceCell.detailTextLabel?.text = ""
+            }
         }
         
-        if let date = CTFSelectors.baselineCompletedDate(state) {
-            let formatter = DateFormatter()
-            formatter.dateStyle = DateFormatter.Style.medium
-            let dateString = formatter.string(from: date)
-            self.participantSinceCell.detailTextLabel?.text = dateString
-        }
-        else {
-            self.participantSinceCell.detailTextLabel?.text = ""
-        }
+        
         
     }
     
