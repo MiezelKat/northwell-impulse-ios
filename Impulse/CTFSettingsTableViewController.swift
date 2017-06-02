@@ -93,17 +93,17 @@ class CTFSettingsTableViewController: UITableViewController, StoreSubscriber {
         
         if !self.baselineCompleted {
             self.cellsToHideBeforeBaseline.forEach({ (cell) in
-                cell.isHidden = true
+                cell.contentView.isHidden = true
             })
         }
         else {
             self.cellsToHideBeforeBaseline.forEach({ (cell) in
-                cell.isHidden = false
+                cell.contentView.isHidden = false
             })
             
             self.showTrialsSwitch.setOn(CTFSelectors.showTrialActivities(state), animated: true)
             
-            self.debugModeSwitchCell.isHidden = !CTFSelectors.showDebugSwitch(state)
+            self.debugModeSwitchCell.contentView.isHidden = !CTFSelectors.showDebugSwitch(state)
             self.debugModeSwitch.setOn(CTFSelectors.debugMode(state), animated: true)
             
             if let components = CTFSelectors.morningSurveyTimeComponents(state),
@@ -178,15 +178,16 @@ class CTFSettingsTableViewController: UITableViewController, StoreSubscriber {
         
         self.currentShowDebugSwitchCount = self.currentShowDebugSwitchCount + 1
         
-        if (self.currentShowDebugSwitchCount == self.showDebugSwitchCount) {
+        if (self.currentShowDebugSwitchCount >= self.showDebugSwitchCount) {
             self.toggleShowDebugSwitch()
+            self.currentShowDebugSwitchCount = 0
         }
         
     }
     
     func toggleShowDebugSwitch() {
 
-        let show = self.debugModeSwitchCell.isHidden
+        let show = self.debugModeSwitchCell.contentView.isHidden
         let action = CTFActionCreators.showDebugSwitch(show: show)
         self.store?.dispatch(action)
         self.store?.dispatch(CTFActionCreators.setDebugMode(debugMode: false))
