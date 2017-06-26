@@ -22,6 +22,10 @@
 		E205901D1E5D0F4C00D978B7 /* CTFReduxStateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205901C1E5D0F4C00D978B7 /* CTFReduxStateHelper.swift */; };
 		E20D5C381E5FA9FE006655E8 /* demographics.json in Resources */ = {isa = PBXBuildFile; fileRef = E20D5C371E5FA9FE006655E8 /* demographics.json */; };
 		E20D5C3C1E5FB3F7006655E8 /* DemographicsResult+SBBDataArchiveBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20D5C3B1E5FB3F7006655E8 /* DemographicsResult+SBBDataArchiveBuilder.swift */; };
+		E21FE6F51F019AFA006F6B60 /* BridgeInfo-private-dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = E21FE6F31F019AFA006F6B60 /* BridgeInfo-private-dev.plist */; };
+		E21FE6F61F019AFA006F6B60 /* BridgeInfo-private-rel.plist in Resources */ = {isa = PBXBuildFile; fileRef = E21FE6F41F019AFA006F6B60 /* BridgeInfo-private-rel.plist */; };
+		E21FE6F81F019B48006F6B60 /* cornell-mhealth-eval.pem in Resources */ = {isa = PBXBuildFile; fileRef = E21FE6F71F019B48006F6B60 /* cornell-mhealth-eval.pem */; };
+		E21FE6FA1F01A30D006F6B60 /* CTFBridgeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21FE6F91F01A30D006F6B60 /* CTFBridgeInfo.swift */; };
 		E22792A81DD3DD010026F8AB /* CTFKeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22792A71DD3DD010026F8AB /* CTFKeychainManager.swift */; };
 		E22792BE1DD53A490026F8AB /* CTFAutosizingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22792BD1DD53A490026F8AB /* CTFAutosizingLabel.swift */; };
 		E234C8F41E58EA9300E24E86 /* NSDate+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234C8F31E58EA9300E24E86 /* NSDate+Utilities.swift */; };
@@ -63,7 +67,6 @@
 		E297166A1EC4DBC400F94736 /* digital-marshmallow.pem in Resources */ = {isa = PBXBuildFile; fileRef = E29716691EC4DBC400F94736 /* digital-marshmallow.pem */; };
 		E2AA6CDE1DA41A60005D5137 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6CDD1DA41A60005D5137 /* Onboarding.storyboard */; };
 		E2AA6CF91DA41E19005D5137 /* BridgeInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6CF71DA41E19005D5137 /* BridgeInfo.plist */; };
-		E2AA6CFA1DA41E19005D5137 /* BridgeInfo-private.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2AA6CF81DA41E19005D5137 /* BridgeInfo-private.plist */; };
 		E2AA6CFC1DA41F3D005D5137 /* CTFLogInViaExternalIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6CFB1DA41F3D005D5137 /* CTFLogInViaExternalIdViewController.swift */; };
 		E2AA6D031DA43C54005D5137 /* CTFActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D021DA43C54005D5137 /* CTFActivityTableViewController.swift */; };
 		E2AA6D0F1DA43C6B005D5137 /* CTFActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA6D0A1DA43C6B005D5137 /* CTFActivityTableViewCell.swift */; };
@@ -228,6 +231,11 @@
 		E205901C1E5D0F4C00D978B7 /* CTFReduxStateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFReduxStateHelper.swift; sourceTree = "<group>"; };
 		E20D5C371E5FA9FE006655E8 /* demographics.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = demographics.json; path = "northwell-impulse-common/assets/json/survey/demographics.json"; sourceTree = SOURCE_ROOT; };
 		E20D5C3B1E5FB3F7006655E8 /* DemographicsResult+SBBDataArchiveBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DemographicsResult+SBBDataArchiveBuilder.swift"; sourceTree = "<group>"; };
+		E21FE6E71F0193EE006F6B60 /* Impulse copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Impulse copy-Info.plist"; path = "/Users/jameskizer/Developer/ResearchSuite/iOS/northwell-impulse-ios/Impulse copy-Info.plist"; sourceTree = "<absolute>"; };
+		E21FE6F31F019AFA006F6B60 /* BridgeInfo-private-dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BridgeInfo-private-dev.plist"; sourceTree = "<group>"; };
+		E21FE6F41F019AFA006F6B60 /* BridgeInfo-private-rel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BridgeInfo-private-rel.plist"; sourceTree = "<group>"; };
+		E21FE6F71F019B48006F6B60 /* cornell-mhealth-eval.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "cornell-mhealth-eval.pem"; sourceTree = "<group>"; };
+		E21FE6F91F01A30D006F6B60 /* CTFBridgeInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFBridgeInfo.swift; sourceTree = "<group>"; };
 		E22792A71DD3DD010026F8AB /* CTFKeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFKeychainManager.swift; sourceTree = "<group>"; };
 		E22792BD1DD53A490026F8AB /* CTFAutosizingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFAutosizingLabel.swift; sourceTree = "<group>"; };
 		E234C8C41E58E1E200E24E86 /* BridgeSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BridgeSDK.xcodeproj; path = "Bridge-iOS-SDK/BridgeSDK.xcodeproj"; sourceTree = "<group>"; };
@@ -268,7 +276,6 @@
 		E29716691EC4DBC400F94736 /* digital-marshmallow.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "digital-marshmallow.pem"; sourceTree = "<group>"; };
 		E2AA6CDD1DA41A60005D5137 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		E2AA6CF71DA41E19005D5137 /* BridgeInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BridgeInfo.plist; sourceTree = "<group>"; };
-		E2AA6CF81DA41E19005D5137 /* BridgeInfo-private.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BridgeInfo-private.plist"; sourceTree = "<group>"; };
 		E2AA6CFB1DA41F3D005D5137 /* CTFLogInViaExternalIdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFLogInViaExternalIdViewController.swift; sourceTree = "<group>"; };
 		E2AA6CFE1DA42593005D5137 /* Impulse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Impulse.entitlements; sourceTree = "<group>"; };
 		E2AA6D021DA43C54005D5137 /* CTFActivityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFActivityTableViewController.swift; sourceTree = "<group>"; };
@@ -434,6 +441,7 @@
 				E234C8F21E58E50B00E24E86 /* Login */,
 				E234C8F31E58EA9300E24E86 /* NSDate+Utilities.swift */,
 				E234C9171E5A0D6700E24E86 /* CTFBridgeManager.swift */,
+				E21FE6F91F01A30D006F6B60 /* CTFBridgeInfo.swift */,
 				E234C9191E5A0F8800E24E86 /* CTFBridgeManagerError.swift */,
 				E234C91B1E5A22B300E24E86 /* CTFRootViewControllerProtocol.swift */,
 			);
@@ -636,7 +644,8 @@
 			children = (
 				E2AA6CFE1DA42593005D5137 /* Impulse.entitlements */,
 				E2AA6CF71DA41E19005D5137 /* BridgeInfo.plist */,
-				E2AA6CF81DA41E19005D5137 /* BridgeInfo-private.plist */,
+				E21FE6F31F019AFA006F6B60 /* BridgeInfo-private-dev.plist */,
+				E21FE6F41F019AFA006F6B60 /* BridgeInfo-private-rel.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -677,6 +686,7 @@
 		E2AA6D201DA43CB4005D5137 /* Certificates */ = {
 			isa = PBXGroup;
 			children = (
+				E21FE6F71F019B48006F6B60 /* cornell-mhealth-eval.pem */,
 				E29716691EC4DBC400F94736 /* digital-marshmallow.pem */,
 			);
 			name = Certificates;
@@ -722,6 +732,7 @@
 				E2EF6B4C1DA2F4120034456A /* Frameworks */,
 				E2EF6B1C1DA2E2970034456A /* Products */,
 				3C925726B725451DF33FA36E /* Pods */,
+				E21FE6E71F0193EE006F6B60 /* Impulse copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -977,6 +988,7 @@
 				E20D5C381E5FA9FE006655E8 /* demographics.json in Resources */,
 				E2B70A361E0895BD00C93093 /* am_likert_1.json in Resources */,
 				E2831AA41E5BA24800E3D727 /* activities.json in Resources */,
+				E21FE6F61F019AFA006F6B60 /* BridgeInfo-private-rel.plist in Resources */,
 				E2B70A9D1E098EA700C93093 /* Reenrollment.json in Resources */,
 				E2B70AC11E09A1A300C93093 /* dd_money_6_month_short_task.json in Resources */,
 				E2B70ABF1E09A19400C93093 /* dd_money_6_month_full_task.json in Resources */,
@@ -1005,6 +1017,7 @@
 				E2B70AE41E09BD9D00C93093 /* go_no_go_practice_full_task.json in Resources */,
 				E2DCE02D1E0B56AA003E4BC1 /* am_survey.json in Resources */,
 				E2B70AA01E09913000C93093 /* Day_21.json in Resources */,
+				E21FE6F51F019AFA006F6B60 /* BridgeInfo-private-dev.plist in Resources */,
 				E2AA6D1E1DA43C83005D5137 /* CTFPulsusFormStepViewController.xib in Resources */,
 				E2B70ACC1E09A4AC00C93093 /* dd_time_6_month_full_task.json in Resources */,
 				E2B70AB51E099B9000C93093 /* bart_25_cents_short_task.json in Resources */,
@@ -1012,12 +1025,12 @@
 				E24339401E0DC4C4009FF385 /* shuffled_active_tasks.json in Resources */,
 				E20590121E5BFF5F00D978B7 /* dd_time_1_year_full_task.json in Resources */,
 				E237F3C61E5F482A00671B77 /* thankYouActivity.json in Resources */,
+				E21FE6F81F019B48006F6B60 /* cornell-mhealth-eval.pem in Resources */,
 				E2B70A371E0895BD00C93093 /* am_likert_1a.json in Resources */,
 				E2AA6CF91DA41E19005D5137 /* BridgeInfo.plist in Resources */,
 				E2B70ACD1E09A4AC00C93093 /* dd_time_6_month_short_task.json in Resources */,
 				E2B70A181E0895A800C93093 /* tasks_and_schedules.json in Resources */,
 				E2AA6D1A1DA43C83005D5137 /* CTFFormItemCell.xib in Resources */,
-				E2AA6CFA1DA41E19005D5137 /* BridgeInfo-private.plist in Resources */,
 				E2B70A3B1E0895BD00C93093 /* bart_25_cents_full_task.json in Resources */,
 				E2B70A401E0895BD00C93093 /* Baseline.json in Resources */,
 				E243393F1E0DC4C4009FF385 /* daily_active_tasks.json in Resources */,
@@ -1256,6 +1269,7 @@
 				E20590091E5BF82200D978B7 /* CTFActionCreators.swift in Sources */,
 				E20590031E5BE80C00D978B7 /* CTFActions.swift in Sources */,
 				E2831AA01E5B9DD800E3D727 /* CTFLoginStep.swift in Sources */,
+				E21FE6FA1F01A30D006F6B60 /* CTFBridgeInfo.swift in Sources */,
 				E2C9ACB81E63D1B800CF9F6F /* CTFScaleFormResult+SBBDataArchiveBuilder.swift in Sources */,
 				E2C9ACD91E63E20100CF9F6F /* CTFPAMMultipleRaw+SBBDataArchiveBuilder.swift in Sources */,
 				E2B70A8E1E08BD8E00C93093 /* CTFLikertScaleFormParameters.swift in Sources */,

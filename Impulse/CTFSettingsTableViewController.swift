@@ -146,12 +146,13 @@ class CTFSettingsTableViewController: UITableViewController, StoreSubscriber {
     func versionString() -> String {
         
         guard let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
-            let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
+            let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String,
+            let config = Bundle.main.infoDictionary?["Config"] as? String
         else {
             return "Unknown Version"
         }
         
-        return "Version \(version) (Build \(build))"
+        return "\(config) Version \(version) (Build \(build))"
         
         
     }

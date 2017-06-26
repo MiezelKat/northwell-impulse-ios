@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Impulse copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>34</integer>
+		</dict>
 		<key>Impulse-Wait.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -17,6 +22,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>E21FE65B1F0193EE006F6B60</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>E2EF6B1A1DA2E2970034456A</key>
 		<dict>
 			<key>primary</key>
