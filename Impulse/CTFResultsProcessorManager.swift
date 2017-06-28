@@ -52,7 +52,8 @@ class CTFResultsProcessorManager: NSObject, StoreSubscriber {
                 CTFPAMMultipleRaw.self,
                 CTFMultipleChoiceIntermediateResult.self,
                 CTFTimeOfDayIntermediateResult.self,
-                CTFTextIntermediateResult.self
+                CTFTextIntermediateResult.self,
+                CTFDiscountingRawResultsTransformer.self
             ], backEnd: backEnd)
         
         self.store = store

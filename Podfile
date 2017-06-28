@@ -10,11 +10,11 @@ target 'Impulse' do
   # pod "ResearchSuiteResultsProcessor", :path => '~/Developer/Foundry/ResearchSuite/ios/ResearchSuiteResultsProcessor'
   # pod "sdlrkx", :path => '~/Developer/Foundry/ResearchSuite/ios/sdl-rkx'
 
-  pod "ResearchSuiteTaskBuilder"
-  pod "ResearchSuiteResultsProcessor"
-  pod "sdlrkx"
-  pod "ResearchKit", "~> 1.4"
-  pod "ReSwift"
+  pod "ResearchSuiteTaskBuilder", "0.4.0"
+  pod "ResearchSuiteResultsProcessor", "0.2.0"
+  pod "sdlrkx", "0.13.0"
+  pod "ResearchKit", "1.4.1"
+  pod "ReSwift", "3.0.0"
 
   target 'ImpulseTests' do
     inherit! :search_paths

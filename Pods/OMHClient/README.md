@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/OMHClient.svg?style=flat)](http://cocoapods.org/pods/OMHClient)
 [![Platform](https://img.shields.io/cocoapods/p/OMHClient.svg?style=flat)](http://cocoapods.org/pods/OMHClient)
 
-OMHClient is an simple, immutable [OMH DSU API](https://github.com/smalldatalab/omh-dsu) Client.
+OMHClient is an simple [OMH DSU API](https://github.com/smalldatalab/omh-dsu) Client.
 **This project is currently experimental and will be changing rapidly. You probably shouldn't use it yet!**
 
 ## Example

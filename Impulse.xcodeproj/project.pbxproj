@@ -26,6 +26,9 @@
 		E21FE6F61F019AFA006F6B60 /* BridgeInfo-private-rel.plist in Resources */ = {isa = PBXBuildFile; fileRef = E21FE6F41F019AFA006F6B60 /* BridgeInfo-private-rel.plist */; };
 		E21FE6F81F019B48006F6B60 /* cornell-mhealth-eval.pem in Resources */ = {isa = PBXBuildFile; fileRef = E21FE6F71F019B48006F6B60 /* cornell-mhealth-eval.pem */; };
 		E21FE6FA1F01A30D006F6B60 /* CTFBridgeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21FE6F91F01A30D006F6B60 /* CTFBridgeInfo.swift */; };
+		E21FE71F1F03318B006F6B60 /* pd_constant_probability_short_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E21FE71E1F03318B006F6B60 /* pd_constant_probability_short_task.json */; };
+		E21FE7211F0333A9006F6B60 /* pd_constant_money_short_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E21FE7201F0333A9006F6B60 /* pd_constant_money_short_task.json */; };
+		E21FE7271F03373B006F6B60 /* CTFDiscountingRaw+SBBDataArchiveBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21FE7261F03373B006F6B60 /* CTFDiscountingRaw+SBBDataArchiveBuilder.swift */; };
 		E22792A81DD3DD010026F8AB /* CTFKeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22792A71DD3DD010026F8AB /* CTFKeychainManager.swift */; };
 		E22792BE1DD53A490026F8AB /* CTFAutosizingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22792BD1DD53A490026F8AB /* CTFAutosizingLabel.swift */; };
 		E234C8F41E58EA9300E24E86 /* NSDate+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234C8F31E58EA9300E24E86 /* NSDate+Utilities.swift */; };
@@ -236,6 +239,9 @@
 		E21FE6F41F019AFA006F6B60 /* BridgeInfo-private-rel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BridgeInfo-private-rel.plist"; sourceTree = "<group>"; };
 		E21FE6F71F019B48006F6B60 /* cornell-mhealth-eval.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "cornell-mhealth-eval.pem"; sourceTree = "<group>"; };
 		E21FE6F91F01A30D006F6B60 /* CTFBridgeInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFBridgeInfo.swift; sourceTree = "<group>"; };
+		E21FE71E1F03318B006F6B60 /* pd_constant_probability_short_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pd_constant_probability_short_task.json; path = "northwell-impulse-common/assets/json/survey/pd_constant_probability_short_task.json"; sourceTree = SOURCE_ROOT; };
+		E21FE7201F0333A9006F6B60 /* pd_constant_money_short_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pd_constant_money_short_task.json; path = "northwell-impulse-common/assets/json/survey/pd_constant_money_short_task.json"; sourceTree = SOURCE_ROOT; };
+		E21FE7261F03373B006F6B60 /* CTFDiscountingRaw+SBBDataArchiveBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CTFDiscountingRaw+SBBDataArchiveBuilder.swift"; sourceTree = "<group>"; };
 		E22792A71DD3DD010026F8AB /* CTFKeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFKeychainManager.swift; sourceTree = "<group>"; };
 		E22792BD1DD53A490026F8AB /* CTFAutosizingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFAutosizingLabel.swift; sourceTree = "<group>"; };
 		E234C8C41E58E1E200E24E86 /* BridgeSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BridgeSDK.xcodeproj; path = "Bridge-iOS-SDK/BridgeSDK.xcodeproj"; sourceTree = "<group>"; };
@@ -552,6 +558,8 @@
 				E20590111E5BFF5F00D978B7 /* dd_time_1_year_short_task.json */,
 				E2B70AC91E09A4AC00C93093 /* dd_time_6_month_full_task.json */,
 				E2B70ACA1E09A4AC00C93093 /* dd_time_6_month_short_task.json */,
+				E21FE71E1F03318B006F6B60 /* pd_constant_probability_short_task.json */,
+				E21FE7201F0333A9006F6B60 /* pd_constant_money_short_task.json */,
 			);
 			name = DD;
 			sourceTree = "<group>";
@@ -581,6 +589,7 @@
 		E25883F11E61DF6E001F1DE1 /* Results Processing */ = {
 			isa = PBXGroup;
 			children = (
+				E21FE7261F03373B006F6B60 /* CTFDiscountingRaw+SBBDataArchiveBuilder.swift */,
 				E234C9451E5A845D00E24E86 /* CTFDelayDiscountingRaw+SBBDataArchiveBuilder.swift */,
 				E2AEBFE81E68A0730069527B /* CTFBARTSummary+SBBDataArchiveBuilder.swift */,
 				E2AEBFF51E68E8C60069527B /* CTFGoNoGoSummary+SBBDataArchiveBuilder.swift */,
@@ -995,6 +1004,7 @@
 				E2919EB71DE4956F0034AD08 /* FoundryAssets.xcassets in Resources */,
 				E2B70AA91E09973500C93093 /* go_no_go_stable_stimulus_short_task.json in Resources */,
 				E2EF6B291DA2E2970034456A /* LaunchScreen.storyboard in Resources */,
+				E21FE7211F0333A9006F6B60 /* pd_constant_money_short_task.json in Resources */,
 				E2B70A4E1E0895BD00C93093 /* self_assessment_9.json in Resources */,
 				E2B70A4D1E0895BD00C93093 /* self_assessment_8.json in Resources */,
 				E2EF6B261DA2E2970034456A /* Assets.xcassets in Resources */,
@@ -1011,6 +1021,7 @@
 				E2B70AB21E099B3B00C93093 /* bart_250_dollars_full_task.json in Resources */,
 				E237F3AB1E5E8B8F00671B77 /* settings.json in Resources */,
 				E2B70A4C1E0895BD00C93093 /* self_assessment_7.json in Resources */,
+				E21FE71F1F03318B006F6B60 /* pd_constant_probability_short_task.json in Resources */,
 				E2B70AB91E09A04200C93093 /* dd_money_1_month_short_task.json in Resources */,
 				E2AA6CDE1DA41A60005D5137 /* Onboarding.storyboard in Resources */,
 				E2C9ACAB1E63D13700CF9F6F /* daily_sem_diff.json in Resources */,
@@ -1241,6 +1252,7 @@
 				E2FE1AB71DB0337200DBB8E7 /* Array+Random.swift in Sources */,
 				E2E87F031E64903F00FF3693 /* CTFMultipleChoiceIntermediateResult+SBBDataArchiveBuilder.swift in Sources */,
 				E2AEBFF61E68E8C60069527B /* CTFGoNoGoSummary+SBBDataArchiveBuilder.swift in Sources */,
+				E21FE7271F03373B006F6B60 /* CTFDiscountingRaw+SBBDataArchiveBuilder.swift in Sources */,
 				E20D5C3C1E5FB3F7006655E8 /* DemographicsResult+SBBDataArchiveBuilder.swift in Sources */,
 				E2AA6CFC1DA41F3D005D5137 /* CTFLogInViaExternalIdViewController.swift in Sources */,
 				E234C94A1E5A90EB00E24E86 /* SBBDataArchiveBuilder.swift in Sources */,

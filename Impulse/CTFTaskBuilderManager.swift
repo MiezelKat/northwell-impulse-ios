@@ -28,6 +28,7 @@ class CTFTaskBuilderManager: NSObject {
         CTFGoNoGoStepGenerator(),
         CTFBARTStepGenerator(),
         CTFDelayDiscountingStepGenerator(),
+        CTFDiscountingStepGenerator(),
         RSTBDatePickerStepGenerator(),
         CTFExtendedMultipleChoiceStepGenerator()
     ]
