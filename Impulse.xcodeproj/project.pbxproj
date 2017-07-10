@@ -52,6 +52,8 @@
 		E237F3DC1E5F7D6600671B77 /* CTFReduxStateHelper+SBBAuthManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E237F3DB1E5F7D6600671B77 /* CTFReduxStateHelper+SBBAuthManagerDelegate.swift */; };
 		E243393F1E0DC4C4009FF385 /* daily_active_tasks.json in Resources */ = {isa = PBXBuildFile; fileRef = E243393D1E0DC4C4009FF385 /* daily_active_tasks.json */; };
 		E24339401E0DC4C4009FF385 /* shuffled_active_tasks.json in Resources */ = {isa = PBXBuildFile; fileRef = E243393E1E0DC4C4009FF385 /* shuffled_active_tasks.json */; };
+		E246FEC51F08AF7500D45DCC /* pd_constant_money_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E246FEC31F08AF7500D45DCC /* pd_constant_money_full_task.json */; };
+		E246FEC61F08AF7500D45DCC /* pd_constant_probability_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E246FEC41F08AF7500D45DCC /* pd_constant_probability_full_task.json */; };
 		E25883F41E61E024001F1DE1 /* CTFScaleFormResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25883F31E61E024001F1DE1 /* CTFScaleFormResult.swift */; };
 		E2831A8C1E5B9C3000E3D727 /* CTFTaskBuilderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2831A8A1E5B9C3000E3D727 /* CTFTaskBuilderManager.swift */; };
 		E2831A8D1E5B9C3000E3D727 /* CTFTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2831A8B1E5B9C3000E3D727 /* CTFTaskViewController.swift */; };
@@ -264,6 +266,8 @@
 		E237F3DB1E5F7D6600671B77 /* CTFReduxStateHelper+SBBAuthManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CTFReduxStateHelper+SBBAuthManagerDelegate.swift"; sourceTree = "<group>"; };
 		E243393D1E0DC4C4009FF385 /* daily_active_tasks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = daily_active_tasks.json; path = "northwell-impulse-common/assets/json/survey/daily_active_tasks.json"; sourceTree = SOURCE_ROOT; };
 		E243393E1E0DC4C4009FF385 /* shuffled_active_tasks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = shuffled_active_tasks.json; path = "northwell-impulse-common/assets/json/survey/shuffled_active_tasks.json"; sourceTree = SOURCE_ROOT; };
+		E246FEC31F08AF7500D45DCC /* pd_constant_money_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pd_constant_money_full_task.json; path = "northwell-impulse-common/assets/json/survey/pd_constant_money_full_task.json"; sourceTree = SOURCE_ROOT; };
+		E246FEC41F08AF7500D45DCC /* pd_constant_probability_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pd_constant_probability_full_task.json; path = "northwell-impulse-common/assets/json/survey/pd_constant_probability_full_task.json"; sourceTree = SOURCE_ROOT; };
 		E25883F31E61E024001F1DE1 /* CTFScaleFormResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFScaleFormResult.swift; sourceTree = "<group>"; };
 		E2831A8A1E5B9C3000E3D727 /* CTFTaskBuilderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFTaskBuilderManager.swift; sourceTree = "<group>"; };
 		E2831A8B1E5B9C3000E3D727 /* CTFTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFTaskViewController.swift; sourceTree = "<group>"; };
@@ -560,6 +564,8 @@
 				E2B70ACA1E09A4AC00C93093 /* dd_time_6_month_short_task.json */,
 				E21FE71E1F03318B006F6B60 /* pd_constant_probability_short_task.json */,
 				E21FE7201F0333A9006F6B60 /* pd_constant_money_short_task.json */,
+				E246FEC31F08AF7500D45DCC /* pd_constant_money_full_task.json */,
+				E246FEC41F08AF7500D45DCC /* pd_constant_probability_full_task.json */,
 			);
 			name = DD;
 			sourceTree = "<group>";
@@ -1005,6 +1011,7 @@
 				E2B70AA91E09973500C93093 /* go_no_go_stable_stimulus_short_task.json in Resources */,
 				E2EF6B291DA2E2970034456A /* LaunchScreen.storyboard in Resources */,
 				E21FE7211F0333A9006F6B60 /* pd_constant_money_short_task.json in Resources */,
+				E246FEC61F08AF7500D45DCC /* pd_constant_probability_full_task.json in Resources */,
 				E2B70A4E1E0895BD00C93093 /* self_assessment_9.json in Resources */,
 				E2B70A4D1E0895BD00C93093 /* self_assessment_8.json in Resources */,
 				E2EF6B261DA2E2970034456A /* Assets.xcassets in Resources */,
@@ -1020,6 +1027,7 @@
 				E2B70A491E0895BD00C93093 /* PAMMultipleSelection.json in Resources */,
 				E2B70AB21E099B3B00C93093 /* bart_250_dollars_full_task.json in Resources */,
 				E237F3AB1E5E8B8F00671B77 /* settings.json in Resources */,
+				E246FEC51F08AF7500D45DCC /* pd_constant_money_full_task.json in Resources */,
 				E2B70A4C1E0895BD00C93093 /* self_assessment_7.json in Resources */,
 				E21FE71F1F03318B006F6B60 /* pd_constant_probability_short_task.json in Resources */,
 				E2B70AB91E09A04200C93093 /* dd_money_1_month_short_task.json in Resources */,
