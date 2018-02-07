@@ -9,7 +9,7 @@
 import UIKit
 import Gloss
 
-open class CTFActionDescriptor: Decodable {
+open class CTFActionDescriptor: Gloss.Decodable {
     
     public let type: String!
     

@@ -9,7 +9,7 @@
 import UIKit
 import Gloss
 
-class CTFSemanticDifferentialScaleFormParameters: Decodable {
+class CTFSemanticDifferentialScaleFormParameters: Gloss.Decodable {
     
     let text: String?
     let title: String?

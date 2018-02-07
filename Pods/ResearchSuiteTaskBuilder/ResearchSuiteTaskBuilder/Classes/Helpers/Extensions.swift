@@ -33,17 +33,11 @@ extension MutableCollection where Indices.Iterator.Element == Index {
             let d: IndexDistance = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
             guard d != 0 else { continue }
             let i = index(firstUnshuffled, offsetBy: d)
-            swap(&self[firstUnshuffled], &self[i])
+            self.swapAt(firstUnshuffled, i)
         }
     }
     
-    func shuffled() -> [Iterator.Element] {
-        var result = Array(self)
-        result.shuffle()
-        return result
-    }
-    
-    func shuffled(shouldShuffle: Bool) -> [Iterator.Element] {
+    func shuffled(shouldShuffle: Bool = true) -> [Iterator.Element] {
         if shouldShuffle {
             var result = Array(self)
             result.shuffle()

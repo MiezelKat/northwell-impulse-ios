@@ -9,6 +9,7 @@
 import UIKit
 import ResearchSuiteTaskBuilder
 import sdlrkx
+import ResearchSuiteExtensions
 
 class CTFTaskBuilderManager: NSObject {
     
@@ -18,7 +19,8 @@ class CTFTaskBuilderManager: NSObject {
         RSTBInstructionStepGenerator(),
         RSTBTextFieldStepGenerator(),
         RSTBIntegerStepGenerator(),
-        CTFExtendedSingleChoiceStepGenerator(),
+//        CTFExtendedSingleChoiceStepGenerator(),
+        RSEnhancedSingleChoiceStepGenerator(),
         RSTBTimePickerStepGenerator(),
         RSTBFormStepGenerator(),
         CTFLikertFormStepGenerator(),
@@ -30,15 +32,18 @@ class CTFTaskBuilderManager: NSObject {
         CTFDelayDiscountingStepGenerator(),
         CTFDiscountingStepGenerator(),
         RSTBDatePickerStepGenerator(),
-        CTFExtendedMultipleChoiceStepGenerator()
+//        CTFExtendedMultipleChoiceStepGenerator()
+        RSEnhancedMultipleChoiceStepGenerator()
     ]
     
    static let answerFormatGeneratorServices: [RSTBAnswerFormatGenerator] = [
         RSTBTextFieldStepGenerator(),
         RSTBIntegerStepGenerator(),
         RSTBTimePickerStepGenerator(),
-        CTFExtendedSingleChoiceStepGenerator(),
-        CTFExtendedMultipleChoiceStepGenerator(),
+//        RSEnhancedSingleChoiceStepGenerator(),
+//        RSEnhancedMultipleChoiceStepGenerator(),
+//        CTFExtendedSingleChoiceStepGenerator(),
+//        CTFExtendedMultipleChoiceStepGenerator(),
         RSTBDatePickerStepGenerator()
     ]
     

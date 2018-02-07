@@ -8,7 +8,7 @@
 
 import Gloss
 
-class CTFSchedule: Decodable {
+class CTFSchedule: Gloss.Decodable {
     
     public let type: String!
     public let identifier: String!

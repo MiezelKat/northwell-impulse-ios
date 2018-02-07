@@ -10,7 +10,7 @@ import Gloss
 import ResearchSuiteTaskBuilder
 import ResearchSuiteResultsProcessor
 
-class CTFScheduleItem: Decodable {
+class CTFScheduleItem: Gloss.Decodable {
     
     public let type: String!
     public let identifier: String!

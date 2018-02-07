@@ -9,7 +9,7 @@
 import UIKit
 import Gloss
 
-class CTFLikertScaleFormParameters: Decodable {
+class CTFLikertScaleFormParameters: Gloss.Decodable {
 
     let text: String?
     let title: String?
