@@ -10,14 +10,20 @@ import UIKit
 import ReSwift
 import ResearchSuiteTaskBuilder
 
-class CTFReduxStateHelper: NSObject, RSTBStateHelper, StoreSubscriber {
+class CTFReduxStateHelper: NSObject, RSTBStateHelper, StoreSubscriber, SBManagerProvider {
+    
+    func getManager() -> CTFBridgeManager? {
+        return self.bridgeManager
+    }
     
     var state: CTFReduxState?
     
     let store: Store<CTFReduxState>
+    weak var bridgeManager: CTFBridgeManager?
     
-    init(store: Store<CTFReduxState>) {
+    init(store: Store<CTFReduxState>, bridgeManager: CTFBridgeManager) {
         self.store = store
+        self.bridgeManager = bridgeManager
         super.init()
     }
     

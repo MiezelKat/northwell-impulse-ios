@@ -33,6 +33,7 @@
 		E21FE7271F03373B006F6B60 /* CTFDiscountingRaw+SBBDataArchiveBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21FE7261F03373B006F6B60 /* CTFDiscountingRaw+SBBDataArchiveBuilder.swift */; };
 		E22792A81DD3DD010026F8AB /* CTFKeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22792A71DD3DD010026F8AB /* CTFKeychainManager.swift */; };
 		E22792BE1DD53A490026F8AB /* CTFAutosizingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22792BD1DD53A490026F8AB /* CTFAutosizingLabel.swift */; };
+		E231FD43202D0B7F005D9CCF /* RSOpenURLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E231FD42202D0B7F005D9CCF /* RSOpenURLManager.swift */; };
 		E234C8F41E58EA9300E24E86 /* NSDate+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234C8F31E58EA9300E24E86 /* NSDate+Utilities.swift */; };
 		E234C9031E59382500E24E86 /* Dictionary+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234C9021E59382500E24E86 /* Dictionary+Utilities.swift */; };
 		E234C9141E594B0600E24E86 /* CTFBridgeExternalIDStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = E234C9131E594B0600E24E86 /* CTFBridgeExternalIDStep.swift */; };
@@ -140,6 +141,8 @@
 		E2EF6B291DA2E2970034456A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EF6B271DA2E2970034456A /* LaunchScreen.storyboard */; };
 		E2EF6B341DA2E2980034456A /* ImpulseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF6B331DA2E2980034456A /* ImpulseTests.swift */; };
 		E2EF6B3F1DA2E2980034456A /* ImpulseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF6B3E1DA2E2980034456A /* ImpulseUITests.swift */; };
+		E2F1440B202CAAA100DDD3D3 /* SBAuthDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F1440A202CAAA100DDD3D3 /* SBAuthDelegate.swift */; };
+		E2F1440D202CAAE500DDD3D3 /* SBAuthStepGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F1440C202CAAE500DDD3D3 /* SBAuthStepGenerator.swift */; };
 		E2F7B59E1E650B2B00745780 /* CTFTimeOfDayIntermediateResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7B59D1E650B2B00745780 /* CTFTimeOfDayIntermediateResult.swift */; };
 		E2F7B5AB1E650D1100745780 /* CTFTextIntermediateResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7B5AA1E650D1100745780 /* CTFTextIntermediateResult.swift */; };
 		E2F7B5AD1E650F9600745780 /* CTFTimeOfDayIntermediateResult+SBBDataArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F7B5AC1E650F9600745780 /* CTFTimeOfDayIntermediateResult+SBBDataArchive.swift */; };
@@ -250,6 +253,7 @@
 		E21FE7261F03373B006F6B60 /* CTFDiscountingRaw+SBBDataArchiveBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CTFDiscountingRaw+SBBDataArchiveBuilder.swift"; sourceTree = "<group>"; };
 		E22792A71DD3DD010026F8AB /* CTFKeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFKeychainManager.swift; sourceTree = "<group>"; };
 		E22792BD1DD53A490026F8AB /* CTFAutosizingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFAutosizingLabel.swift; sourceTree = "<group>"; };
+		E231FD42202D0B7F005D9CCF /* RSOpenURLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSOpenURLManager.swift; sourceTree = "<group>"; };
 		E234C8C41E58E1E200E24E86 /* BridgeSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BridgeSDK.xcodeproj; path = "Bridge-iOS-SDK/BridgeSDK.xcodeproj"; sourceTree = "<group>"; };
 		E234C8F31E58EA9300E24E86 /* NSDate+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Utilities.swift"; sourceTree = "<group>"; };
 		E234C9021E59382500E24E86 /* Dictionary+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Utilities.swift"; sourceTree = "<group>"; };
@@ -363,6 +367,8 @@
 		E2EF6B3A1DA2E2980034456A /* ImpulseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImpulseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2EF6B3E1DA2E2980034456A /* ImpulseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpulseUITests.swift; sourceTree = "<group>"; };
 		E2EF6B401DA2E2980034456A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2F1440A202CAAA100DDD3D3 /* SBAuthDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBAuthDelegate.swift; sourceTree = "<group>"; };
+		E2F1440C202CAAE500DDD3D3 /* SBAuthStepGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBAuthStepGenerator.swift; sourceTree = "<group>"; };
 		E2F7B59D1E650B2B00745780 /* CTFTimeOfDayIntermediateResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFTimeOfDayIntermediateResult.swift; sourceTree = "<group>"; };
 		E2F7B5AA1E650D1100745780 /* CTFTextIntermediateResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFTextIntermediateResult.swift; sourceTree = "<group>"; };
 		E2F7B5AC1E650F9600745780 /* CTFTimeOfDayIntermediateResult+SBBDataArchive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CTFTimeOfDayIntermediateResult+SBBDataArchive.swift"; sourceTree = "<group>"; };
@@ -770,9 +776,11 @@
 		E2EF6B1D1DA2E2970034456A /* Impulse */ = {
 			isa = PBXGroup;
 			children = (
+				E2F14409202CAA7C00DDD3D3 /* Auth */,
 				E234C8F11E58E50300E24E86 /* Sage Glue */,
 				E2FE1AB51DB0336200DBB8E7 /* Helpers */,
 				E2EF6B1E1DA2E2970034456A /* CTFAppDelegate.swift */,
+				E231FD42202D0B7F005D9CCF /* RSOpenURLManager.swift */,
 				E25883F11E61DF6E001F1DE1 /* Results Processing */,
 				E2AA6D341DA43D07005D5137 /* CTFMainTabViewController.swift */,
 				E2AA6CFB1DA41F3D005D5137 /* CTFLogInViaExternalIdViewController.swift */,
@@ -819,6 +827,15 @@
 				8F4F885C88EF8C8BA7E9462E /* Pods_ImpulseUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E2F14409202CAA7C00DDD3D3 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				E2F1440A202CAAA100DDD3D3 /* SBAuthDelegate.swift */,
+				E2F1440C202CAAE500DDD3D3 /* SBAuthStepGenerator.swift */,
+			);
+			name = Auth;
 			sourceTree = "<group>";
 		};
 		E2FE1AA41DAEE9C200DBB8E7 /* RK Helpers */ = {
@@ -921,7 +938,7 @@
 				TargetAttributes = {
 					E2EF6B1A1DA2E2970034456A = {
 						CreatedOnToolsVersion = 7.3.1;
-                        DevelopmentTeam = 6B9Y996WW3;
+						DevelopmentTeam = AA753846B2;
 						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
@@ -1301,6 +1318,7 @@
 				E2E87F031E64903F00FF3693 /* CTFMultipleChoiceIntermediateResult+SBBDataArchiveBuilder.swift in Sources */,
 				E2AEBFF61E68E8C60069527B /* CTFGoNoGoSummary+SBBDataArchiveBuilder.swift in Sources */,
 				E21FE7271F03373B006F6B60 /* CTFDiscountingRaw+SBBDataArchiveBuilder.swift in Sources */,
+				E2F1440D202CAAE500DDD3D3 /* SBAuthStepGenerator.swift in Sources */,
 				E20D5C3C1E5FB3F7006655E8 /* DemographicsResult+SBBDataArchiveBuilder.swift in Sources */,
 				E2AA6CFC1DA41F3D005D5137 /* CTFLogInViaExternalIdViewController.swift in Sources */,
 				E234C94A1E5A90EB00E24E86 /* SBBDataArchiveBuilder.swift in Sources */,
@@ -1322,11 +1340,13 @@
 				E2058FF61E5BE7E900D978B7 /* CTFReduxState.swift in Sources */,
 				E22792BE1DD53A490026F8AB /* CTFAutosizingLabel.swift in Sources */,
 				E20590171E5C079A00D978B7 /* CTFNotificationSubscriber.swift in Sources */,
+				E231FD43202D0B7F005D9CCF /* RSOpenURLManager.swift in Sources */,
 				E234C9481E5A87CC00E24E86 /* SBBDataArchiveConvertable.swift in Sources */,
 				E234C9161E594BAF00E24E86 /* CTFBridgeExternalIDStepViewController.swift in Sources */,
 				E237F39D1E5E509500671B77 /* RSRPIntermediateResult+SBBDataArchiveBuilder.swift in Sources */,
 				E2F7B5AF1E650FA900745780 /* CTFTextIntermediateResult+SBBDataArchive.swift in Sources */,
 				E20590091E5BF82200D978B7 /* CTFActionCreators.swift in Sources */,
+				E2F1440B202CAAA100DDD3D3 /* SBAuthDelegate.swift in Sources */,
 				E20590031E5BE80C00D978B7 /* CTFActions.swift in Sources */,
 				E2831AA01E5B9DD800E3D727 /* CTFLoginStep.swift in Sources */,
 				E21FE6FA1F01A30D006F6B60 /* CTFBridgeInfo.swift in Sources */,
@@ -1487,7 +1507,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-                DEVELOPMENT_TEAM = 6B9Y996WW3;
+				DEVELOPMENT_TEAM = AA753846B2;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Impulse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1507,7 +1527,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-                DEVELOPMENT_TEAM = 6B9Y996WW3;
+				DEVELOPMENT_TEAM = AA753846B2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BridgeAppSDK/CMSSupport/openssl/build/Release-iphoneos",

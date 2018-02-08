@@ -60,6 +60,8 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
     var resultsProcessorManager: CTFResultsProcessorManager?
     var bridgeManager: CTFBridgeManager?
     
+    public var openURLManager: RSOpenURLManager!
+    
     var rsrpBackEnd: RSRPBackEnd? {
         return self.bridgeManager
     }
@@ -191,6 +193,11 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
         }
     }
 
+    //note that this is invoked after application didFinishLauchingWithOptions
+    open func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        return self.openURLManager.handleURL(app: app, url: url, options: options)
+    }
+    
     /**
      Convenience method for presenting a modal view controller.
      */
@@ -305,7 +312,7 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
         let persistedState = reduxPersistenceSubscriber.loadState()
         let storeManager = CTFReduxStoreManager(initialState: persistedState)
         let notificationManager = CTFNotificationSubscriber()
-        let stateHelper = CTFReduxStateHelper(store: storeManager.store)
+        let stateHelper = CTFReduxStateHelper(store: storeManager.store, bridgeManager: bridgeManager)
         
         bridgeManager.setAuthDelegate(delegate: stateHelper)
         
@@ -316,6 +323,10 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
         self.reduxPersistenceSubscriber = reduxPersistenceSubscriber
         self.reduxStateHelper = stateHelper
         self.reduxNotificationSubscriber = notificationManager
+        
+        self.openURLManager = RSOpenURLManager(openURLDelegates: [
+            bridgeManager.authDelegate
+        ])
         
         self.taskBuilderManager = taskBuilder
         self.resultsProcessorManager = resultsProcessor

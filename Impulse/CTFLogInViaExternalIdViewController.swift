@@ -60,7 +60,21 @@ class CTFLogInViaExternalIdViewController: UIViewController, ORKTaskViewControll
             notConsentedStep.text = "You must complete the consent form with a researcher before continuing."
             
             // Create a task with an external ID and permissions steps and display the view controller
-            let logInStep = CTFBridgeExternalIDStep(identifier: CTFLogInViaExternalIdViewController.LoginStepdentifier, bridgeManager: bridgeManager)
+//            let logInStep = CTFBridgeExternalIDStep(identifier: CTFLogInViaExternalIdViewController.LoginStepdentifier, bridgeManager: bridgeManager)
+            
+            let logInStepDict: JSON = [
+                "identifier":CTFLogInViaExternalIdViewController.LoginStepdentifier,
+                "type":"SBAuth",
+                "title":"Get your participant code",
+                "buttonText":"Open",
+                "optional": false
+            ]
+            
+            guard let logInSteps = self.taskBuilder?.rstb.steps(forElement: logInStepDict as JsonElement),
+                let logInStep = logInSteps.first else {
+                return
+            }
+            
             let passcodeStep = ORKPasscodeStep(identifier: "passcode")
             passcodeStep.passcodeType = .type4Digit
             
@@ -93,9 +107,10 @@ class CTFLogInViaExternalIdViewController: UIViewController, ORKTaskViewControll
         taskViewController.dismiss(animated: true) {
             if (reason == .completed), let appDelegate = UIApplication.shared.delegate as? CTFAppDelegate {
                 
+                //check to see if we're logged in and passcode is set
                 let taskResult = taskViewController.result
                 guard let loginStepResult = taskResult.stepResult(forStepIdentifier: CTFLogInViaExternalIdViewController.LoginStepdentifier),
-                    let loggedInResult = loginStepResult.result(forIdentifier: CTFLoginStepViewController.LoggedInResultIdentifier) as? ORKBooleanQuestionResult,
+                    let loggedInResult = loginStepResult.firstResult as? ORKBooleanQuestionResult,
                     let booleanAnswer = loggedInResult.booleanAnswer else {
                         return
                 }

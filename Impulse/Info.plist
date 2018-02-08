@@ -18,6 +18,19 @@
 	<string>2.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>dmt3b265a5b19a54f8d99b9c4c49f977744</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>dmt3b265a5b19a54f8d99b9c4c49f977744</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>22</string>
 	<key>Config</key>

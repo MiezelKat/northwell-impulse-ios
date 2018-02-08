@@ -11,14 +11,26 @@ import BridgeSDK
 import ResearchSuiteResultsProcessor
 import ReSwift
 
+public protocol SBManagerProvider {
+    func getManager() -> CTFBridgeManager?
+}
+
 public class CTFBridgeManager: NSObject, RSRPBackEnd, StoreSubscriber {
 
     var groupLabel: String?
     let bridgeInfo: CTFBridgeInfo
+    public var authDelegate: SBAuthDelegate!
     
     override init() {
         self.bridgeInfo = CTFBridgeManager.bridgeInfoFromPlists()!
         BridgeSDK.setup(withBridgeInfo: self.bridgeInfo)
+        super.init()
+        
+        self.authDelegate = SBAuthDelegate(manager: self, urlScheme: "dmt3b265a5b19a54f8d99b9c4c49f977744")
+    }
+    
+    public var authURL: URL? {
+        return URL(string: "http://localhost:8000")
     }
     
     private static func bridgeInfoFromPlists() -> CTFBridgeInfo? {
@@ -26,6 +38,7 @@ public class CTFBridgeManager: NSObject, RSRPBackEnd, StoreSubscriber {
         guard let path = Bundle.main.path(forResource: "BridgeInfo", ofType: "plist") else {
             return nil
         }
+        
         var bridgePlist = NSMutableDictionary(contentsOfFile: path)
         if  let plistPath = Bundle.main.path(forResource: "Info", ofType: "plist"),
             let infoPlist = NSDictionary(contentsOfFile: plistPath) as? [String: AnyObject],
