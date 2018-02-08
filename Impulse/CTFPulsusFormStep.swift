@@ -9,9 +9,12 @@
 import UIKit
 import ResearchKit
 
-class CTFPulsusFormStep: ORKFormStep {
+open class CTFPulsusFormStep: ORKFormStep {
 
-    override func stepViewControllerClass() -> AnyClass {
+    open var attributedTitle: NSAttributedString?
+    open var attributedText: NSAttributedString?
+    
+    override open func stepViewControllerClass() -> AnyClass {
         return CTFPulsusFormStepViewController.self
     }
 }

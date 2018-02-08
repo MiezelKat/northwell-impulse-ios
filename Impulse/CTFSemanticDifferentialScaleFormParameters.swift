@@ -8,11 +8,14 @@
 
 import UIKit
 import Gloss
+import ResearchSuiteExtensions
 
 class CTFSemanticDifferentialScaleFormParameters: Gloss.Decodable {
     
     let text: String?
     let title: String?
+    public let formattedTitle: RSTemplatedTextDescriptor?
+    public let formattedText: RSTemplatedTextDescriptor?
     let items: [CTFSemanticDifferentialScaleFormItemDecriptor]!
     
     required public init?(json: JSON) {
@@ -24,6 +27,8 @@ class CTFSemanticDifferentialScaleFormParameters: Gloss.Decodable {
         self.items = items
         self.text = "text" <~~ json
         self.title = "title" <~~ json
+        self.formattedTitle = "formattedTitle" <~~ json
+        self.formattedText = "formattedText" <~~ json
         
     }
 

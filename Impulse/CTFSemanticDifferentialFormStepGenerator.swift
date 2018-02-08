@@ -27,7 +27,8 @@ class CTFSemanticDifferentialFormStepGenerator: RSTBBaseStepGenerator {
         
         guard let customStepDescriptor = helper.getCustomStepDescriptor(forJsonObject: jsonObject),
             let parameters = customStepDescriptor.parameters,
-            let semanticDifferentialFormParameters = CTFSemanticDifferentialScaleFormParameters(json: parameters ) else {
+            let semanticDifferentialFormParameters = CTFSemanticDifferentialScaleFormParameters(json: parameters ),
+            let stateHelper = helper.stateHelper else {
                 return nil
         }
         
@@ -40,6 +41,15 @@ class CTFSemanticDifferentialFormStepGenerator: RSTBBaseStepGenerator {
         }
         let formStep = CTFPulsusFormStep(identifier: customStepDescriptor.identifier, title: semanticDifferentialFormParameters.title, text: semanticDifferentialFormParameters.text)
         formStep.formItems = formItems
+        
+        if let formattedTitle = semanticDifferentialFormParameters.formattedTitle {
+            formStep.attributedTitle = self.generateAttributedString(descriptor: formattedTitle, stateHelper: stateHelper)
+        }
+        
+        if let formattedText = semanticDifferentialFormParameters.formattedText {
+            formStep.attributedText = self.generateAttributedString(descriptor: formattedText, stateHelper: stateHelper)
+        }
+        
         return formStep
     }
     

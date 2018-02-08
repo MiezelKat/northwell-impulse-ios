@@ -51,6 +51,17 @@ class CTFPulsusFormStepViewController: ORKStepViewController, UITableViewDataSou
         self.nextButton.setTitle("Next", for: UIControlState())
         self.nextButton.configuredColor = self.view.tintColor
         
+        // come back to this
+//        if let step = self.step as? CTFPulsusFormStep {
+//            if let attributedTitle = step.attributedTitle {
+//                self.titleLabel.attributedText = attributedTitle
+//            }
+//
+//            if let attributedText = step.attributedText {
+//                self.textLabel.attributedText = attributedText
+//            }
+//        }
+        
     }
     
     fileprivate var formItems: [ORKFormItem]? {

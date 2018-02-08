@@ -22,6 +22,7 @@
 		E205901D1E5D0F4C00D978B7 /* CTFReduxStateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E205901C1E5D0F4C00D978B7 /* CTFReduxStateHelper.swift */; };
 		E20D5C381E5FA9FE006655E8 /* demographics.json in Resources */ = {isa = PBXBuildFile; fileRef = E20D5C371E5FA9FE006655E8 /* demographics.json */; };
 		E20D5C3C1E5FB3F7006655E8 /* DemographicsResult+SBBDataArchiveBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20D5C3B1E5FB3F7006655E8 /* DemographicsResult+SBBDataArchiveBuilder.swift */; };
+		E20EA84C202BCB0F00A14A62 /* CTFBooleanIntermediateResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20EA84B202BCB0F00A14A62 /* CTFBooleanIntermediateResult.swift */; };
 		E21FE6F51F019AFA006F6B60 /* BridgeInfo-private-dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = E21FE6F31F019AFA006F6B60 /* BridgeInfo-private-dev.plist */; };
 		E21FE6F61F019AFA006F6B60 /* BridgeInfo-private-rel.plist in Resources */ = {isa = PBXBuildFile; fileRef = E21FE6F41F019AFA006F6B60 /* BridgeInfo-private-rel.plist */; };
 		E21FE6F81F019B48006F6B60 /* cornell-mhealth-eval.pem in Resources */ = {isa = PBXBuildFile; fileRef = E21FE6F71F019B48006F6B60 /* cornell-mhealth-eval.pem */; };
@@ -236,6 +237,7 @@
 		E205901C1E5D0F4C00D978B7 /* CTFReduxStateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFReduxStateHelper.swift; sourceTree = "<group>"; };
 		E20D5C371E5FA9FE006655E8 /* demographics.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = demographics.json; path = "northwell-impulse-common/assets/json/survey/demographics.json"; sourceTree = SOURCE_ROOT; };
 		E20D5C3B1E5FB3F7006655E8 /* DemographicsResult+SBBDataArchiveBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DemographicsResult+SBBDataArchiveBuilder.swift"; sourceTree = "<group>"; };
+		E20EA84B202BCB0F00A14A62 /* CTFBooleanIntermediateResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTFBooleanIntermediateResult.swift; sourceTree = "<group>"; };
 		E21FE6E71F0193EE006F6B60 /* Impulse copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Impulse copy-Info.plist"; path = "/Users/jameskizer/Developer/ResearchSuite/iOS/northwell-impulse-ios/Impulse copy-Info.plist"; sourceTree = "<absolute>"; };
 		E21FE6F31F019AFA006F6B60 /* BridgeInfo-private-dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BridgeInfo-private-dev.plist"; sourceTree = "<group>"; };
 		E21FE6F41F019AFA006F6B60 /* BridgeInfo-private-rel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BridgeInfo-private-rel.plist"; sourceTree = "<group>"; };
@@ -607,6 +609,7 @@
 				E2E87F021E64903F00FF3693 /* CTFMultipleChoiceIntermediateResult+SBBDataArchiveBuilder.swift */,
 				E2F7B59D1E650B2B00745780 /* CTFTimeOfDayIntermediateResult.swift */,
 				E2F7B5AC1E650F9600745780 /* CTFTimeOfDayIntermediateResult+SBBDataArchive.swift */,
+				E20EA84B202BCB0F00A14A62 /* CTFBooleanIntermediateResult.swift */,
 				E2F7B5AA1E650D1100745780 /* CTFTextIntermediateResult.swift */,
 				E2F7B5AE1E650FA900745780 /* CTFTextIntermediateResult+SBBDataArchive.swift */,
 			);
@@ -1266,6 +1269,7 @@
 				E2831AA11E5B9DD800E3D727 /* CTFLoginStepViewController.swift in Sources */,
 				E2FE1AA61DAEEA1B00DBB8E7 /* ORKStepViewController+Helpers.swift in Sources */,
 				E2D9E09D1DF4DAB1007772DA /* CTFSolidButton.swift in Sources */,
+				E20EA84C202BCB0F00A14A62 /* CTFBooleanIntermediateResult.swift in Sources */,
 				E2B70AFC1E0A08C600C93093 /* CTFExtendedMultipleChoiceStepGenerator.swift in Sources */,
 				E2831A9A1E5B9D3F00E3D727 /* CTFActivityRun.swift in Sources */,
 				E22792A81DD3DD010026F8AB /* CTFKeychainManager.swift in Sources */,
