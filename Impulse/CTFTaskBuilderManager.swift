@@ -33,7 +33,8 @@ class CTFTaskBuilderManager: NSObject {
         RSTBDatePickerStepGenerator(),
         RSEnhancedMultipleChoiceStepGenerator(),
         RSTBVisualConsentStepGenerator(),
-        RSTBConsentReviewStepGenerator()
+        RSTBConsentReviewStepGenerator(),
+        RSEmailStepGenerator()
     ]
     
    static let answerFormatGeneratorServices: [RSTBAnswerFormatGenerator] = [

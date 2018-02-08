@@ -876,6 +876,10 @@
 		E195FDC39661075D30DB5F047DC6BA96 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45098091E7D2B0A75D27082EE60C3B89 /* Configuration.swift */; };
 		E1BEED09E546B9ECA146AB628182B4B9 /* ORKTrailmakingContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6964DDC3722C5F62EBCCB32B54FA17BC /* ORKTrailmakingContentView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E1D0B71C7CFF37D567608C1983BEB5DD /* ORKFitnessContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D62F3ECFE9835D7765196305F3FAC3 /* ORKFitnessContentView.m */; };
+		E2F143E6202BE86800DDD3D3 /* RSEmailStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F143E5202BE86800DDD3D3 /* RSEmailStep.swift */; };
+		E2F143E8202BE89B00DDD3D3 /* RSEmailStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F143E7202BE89B00DDD3D3 /* RSEmailStepViewController.swift */; };
+		E2F143EC202BECF400DDD3D3 /* RSEmailStepDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F143EB202BECF400DDD3D3 /* RSEmailStepDescriptor.swift */; };
+		E2F143EE202BEDD700DDD3D3 /* RSEmailStepGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F143ED202BEDD700DDD3D3 /* RSEmailStepGenerator.swift */; };
 		E39CB030EF09F6CF620BC7E2710CF567 /* ORKTouchAnywhereStepViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 692BF29248CC08DDCD435DCDF185FA08 /* ORKTouchAnywhereStepViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E3C3E055D82D9F537C3D712EDC38DD17 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC99ECE13B3409094C21C2EF377CBC0 /* Subscription.swift */; };
 		E3EE08369AD9046C9C643408914DBE91 /* ORKPSATContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = C8227ED18130CBE4327A90935604651C /* ORKPSATContentView.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -2088,6 +2092,10 @@
 		E12CD3A315C24E10F8D71281C5769935 /* ORKTouchAnywhereStep.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ORKTouchAnywhereStep.m; path = ResearchKit/ActiveTasks/ORKTouchAnywhereStep.m; sourceTree = "<group>"; };
 		E1372CA2CFC5504B0DD97AEC327EB570 /* RSRPResultTransformInputMapping.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RSRPResultTransformInputMapping.swift; path = ResearchSuiteResultsProcessor/Core/Classes/RSRPResultTransformInputMapping.swift; sourceTree = "<group>"; };
 		E170B3F13056AA372DCDA16DF236028F /* ORKConsentSharingStep.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ORKConsentSharingStep.m; path = ResearchKit/Consent/ORKConsentSharingStep.m; sourceTree = "<group>"; };
+		E2F143E5202BE86800DDD3D3 /* RSEmailStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RSEmailStep.swift; path = source/Core/Classes/RSEmailStep.swift; sourceTree = "<group>"; };
+		E2F143E7202BE89B00DDD3D3 /* RSEmailStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RSEmailStepViewController.swift; path = source/Core/Classes/RSEmailStepViewController.swift; sourceTree = "<group>"; };
+		E2F143EB202BECF400DDD3D3 /* RSEmailStepDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RSEmailStepDescriptor.swift; path = source/RSTBSupport/Classes/RSEmailStepDescriptor.swift; sourceTree = "<group>"; };
+		E2F143ED202BEDD700DDD3D3 /* RSEmailStepGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RSEmailStepGenerator.swift; path = source/RSTBSupport/Classes/RSEmailStepGenerator.swift; sourceTree = "<group>"; };
 		E2F6B8B0AC18330FD933BA2073BB6F84 /* ORKTouchRecorder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ORKTouchRecorder.h; path = ResearchKit/ActiveTasks/ORKTouchRecorder.h; sourceTree = "<group>"; };
 		E307B3FDD8A2025DA12054F590628BEC /* ORKValuePicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ORKValuePicker.h; path = ResearchKit/Common/ORKValuePicker.h; sourceTree = "<group>"; };
 		E32AEC436489B04B16941B5B51F63749 /* ORKFormItem_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ORKFormItem_Internal.h; path = ResearchKit/Common/ORKFormItem_Internal.h; sourceTree = "<group>"; };
@@ -2803,6 +2811,8 @@
 		6326828A7CA270110DCE2A50944A8773 /* RSTBSupport */ = {
 			isa = PBXGroup;
 			children = (
+				E2F143EB202BECF400DDD3D3 /* RSEmailStepDescriptor.swift */,
+				E2F143ED202BEDD700DDD3D3 /* RSEmailStepGenerator.swift */,
 				3401B849758D32DC26DC6ACB1E42B81F /* RSEnhancedInstructionStepDescriptor.swift */,
 				8BB2AD4DFBF8AE786CF6FC1F9CE3E970 /* RSEnhancedInstructionStepGenerator.swift */,
 				DD6F0FC9757BC556D19819BA12F3CBBE /* RSEnhancedTextScaleStepDescriptor.swift */,
@@ -3114,6 +3124,8 @@
 			children = (
 				7ED7415974AF770A42FA396AB03D206A /* RSEnhancedInstructionStep.swift */,
 				3B0B25CD5F6416DFF1C695D4E4216874 /* RSEnhancedInstructionStepViewController.swift */,
+				E2F143E5202BE86800DDD3D3 /* RSEmailStep.swift */,
+				E2F143E7202BE89B00DDD3D3 /* RSEmailStepViewController.swift */,
 				64DA44BFB75B8E79455028493EE3D3B3 /* RSEnhancedMultipleChoiceResult.swift */,
 				FD6CB1B8647AA58BB4EE4E6CA19E5A76 /* RSEnhancedMultipleChoiceStepViewController.swift */,
 				E60B6AF2AF00098A12DC4630D3F881EB /* RSEnhancedTextScaleAnswerFormat.swift */,
@@ -4847,14 +4859,17 @@
 				2629EDB5B00B3F22F30F1D08B2BDEAC6 /* RSLabelButton.swift in Sources */,
 				BF6C7D1597848563F166102737838F5D /* RSLoginStep.swift in Sources */,
 				A3383B57F6556741D7360E72C53E0643 /* RSLoginStepViewController.swift in Sources */,
+				E2F143E6202BE86800DDD3D3 /* RSEmailStep.swift in Sources */,
 				6E382A754E16776DB69B6634EFF9B440 /* RSOpenURLDelegate.swift in Sources */,
 				3759C72B3AB0A26BC6A6AB3AD61D6683 /* RSQuestionTableViewController.swift in Sources */,
 				BBB5A8B70B2AC58D7C76BD7B148E3140 /* RSQuestionTableViewController.xib in Sources */,
 				4A9D3F187CE44D5133463EA501549E10 /* RSQuestionTableViewStep.swift in Sources */,
 				DE620A4D1AD1FBD22EB861FA8DCDB458 /* RSQuestionTableViewStepGenerator.swift in Sources */,
+				E2F143EE202BEDD700DDD3D3 /* RSEmailStepGenerator.swift in Sources */,
 				BD4E0BA848166F2AAF3805E70C8CEB3E /* RSQuestionViewController.swift in Sources */,
 				C11D79011275539671E880DCFC5B61FB /* RSQuestionViewController.xib in Sources */,
 				07366DC280103F4FD3F2CF0EA2C95465 /* RSRedirectStep.swift in Sources */,
+				E2F143E8202BE89B00DDD3D3 /* RSEmailStepViewController.swift in Sources */,
 				56787C02904976E9CBCD658E89014723 /* RSRedirectStepDelegate.swift in Sources */,
 				800393BF1D8F74E10C8101DB15D333F1 /* RSRedirectStepDescriptor.swift in Sources */,
 				F4957AD1804E749D3E0277AF0E6D6F0D /* RSRedirectStepGenerator.swift in Sources */,
@@ -4866,6 +4881,7 @@
 				8A3EC076FDE6C76DE93E49A696645EEC /* RSTBBaseStepGenerator+Enhancements.swift in Sources */,
 				1F6CBAC0185A65EB82387AEB77831A24 /* RSTemplatedTextDescriptor.swift in Sources */,
 				BE24C3D9512FD8D9CF96681033742107 /* RSTextChoiceWithAuxiliaryAnswer.swift in Sources */,
+				E2F143EC202BECF400DDD3D3 /* RSEmailStepDescriptor.swift in Sources */,
 				3386C350DB408BF8838F8910FE82A76A /* RSTextLabel.swift in Sources */,
 				83AF513B127A634E34C62F6D7FC3664A /* RSTitleLabel.swift in Sources */,
 			);

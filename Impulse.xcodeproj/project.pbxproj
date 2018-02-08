@@ -921,7 +921,7 @@
 				TargetAttributes = {
 					E2EF6B1A1DA2E2970034456A = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 6B9Y996WW3;
+                        DevelopmentTeam = 6B9Y996WW3;
 						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
@@ -1487,7 +1487,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 6B9Y996WW3;
+                DEVELOPMENT_TEAM = 6B9Y996WW3;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Impulse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1507,7 +1507,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 6B9Y996WW3;
+                DEVELOPMENT_TEAM = 6B9Y996WW3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BridgeAppSDK/CMSSupport/openssl/build/Release-iphoneos",
