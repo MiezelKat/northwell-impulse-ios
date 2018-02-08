@@ -8,6 +8,8 @@
 
 import UIKit
 import ResearchKit
+import Gloss
+import ResearchSuiteTaskBuilder
 
 class CTFLogInViaExternalIdViewController: UIViewController, ORKTaskViewControllerDelegate {
     
@@ -16,6 +18,15 @@ class CTFLogInViaExternalIdViewController: UIViewController, ORKTaskViewControll
     var bridgeManager: CTFBridgeManager? {
         if let appDelegate = UIApplication.shared.delegate as? CTFAppDelegate {
             return appDelegate.bridgeManager
+        }
+        else {
+            return nil
+        }
+    }
+    
+    var taskBuilder: CTFTaskBuilderManager? {
+        if let appDelegate = UIApplication.shared.delegate as? CTFAppDelegate {
+            return appDelegate.taskBuilderManager
         }
         else {
             return nil
@@ -31,7 +42,17 @@ class CTFLogInViaExternalIdViewController: UIViewController, ORKTaskViewControll
             //        let appDelegate = UIApplication.shared.delegate as! SBAAppInfoDelegate
             //        appDelegate.currentUser.consentSignature = SBAConsentSignature(identifier: "signature")
             
-            let consentQuestionStep = ORKQuestionStep(identifier: "consent", title: "Have you provided consent?", text: "Please select \"Yes\" if you have completed the consent form for the study with a researcher.", answer: ORKAnswerFormat.booleanAnswerFormat())
+            let privacyInfoDict: JSON = [
+                "identifier":"visualConsentStep",
+                "type":"visualConsent",
+                "consentDocumentFilename":"privacyInfo"
+            ]
+            
+            guard let privacyInfoSteps = self.taskBuilder?.rstb.steps(forElement: privacyInfoDict as JsonElement) else {
+                return
+            }
+            
+            let consentQuestionStep = ORKQuestionStep(identifier: "consent", title: "Do you agree?", text: "Please select \"Yes\" if you agree with the terms of the privacy policy.", answer: ORKAnswerFormat.booleanAnswerFormat())
             
             consentQuestionStep.isOptional = false
             
@@ -43,7 +64,7 @@ class CTFLogInViaExternalIdViewController: UIViewController, ORKTaskViewControll
             let passcodeStep = ORKPasscodeStep(identifier: "passcode")
             passcodeStep.passcodeType = .type4Digit
             
-            let task = ORKNavigableOrderedTask(identifier: "registration", steps: [consentQuestionStep, logInStep, passcodeStep, notConsentedStep])
+            let task = ORKNavigableOrderedTask(identifier: "registration", steps: privacyInfoSteps + [consentQuestionStep, logInStep, passcodeStep, notConsentedStep])
             
             let consentResultSelector = ORKResultSelector(resultIdentifier: "consent")
             let notConsentResultPredicate = ORKResultPredicate.predicateForBooleanQuestionResult(with: consentResultSelector, expectedAnswer: false)

@@ -23,6 +23,7 @@
 		E20D5C381E5FA9FE006655E8 /* demographics.json in Resources */ = {isa = PBXBuildFile; fileRef = E20D5C371E5FA9FE006655E8 /* demographics.json */; };
 		E20D5C3C1E5FB3F7006655E8 /* DemographicsResult+SBBDataArchiveBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20D5C3B1E5FB3F7006655E8 /* DemographicsResult+SBBDataArchiveBuilder.swift */; };
 		E20EA84C202BCB0F00A14A62 /* CTFBooleanIntermediateResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20EA84B202BCB0F00A14A62 /* CTFBooleanIntermediateResult.swift */; };
+		E2149396202BE1500080DFD5 /* privacyInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = E214938A202BE14F0080DFD5 /* privacyInfo.json */; };
 		E21FE6F51F019AFA006F6B60 /* BridgeInfo-private-dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = E21FE6F31F019AFA006F6B60 /* BridgeInfo-private-dev.plist */; };
 		E21FE6F61F019AFA006F6B60 /* BridgeInfo-private-rel.plist in Resources */ = {isa = PBXBuildFile; fileRef = E21FE6F41F019AFA006F6B60 /* BridgeInfo-private-rel.plist */; };
 		E21FE6F81F019B48006F6B60 /* cornell-mhealth-eval.pem in Resources */ = {isa = PBXBuildFile; fileRef = E21FE6F71F019B48006F6B60 /* cornell-mhealth-eval.pem */; };
@@ -238,6 +239,7 @@
 		E20D5C371E5FA9FE006655E8 /* demographics.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = demographics.json; path = "northwell-impulse-common/assets/json/survey/demographics.json"; sourceTree = SOURCE_ROOT; };
 		E20D5C3B1E5FB3F7006655E8 /* DemographicsResult+SBBDataArchiveBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DemographicsResult+SBBDataArchiveBuilder.swift"; sourceTree = "<group>"; };
 		E20EA84B202BCB0F00A14A62 /* CTFBooleanIntermediateResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTFBooleanIntermediateResult.swift; sourceTree = "<group>"; };
+		E214938A202BE14F0080DFD5 /* privacyInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = privacyInfo.json; path = "northwell-impulse-common/assets/json/privacyInfo.json"; sourceTree = SOURCE_ROOT; };
 		E21FE6E71F0193EE006F6B60 /* Impulse copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Impulse copy-Info.plist"; path = "/Users/jameskizer/Developer/ResearchSuite/iOS/northwell-impulse-ios/Impulse copy-Info.plist"; sourceTree = "<absolute>"; };
 		E21FE6F31F019AFA006F6B60 /* BridgeInfo-private-dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BridgeInfo-private-dev.plist"; sourceTree = "<group>"; };
 		E21FE6F41F019AFA006F6B60 /* BridgeInfo-private-rel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BridgeInfo-private-rel.plist"; sourceTree = "<group>"; };
@@ -722,6 +724,7 @@
 				E237F3AA1E5E8B8F00671B77 /* settings.json */,
 				E2831AA21E5BA24800E3D727 /* activities.json */,
 				E2831AA31E5BA24800E3D727 /* trialActivities.json */,
+				E214938A202BE14F0080DFD5 /* privacyInfo.json */,
 				E237F3C51E5F482A00671B77 /* thankYouActivity.json */,
 				E2B70A171E0895A800C93093 /* tasks_and_schedules.json */,
 			);
@@ -1022,6 +1025,7 @@
 				E2DCE0321E0B5FE8003E4BC1 /* pm_survey.json in Resources */,
 				E2B70A451E0895BD00C93093 /* go_no_go_variable_stimulus_full_task.json in Resources */,
 				E2B70A351E0895BD00C93093 /* am_behaviors.json in Resources */,
+				E2149396202BE1500080DFD5 /* privacyInfo.json in Resources */,
 				E2B70AA81E09973500C93093 /* go_no_go_stable_stimulus_full_task.json in Resources */,
 				E297166A1EC4DBC400F94736 /* digital-marshmallow.pem in Resources */,
 				E2831AA51E5BA24900E3D727 /* trialActivities.json in Resources */,

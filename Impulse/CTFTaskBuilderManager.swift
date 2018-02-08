@@ -19,7 +19,6 @@ class CTFTaskBuilderManager: NSObject {
         RSTBInstructionStepGenerator(),
         RSTBTextFieldStepGenerator(),
         RSTBIntegerStepGenerator(),
-//        CTFExtendedSingleChoiceStepGenerator(),
         RSEnhancedSingleChoiceStepGenerator(),
         RSTBTimePickerStepGenerator(),
         RSTBFormStepGenerator(),
@@ -32,18 +31,15 @@ class CTFTaskBuilderManager: NSObject {
         CTFDelayDiscountingStepGenerator(),
         CTFDiscountingStepGenerator(),
         RSTBDatePickerStepGenerator(),
-//        CTFExtendedMultipleChoiceStepGenerator()
-        RSEnhancedMultipleChoiceStepGenerator()
+        RSEnhancedMultipleChoiceStepGenerator(),
+        RSTBVisualConsentStepGenerator(),
+        RSTBConsentReviewStepGenerator()
     ]
     
    static let answerFormatGeneratorServices: [RSTBAnswerFormatGenerator] = [
         RSTBTextFieldStepGenerator(),
         RSTBIntegerStepGenerator(),
         RSTBTimePickerStepGenerator(),
-//        RSEnhancedSingleChoiceStepGenerator(),
-//        RSEnhancedMultipleChoiceStepGenerator(),
-//        CTFExtendedSingleChoiceStepGenerator(),
-//        CTFExtendedMultipleChoiceStepGenerator(),
         RSTBDatePickerStepGenerator()
     ]
     
@@ -52,6 +48,25 @@ class CTFTaskBuilderManager: NSObject {
         RSTBElementFileGenerator(),
         RSTBElementSelectorGenerator()
     ]
+    
+    open class var consentDocumentGeneratorServices: [RSTBConsentDocumentGenerator.Type] {
+        return [
+            RSTBStandardConsentDocument.self
+        ]
+    }
+    
+    open class var consentSectionGeneratorServices: [RSTBConsentSectionGenerator.Type] {
+        return [
+            RSTBStandardConsentSectionGenerator.self
+        ]
+    }
+    
+    open class var consentSignatureGeneratorServices: [RSTBConsentSignatureGenerator.Type] {
+        return [
+            RSTBParticipantConsentSignatureGenerator.self,
+            RSTBInvestigatorConsentSignatureGenerator.self
+        ]
+    }
 
     let rstb: RSTBTaskBuilder
 
@@ -62,7 +77,11 @@ class CTFTaskBuilderManager: NSObject {
             stateHelper: stateHelper,
             elementGeneratorServices: CTFTaskBuilderManager.elementGeneratorServices,
             stepGeneratorServices: CTFTaskBuilderManager.stepGeneratorServices,
-            answerFormatGeneratorServices: CTFTaskBuilderManager.answerFormatGeneratorServices)
+            answerFormatGeneratorServices: CTFTaskBuilderManager.answerFormatGeneratorServices,
+            consentDocumentGeneratorServices: CTFTaskBuilderManager.consentDocumentGeneratorServices,
+            consentSectionGeneratorServices: CTFTaskBuilderManager.consentSectionGeneratorServices,
+            consentSignatureGeneratorServices: CTFTaskBuilderManager.consentSignatureGeneratorServices
+        )
         
         super.init()
         
