@@ -14,7 +14,6 @@
 		E20590051E5BE82F00D978B7 /* CTFReducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20590041E5BE82F00D978B7 /* CTFReducers.swift */; };
 		E20590071E5BE87C00D978B7 /* CTFReduxPersistentStorageSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20590061E5BE87C00D978B7 /* CTFReduxPersistentStorageSubscriber.swift */; };
 		E20590091E5BF82200D978B7 /* CTFActionCreators.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20590081E5BF82200D978B7 /* CTFActionCreators.swift */; };
-		E205900F1E5BFF0500D978B7 /* self_assessment_5.json in Resources */ = {isa = PBXBuildFile; fileRef = E205900E1E5BFF0500D978B7 /* self_assessment_5.json */; };
 		E20590121E5BFF5F00D978B7 /* dd_time_1_year_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E20590101E5BFF5F00D978B7 /* dd_time_1_year_full_task.json */; };
 		E20590131E5BFF5F00D978B7 /* dd_time_1_year_short_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E20590111E5BFF5F00D978B7 /* dd_time_1_year_short_task.json */; };
 		E20590151E5C045000D978B7 /* CTFSelectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20590141E5C045000D978B7 /* CTFSelectors.swift */; };
@@ -58,6 +57,7 @@
 		E246FEC51F08AF7500D45DCC /* pd_constant_money_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E246FEC31F08AF7500D45DCC /* pd_constant_money_full_task.json */; };
 		E246FEC61F08AF7500D45DCC /* pd_constant_probability_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E246FEC41F08AF7500D45DCC /* pd_constant_probability_full_task.json */; };
 		E25883F41E61E024001F1DE1 /* CTFScaleFormResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25883F31E61E024001F1DE1 /* CTFScaleFormResult.swift */; };
+		E264C68E202E142800DA9CFE /* PIDSClient.plist in Resources */ = {isa = PBXBuildFile; fileRef = E264C68D202E142800DA9CFE /* PIDSClient.plist */; };
 		E2831A8C1E5B9C3000E3D727 /* CTFTaskBuilderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2831A8A1E5B9C3000E3D727 /* CTFTaskBuilderManager.swift */; };
 		E2831A8D1E5B9C3000E3D727 /* CTFTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2831A8B1E5B9C3000E3D727 /* CTFTaskViewController.swift */; };
 		E2831A911E5B9C3C00E3D727 /* DemographicsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2831A8E1E5B9C3C00E3D727 /* DemographicsResult.swift */; };
@@ -233,7 +233,6 @@
 		E20590041E5BE82F00D978B7 /* CTFReducers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFReducers.swift; sourceTree = "<group>"; };
 		E20590061E5BE87C00D978B7 /* CTFReduxPersistentStorageSubscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFReduxPersistentStorageSubscriber.swift; sourceTree = "<group>"; };
 		E20590081E5BF82200D978B7 /* CTFActionCreators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFActionCreators.swift; sourceTree = "<group>"; };
-		E205900E1E5BFF0500D978B7 /* self_assessment_5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = self_assessment_5.json; path = "northwell-impulse-common/assets/json/survey/self_assessment_5.json"; sourceTree = SOURCE_ROOT; };
 		E20590101E5BFF5F00D978B7 /* dd_time_1_year_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dd_time_1_year_full_task.json; path = "northwell-impulse-common/assets/json/survey/dd_time_1_year_full_task.json"; sourceTree = SOURCE_ROOT; };
 		E20590111E5BFF5F00D978B7 /* dd_time_1_year_short_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dd_time_1_year_short_task.json; path = "northwell-impulse-common/assets/json/survey/dd_time_1_year_short_task.json"; sourceTree = SOURCE_ROOT; };
 		E20590141E5C045000D978B7 /* CTFSelectors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFSelectors.swift; sourceTree = "<group>"; };
@@ -277,6 +276,7 @@
 		E246FEC31F08AF7500D45DCC /* pd_constant_money_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pd_constant_money_full_task.json; path = "northwell-impulse-common/assets/json/survey/pd_constant_money_full_task.json"; sourceTree = SOURCE_ROOT; };
 		E246FEC41F08AF7500D45DCC /* pd_constant_probability_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pd_constant_probability_full_task.json; path = "northwell-impulse-common/assets/json/survey/pd_constant_probability_full_task.json"; sourceTree = SOURCE_ROOT; };
 		E25883F31E61E024001F1DE1 /* CTFScaleFormResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFScaleFormResult.swift; sourceTree = "<group>"; };
+		E264C68D202E142800DA9CFE /* PIDSClient.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PIDSClient.plist; sourceTree = "<group>"; };
 		E2831A8A1E5B9C3000E3D727 /* CTFTaskBuilderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFTaskBuilderManager.swift; sourceTree = "<group>"; };
 		E2831A8B1E5B9C3000E3D727 /* CTFTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFTaskViewController.swift; sourceTree = "<group>"; };
 		E2831A8E1E5B9C3C00E3D727 /* DemographicsResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemographicsResult.swift; sourceTree = "<group>"; };
@@ -586,7 +586,6 @@
 				E2B70A9F1E09913000C93093 /* self_assessment_10_21.json */,
 				E2B70A2E1E0895BD00C93093 /* self_assessment_3.json */,
 				E2B70A2F1E0895BD00C93093 /* self_assessment_4.json */,
-				E205900E1E5BFF0500D978B7 /* self_assessment_5.json */,
 				E2B70A301E0895BD00C93093 /* self_assessment_7.json */,
 				E2B70A311E0895BD00C93093 /* self_assessment_8.json */,
 				E2B70A321E0895BD00C93093 /* self_assessment_9.json */,
@@ -672,6 +671,7 @@
 				E2AA6CF71DA41E19005D5137 /* BridgeInfo.plist */,
 				E21FE6F31F019AFA006F6B60 /* BridgeInfo-private-dev.plist */,
 				E21FE6F41F019AFA006F6B60 /* BridgeInfo-private-rel.plist */,
+				E264C68D202E142800DA9CFE /* PIDSClient.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -938,7 +938,7 @@
 				TargetAttributes = {
 					E2EF6B1A1DA2E2970034456A = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = AA753846B2;
+						DevelopmentTeam = 6B9Y996WW3;
 						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
@@ -1042,11 +1042,11 @@
 				E2DCE0321E0B5FE8003E4BC1 /* pm_survey.json in Resources */,
 				E2B70A451E0895BD00C93093 /* go_no_go_variable_stimulus_full_task.json in Resources */,
 				E2B70A351E0895BD00C93093 /* am_behaviors.json in Resources */,
+				E264C68E202E142800DA9CFE /* PIDSClient.plist in Resources */,
 				E2149396202BE1500080DFD5 /* privacyInfo.json in Resources */,
 				E2B70AA81E09973500C93093 /* go_no_go_stable_stimulus_full_task.json in Resources */,
 				E297166A1EC4DBC400F94736 /* digital-marshmallow.pem in Resources */,
 				E2831AA51E5BA24900E3D727 /* trialActivities.json in Resources */,
-				E205900F1E5BFF0500D978B7 /* self_assessment_5.json in Resources */,
 				E2B70AA31E09945700C93093 /* go_no_go_variable_stimulus_short_task.json in Resources */,
 				E2B70A491E0895BD00C93093 /* PAMMultipleSelection.json in Resources */,
 				E2B70AB21E099B3B00C93093 /* bart_250_dollars_full_task.json in Resources */,
@@ -1507,7 +1507,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = AA753846B2;
+				DEVELOPMENT_TEAM = 6B9Y996WW3;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Impulse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1527,7 +1527,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = AA753846B2;
+				DEVELOPMENT_TEAM = 6B9Y996WW3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BridgeAppSDK/CMSSupport/openssl/build/Release-iphoneos",

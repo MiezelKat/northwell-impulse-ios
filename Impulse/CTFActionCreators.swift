@@ -9,7 +9,7 @@
 import UIKit
 import ReSwift
 import ResearchKit
-
+import ResearchSuiteExtensions
 
 
 class CTFActionCreators: NSObject {
@@ -180,13 +180,14 @@ class CTFActionCreators: NSObject {
             }
             
             if let stepResult = result.result(forIdentifier: "baseline_behaviors_4") as? ORKStepResult,
-                let questionResult = stepResult.firstResult as? ORKChoiceQuestionResult,
-                let answers = questionResult.choiceAnswers as? [String],
+                let questionResult = stepResult.firstResult as? RSEnhancedMultipleChoiceResult,
+                let answers: [NSString] = questionResult.choiceAnswers?.flatMap({ $0.value as? NSString }),
                 answers.count > 0 {
                 
                 //                let secureCodingAnswers = answers as NSObject
                 //                debugPrint(secureCodingAnswers)
-                let setBehaviorsAction = SetValueInExtensibleStorage(key: CTFStudyConstants.kBaselineBehaviorResults, value: answers as NSObject)
+                let answersWithoutSuffix = answers.map { $0.replacingOccurrences(of: "_bl_4", with: "") }
+                let setBehaviorsAction = SetValueInExtensibleStorage(key: CTFStudyConstants.kBaselineBehaviorResults, value: answersWithoutSuffix as NSObject)
                 store.dispatch(setBehaviorsAction)
                 
             }

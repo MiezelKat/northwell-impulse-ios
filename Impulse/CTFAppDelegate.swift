@@ -73,6 +73,27 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
         return window?.rootViewController as? CTFRootViewControllerProtocol
     }
     
+    open var pidsAuthURL: String {
+        guard let file = Bundle.main.path(forResource: "PIDSClient", ofType: "plist") else {
+            fatalError("Could not initialze PIDS client")
+        }
+        
+        
+        let clientDetails = NSDictionary(contentsOfFile: file)
+        
+        guard let config: String = Bundle.main.infoDictionary?["Config"] as? String,
+            let configDict = clientDetails?[config] as? [String: String],
+            let baseURL = configDict["authURL"] else {
+                fatalError("Could not initialze PIDS client")
+        }
+        
+        return baseURL
+    }
+    
+    open var mobileURLScheme: String {
+        return "dmt3b265a5b19a54f8d99b9c4c49f977744"
+    }
+    
     open func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -86,7 +107,7 @@ class CTFAppDelegate: UIResponder, UIApplicationDelegate, ORKPasscodeDelegate {
             }
         }
         
-        let bridgeManager = CTFBridgeManager()
+        let bridgeManager = CTFBridgeManager(URLScheme: self.mobileURLScheme, authURL: self.pidsAuthURL)
         
         self.initializeStateClosure = {
             self.initializeState(bridgeManager: bridgeManager, backEnd: bridgeManager)

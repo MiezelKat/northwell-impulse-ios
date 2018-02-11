@@ -20,19 +20,17 @@ public class CTFBridgeManager: NSObject, RSRPBackEnd, StoreSubscriber {
     var groupLabel: String?
     let bridgeInfo: CTFBridgeInfo
     public var authDelegate: SBAuthDelegate!
+    public var authURL: URL?
     
-    override init() {
+    public init(URLScheme: String, authURL: String) {
         self.bridgeInfo = CTFBridgeManager.bridgeInfoFromPlists()!
         BridgeSDK.setup(withBridgeInfo: self.bridgeInfo)
         super.init()
         
-        self.authDelegate = SBAuthDelegate(manager: self, urlScheme: "dmt3b265a5b19a54f8d99b9c4c49f977744")
+        self.authURL = URL(string: authURL)
+        self.authDelegate = SBAuthDelegate(manager: self, urlScheme: URLScheme)
     }
-    
-    public var authURL: URL? {
-        return URL(string: "http://localhost:8000")
-    }
-    
+
     private static func bridgeInfoFromPlists() -> CTFBridgeInfo? {
         
         guard let path = Bundle.main.path(forResource: "BridgeInfo", ofType: "plist") else {

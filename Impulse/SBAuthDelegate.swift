@@ -9,6 +9,12 @@
 import UIKit
 import ResearchSuiteExtensions
 
+public enum SBAuthError: Error {
+    case userCanceled
+    case recaptchaValidationFailed
+    case otherError
+}
+
 open class SBAuthDelegate: NSObject, RSRedirectStepDelegate {
     
     public static func getQueryStringParameter(url: String, param: String) -> String? {
@@ -28,7 +34,7 @@ open class SBAuthDelegate: NSObject, RSRedirectStepDelegate {
     
     private weak var manager: CTFBridgeManager!
     private var urlScheme: String
-    private var authCompletion: ((Error?) -> ())? = nil
+    private var authCompletion: ((Error?, String?) -> ())? = nil
     
     init(manager: CTFBridgeManager, urlScheme: String) {
         self.urlScheme = urlScheme
@@ -40,7 +46,7 @@ open class SBAuthDelegate: NSObject, RSRedirectStepDelegate {
         
     }
     
-    public func beginRedirect(completion: @escaping ((Error?) -> ())) {
+    public func beginRedirect(completion: @escaping ((Error?, String?) -> ())) {
         
         if let url = self.manager.authURL {
             self.authCompletion = completion
@@ -48,7 +54,7 @@ open class SBAuthDelegate: NSObject, RSRedirectStepDelegate {
             return
         }
         else {
-            self.authCompletion?(nil)
+            self.authCompletion?(nil, nil)
         }
     }
     
@@ -57,27 +63,61 @@ open class SBAuthDelegate: NSObject, RSRedirectStepDelegate {
         //check to see if this matches the expected format
         //ancile3ec3082ca348453caa716cc0ec41791e://auth/ancile/callback?code={CODE}
         // dmt3b265a5b19a54f8d99b9c4c49f977744://success?participant_id={PARTICIPANT_ID}
-        let pattern = "^\(self.urlScheme)://success"
-        let regex = try! NSRegularExpression(pattern: pattern, options: .caseInsensitive)
+        let successPattern = "^\(self.urlScheme)://success"
+        let successRegex = try! NSRegularExpression(pattern: successPattern, options: .caseInsensitive)
+        let failurePattern = "^\(self.urlScheme)://failure"
+        let failureRegex = try! NSRegularExpression(pattern: failurePattern, options: .caseInsensitive)
         
-        guard let _ = regex.firstMatch(
+        if let _ = successRegex.firstMatch(
             in: url.absoluteString,
             options: .init(rawValue: 0),
-            range: NSMakeRange(0, url.absoluteString.characters.count)) else {
-                return false
-        }
-        
-        if let participantID = SBAuthDelegate.getQueryStringParameter(url: url.absoluteString, param: "participant_id") {
-//            self.client.signIn(code: code) { (signInResponse, error) in
-//                self.authCompletion?(nil)
-//            }
-//            return true
+            range: NSMakeRange(0, url.absoluteString.characters.count)) {
             
-            self.manager.signIn(externalID: participantID, completion: { (error) in
-                self.authCompletion?(error)
-            })
-            return true
+            if let participantID = SBAuthDelegate.getQueryStringParameter(url: url.absoluteString, param: "participant_id") {
+                //            self.client.signIn(code: code) { (signInResponse, error) in
+                //                self.authCompletion?(nil)
+                //            }
+                //            return true
+                
+                self.manager.signIn(externalID: participantID, completion: { (error) in
+                    self.authCompletion?(error, "Invalid Participant ID")
+                })
+                return true
+            }
+            
+            return false
+            
         }
+        else if let _ = failureRegex.firstMatch(
+            in: url.absoluteString,
+            options: .init(rawValue: 0),
+            range: NSMakeRange(0, url.absoluteString.characters.count)) {
+            
+            if let reason = SBAuthDelegate.getQueryStringParameter(url: url.absoluteString, param: "reason") {
+                
+                if reason == "recaptcha_validation_failed" {
+                    self.authCompletion?(SBAuthError.recaptchaValidationFailed, "Recaptcha Validation Failed")
+                    return true
+                }
+                else if reason == "user_canceled" {
+                    self.authCompletion?(SBAuthError.userCanceled, "You must accept the terms")
+                    return true
+                }
+                else {
+                    self.authCompletion?(SBAuthError.userCanceled, "An unknown error occurred")
+                    return true
+                }
+                
+            }
+            
+            return false
+        }
+
+        
+        
+        
+        
+        
         
         return false
     }
