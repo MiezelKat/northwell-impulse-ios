@@ -9,6 +9,7 @@
 import UIKit
 import ResearchSuiteResultsProcessor
 import ResearchKit
+import ResearchSuiteExtensions
 
 open class CTFMultipleChoiceIntermediateResult: RSRPIntermediateResult, RSRPFrontEndTransformer {
     
@@ -33,8 +34,8 @@ open class CTFMultipleChoiceIntermediateResult: RSRPIntermediateResult, RSRPFron
         guard let schemaID = parameters["schemaID"] as? String,
             let schemaVersion = parameters["schemaVersion"] as? Int,
             let stepResult = parameters["result"] as? ORKStepResult,
-            let choiceResult = stepResult.results?.first as? ORKChoiceQuestionResult,
-            let choices = choiceResult.choiceAnswers else {
+            let choiceResult = stepResult.results?.first as? RSEnhancedMultipleChoiceResult,
+            let choices = choiceResult.choiceAnswers?.flatMap({$0.value as? NSString}) else {
                 return nil
         }
         

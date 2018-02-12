@@ -14,7 +14,7 @@ class CTFStudyConstants {
     static let k1HourInterval: TimeInterval = CTFStudyConstants.k1MinuteInterval * 60.0
     static let k1DayInterval: TimeInterval = 24.0 * CTFStudyConstants.k1HourInterval
     
-    static let kNumberOfDaysForFinalSurvey = 21
+    static let kNumberOfDaysForFinalSurvey = 7
     static let k21DaySurveyDelayInterval: TimeInterval = Double(CTFStudyConstants.kNumberOfDaysForFinalSurvey) * CTFStudyConstants.k1DayInterval
     
     static let kDailySurveyNotificationWindowBeforeInterval: TimeInterval = 0.0
@@ -38,7 +38,7 @@ class CTFStudyConstants {
     
     static let kMorningNotificationText: String = "Hey, it's time to take your morning survey!"
     static let kEveningNotificationText: String = "Hey, it's time to take your evening survey!"
-    static let k21DayNotificationText: String = "Hey, it's time to take your 21 day survey!"
+    static let k21DayNotificationText: String = "Hey, it's time to take your day 7 survey!"
     
     static let kSessionTokenKey: String = "SessionToken"
     static let kPasswordKey: String = "Password"
