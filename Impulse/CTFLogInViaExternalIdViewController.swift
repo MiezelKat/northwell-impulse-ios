@@ -75,10 +75,21 @@ class CTFLogInViaExternalIdViewController: UIViewController, ORKTaskViewControll
                 return
             }
             
+            let passcodeInstructionsDict: JSON = [
+                "identifier": "securing_data_instructions",
+                "type": "instruction",
+                "title": "Secure Your Data!",
+                "text": "You'll be prompted to create a 4 digit passcode.\n\nPasscodes help keep your data secure."
+            ]
+            
+            guard let passcodeInstructionStep = self.taskBuilder?.rstb.steps(forElement: passcodeInstructionsDict as JsonElement)?.first else {
+                    return
+            }
+            
             let passcodeStep = ORKPasscodeStep(identifier: "passcode")
             passcodeStep.passcodeType = .type4Digit
             
-            let task = ORKNavigableOrderedTask(identifier: "registration", steps: privacyInfoSteps + [consentQuestionStep, logInStep, passcodeStep, notConsentedStep])
+            let task = ORKNavigableOrderedTask(identifier: "registration", steps: privacyInfoSteps + [consentQuestionStep, logInStep, passcodeInstructionStep, passcodeStep, notConsentedStep])
             
             let consentResultSelector = ORKResultSelector(resultIdentifier: "consent")
             let notConsentResultPredicate = ORKResultPredicate.predicateForBooleanQuestionResult(with: consentResultSelector, expectedAnswer: false)

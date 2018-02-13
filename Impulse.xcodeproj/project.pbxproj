@@ -52,6 +52,8 @@
 		E237F3C61E5F482A00671B77 /* thankYouActivity.json in Resources */ = {isa = PBXBuildFile; fileRef = E237F3C51E5F482A00671B77 /* thankYouActivity.json */; };
 		E237F3D51E5F565D00671B77 /* CTFStudyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E237F3D41E5F565D00671B77 /* CTFStudyConstants.swift */; };
 		E237F3DC1E5F7D6600671B77 /* CTFReduxStateHelper+SBBAuthManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E237F3DB1E5F7D6600671B77 /* CTFReduxStateHelper+SBBAuthManagerDelegate.swift */; };
+		E239B574203346CC00DFEB01 /* shuffled_active_tasks_closeout.json in Resources */ = {isa = PBXBuildFile; fileRef = E239B573203346CC00DFEB01 /* shuffled_active_tasks_closeout.json */; };
+		E239B5762033501B00DFEB01 /* self_assessment_7_closeout.json in Resources */ = {isa = PBXBuildFile; fileRef = E239B5752033501A00DFEB01 /* self_assessment_7_closeout.json */; };
 		E243393F1E0DC4C4009FF385 /* daily_active_tasks.json in Resources */ = {isa = PBXBuildFile; fileRef = E243393D1E0DC4C4009FF385 /* daily_active_tasks.json */; };
 		E24339401E0DC4C4009FF385 /* shuffled_active_tasks.json in Resources */ = {isa = PBXBuildFile; fileRef = E243393E1E0DC4C4009FF385 /* shuffled_active_tasks.json */; };
 		E246FEC51F08AF7500D45DCC /* pd_constant_money_full_task.json in Resources */ = {isa = PBXBuildFile; fileRef = E246FEC31F08AF7500D45DCC /* pd_constant_money_full_task.json */; };
@@ -69,7 +71,6 @@
 		E2831AA11E5B9DD800E3D727 /* CTFLoginStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2831A9F1E5B9DD800E3D727 /* CTFLoginStepViewController.swift */; };
 		E2831AA41E5BA24800E3D727 /* activities.json in Resources */ = {isa = PBXBuildFile; fileRef = E2831AA21E5BA24800E3D727 /* activities.json */; };
 		E2831AA51E5BA24900E3D727 /* trialActivities.json in Resources */ = {isa = PBXBuildFile; fileRef = E2831AA31E5BA24800E3D727 /* trialActivities.json */; };
-		E2919EB71DE4956F0034AD08 /* FoundryAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2919EB61DE4956F0034AD08 /* FoundryAssets.xcassets */; };
 		E295FC211DDCC001001B175D /* UIColor+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295FC201DDCC001001B175D /* UIColor+String.swift */; };
 		E295FC2A1DDE36EB001B175D /* CTFSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295FC291DDE36EB001B175D /* CTFSettingsTableViewController.swift */; };
 		E297166A1EC4DBC400F94736 /* digital-marshmallow.pem in Resources */ = {isa = PBXBuildFile; fileRef = E29716691EC4DBC400F94736 /* digital-marshmallow.pem */; };
@@ -271,6 +272,8 @@
 		E237F3C51E5F482A00671B77 /* thankYouActivity.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = thankYouActivity.json; path = "northwell-impulse-common/assets/json/survey/thankYouActivity.json"; sourceTree = SOURCE_ROOT; };
 		E237F3D41E5F565D00671B77 /* CTFStudyConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFStudyConstants.swift; sourceTree = "<group>"; };
 		E237F3DB1E5F7D6600671B77 /* CTFReduxStateHelper+SBBAuthManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CTFReduxStateHelper+SBBAuthManagerDelegate.swift"; sourceTree = "<group>"; };
+		E239B573203346CC00DFEB01 /* shuffled_active_tasks_closeout.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = shuffled_active_tasks_closeout.json; path = "northwell-impulse-common/assets/json/survey/shuffled_active_tasks_closeout.json"; sourceTree = SOURCE_ROOT; };
+		E239B5752033501A00DFEB01 /* self_assessment_7_closeout.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = self_assessment_7_closeout.json; path = "northwell-impulse-common/assets/json/survey/self_assessment_7_closeout.json"; sourceTree = SOURCE_ROOT; };
 		E243393D1E0DC4C4009FF385 /* daily_active_tasks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = daily_active_tasks.json; path = "northwell-impulse-common/assets/json/survey/daily_active_tasks.json"; sourceTree = SOURCE_ROOT; };
 		E243393E1E0DC4C4009FF385 /* shuffled_active_tasks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = shuffled_active_tasks.json; path = "northwell-impulse-common/assets/json/survey/shuffled_active_tasks.json"; sourceTree = SOURCE_ROOT; };
 		E246FEC31F08AF7500D45DCC /* pd_constant_money_full_task.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pd_constant_money_full_task.json; path = "northwell-impulse-common/assets/json/survey/pd_constant_money_full_task.json"; sourceTree = SOURCE_ROOT; };
@@ -288,7 +291,6 @@
 		E2831A9F1E5B9DD800E3D727 /* CTFLoginStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFLoginStepViewController.swift; sourceTree = "<group>"; };
 		E2831AA21E5BA24800E3D727 /* activities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = activities.json; path = "northwell-impulse-common/assets/json/survey/activities.json"; sourceTree = SOURCE_ROOT; };
 		E2831AA31E5BA24800E3D727 /* trialActivities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = trialActivities.json; path = "northwell-impulse-common/assets/json/survey/trialActivities.json"; sourceTree = SOURCE_ROOT; };
-		E2919EB61DE4956F0034AD08 /* FoundryAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FoundryAssets.xcassets; sourceTree = "<group>"; };
 		E295FC201DDCC001001B175D /* UIColor+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+String.swift"; sourceTree = "<group>"; };
 		E295FC291DDE36EB001B175D /* CTFSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTFSettingsTableViewController.swift; sourceTree = "<group>"; };
 		E29716691EC4DBC400F94736 /* digital-marshmallow.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "digital-marshmallow.pem"; sourceTree = "<group>"; };
@@ -538,6 +540,7 @@
 				E237F3BA1E5F3D4100671B77 /* GNG */,
 				E243393D1E0DC4C4009FF385 /* daily_active_tasks.json */,
 				E243393E1E0DC4C4009FF385 /* shuffled_active_tasks.json */,
+				E239B573203346CC00DFEB01 /* shuffled_active_tasks_closeout.json */,
 			);
 			name = "Active Tasks";
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 				E2B70A2E1E0895BD00C93093 /* self_assessment_3.json */,
 				E2B70A2F1E0895BD00C93093 /* self_assessment_4.json */,
 				E2B70A301E0895BD00C93093 /* self_assessment_7.json */,
+				E239B5752033501A00DFEB01 /* self_assessment_7_closeout.json */,
 				E2B70A311E0895BD00C93093 /* self_assessment_8.json */,
 				E2B70A321E0895BD00C93093 /* self_assessment_9.json */,
 			);
@@ -794,7 +798,6 @@
 				E2AA6CDF1DA41DDA005D5137 /* Supporting Files */,
 				E2AA6CDC1DA419DB005D5137 /* Storyboards */,
 				E2EF6B251DA2E2970034456A /* Assets.xcassets */,
-				E2919EB61DE4956F0034AD08 /* FoundryAssets.xcassets */,
 				E2EF6B2A1DA2E2970034456A /* Info.plist */,
 			);
 			path = Impulse;
@@ -1030,7 +1033,6 @@
 				E2B70A9D1E098EA700C93093 /* Reenrollment.json in Resources */,
 				E2B70AC11E09A1A300C93093 /* dd_money_6_month_short_task.json in Resources */,
 				E2B70ABF1E09A19400C93093 /* dd_money_6_month_full_task.json in Resources */,
-				E2919EB71DE4956F0034AD08 /* FoundryAssets.xcassets in Resources */,
 				E2B70AA91E09973500C93093 /* go_no_go_stable_stimulus_short_task.json in Resources */,
 				E2EF6B291DA2E2970034456A /* LaunchScreen.storyboard in Resources */,
 				E21FE7211F0333A9006F6B60 /* pd_constant_money_short_task.json in Resources */,
@@ -1042,6 +1044,7 @@
 				E2DCE0321E0B5FE8003E4BC1 /* pm_survey.json in Resources */,
 				E2B70A451E0895BD00C93093 /* go_no_go_variable_stimulus_full_task.json in Resources */,
 				E2B70A351E0895BD00C93093 /* am_behaviors.json in Resources */,
+				E239B5762033501B00DFEB01 /* self_assessment_7_closeout.json in Resources */,
 				E264C68E202E142800DA9CFE /* PIDSClient.plist in Resources */,
 				E2149396202BE1500080DFD5 /* privacyInfo.json in Resources */,
 				E2B70AA81E09973500C93093 /* go_no_go_stable_stimulus_full_task.json in Resources */,
@@ -1072,6 +1075,7 @@
 				E2B70A371E0895BD00C93093 /* am_likert_1a.json in Resources */,
 				E2AA6CF91DA41E19005D5137 /* BridgeInfo.plist in Resources */,
 				E2B70ACD1E09A4AC00C93093 /* dd_time_6_month_short_task.json in Resources */,
+				E239B574203346CC00DFEB01 /* shuffled_active_tasks_closeout.json in Resources */,
 				E2B70A181E0895A800C93093 /* tasks_and_schedules.json in Resources */,
 				E2AA6D1A1DA43C83005D5137 /* CTFFormItemCell.xib in Resources */,
 				E2B70A3B1E0895BD00C93093 /* bart_25_cents_full_task.json in Resources */,
