@@ -16,11 +16,11 @@ extension CTFPAMMultipleRaw {
     //its up to this convertable to manage the schema id and schema revision
     
     override public var schemaIdentifier: String {
-        return "pam_multiple"
+        return "pam_multiple_v2"
     }
     
     override public var schemaVersion: Int {
-        return 2
+        return 1
     }
     
     override public var data: [String: Any] {

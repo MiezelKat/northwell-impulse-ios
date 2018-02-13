@@ -14,11 +14,11 @@ extension CTFGoNoGoSummary {
 
     //its up to this convertable to manage the schema id and schema revision
     override public var schemaIdentifier: String {
-        return "goNoGo"
+        return "goNoGo_v2"
     }
 
     override public var schemaVersion: Int {
-        return 2
+        return 1
     }
 
     //note that this a work around for the swift dictionary literal compiler bug

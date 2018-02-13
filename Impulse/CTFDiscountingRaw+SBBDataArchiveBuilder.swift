@@ -16,11 +16,11 @@ extension CTFDiscountingRaw {
     //its up to this convertable to manage the schema id and schema revision
     
     override public var schemaIdentifier: String {
-        return "discounting_raw"
+        return "discounting_raw_v2"
     }
     
     override public var schemaVersion: Int {
-        return 2
+        return 1
     }
     
     override public var data: [String: Any] {

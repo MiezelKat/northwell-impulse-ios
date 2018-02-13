@@ -9,6 +9,7 @@
 import UIKit
 import ResearchSuiteResultsProcessor
 import ResearchKit
+import ResearchSuiteExtensions
 
 public class DemographicsResult: RSRPIntermediateResult, RSRPFrontEndTransformer {
     
@@ -22,8 +23,9 @@ public class DemographicsResult: RSRPIntermediateResult, RSRPFrontEndTransformer
         
         let gender: String? = {
             guard let stepResult = parameters["gender"],
-                let result = stepResult.firstResult as? ORKChoiceQuestionResult,
-                let genderChoice = result.choiceAnswers?.first as? String else {
+                let result = stepResult.firstResult as? RSEnhancedMultipleChoiceResult,
+                let selection = result.choiceAnswers?.first,
+                let genderChoice = selection.value as? String else {
                     return nil
             }
             return genderChoice
@@ -49,26 +51,19 @@ public class DemographicsResult: RSRPIntermediateResult, RSRPFrontEndTransformer
         
         let education: String? = {
             guard let stepResult = parameters["education"],
-                let result = stepResult.firstResult as? ORKChoiceQuestionResult,
-                let eductionChoice = result.choiceAnswers?.first as? String else {
+                let result = stepResult.firstResult as? RSEnhancedMultipleChoiceResult,
+                let selection = result.choiceAnswers?.first,
+                let eductionChoice = selection.value as? String else {
                     return nil
             }
             return eductionChoice
         }()
         
-        let employment: [String]? = {
-            guard let stepResult = parameters["employment_income"],
-                let result = stepResult.firstResult as? ORKChoiceQuestionResult,
-                let employmentChoices = result.choiceAnswers as? [String] else {
-                    return nil
-            }
-            return employmentChoices
-        }()
-        
         let ethnicity: String? = {
             guard let stepResult = parameters["ethnicity"],
-                let result = stepResult.firstResult as? ORKChoiceQuestionResult,
-                let ethnicity = result.choiceAnswers?.first as? String else {
+                let result = stepResult.firstResult as? RSEnhancedMultipleChoiceResult,
+                let selection = result.choiceAnswers?.first,
+                let ethnicity = selection.value as? String else {
                     return nil
             }
             return ethnicity
@@ -76,20 +71,12 @@ public class DemographicsResult: RSRPIntermediateResult, RSRPFrontEndTransformer
         
         let race: String? = {
             guard let stepResult = parameters["race"],
-                let result = stepResult.firstResult as? ORKChoiceQuestionResult,
-                let race = result.choiceAnswers?.first as? String else {
+                let result = stepResult.firstResult as? RSEnhancedMultipleChoiceResult,
+                let selection = result.choiceAnswers?.first,
+                let race = selection.value as? String else {
                     return nil
             }
             return race
-        }()
-        
-        let religion: [String]? = {
-            guard let stepResult = parameters["religion"],
-                let result = stepResult.firstResult as? ORKChoiceQuestionResult,
-                let religion = result.choiceAnswers as? [String] else {
-                    return nil
-            }
-            return religion
         }()
         
         let demographics = DemographicsResult(
@@ -100,15 +87,13 @@ public class DemographicsResult: RSRPIntermediateResult, RSRPFrontEndTransformer
             age: age,
             zipCode: zipCode,
             education: education,
-            employment: employment,
             ethnicity: ethnicity,
-            race: race,
-            religion: religion
+            race: race
             )
         
         
         demographics.startDate = parameters["gender"]?.startDate
-        demographics.endDate = parameters["religion"]?.endDate
+        demographics.endDate = parameters["race"]?.endDate
         
         return demographics
         
@@ -131,12 +116,9 @@ public class DemographicsResult: RSRPIntermediateResult, RSRPFrontEndTransformer
     public let zipCode: String?
     //education
     public let education: String?
-    //employment
-    public let employment: [String]?
     
     let ethnicity: String?
     let race: String?
-    let religion: [String]?
     
     public init(
         uuid: UUID,
@@ -146,19 +128,15 @@ public class DemographicsResult: RSRPIntermediateResult, RSRPFrontEndTransformer
         age: Int?,
         zipCode: String?,
         education: String?,
-        employment: [String]?,
         ethnicity: String?,
-        race: String?,
-        religion: [String]?) {
+        race: String?) {
         
         self.gender = gender
         self.age = age
         self.zipCode = zipCode
         self.education = education
-        self.employment = employment
         self.ethnicity = ethnicity
         self.race = race
-        self.religion = religion
         
         super.init(
             type: DemographicsResult.kType,

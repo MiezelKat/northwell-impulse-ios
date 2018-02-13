@@ -10,8 +10,8 @@ import Foundation
 
 extension DemographicsResult {
     //SBBDataArchiveConvertableFunctions
-    static public let kSBBSchemaID = "demographics"
-    static public let kSBBSchemaVersion = 2
+    static public let kSBBSchemaID = "demographics_v2"
+    static public let kSBBSchemaVersion = 1
     
     override public var schemaIdentifier: String {
         return DemographicsResult.kSBBSchemaID
@@ -27,10 +27,8 @@ extension DemographicsResult {
             "age": self.age as Any,
             "zip_code": self.zipCode as Any,
             "education": self.education as Any,
-            "employment_income": self.employment as Any,
             "ethnicity": self.ethnicity as Any,
-            "race": self.race as Any,
-            "religion": self.religion as Any
+            "race": self.race as Any
         ]
     }
 }
