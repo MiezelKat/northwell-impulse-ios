@@ -200,7 +200,16 @@ class CTFReducers: NSObject {
                 return CTFReduxState.newState(
                     fromState: state,
                     day21CompletionDate: completedDateAction.completedDate
+                    
                 )
+              
+            case let completedDateAction as MarkCompletionEmailCompletedAction:
+                return CTFReduxState.newState(
+                    fromState: state,
+                    completionEmailDate: completedDateAction.completedDate
+                )
+                
+                
             default:
                 return state
             }
@@ -239,12 +248,12 @@ class CTFReducers: NSObject {
             case _ as ClearAllNotificationsAction:
                 return CTFReduxState.newState(
                     fromState: state,
-                    day21NotificationFireDate: nil,
-                    day212ndNotificationFireDate: nil,
-                    morningNotificationFireDate: nil,
-                    morning2ndNotificationFireDate: nil,
-                    eveningNotificationFireDate: nil,
-                    evening2ndNotificationFireDate: nil
+                    day21NotificationFireDate: nil as Date?,
+                    day212ndNotificationFireDate: nil as Date?,
+                    morningNotificationFireDate: nil as Date?,
+                    morning2ndNotificationFireDate: nil as Date?,
+                    eveningNotificationFireDate: nil as Date?,
+                    evening2ndNotificationFireDate: nil as Date?
                 )
                 
             default:

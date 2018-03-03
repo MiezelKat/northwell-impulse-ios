@@ -24,7 +24,7 @@ class CTFNotificationSubscriber: NSObject, StoreSubscriber {
     
     static let kMorningNotificationText: String = "Hey, it's time to take your morning survey!"
     static let kEveningNotificationText: String = "Hey, it's time to take your evening survey!"
-    static let k21DayNotificationText: String = "Hey, it's time to take your 21 day survey!"
+    static let k21DayNotificationText: String = "Hey, it's time to take your 7 day survey!"
     
     static let kMorningTaskIdentifier: String = "am_survey"
     static let kEveningTaskIdentifier: String = "pm_survey"

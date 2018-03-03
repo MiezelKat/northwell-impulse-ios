@@ -11,7 +11,6 @@ import ReSwift
 import ResearchKit
 import ResearchSuiteExtensions
 
-
 class CTFActionCreators: NSObject {
     
     public typealias ActionCreator = (_ state: CTFReduxState, _ store: Store<CTFReduxState>) -> Action?
@@ -61,6 +60,8 @@ class CTFActionCreators: NSObject {
                     store.dispatch(CTFActionCreators.handleReenrollment(taskResult))
                 case "21-day-assessment":
                     store.dispatch(CTFActionCreators.handleDay21Survey(taskResult))
+                case "completion-email":
+                    store.dispatch(CTFActionCreators.handleCompletionEmail(taskResult))
                 case "am_survey":
                     store.dispatch(CTFActionCreators.handleMorningSurvey(taskResult))
                 case "pm_survey":
@@ -243,7 +244,12 @@ class CTFActionCreators: NSObject {
             store.dispatch(ClearAllNotificationsAction())
             
             return MarkDay21SurveyCompletedAction(completedDate: result.endDate)
-            
+        }
+    }
+    
+    static func handleCompletionEmail(_ result: ORKTaskResult) -> (CTFReduxState, Store<CTFReduxState>) -> Action? {
+        return { (state, store) in
+            return MarkCompletionEmailCompletedAction(completedDate: result.endDate)
         }
     }
     

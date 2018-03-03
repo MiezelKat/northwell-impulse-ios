@@ -19,6 +19,7 @@ class CTFTaskBuilderManager: NSObject {
         RSTBInstructionStepGenerator(),
         RSTBTextFieldStepGenerator(),
         RSTBIntegerStepGenerator(),
+        RSTBSingleChoiceStepGenerator(),
         RSEnhancedSingleChoiceStepGenerator(),
         RSTBTimePickerStepGenerator(),
         RSTBFormStepGenerator(),
@@ -35,6 +36,7 @@ class CTFTaskBuilderManager: NSObject {
         RSTBVisualConsentStepGenerator(),
         RSTBConsentReviewStepGenerator(),
         RSEmailStepGenerator(),
+        DMTEmailStepGenerator(),
         SBAuthStepGenerator(),
         RSEnhancedInstructionStepGenerator(),
         RSTBBooleanStepGenerator()

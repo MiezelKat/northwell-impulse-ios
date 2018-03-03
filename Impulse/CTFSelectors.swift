@@ -60,6 +60,10 @@ class CTFSelectors: NSObject {
         
     }
     
+    static func shouldShowCompletionEmail(_ state: CTFReduxState) -> Bool {
+        return state.day21CompletionDate != nil && state.completionEmailDate == nil
+    }
+    
     static public func morningSurveyTimeComponents(_ state: CTFReduxState) -> DateComponents? {
         return state.morningSurveyTimeComponents
     }

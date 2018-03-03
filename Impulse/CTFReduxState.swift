@@ -28,6 +28,7 @@ public struct CTFReduxState: StateType {
     let lastMorningCompletionDate: Date?
     let lastEveningCompletionDate: Date?
     let day21CompletionDate: Date?
+    let completionEmailDate: Date?
     
     let morningSurveyTimeComponents: DateComponents?
     let eveningSurveyTimeComponents: DateComponents?
@@ -64,6 +65,7 @@ public struct CTFReduxState: StateType {
             lastMorningCompletionDate: nil,
             lastEveningCompletionDate: nil,
             day21CompletionDate: nil,
+            completionEmailDate: nil,
             morningSurveyTimeComponents: nil,
             eveningSurveyTimeComponents: nil,
             day21NotificationFireDate: nil,
@@ -97,6 +99,7 @@ public struct CTFReduxState: StateType {
         lastMorningCompletionDate: (Date?)? = nil,
         lastEveningCompletionDate: (Date?)? = nil,
         day21CompletionDate: (Date?)? = nil,
+        completionEmailDate: (Date?)? = nil,
         morningSurveyTimeComponents: (DateComponents?)? = nil,
         eveningSurveyTimeComponents: (DateComponents?)? = nil,
         day21NotificationFireDate: (Date?)? = nil,
@@ -125,6 +128,7 @@ public struct CTFReduxState: StateType {
             lastMorningCompletionDate: lastMorningCompletionDate ?? fromState.lastMorningCompletionDate,
             lastEveningCompletionDate: lastEveningCompletionDate ?? fromState.lastEveningCompletionDate,
             day21CompletionDate: day21CompletionDate ?? fromState.day21CompletionDate,
+            completionEmailDate: completionEmailDate ?? fromState.completionEmailDate,
             morningSurveyTimeComponents: morningSurveyTimeComponents ?? fromState.morningSurveyTimeComponents,
             eveningSurveyTimeComponents: eveningSurveyTimeComponents ?? fromState.eveningSurveyTimeComponents,
             day21NotificationFireDate: day21NotificationFireDate ?? fromState.day21NotificationFireDate,

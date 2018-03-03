@@ -197,6 +197,7 @@ class CTFReduxPersistentStorageSubscriber: NSObject, StoreSubscriber {
     static let kLastMorningSurveyCompleted: String = "LastMorningSurveyCompleted"
     static let kLastEveningSurveyCompleted: String = "LastEveningSurveycompleted"
     static let k21DaySurveyCompleted: String = "21DaySurveyCompleted"
+    static let kCompletionEmail: String = "CompletionEmail"
     static let kBaselineBehaviorResults: String = "BaselineBehaviorResults"
     static let kTrialActivitiesEnabled: String = "TrialActivitiesEnabled"
     static let kCompletedTrialActivities: String = "CompeltedTrialActivities"
@@ -216,6 +217,7 @@ class CTFReduxPersistentStorageSubscriber: NSObject, StoreSubscriber {
     let lastMorningCompletionDate = PersistedValue<Date>(key: CTFReduxPersistentStorageSubscriber.kLastMorningSurveyCompleted)
     let lastEveningCompletionDate = PersistedValue<Date>(key: CTFReduxPersistentStorageSubscriber.kLastEveningSurveyCompleted)
     let day21CompletionDate = PersistedValue<Date>(key: CTFReduxPersistentStorageSubscriber.k21DaySurveyCompleted)
+    let completionEmailDate = PersistedValue<Date>(key: CTFReduxPersistentStorageSubscriber.kCompletionEmail)
     
     let morningSurveyTimeComponents = PersistedValue<DateComponents>(key: CTFReduxPersistentStorageSubscriber.kMorningSurveyTime)
     let eveningSurveyTimeComponents = PersistedValue<DateComponents>(key: CTFReduxPersistentStorageSubscriber.kEveningSurveyTime)
@@ -251,6 +253,7 @@ class CTFReduxPersistentStorageSubscriber: NSObject, StoreSubscriber {
             lastMorningCompletionDate: self.lastMorningCompletionDate.get(),
             lastEveningCompletionDate: self.lastEveningCompletionDate.get(),
             day21CompletionDate: self.day21CompletionDate.get(),
+            completionEmailDate: self.completionEmailDate.get(),
             morningSurveyTimeComponents: self.morningSurveyTimeComponents.get(),
             eveningSurveyTimeComponents: self.eveningSurveyTimeComponents.get(),
             day21NotificationFireDate: self.day21NotificationFireDate.get(),
@@ -280,6 +283,7 @@ class CTFReduxPersistentStorageSubscriber: NSObject, StoreSubscriber {
         self.lastMorningCompletionDate.set(value: state.lastMorningCompletionDate)
         self.lastEveningCompletionDate.set(value: state.lastEveningCompletionDate)
         self.day21CompletionDate.set(value: state.day21CompletionDate)
+        self.completionEmailDate.set(value: state.completionEmailDate)
         
         self.morningSurveyTimeComponents.set(value: state.morningSurveyTimeComponents)
         self.eveningSurveyTimeComponents.set(value: state.eveningSurveyTimeComponents)

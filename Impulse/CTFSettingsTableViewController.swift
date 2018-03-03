@@ -24,6 +24,7 @@ class CTFSettingsTableViewController: UITableViewController, StoreSubscriber {
     @IBOutlet weak var eveningSurveyCell: UITableViewCell!
     @IBOutlet weak var participantSinceCell: UITableViewCell!
     @IBOutlet weak var commentsCell: UITableViewCell!
+    @IBOutlet weak var contactUsCell: UITableViewCell!
     @IBOutlet weak var debugModeSwitchCell: UITableViewCell!
     
     var cellsToHideBeforeBaseline: [UITableViewCell] {
@@ -33,6 +34,7 @@ class CTFSettingsTableViewController: UITableViewController, StoreSubscriber {
             self.eveningSurveyCell,
             self.participantSinceCell,
             self.commentsCell,
+            self.contactUsCell,
             self.debugModeSwitchCell,
         ]
     }

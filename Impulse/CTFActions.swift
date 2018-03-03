@@ -41,6 +41,10 @@ struct MarkDay21SurveyCompletedAction: Action {
     let completedDate: Date
 }
 
+struct MarkCompletionEmailCompletedAction: Action {
+    let completedDate: Date
+}
+
 struct Set21DayNotificationAction: Action {
     let initialFireDate: Date
     let secondaryFireDate: Date

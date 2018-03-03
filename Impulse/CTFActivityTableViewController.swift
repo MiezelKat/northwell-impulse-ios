@@ -70,8 +70,7 @@ class CTFActivityTableViewController: UITableViewController, StoreSubscriber {
         }
         
     }
-    
-    
+
     func loadSchedule(filename: String) -> CTFSchedule? {
         guard let json = CTFTaskBuilderManager.getJson(forFilename: filename) as? JSON else {
             return nil
@@ -104,6 +103,7 @@ class CTFActivityTableViewController: UITableViewController, StoreSubscriber {
         self.refreshControl?.endRefreshing()
         self.tableView.reloadData()
     }
+    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         if let state = self.state {
@@ -203,6 +203,8 @@ class CTFActivityTableViewController: UITableViewController, StoreSubscriber {
                 return CTFSelectors.shouldShowMorningSurvey(state)
             case "pm_survey":
                 return CTFSelectors.shouldShowEveningSurvey(state)
+            case "completion-email":
+                return CTFSelectors.shouldShowCompletionEmail(state)
                 
             default:
                 return false

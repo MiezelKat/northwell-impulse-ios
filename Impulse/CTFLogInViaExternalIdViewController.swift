@@ -65,8 +65,9 @@ class CTFLogInViaExternalIdViewController: UIViewController, ORKTaskViewControll
             let logInStepDict: JSON = [
                 "identifier":CTFLogInViaExternalIdViewController.LoginStepdentifier,
                 "type":"SBAuth",
-                "title":"Get your participant code",
-                "buttonText":"Open",
+                "title":"Finish Enrollment",
+                "text": "Please click the Enroll button below to be redirected to a our webpage to complete enrollment.",
+                "buttonText":"Enroll",
                 "optional": false
             ]
             
