@@ -185,6 +185,20 @@ class CTFSelectors: NSObject {
         return state.shouldShowDebugSwitch
     }
     
+    static func shouldClearNotifications(_ state: CTFReduxState) -> Bool {
+        
+        //returns true if closeout survey completed and
+        //any notifications are still set
+        return state.day21CompletionDate != nil && (
+            state.morningNotificationFireDate != nil ||
+            state.morning2ndNotificationFireDate != nil ||
+            state.eveningNotificationFireDate != nil ||
+            state.evening2ndNotificationFireDate != nil ||
+            state.day21NotificationFireDate != nil ||
+            state.day212ndNotificationFireDate != nil
+        )
+    }
+    
     
     
 }

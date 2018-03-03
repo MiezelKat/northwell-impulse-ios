@@ -10,10 +10,10 @@ import UIKit
 import Gloss
 import ResearchSuiteTaskBuilder
 
-public struct YADLDifficultyChoice: Decodable {
-    let text: String
-    let value: String
-    let color: UIColor
+public struct YADLDifficultyChoice: Gloss.Decodable {
+    public let text: String
+    public let value: String
+    public let color: UIColor
     
     public init?(json: JSON) {
         
@@ -30,10 +30,10 @@ public struct YADLDifficultyChoice: Decodable {
     }
 }
 
-public struct YADLItem: Decodable {
-    let identifier: String
-    let description: String
-    let imageTitle: String
+public struct YADLItem: Gloss.Decodable {
+    public let identifier: String
+    public let description: String
+    public let imageTitle: String
     
     public init?(json: JSON) {
         guard let identifier: String = "identifier" <~~ json,

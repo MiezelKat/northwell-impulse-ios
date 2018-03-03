@@ -74,6 +74,13 @@ class CTFMainTabViewController: UITabBarController, CTFRootViewControllerProtoco
         super.viewDidLoad()
         
         self.store?.subscribe(self)
+        
+        if let state = self.store?.state,
+            CTFSelectors.shouldClearNotifications(state) {
+            
+            self.store?.dispatch(ClearAllNotificationsAction())
+            
+        }
     }
     
     deinit {

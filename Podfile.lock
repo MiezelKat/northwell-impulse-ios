@@ -5,16 +5,16 @@ PODS:
   - OMHClient (0.1.0):
     - Alamofire (~> 4.0)
   - ResearchKit (1.5.2)
-  - ResearchSuiteExtensions (0.10.1):
-    - ResearchSuiteExtensions/Common (= 0.10.1)
-    - ResearchSuiteExtensions/Core (= 0.10.1)
-    - ResearchSuiteExtensions/RSTBSupport (= 0.10.1)
-  - ResearchSuiteExtensions/Common (0.10.1):
+  - ResearchSuiteExtensions (0.11.0):
+    - ResearchSuiteExtensions/Common (= 0.11.0)
+    - ResearchSuiteExtensions/Core (= 0.11.0)
+    - ResearchSuiteExtensions/RSTBSupport (= 0.11.0)
+  - ResearchSuiteExtensions/Common (0.11.0):
     - ResearchKit (~> 1.4)
-  - ResearchSuiteExtensions/Core (0.10.1):
+  - ResearchSuiteExtensions/Core (0.11.0):
     - ResearchKit (~> 1.4)
     - ResearchSuiteExtensions/Common
-  - ResearchSuiteExtensions/RSTBSupport (0.10.1):
+  - ResearchSuiteExtensions/RSTBSupport (0.11.0):
     - Gloss (~> 1)
     - GRMustache.swift (~> 2.0)
     - ResearchSuiteExtensions/Core
@@ -76,15 +76,16 @@ PODS:
 
 DEPENDENCIES:
   - ResearchKit (~> 1.5)
-  - ResearchSuiteExtensions (from `~/Developer/ResearchSuite/iOS/ResearchSuiteExtensions`)
+  - ResearchSuiteExtensions (from `https://github.com/ResearchSuite/ResearchSuiteExtensions-iOS`, tag `0.11.0`)
   - ResearchSuiteResultsProcessor (from `https://github.com/ResearchSuite/ResearchSuiteResultsProcessor-ios`, tag `0.9.0`)
   - ResearchSuiteTaskBuilder (from `https://github.com/ResearchSuite/ResearchSuiteTaskBuilder-ios`, tag `0.10.1`)
   - ReSwift (~> 3.0)
-  - sdlrkx (from `~/Developer/ResearchSuite/iOS/sdl-rkx`)
+  - sdlrkx (from `https://github.com/ResearchSuite/sdl-rkx`, tag `dmt-2.1`)
 
 EXTERNAL SOURCES:
   ResearchSuiteExtensions:
-    :path: ~/Developer/ResearchSuite/iOS/ResearchSuiteExtensions
+    :git: https://github.com/ResearchSuite/ResearchSuiteExtensions-iOS
+    :tag: 0.11.0
   ResearchSuiteResultsProcessor:
     :git: https://github.com/ResearchSuite/ResearchSuiteResultsProcessor-ios
     :tag: 0.9.0
@@ -92,15 +93,22 @@ EXTERNAL SOURCES:
     :git: https://github.com/ResearchSuite/ResearchSuiteTaskBuilder-ios
     :tag: 0.10.1
   sdlrkx:
-    :path: ~/Developer/ResearchSuite/iOS/sdl-rkx
+    :git: https://github.com/ResearchSuite/sdl-rkx
+    :tag: dmt-2.1
 
 CHECKOUT OPTIONS:
+  ResearchSuiteExtensions:
+    :git: https://github.com/ResearchSuite/ResearchSuiteExtensions-iOS
+    :tag: 0.11.0
   ResearchSuiteResultsProcessor:
     :git: https://github.com/ResearchSuite/ResearchSuiteResultsProcessor-ios
     :tag: 0.9.0
   ResearchSuiteTaskBuilder:
     :git: https://github.com/ResearchSuite/ResearchSuiteTaskBuilder-ios
     :tag: 0.10.1
+  sdlrkx:
+    :git: https://github.com/ResearchSuite/sdl-rkx
+    :tag: dmt-2.1
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
@@ -108,13 +116,13 @@ SPEC CHECKSUMS:
   GRMustache.swift: 8a547c12bea16052071b2b540af83d770075f0eb
   OMHClient: 0cf53a006075ccb5de616e5e870458d1e6b1ff68
   ResearchKit: a5770681dd61afddd3d1f24d232b9abf00cba454
-  ResearchSuiteExtensions: 9feb34a41fa1c078c0c5bfdefc6231efe17fb2c9
+  ResearchSuiteExtensions: 8e643a1c461524fb87a3eeef1e3300804ca2cc2e
   ResearchSuiteResultsProcessor: 962662017f8b167bdc496f987c9bca878d94b85e
   ResearchSuiteTaskBuilder: 7974ef104244c1b51589a30bf8eae3ab83010ea0
   ReSwift: f0255f4b4f2dacd12c5d97d34d13fc5dad6d6371
   sdlrkx: 45bd1f4c1a3aeed2c57cf074457dcbe043f1bc00
   SwiftyMarkdown: 743af3e87931391bc4836b825fec3d98785b2e3a
 
-PODFILE CHECKSUM: 23688919ed30f445acc25553b4e85ab22823be6d
+PODFILE CHECKSUM: b8b0e11c3eafe28ab32f2ee754d1ed73fd2bac60
 
 COCOAPODS: 1.3.1

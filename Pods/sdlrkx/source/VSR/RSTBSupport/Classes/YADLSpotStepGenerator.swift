@@ -10,6 +10,8 @@ import UIKit
 import ResearchSuiteTaskBuilder
 import ResearchKit
 import Gloss
+import ResearchSuiteExtensions
+
 
 open class YADLSpotStepGenerator: RSTBBaseStepGenerator {
 
@@ -52,18 +54,24 @@ open class YADLSpotStepGenerator: RSTBBaseStepGenerator {
         guard let yadlSpotDescriptor = YADLSpotDescriptor(json: jsonObject),
             let filterKey = yadlSpotDescriptor.filterKey,
             let stateHelper = helper.stateHelper,
-            let includedValues = stateHelper.valueInState(forKey: filterKey) as? [String],
-            includedValues.count > 0 else {
+            let includedValues = stateHelper.valueInState(forKey: filterKey) as? [String] else {
                 return []
         }
         
-        return items.map({$0.identifier}).filter({ identifier in
-            return !includedValues.contains(where: { (includedValue) -> Bool in
-                return includedValue == identifier
+        if includedValues.count == 0 {
+            return items.map{$0.identifier}
+        }
+        else {
+            
+            return items.map({$0.identifier}).filter({ identifier in
+                return !includedValues.contains(where: { (includedValue) -> Bool in
+                    return includedValue == identifier
+                })
             })
-        })
+       
+        }
     }
-    
+
     open func imageChoice(_ item: YADLItem) -> ORKImageChoice? {
         guard let image = UIImage(named: item.imageTitle)
             else {

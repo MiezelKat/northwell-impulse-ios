@@ -25,9 +25,31 @@ open class RSEnhancedChoiceStepGenerator: RSTBBaseStepGenerator {
     
     open func generateFilter(type: String, jsonObject: JSON, helper: RSTBTaskBuilderHelper) -> ChoiceItemFilter? {
         
-        return { choiceItem in
-            return true
+        guard let includedValuesKey: String = "filterItemsByValueInListKeyedBy" <~~ jsonObject,
+            let stateHelper = helper.stateHelper,
+            let includedValues = stateHelper.valueInState(forKey: includedValuesKey) as? [String] else {
+                return { choiceItem in
+                    return true
+                }
         }
+        
+        guard includedValues.count > 0 else {
+            return { choiceItem in
+                return true
+            }
+        }
+        
+        return { (item: RSEnhancedChoiceItemDescriptor) in
+            if let value = item.value as? String {
+                return includedValues.contains(where: { (includedValue) -> Bool in
+                    return includedValue.hasPrefix(value)
+                })
+            }
+            else {
+                return false
+            }
+        }
+        
     }
     
     open func generateChoices(items: [RSEnhancedChoiceItemDescriptor], valueSuffix: String?, shouldShuffle: Bool?, helper: RSTBTaskBuilderHelper) -> [RSTextChoiceWithAuxiliaryAnswer] {

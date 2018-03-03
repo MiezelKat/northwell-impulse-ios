@@ -15,11 +15,12 @@ target 'Impulse' do
   pod "ResearchSuiteTaskBuilder", :git => 'https://github.com/ResearchSuite/ResearchSuiteTaskBuilder-ios', :tag => '0.10.1'
   pod "ResearchSuiteResultsProcessor", :git => 'https://github.com/ResearchSuite/ResearchSuiteResultsProcessor-ios', :tag => '0.9.0'
   # pod "sdlrkx", "0.13.0"
-  pod "sdlrkx", :path => '~/Developer/ResearchSuite/iOS/sdl-rkx'
+  # pod "sdlrkx", :path => '~/Developer/ResearchSuite/iOS/sdl-rkx'
+  pod "sdlrkx", :git => 'https://github.com/ResearchSuite/sdl-rkx', :tag => 'dmt-2.1'
   pod "ResearchKit", '~> 1.5'
   pod "ReSwift", '~> 3.0'
-  # pod "ResearchSuiteExtensions", :git => 'https://github.com/ResearchSuite/ResearchSuiteExtensions-iOS', :tag => '0.10.1'
-  pod "ResearchSuiteExtensions",:path => '~/Developer/ResearchSuite/iOS/ResearchSuiteExtensions'
+  pod "ResearchSuiteExtensions", :git => 'https://github.com/ResearchSuite/ResearchSuiteExtensions-iOS', :tag => '0.11.0'
+  # pod "ResearchSuiteExtensions",:path => '~/Developer/ResearchSuite/iOS/ResearchSuiteExtensions'
 
   target 'ImpulseTests' do
     inherit! :search_paths

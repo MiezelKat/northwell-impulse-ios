@@ -12,6 +12,7 @@ import ResearchKit
 open class RSRedirectStepViewController: RSQuestionViewController {
     
     open var redirectDelegate: RSRedirectStepDelegate?
+    open var logInSuccessful: Bool? = nil
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -27,16 +28,20 @@ open class RSRedirectStepViewController: RSQuestionViewController {
 
     override open func continueTapped(_ sender: Any) {
         
-        self.redirectDelegate?.beginRedirect(completion: { (error) in
+        self.redirectDelegate?.beginRedirect(completion: { (error, errorMessage) in
             debugPrint(error)
+            
             if error == nil {
+                self.logInSuccessful = true
                 DispatchQueue.main.async {
                     self.notifyDelegateAndMoveForward()
                 }
             }
             else {
+                self.logInSuccessful = false
+                let message: String = errorMessage ?? "An unknown error occurred"
                 DispatchQueue.main.async {
-                    let alertController = UIAlertController(title: "Log in failed", message: "Username / Password are not valid", preferredStyle: UIAlertControllerStyle.alert)
+                    let alertController = UIAlertController(title: "Log in failed", message: message, preferredStyle: UIAlertControllerStyle.alert)
                     
                     // Replace UIAlertActionStyle.Default by UIAlertActionStyle.default
                     let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
@@ -52,5 +57,21 @@ open class RSRedirectStepViewController: RSQuestionViewController {
         })
         
     }
-
+    
+    override open var result: ORKStepResult? {
+        guard let result = super.result else {
+            return nil
+        }
+        
+        guard let logInSuccessful = self.logInSuccessful,
+            let step = step else {
+                return result
+        }
+        
+        let boolResult = ORKBooleanQuestionResult(identifier: step.identifier)
+        boolResult.booleanAnswer = NSNumber(booleanLiteral: logInSuccessful)
+        
+        result.results = [boolResult]
+        return result
+    }
 }
