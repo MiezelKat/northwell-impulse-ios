@@ -24,7 +24,9 @@ class CTFTimeOfDayIntermediateResult: RSRPIntermediateResult, RSRPFrontEndTransf
     
     public static let formatter: DateFormatter = {
         let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.dateFormat = "HH:mm:ss"
+        
         return formatter
     }()
     
